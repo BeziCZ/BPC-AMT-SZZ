@@ -259,6 +259,7 @@ probíhá jednou pro každý tréninkový vzor\\
     \item automatické třídění 
 \end{itemize}
 \newpage
+
 \subsection*{Konvoluční neuronová síť}
 Typické využití u zpracování obrazu\\
 Konvoluce je matematický operátor pro spojování dvou funkcí.\\
@@ -268,4 +269,294 @@ Vstupní obraz se musí většinou zkomprimovat pomocí konvoluce a poolingu\\
 
 \begin{figure}[H]
     \includegraphics[scale = 1]{images/konvoluce.png}    
+\end{figure}
+\newpage
+
+\section{Expertní systémy(ES) - definice, architektura, teoretické zdroje pro realizaci ES, tvorba a ladění báze znalostí, průběh konzultace}
+Počítačové programy, které simulují rozhodovací činnost experta při řešení velmi složitých úloh a využívají vhodně zakódovaných speciálních znalostí převzatých od experta\\
+ES jsou využívány tam, kde neexistuje dostatečné algoritmické řešení a jediným možným řešením je určitá forma usuzování.\\
+Charakteristické rysy:
+\begin{itemize}
+    \item neurčitost v bázi znalostí
+    \item neurčitost v odpovědích uživatele
+    \item dialogový režim
+    \item vysvětlovací činnost
+    \item modularita a transparentnost báze znalostí
+\end{itemize}
+
+\subsubsection*{Role ES}
+asistent - pomůcka experta na potvrzení či zpochybnění svých profesionálních názorů\\
+kolega - expertní systém navrhuje řešení, konečné rozhodnutí dělá uživatel\\
+expert - pracuje úplně autonomně na úkolech, které uživatel není schopen vyřešit\\
+\newpage
+\subsubsection*{Architektura}
+Zjednodušenná verze:
+\begin{figure}[H]
+    \includegraphics[scale = 0.3]{images/ES_ez.png}    
+\end{figure}
+Inferenční mechanismus
+\begin{itemize}
+    \item Zajišťuje komunikaci s uživatelem prostřednictvím uživatelského rozhraní - dialogový režim
+    \item obsahuje obecné algoritmy schopné řešit problémy na základě manipulace se znalosti z báze znalostí
+    \item určuje jak a v jakém pořadí aplikovat pravidla na bázi dat
+    \item založen na inferenčním pravidle odvozování nových poznatků nebo na prohledávání báze znalostí
+\end{itemize}
+Báze znalostí - vytváří se v průběhu řešení konkrétního problému a obsahuje data k řešenému problému\\
+Aktuální model - reprezentace současného stavu řešení - v průběhu konzultace vyjádřen pravděpodobností\\
+vysvětlovací modul - vysvětlení položené otázky,zdůvodňuje postup při řešení problému, odlišuje ho od znalostního systému
+\newpage
+\subsubsection*{Typy ES}
+Obecné rozdělení:
+\begin{itemize}
+    \item 90\% - diagnostický
+    \item 9\% - generativní/plánovací
+    \item 3\% - dedikovaný/smíšený
+\end{itemize}
+Podle obsahu báze znalostí:
+\begin{itemize}
+    \item prázdný
+    \item naplněná
+\end{itemize}
+
+Diagnostický:
+\begin{itemize}
+    \item úkolem určit, která hypotéza nejlépe koresponduje s daty týkající se daného případu
+    \item pracují s pevným počtem cílů, z nichž vybírají svá doporučení
+\end{itemize}
+Plánovací
+\begin{itemize}
+    \item je znám počáteční stav a cíl řešení
+    \item cíl nalézt posloupnost kroků, který k cíli dovede
+    \item znalost experta + data: omezené množství řešení
+\end{itemize}
+
+Smíšený - funguje na základě střdání jednotlivých přístupů podlde potřeby\\
+
+\subsection*{Teoretické zdroje}
+Reprezentace znalostí
+\begin{itemize}
+    \item Deklarativní - jednotlivá fakta
+    \item proceduální - znalosti ve formě procesů
+    \item pravidla, rozhodovací stromy
+\end{itemize}
+Řešení úloh a prohledávání stavového prostoru(inferenční mechanismus)
+\begin{itemize}
+    \item prohledávání stavového prostoru
+    \item rozklad na podproblémy
+    \item dedukce - odvození závěru z předpokladu
+    \item abdukce - usuzování ze závěru k předpokladu
+    \item indukce - postup od specifického případu k obecnému
+\end{itemize}
+Zpracování neurčité informace
+\begin{itemize}
+    \item neurčitost - nejisté znalosti, vágní pojmy, nekonzistence dat
+    \item fuzzy logika
+\end{itemize}
+
+\subsection*{Tvorba a ladění báze}
+\subsubsection*{Identifikace problému}
+musí se jednat o problém složitý rozsahem nebo neurčitostí vztahů, pro nějž exaktní metoda řešení není\\
+provede se analýza požadavků, nalezení klíčových slov a specifikace vztahů mezi nimi
+
+\subsubsection*{Návrh koncepce}
+stanovení cíle a funkce systému\\
+identifikace možných zdrojů znalostí\\
+ucelená představa rozkladu na dílčí úlohy\\
+
+\subsubsection*{Volba reprezentace znalostí}
+rozhodování o typu formální prezentace znalostí na základě identifikace problému\\
+viz reprezentace znalostí\\
+
+\subsubsection*{Získávání znalostí}
+interview experta nebo automatizované získávání znalostí(strojové učení)\\
+mohou nastat problémy - expert nepsolupracuje, výrazy srozumitelné jen lidem v oboru\\
+
+\subsubsection*{Implementace}
+proces naplňování báze znalostí\\
+
+\subsubsection*{Ladění báze}
+změna struktury grafu\\
+nastavení pravděpodobnostních uzlů na základě testovacích konzultací\\
+
+\subsection*{Průběh konzultace}
+Má 4 fáze:
+\begin{enumerate}
+    \item Výběr dotazu - signifikantnější dotazy na začátek
+    \item Výběr odpovědi - odpovědi v několika stupních, ovlivňují hypotézy
+    \item přepočet báze znalostí - přepočet pravděpodobností
+    \item ukončení - na přáni uživatele, nebo byly tázány všechny dotazy 
+\end{enumerate}
+
+\section{Počítačové vidění - předzpracování obrazu, segmentace obrazu, popis a klasifikace obrazu}
+\begin{figure}[H]
+    \includegraphics[scale = 0.4]{images/pc_videni.png}
+\end{figure}
+
+\subsection*{Předzpracování obrazu}
+Cíle:
+\begin{itemize}
+    \item potlačit šum
+    \item odstranit zkreslení
+    \item potlačit či zvýraznit jiné rysy obrazu
+\end{itemize}
+Předzpracováním nezískáme žádnou novou informaci.\\
+Metody předzpracování:
+\begin{itemize}
+    \item bodové jasové transformace
+    \item geometrické transformace
+    \item lokální předzpracování
+    \item obnovení obrazu
+\end{itemize}
+
+\subsubsection*{Bodové jasové transformace}
+Závisle na pozici:
+\begin{itemize}
+    \item zdroj poruch vzniklý při digitalizaci a přenosu obrazu
+    \item systematické chyby lze potlačit na základěznalosti odchylky citlivosti každého bodu od ideální převodní charakteristiky:
+      $f(i,j) = e(i,j)\cdot g(i,j)$\\
+    Násobíme degradačním koeficientem g
+\end{itemize}
+\newpage
+Nezávislé na pozici:
+\begin{figure}[H]
+    \includegraphics[scale = 0.13]{images/transf_krivka.png}
+\end{figure}
+
+\subsubsection*{Geometrické transformace}
+Používají se k odstranění geometrických zkreslení.\\
+Dva kroky:
+\begin{itemize}
+    \item plošná transformace
+    \item jasová transformace
+\end{itemize}
+Plošná transformace:
+\begin{equation}
+       x' = \sum_{r =0}^m \sum_{k=0}^{m-r}a_{rk}x^ry^k, \;\;\;\; y' = \sum_{r =0}^m \sum_{k=0}^{m-r}b_{rk}x^ry^k
+\end{equation}
+dvojce sobě odpovídajících bod x,y a x',y'\\
+Jasová transformace:
+Přiřazení bodu (x,y) hodnotu jasu nejbližšího bodu v diskrétní mřížce\\
+Druhá možnost je určení hodnoty poměrem vzdáleností nejbližších bodů.\\
+\newpage
+\subsubsection*{Lokální předzpracování}
+Za účelem filtrace šumu, detekce hran, nebo ostření obrazu.\\
+Filtrace:
+\begin{itemize}
+    \item průměrování
+    \item konvoluční maska
+    \item metoda mediánem
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics[scale = 0.25]{images/konvoluce_maska.png}
+\end{figure}
+
+Detekce hran:
+\begin{itemize}
+    \item pomocí derivačních filtrů - 1. a 2. derivace
+    \item gradientní operátory
+    \item laplaceovy operátory
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics[scale = 0.7]{images/hrany.png}
+\end{figure}
+Robertsův, Prewittové, Sobelův, Robinsonův\\
+Kirschův, Laplaceuv(čtyřokolí, osmiokolí)\\
+
+\subsubsection*{Obnovení obrazu}
+rozostření objektivu, rozmazání pohybujícícho se objektu\\
+
+\subsection*{Segmentace}
+Snaha rozčlenit obraz do oblastí, které mají úzkou souvislost s předměty či oblastmi reálného světa zachyceného na obrazu.\\
+výsledek je soubor vzájemně nepřekrývajících se oblastí.\\
+dělí se na:
+\begin{itemize}
+    \item kompletní - oblasti jednoznačně korespondují s objekty vstupního brazu
+    \item částečná - oblasti nemusí přío korespondovat s objekty
+\end{itemize}
+Cíl připravit data pro popis a redukovat objem dat.\\
+Metody:
+\begin{itemize}
+    \item prahování
+    \item detekce hran
+    \item segmentace narůstání oblastí
+    \begin{itemize}
+        \item spojování oblastí
+        \item štěpení oblastí
+        \item štěpení a spojování oblastí
+    \end{itemize}
+    \item srovnání se vzorem
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics[scale = 0.3]{images/segmentace.png}
+\end{figure}
+
+\subsubsection*{Detekce hran}
+relaxace hran - vytváření souvislých hranic\\
+\newpage
+\subsubsection*{Segmentace narůstání oblastí}
+Spojování oblastí:
+\begin{itemize}
+    \item počáteční rozdělení obrazu do velkého množství malých oblastí
+    \item defnice kritéria spojování
+    \item spojování sousedních oblastí na základě kritéria
+\end{itemize}
+Štěpení oblastí:
+\begin{itemize}
+    \item opak spojování
+    \item postupné rozkládání obrazu na menší části
+\end{itemize}
+Štěúení a spojování oblastí:
+\begin{itemize}
+    \item pyramidální reprezentace obrazu
+    \item je-li oblast v dané úrovni pyramidy nehomogenní, je rozštěpena na 4 podoblasti
+    \item jsou-li oblasti navzájem homogenní a lze je ve vyšší úrovni spojit do jedné, jsou spojeny
+\end{itemize}
+
+\subsection*{Popis}
+Snaha určit příznaky obrazu - tvary\\
+Popis musí být být invariantní proti - posunutí, měřítku, natočení, jasu a šumu.\\
+\subsubsection*{Skalární popisy}
+velikost, výška, šířka, výstřednost(poměr délek nejdelších na sebe kolmých tětiv), podlouhlost(poměr mezi délkou a šířkou pravoúhelníku opisující oblast)\\
+\newpage
+\subsubsection*{Chani codes}
+řetězení, řetězové kódy\\
+\begin{figure}[H]
+    \includegraphics[scale = 0.3]{images/chain_codes.png}
+\end{figure}
+\subsubsection*{geometrický popis}
+přímost hranice - poměr mezi celkovým počtem bodů hranice a počtem bodů, ve kterých hranice mění směr\\
+\begin{figure}[H]
+    \includegraphics[scale = 0.2]{images/geometricky_popis.png}
+\end{figure}
+\newpage
+\subsection*{Klasifikace}
+rozpoznávání předmětů spočívá v jejich zařazování do tříd - klasifikátor\\
+Metody rozpoznání:
+\begin{itemize}
+    \item příznakové - zaměřují se na měřitelné veličiny objektu
+    \item syntaktické - identifikace elementů objektu a analýza vztahů mezi nimi
+    \item hybridní
+\end{itemize}
+(jsou i další, toto jsou ty hlavní)\\
+\subsubsection*{Učení}
+\begin{enumerate}
+    \item volba formálního popisu
+    \item návrh rozhodovacího pravidla klasifikátoru
+    \item způsob učení klasifikátoru - s učitelem, bez učitele
+\end{enumerate}
+\subsubsection*{Příznakově popsané předměty}
+obraz je sloupcový vektor, jehož souřadnice tvoří vektory\\
+jednotlivým třídám odpovídají shluky obrazů, které lze oddělit vhodnou křivkou pomocí diskriminačních funkcí
+
+\begin{figure}[H]
+    \includegraphics[scale = 0.2]{images/priznakove.png}
+\end{figure}
+\newpage
+\subsubsection*{Syntakticky popsané předměty}
+
+Identifikace elementů objektu a analýza mezi nimi\\
+využívá primitiva, což jsou základní vlastnosti objektu, který popisují\\
+primitiva se dávají do souvislostí
+\begin{figure}[H]
+    \includegraphics[scale = 0.7]{images/syntakticke.png}
 \end{figure}
