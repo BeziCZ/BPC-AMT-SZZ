@@ -254,3 +254,143 @@ Digitální, analogové, rádiové, smíšené obvody na jednom čipu. \\
 \subsubsection*{ASIC}
 Integrovaný obvod navržený pro jednu aplikaci.\\
 Většinou digitální, hromadná výroba.\\
+
+\section{Rozdíl mezi izolovanými a paměťově mapovanými periferiemi. Způsoby obsluhy V/V: aktivní čekání, přerušení, DMA.
+  Přerušení: řadič přerušení, činnost procesoru při zahájení obsluhy přerušení a návratu z přerušení, tabulka vektorů přerušení. Asynchronní a synchronní přerušení. Maskovatelné, nemaskovatelné a pseudomaskovatelné přerušení. Vnořené přerušení. RESET, činnost procesoru po RESETu.}
+\subsection{Izolované a paměťově mapované periferie}
+\subsubsection{Izolované}
+Periferie využívají samostatný adresový prostor oddělený od adresového prostoru operační paměti.\\
+Pro přístup k izolovaným periferiím se používají speciální instrukce.\\
+Intel procesory mají společnou AB a DB pro periferie i operační paměť. Intrukce IN a OUT.
+
+\subsubsection*{Paměťově mapované}
+Periferie se nacházejí ve stejném paměťovém prostoru jako operační paměť. \\
+Pro přístup k periferiím se používají stejné instrukce jako pro přístup k operandům v operační paměti.\\
+\subsection{Způsob obsluhy V/V}
+\subsubsection*{Řídící registry periferií}
+Různé periferie se značně liší, ale práce s nimi je do jisté míry podobná.\\
+Z hlediska programátora jsou důležité registry periferií, které se podle funkce dají rozdělit:
+\begin{itemize}
+    \item Konfigurační (řídící) registry - slouží pro nastavení režimu fungování periferie.
+    \item Stavové (příznakové) registry - obsahují příznakové bity (flagy), které signalizují stav periferie (např. stavový registr A/D převodníku obsahuje bit signalizující dokončení převodu)
+    \item Datové registry - slouží pro vyčítání nebo ukládání dat, které periferie zpracovává
+\end{itemize}
+
+\subsubsection*{Obsluha pomocí aktivního čekání - busy waiting, pooling}
+Procesor odstartuje V/V operaci zápisem do řídícího nebo datového registru a pak ve smyčce testuje, zda-li byla operace dokončena nebo došlo k chybě - to značí příslušný bit (flag).\\
+Velká nevýhoda je, že během čekání ve smyčce procesor nemůže provádět jinou užitečnou činnost => plýtvání času.\\
+V embedded systémech hrozí, že dojde k promeškání důležité události (např. nárust tlaku v nádobě => havárie).\\
+Jediná výhoda je jednoduchá implementace, využívá se při testování u vývoje periferií.\\
+
+\subsubsection*{Obsluha pomocí přerušení}
+Procesor odstartuje V/V operaci zápisem do řídícího nebo datového registru. \\
+Nečeká na dokončení operace, ale provádí jinou užitečnou činnost.\\
+Po dokončení operace nebo při chybě periferie generuje požadavek na přerušení.\\
+Procesor rozpozná požadavek na přerušení a dočasně přeruší provádění aktuálního kódu a vykoná kód obslužné rutiny přerušení pro danou periferii. \\
+Po vykonání obslužné rutiny se procesor opět vrátí k vykonávání kódu, který prováděl před přechodem do přerušovací rutiny.\\
+
+\subsubsection*{Obsluha pomocí DMA}
+Některé periferie (např. řadiče disků) obsahují vyrovnávací paměti.\\
+Při provádění V/V operací je třeba přenášet větší množství bytů mezi operační pamětí a vyrovnávací pamětí periferie. \\
+Je výhodné, aby přenos dat probíhal bez účasti procesoru a procesor mohl provádět jinou užitečnou činnost. Aby toto bylo možné musí v počítači být řadič sběrnic - DMA. Během přenosu dat CPU uvolní sběrnice a ty převezme řadič DMA. DMA generuje adresy a řídící signály jako MEMR a MEMW.
+Před zahájením DMA přenosu musí procesor na DMA nakonfigurovat:
+\begin{itemize}
+    \item Počáteční adresu v operační paměti.
+    \item Počáteční adresu v paměti periferie.
+    \item Směr přenosu.
+    \item Počet přenášených bytů.
+\end{itemize}
+
+\subsection{Přerušení}
+\subsubsection*{Použití přerušení}
+Používá se pro obsluhu neodkladných událostí. \\
+Při požadavku na přerušení procesor přeruší aktuálně prováděný kód a provede kód obsluhující událost a vrátí se zpět.\\
+Kód obsluhy se nazývá obslužná rutina přerušení.\\
+Používá se pro obsluhu periferií, nebo k ošetření výjimečných situací jako chyby a havarijní stavy (např. dělení nulou, chyba ochrany paměti, pokles napájecího napětí atd.).\\
+Přerušení lze také vyvolat softwarově pomocí příslušné instrukce. Používá se pro přístup ke službám jádra operačního systému. Na některých procesorech je to jediný způsob, jak lze přejít z uživatelského módu na mód supervisor (v němž běží jádro operačního systému)
+
+\subsubsection*{Řadič přerušení}
+Počítač obvykle používá více V/V periferií, které mohou generovat požadavky na přerušení.\\
+Jednotlivé zdroje přerušení jsou připojeny na vstupy bloku počítače nazývaného řadič přerušení.\\
+Aby procesor mohl určit zdroj přerušení, je ke každému zdroji přiřazeno celé kladné číslo. Periferie nastaví aktivní úroveň signálu na vstup řadiče a ten zašle číslo přerušení. Periferie mají z hlediska obsluhy různou prioritu, podle toho se řadič rozhoduje, co oznámí procesoru jako první, když je současně generováno víc požadavků.\\
+Priorita buď softwarově nebo hardwarově, softwarovou můžeme měnit zápisem do řadiče.\\
+Dnešní počítače vybavené sběrnicí PCI Express nepoužívají dedikované vodiče pro komunikaci mezi řadičem a procesorem, periferie posílají požadavek na obsluhu jako zprávu po sběrnici PCIe. Zpráva je posílána na speciální adresu v paměťovém prostoru. Tento způsob přerušení se nazývá MSI ( Message Signaled Interrupts).
+
+\subsubsection*{Činnost procesoru při obsluze přerušení}
+Při příchodu požadavku na asynchronní nebo softwarové přerušení procesor dokončí prováděnou instrukci. \\
+Na konci instrukčního cyklu procesor testuje, jestli není požadavek na obsluhu přerušení, pokud je, tak procesor zahájí obsluhu:
+\begin{enumerate}
+    \item Uloží do zásobníku návratovou adresu
+    \item Uloží do zásobníku obsah stavového registru
+    \item Některé procesory ukládají do zásobníku obsah pracovních registrů
+    \item V příznakovém registru nastaví bit I, čímž zakáže přerušení. Během provádění obslužné rutiny jsou maskovatelná přerušení zakázána, pokud je programátor v přerušovací rutině explicitně nepovolí
+    \item Procesor na základě čísla přerušení stanoví adresu vektoru přerušení. Na adrese vektoru přerušení se musí nacházet adresa první instrukce obslužné rutiny
+    \item Procesor vyzvedne adresu první instrukce z vektoru přerušení a vloží ji do programového čítače - tím se začne provádět obslužná rutina
+\end{enumerate}
+Poslední instrukce obslužné rutiny přerušení musí být instrukce návratu z přerušení (RTI), která zajistí, že procesor:
+\begin{itemize}
+    \item Pokud procesor uložil obsah pracovních registrů, obnoví jejich obsah
+    \item Obnoví ze zásobníku obsah stavového registru - tím se povolí maskovatelná přerušení (nastavení bitu I)
+    \item Vyzvedne ze zásobníku návratovou adresu a vloží ji do programového čítače, v případě asynchronního přerušení procesor pokračuje následující instrukcí, u výjimek (např. dělení nulou) se restartuje instrukce, která výjimku způsobila
+\end{itemize}
+Pokud má procesor větší množství pracovních registrů, ukládání pracovních by trvalo nepřijatelně dlouho, přitom by programátor nebo překladač obsah některých registrů v přerušovací rutině nemodifikoval. Proto procesory s větším množství registrů tyto registry automaticky neukládají a je odpovědnost programátora nebo překladače uložit ty registry, které se budou modifikovat.\\
+Existují procesory, které mají pracovní registry zdvojené a jen se přepíná mezi hlavními a stínovými(pro rutinu) registry. Přepínání je rychlé, ale velmi náročné na konstrukci. Toto řešení je dnes spíše výjimkou. \\
+
+\subsubsection*{Vektor přerušení}
+Adresa kde se nachází první instrukce obslužné rutiny.\\
+Každý zdroj přerušení má svůj vektor přerušení.\\
+
+\subsubsection*{Tabulka vektorů přerušení}
+Oblast paměti kde jsou za sebou umístěny vektory přerušení.\\
+Číslo vektoru je indexem tabulky vektorů.\\
+Řadič předá procesoru číslo vektoru přerušení, procesor vynásobí číslo vektoru přerušení velikostí vektoru přerušení a výsledek přičte k adrese začátku tabulky vektorů přerušení.\\
+Počáteční adresa tabulky bývá u jednoduchých procesorů daná výrobcem napevno, složitější na to mají speciální registr, kde se napíše námi zvolená adresa.
+
+\subsubsection*{Asynchronní a synchronní přerušení}
+\begin{itemize}
+    \item Asynchronní
+          \begin{itemize}
+              \item nejsou synchronizovány s prováděním instrukcí v CPU
+              \item jsou vyvolány asynchronními událostmi
+              \item typické zdroje jsou V/V periferie - dokončení AD převodu, doběhnutí časovače, příjem ethernet rámce, zmáčknutí klávesy, detekce poklesu napětí
+          \end{itemize}
+    \item Synchronní
+          \begin{itemize}
+              \item Generována v důsledku provádění určitých instrukcí v přesně definované fázi zpracování dané instrukce.
+              \item Přerušní generují instrukce softwarového přerušení a výjimky
+              \item Výjimky jsou generovány kontrolními obvody počítače, když dojde k chybě v provádění instrukce. Typické výjimky jsou dělení nulou, pokus o exekuci neznámé či ilegální instrukce, noprávněný pokud o přístup k paměti
+          \end{itemize}
+\end{itemize}
+
+\subsubsection*{Maskovatelná přerušení}
+Přerušení lze povolit nebo zakázat obvykle nastavením (vynulováním) bitu I v příznakovém registru.\\
+Např. Program provádí úsek kódu kde pracuje s proměnnými, které používá přerušovací rutina, před začátkem práce s těmito proměnnýma zakáže přerušení a provede manipulaci a pak opět povolí přerušení.\\
+
+\subsubsection*{Nemaskovatelná přerušení}
+Kritické události jako porušení paměti nebo výpadek napájení je však třeba obsloužit vždy. \\
+Tyto přerušení musí být povolena vždy a nesmí být možnost je zakázat.\\
+Například porušení paměti či výpadek napájení. \\
+
+\subsubsection*{Pseudomaskovatelná přerušení}
+U nemaskovatelných vznikal problém při zahájení činnosti procesoru po RESETu. Obsluha přerušení vyžaduje minimálně nastavení ukazatele zásobníku na adresu začátku zásobníku  v paměti RAM. Vyvolání přerušení v okamžiku, kdy není nastaven ukazatel může způsobit zhroucení celého systému. Proto je potřeba po dobu základní inicializace zabránit obsluze jakýchkoliv přerušení, tedy i nemaskovatelných. \\
+Toto přerušení je po resetu zakázáno, ale po inicializaci systému se přerušení povolí a do dalšího resetu jej nejde zakázat a chová se jako nemaskovatelné. \\
+
+\subsubsection*{Vnořená přerušení}
+Může nastat situace, kdy procesor provádí obslužnou rutinu přerušení a během ní dojde požadavek na další přerušení. \\
+Pokud mají stejnou prioritu, tak se první provede jedna a pak až druhá obsluha.\\
+V praxi to tak ale většinou není, většinou jedno přerušení má větší prioritu. Takže uprostřed prvního přerušení se provede druhé přerušení (vnořené) a po vykonání se vrátí k prvnímu a to se dokončí.\\
+\subsection{RESET a činnost procesoru po RESETu}
+RESET procesoru způsobí nastavení procesoru do definovaného výchozího stavu.\\
+Z hlediska uživatele to znamená, že se vynulují pracovní registry a řídící registry se nastaví na výrobcem definované hodnoty.\\
+Po uvolnění signálu RESET procesor vyzvedne z definované adresy reset vektor adresu první instrukce a vloží ji do programového čítače.\\
+Adresa reset vektoru je definována výrobcem a musí být v pevné paměti.\\
+Stejně tak musí být první instrukce uložena v pevné paměti. Dnes uloženy ve FLASH paměti kde je UEFI, které provádí incializaci V/V periferií a zavedení OS.\\
+U jednoduchých kontrolerů bývá reset poslední vektor v tabulce přerušení.\\
+
+\section{Princip a vlastnosti pamětí ROM, EEPROM, FLASH. Rozdíl mezi paměťmi NOR FLASH a NAND FLASH. Princip pamětí MRAM a FeRAM.}
+
+\section{Princip a vlastnosti statických pamětí RAM (SRAM) a dynamických pamětí RAM (DRAM), synchronní paměti DRAM (SDRAM).
+  Připojování paralelních pamětí SRAM, FLASH ke sběrnicím mikroprocesoru. Adresový dekodér.
+  Hierarchie paměti, paměti cache, specializované paměti cache.}
+
+\section{Pojem logická a fyzická adresa, ochrana paměti, memory management unit (MMU). Stránkování (princip, transformace logické adresy na fyzickou, stránkovací tabulka). Virtuální adresový prostor. Zrychlení překladu adres pomocí Translation Look-aside Buffer (TLB).}
