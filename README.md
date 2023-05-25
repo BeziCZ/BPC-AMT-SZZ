@@ -86,7 +86,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-UIN
 
-- [ ] Umělá inteligence (UI) - definice, úzká UI, obecná UI, superinteligence, strojové učení.
+- [x] Umělá inteligence (UI) - definice, úzká UI, obecná UI, superinteligence, strojové učení.
 - [ ] Umělé neuronové sítě - paradigmata, perceptron, algoritmus učení Backpropagation, Kohonenova samoorganizační mapa, konvoluční neuronová síť.
 - [ ] Expertní systémy (ES) - definice, architektura, teoretické zdroje pro realizaci ES, tvorba a ladění báze znalostí, průběh konzultace.
 - [ ] Počítačové vidění - předzpracování obrazu, segmentace obrazu, popis a klasifikace obrazu. 
