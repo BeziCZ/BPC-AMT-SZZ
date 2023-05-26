@@ -255,6 +255,7 @@ Digitální, analogové, rádiové, smíšené obvody na jednom čipu. \\
 Integrovaný obvod navržený pro jednu aplikaci.\\
 Většinou digitální, hromadná výroba.\\
 
+
 \section{Rozdíl mezi izolovanými a paměťově mapovanými periferiemi. Způsoby obsluhy V/V: aktivní čekání, přerušení, DMA.
   Přerušení: řadič přerušení, činnost procesoru při zahájení obsluhy přerušení a návratu z přerušení, tabulka vektorů přerušení. Asynchronní a synchronní přerušení. Maskovatelné, nemaskovatelné a pseudomaskovatelné přerušení. Vnořené přerušení. RESET, činnost procesoru po RESETu.}
 \subsection{Izolované a paměťově mapované periferie}
@@ -388,9 +389,326 @@ Stejně tak musí být první instrukce uložena v pevné paměti. Dnes uloženy
 U jednoduchých kontrolerů bývá reset poslední vektor v tabulce přerušení.\\
 
 \section{Princip a vlastnosti pamětí ROM, EEPROM, FLASH. Rozdíl mezi paměťmi NOR FLASH a NAND FLASH. Princip pamětí MRAM a FeRAM.}
+\subsection{ROM}
+Obsah paměti naprogramován při výrobě a nelze změnit. \\
+Pro velké objemy výroby. \\
+Buňka tvořena tranzistorem MOSFET zapojeným mezi sloupec a zem. \\
+Hradlo tranzistoru je připojeno k řádkovému vodiči. \\
+U funkčních trazistorů je mezi hradlem a polovodičem vyleptánan tenká vrstva oxidu křemíku. U nefunkčních je vrstva tlustá. \\
+Po vybuzení řádkového vodiče dojde u funkčních tranzitorů k vytvoření indukovaného kanálu a tím ke zkratování sloupce na zem (Úroveň Low - logická 0). U nefunkčních kanál nevznikne, tranzistor je nevodivý a sloupec zůstává na úrovni High - logická 1. \\
+Proleptání se dělá pomocí masky, kterou se určí který tranzistor bude 0 a který 1. \\
+
+\subsubsection*{PROM}
+Obsah paměti si uživatel jednorázově naprogramuje sám. \\
+Pak paměť již nelze měnit. \\
+
+\subsubsection*{Transitor s plovoucím hradlem}
+Pokud jsou ve floating gate elektrony tak se zvyšuje potřebný potenciál na aktivaci trazistoru a tudíž se tranzistor neaktivuje a představuje logickou 0. \\
+Pokud v ní nejsou elektrony, tranzistor se zaktivuje a tudíž představuje logickou 1. \\
+Programování a mazání:
+\begin{itemize}
+    \item Tunelování elektronů
+          \begin{itemize}
+              \item Programování: Na source a control gate se přivede zvýšené napětí, na source záporný pól a na CG kladný. Tím jsou elektrony tunelovány skrze tenkou vrstvu izolantu do floating gate a tranzistor je naprogramován na logickou 0
+              \item Mazání: Na control gate je přiveden záporný pól a na source kladný, tím se trazistor vybije a změní se na logickou 1.
+          \end{itemize}
+    \item Lavinová injekce
+          \begin{itemize}
+              \item Programování: Mezi source a drain se vyvolá velký proud přivedením napětí, elektrony získají velkou energii a mohou opustit kanál. Na control gate se přivede zvýšené napětí, které tahá elektrony z kanálu a ty uvíznou ve floating gate.
+              \item Vybíjení: Nelze
+          \end{itemize}
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[]{img/FGMOS.png}
+\end{figure}
+\subsubsection*{EPROM}
+Paměťová buňka obsahuje jeden paměťový tranzistor FAMOS (floating Gate Avalanche Injection MOS) - neboli tranzistor s plovoucím hradlem asi. \\
+Obsah paměti si uživatel naprogramuje sám, je programovatelná elektricky pomocí zvýšeného napětí. \\
+Lze mazat UV zářením. \\
+Před programováním musí být paměť vymazána. \\
+Počet cyklů programování - mazání je cca desítky. \\
+
+\subsubsection*{EEPROM}
+Paměťová buňka složena ze 2 tranzistorů. Paměťový tranzistor splovoucím hradlem. Výběrový tranzistor je MOS, je potřeba abychom mohli měnit obsah každé buňky nezávisle na ostatních. \\
+Obsah paměti lze programovat a mazat pomocí elektrických
+signálů bez předchozího vymazání. \\
+Narozdíl od RAM trvá zápis o několik řádů delší dobu než čtení.     Čtení i zápis v RAM trvá cca nanosekundy, stejně jako čtení paměťového místa EEPROM, zápis ale trvá cca milisekundy. \\
+K zápisu i mazání využívá tunelování elektronů. \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/EEPROM.png}
+\end{figure}
+
+\subsubsection*{FLASH}
+Paměťová buňka tvořena pouze jedním tranzistorem.\\
+Speciální druh paměti EEPROM, který umožňuje mazat či zapisovat na více paměťových míst pomocí jedné programovací operace - mazána může být např. celá paměť nebo jen zvolená oblast paměti najednou. \\
+Elektricky programovatelná za pomocí lavinové injekce(rychlé), mazání za pomoci tunelování elektronů(pomalé).\\
+Mechanismus ochrany proti zápisu - možnost dočasně udělat z paměti read-only. Zápis se pak povolí zapsáním definované sekvence bytů do řídících registrů paměti.\\
+Vyšší hustota oproti EEPROM. \\
+
+\subsubsection*{NOR FLASH}
+Každý tranzistor je zapojen paralelně ke sloupcovému vodiči. Umožňuje samostatně adresovat každou paměťovou buňku.\\
+Programování pomocí lavinové injekce, mazání tunelováním. \\
+Rychlé čtení dat s náhodným přístupem. Možnost čtení i zápisu po bytech.\\
+Oproti NAND FLASH pomalý zápis a mazání. Pro aplikace kde se data moc nemění.\\
+Přímá náhrada ROM, EEPROM, stejné připojení k procesoru.\\
+Používá se pro ukládání firmware v embedded systémech a pro ukládání kódu zavaděčů OS(BIOS/UEFI).\\
+Každý tranzistor přivedem mezi zem(source) a sloupcový vodič(bit-line).\\
+Stačí jeden sepnutý tranzistor aby se bit-line stáhnul do nízké hodnoty. \\
+
+\subsubsection*{NAND FLASH}
+Několik paměťových buněk zapojeno do série. Každý paměťový tranzistor nemusí být připojen ke sloupcovému
+a zemnímu vodiči -> menší paměťová buňka (hustota informace
+až o 45\% vyšší než NOR FLASH).\\
+Pro programování i mazání se používá tunelování elektronů.\\
+Složitější rozhraní než paměti NOR FLASH. Nelze je přímo připojit ke sběrnicím mikroprocesoru. Čtení s náhodným přístupem je pomalé, proto není možné z paměti přímo provádět kód. \\
+Čtení: na všechny tranzistory ve skupině mimo čteného se přivede vyšší než prahové napětí(všechny se sepnou). Na čtený se přivede napěttí vyšší jak práh pro vybitý tranzistor, ale nižší než pro nabitý. Pokud je vymazán sepne se a bit line stáhne do 0, pokud není vymazán bit like zůstane na vysoké úrovni. \\
+Nevýhoda je přítomnost vadných bitů, které časem přibývají.\\
+Vhodné pro apliakce kde je potřeba ukládat velké množství dat, používá se sekvenční čtení, není potřeba provádět kód přímo z FLASH.\\
+USB a SSD disky.\\
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{img/NOR.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{img/NAND.png}
+    \end{minipage}
+    \caption*{Nalevo NOR, napravo NAND}
+\end{figure}
+
+
+\subsubsection*{FeRAM}
+Konstrukčně obdobné DRAM paměti, ale dielektrikum je tvořeno feroelektrickým materiálem.\\
+Informace je zachována i po vypnutí napájení.\\
+Uplatnění v průmyslových a bankovních systémech.\\
+Výhody oproti FLASH - vyšší počet cyklů mazání($10^16$), vyšší rychlost zápisu, nižší spotřeba.\\
+Nevýhody oproti FLASH - malá hustota, limitovaná max kapacita, vyšší cena.
+Základem jsou feroelektrické krystaly. Založeno na vystavení feroelektrického krystalu elektrickému poli, centrální atom v mřízce krystalu se vychýlí ve směru elektrického pole. a zapřičiní proudový náraz. Ten je zaznamenán vnitřními obvody a paměť je následně zapnuta. Díky tomu, že atom zůstane vychýlen i po odstranění pole zůstává informace uchována.
+Feroelektrický materiál uvnitř feroelektrického kondezátoru v podobě tenkého filmu mezi elektrodami.
+\begin{figure} [h!]
+    \centering
+    \includegraphics*[scale = 0.3]{img/FeRAM.png}
+\end{figure}
+
+\subsubsection*{MRAM - Magnetoresistive RAM}
+Uplatnění v ukládání dat v uzlech IoT, aplikace strojového učení a umělé inteligenci.\\
+Magnetorezistivní jev, změna odporu materiálu vlivem působení magnetického pole. Odpor se mění podle orientace magnetického pole při zápisu bitu.\\
+V MRAM se používá tunelová magnetorezistence - TMR. změn R o 30-70\%.\\
+TMR nastává na přechodu mezi dvěma feromagnetickými plátky oddělenými tenkým izolátorem. Dielektrická vrstva oxidu hliníku.\\
+Každý plátek může být zmangnetizován. \\
+Jeden plátek tvoří permanentní magnet s neměnnou orientací magnetického pole.\\
+Magnetizace druhého plátku je nastavována vnějším polem tak, aby orientace jeho pole odpovídala zapamatování 1 nebo 0.\\
+Paralelní magnetizace je logická 0, antiparalelní magnetizace logická 1.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/MRAM.png}
+\end{figure}
+
+Rychlost srovnatelná s SRAM. Hustota informace jako DRAM. Rychlejší než FLASH, menší spotřeba než DRAM.
+
+Princip: Pokud je směr magnetického pole proměnné feromagnetické vrsty (plátku) stejný s pevně daným směrem spodní vrstvy, je odpor kladený elektrickému proudu malý. Pokud je vzájemná orientace polí opačná, je vertikální elektrický odpor struktury velký. Změna logického stavu z 0 na 1 nebo z 1 na 0 se provádí přivedením sekvence dvou vzájemně posunutých proudových obdélníkových pulsů na dva zápisové vodiče paměťové buňky.\\
+Čtení stavu bitu se provádí prostřednictvím jedné společné elektrody a menší speciální čtecí elektrody napojené na protější stranu vertikální struktury.\\
+Zapsaný stav 1 - buňka má větší odpor a naopak.\\
 
 \section{Princip a vlastnosti statických pamětí RAM (SRAM) a dynamických pamětí RAM (DRAM), synchronní paměti DRAM (SDRAM).
   Připojování paralelních pamětí SRAM, FLASH ke sběrnicím mikroprocesoru. Adresový dekodér.
   Hierarchie paměti, paměti cache, specializované paměti cache.}
 
+\subsection{SRAM, DRAM a SDRAM}
+\subsubsection*{SRAM - Statická RAM}
+Paměťová buňka tvořena bistabilním klopným obvodem.\\
+Paměťová buňka je rychlá, ale velká – tvořena 6 tranzistory.\\
+Využívá se jako procesorová Cache.\\
+Výhodou je vysoká rychlost čtení a zápisu. Nevýhodou malá hustota oproti DRAM.\\
+Snadné připojení k CPU.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.3]{img/SRAM.png}
+\end{figure}
+
+\subsubsection*{DRAM - Dynamická RAM}
+K zapamatování informace využívá náboj na kondenzátoru o kapacitě řádově desítky fF (femtofarad $10^{-15}$ F).\\
+Paměťová buňka je malá - 1 tranzistor a 1 kondenzátor.\\
+Náboj v kondenzátoru je třeba obnovovat, aby nedošlo ke ztrátě informace. Tomuto se říká refresh, je nutno jej provádět každých 64ms\\
+Na stejné ploše čipu má DRAM větší kapacitu, než SRAM => nižší cena za 1 bit u paměti SRAM.\\
+Kondenzátor se při zápisu nabije nebo vybije přes jednoduchý spínač MOSFET a po určitou dobu udržuje náboj.\\
+Napětí na kondenzátoru lze během čtení porovnat s referenčním napětím a rozlišit stav 1 a 0.\\
+Adresa do paměti se zavádí ve dvou krocích:
+\begin{itemize}
+    \item Impulsem RAS\ se zapíše adresa do řádkového registru
+    \item Impulsem CAS\ se zapíše adresa do sloupcového registru
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.3]{img/DRAM.png}
+\end{figure}
+
+\subsubsection*{SDRAM}
+Zavedení synchronizačních (hodinových) impulsů.\\
+Všechny vstupní signály jsou náběžnou hranou hodinového impulsu
+zapsány do vnitřních registrů.\\
+Vnitřní signály se tak mění v přesně definovaných okamžicích a naopak na časování vnějších signálů jsou kladeny podstatně menší nároky než u jednoduché DRAM.\\
+Lze na ně zapisovat shluky dat(bytů) - burst reading/writing. Velikosti 1,2,4,8,16B(DDR5) velikost shluku obvykle odpovídá velikosti cache.
+Obsahují několik paměťových matic nazývaných banky. Jednotlivé banky mohou pracovat samostatně. Banky jsou dále děleny na řádky(stránky, pages). Dále jsou řádky děleny na sloupce, v každém řádku 1Ki sloupců.\\
+Adresa je tvořena:
+\begin{itemize}
+    \item Adresou skupiny bank: BG0-BG1
+    \item Adresou banky: BA0-BA1
+    \item Adresou řádku: A0-A14
+    \item Adresou sloupce
+\end{itemize}
+
+\subsection{Připojování paralelních pamětí SRAM, FLASH ke sběrnicím procesoru}
+\begin{itemize}
+    \item $A_x$ - adresové sběrnice
+    \item $D_x$ - datové sběrnice
+    \item MEMR\ - řidicí sběrnice memory read
+    \item MEMW\ - řidicí sběrnice memory write
+    \item OE\ - output enable
+    \item WE\ - write enable
+    \item CS\ - chip select - slouží pro výběr paměťového čipu
+\end{itemize}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.3]{img/MemConnect.png}
+\end{figure}
+
+\subsubsection*{Adresový dekodér}
+Binární dekodér zajišťuje rozdělení
+paměťového prostoru na jednotlivé čipy.\\
+Na základě nejvyšších bitů adresy je aktivován vždy pouze jeden výstup adresového dekodéru, který aktivuje příslušný čip.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.35]{img/AdrDekoder.png}
+\end{figure}
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics*[width = \textwidth]{img/AdrDekTab.png}
+\end{figure}
+
+\subsection{Hierarchie paměti, paměti cache a specializované cache}
+Procesory jsou o několik řádů rychlejší než operační paměť, tudíž musí čekat, což je plýtvání časem.
+Chování programů jde popsat pomocí lokalit instrukcí a dat.
+\subsubsection*{Časová lokalita instrukcí}
+Je-li použita instrukce, dá se očekávat, že se vrzy použije znovu.
+\subsubsection*{Prostorová lokalita instrukcí}
+Je-li použita instrukce, dá se očekávat, že se vrzy použije instrukce na blízké adrese.
+
+\subsubsection*{Hierarchie paměti}
+Schéma VonNeumannova počítače je doplněno o vyrovnávací paměti procesoru takzvané cache, které jsou umístěny mezi procesor a hlavní paměť.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width = \textwidth]{img/Hierarchie.png}
+\end{figure}
+Hierarchií rozumíme několik úrovní pamětí různých kapacit a rychlostí. Jsou seřazeny dle kapacity vzestupně a rychlosti sestupně.
+\begin{enumerate}
+    \item Registry - nejblíže procesoru, stejně rychlé jak procesor, avšak s velmi malou kapacitou
+    \item Cache - kapactině jednotky až nižší desítky MB, ale rychlá a drahá SRAM paměť
+    \item Hlavní operační paměť
+    \item Vnější disk - nejvyšší kapacita, avšak velmi pomalé
+\end{enumerate}
+\subsubsection*{Cache}
+Mezi procesorem a hlavní pamětí. \\
+Obsahuje často používané instrukce a data, aby nebylo nutné je číst z hlavní paměti. \\
+Když procesor potřebuje číst nebo zapisovat do hlavní paměti, prve se podívá zda tu data jsou, pokud ano pro čtení a ne pro psaní tak data zapíše do cache což je mnohem rychlejší než psaní nebo čtení do/z hlavní paměti. \\
+Cache hit - procesor našel v cache, Cache miss - nenašel, hit rate - úspěšnost hitů.\\
+Menší cache je rychlejší, ale čím větší je tím má větší hit rate.\\
+Dělí se na 3 typy
+\begin{itemize}
+    \item L1 - nejmenší a nerychlejší, pro každé jádro zvlášť, při přístupu nemusí procesor čekat.
+    \item L2 - větší, pomalejší, pro každé jádro zvlášť, při přístupu čeká 1 až 2 hodiné takty.
+    \item L3 - největší, společná pro všechny jádra.
+\end{itemize}
+
+\subsubsection*{Specializované cache}
+Většina moderních procesorů má alespoň 3 nezávislé cache.\\
+\begin{itemize}
+    \item Instruction cache - pro instrukce
+    \item Data cache - pro data procesoru
+    \item TLB cache - Translation look-aside buffer cache, zrychluje překlad fyzických adres na fyzické
+\end{itemize}
+
 \section{Pojem logická a fyzická adresa, ochrana paměti, memory management unit (MMU). Stránkování (princip, transformace logické adresy na fyzickou, stránkovací tabulka). Virtuální adresový prostor. Zrychlení překladu adres pomocí Translation Look-aside Buffer (TLB).}
+
+MMU - memory mamangement unit. \\
+\subsection{Abstrakce paměti}
+\subsubsection*{Žádná abstrakce paměti}
+Každý proces vidí přímo fyzickou adresu.\\
+Paměťový model s kterým pracuje uživatel je fyzická adresa - množina adres od 0 do maximální hodnoty paměti.\\
+Využívají kontroléry.\\
+\subsubsection*{Abstraktovaná paměti}
+Každý proces má svůj vlastní adresový prostor.\\
+Musí se zajistit aby stejné adresy v různých procesech odpovídaly jiným fyzickým adresám.\\
+
+\subsection{Logická adresa}
+Adresa virtuální s níž pracuje programátor.\\
+U jednoduchých procesorů zajišťuje jejich generování přímo procesor. U složitějších procesorů zajišťuje MMU.
+
+\subsection{Fyzická adresa}
+Reálná adresa na sběrnici, se kterou pracuje MMU.\\
+Na vývodech procesoru je 20-bitová fyzická adresa, která se vytváří tak, že se obsah segmentového registru posune o 4 bity doleva a k ní se lineárně přite offset.
+Takto je vytvořen rozsah fyzických adres 0-FFFFFH (0-1MB).\\
+Vzniknou překladem logických adres v MMU.\\
+
+\subsection{Ochrana paměti}
+\subsubsection*{Segmentace}
+Mechanismus správy paměti, který odpovídá uživatelskému pohledu na paměť. \\
+Každý program obsahuje data (proměnné), instrukce (kód) a zásobník.\\
+Uvedené části programu mají svoje specifické vlastnosti a lze je považovat za relativně samostatné. Proto je lze od sebe oddělit a lze je ukládat do samostatných oblastí paměti, které nazýváme segmenty.\\
+Logická adresa segmentu je tvořena dvojicí < číslo segmentu : offset>. Číslo segmentu - určuje začáteční adresu segmentu, nachází se v příslušném segmentovém registru.\\
+Z důvodu bezpečnosti pracuje se segmentovými registry a s tabulkami hlavně operační systém, uživatelský program pouze určuje offsetovou část adresy.\\
+
+\subsubsection*{Spojitá alokace}
+Rozdělení na pevné délky paměti pro každý proces.
+Neefektivní, vznikají prázná místa v paměti.
+
+\subsubsection*{Memory Management Unit}
+Zajišťuje oddělení logického a fyzického  adresového prostoru.\\
+Ochranu paměti - vzájemné izolování uživatelských procesů, izolování jádra OS a uživatelských procesů.\\
+Obsahuje relokační registry.\\
+Jednoduché procesory nemají MMU a pracují přímo s fyzickými adresami.\\
+
+\subsubsection*{Stránkování}
+Logický prostor je rozdělen na části stejné velikosti, takzvané stránky. Obvyklá velikost je 4KB.\\
+Fyzická paměť je rozdělena na rámce. Velikost rámce je stejná jako velikost stránky. \\
+Logická adresa se skládá z offsetu, který určuje vzdálenost od začátku stránky a čísla stránky, který určuje číslo stránky. Položky tabulky stránek určují číslo rámce.\\
+Položka obsahuje příznak přítomnosti/nepřítomnosti stránky ve fyzické paměti. Realizace pomocí jednoho bitu. Když se nenachází, generuje přerušení(page fault) a OS musí zajistit přesunutí stránky do fyzické paměti z pevného disku.\\
+Bity ochrany určují jaké operace jsou se stránkou povoleny. V jednodušším případě pouze 1 bit, 0 je R/W a 1 je pouze R. Sofistikovanější využívá 3 bity, bit povolující čtení, zápis a spouštění kódu ve stránce. \\
+Bit odkazu na stránku se nastavuje vždy když je stránka čtena, nebo je do ní zapsáno. Bit pomáhá OS rozhodnout, kterou stránku uvolnit z fyzické paměti, když jsou zaplněny všechny rámce a je požadováno do fyzické paměti umístit další stránku. \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/Strankovani.png}
+\end{figure}
+
+\subsubsection*{Víceúrovňové stránkovací tabulky}
+Většina dnešních počítačových systémů umožňuje pracovat s logickým adresovým prostorem od $2^32$ do $2^64$.
+Logickou adresu o velikosti 32 bitů můžeme například rozdělit na 3 části: 10 bitové pole PT1 představující index do stránkovací tabulky první úrovně, 10 bitové pole PT2 představující index do stránkovací tabulky druhé úrovně a 12 bitový offset v rámci stránky. Stránkovací tabulka první úrovně má 2 10 = 1024 položek. Každá stránkovací tabulka druhé úrovně má také 1024 položek, přitom položka tabulky reprezentuje stránku o velikosti 2 12 = 4096 B. Každá tabulka druhé úrovně tedy reprezentuje paměťový prostor 1024*4096 = 4MiB.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/str2.png}
+\end{figure}
+
+\subsubsection*{Virtuální adresový prostor}
+Oddělení uživatelské logické paměti od fyzické paměti.\\
+Metoda zvětšení fyzické paměti ukládáním na pevný disk.\\
+Získáme větší prostor než kolik je velikost RAM. Ukládání je velmi pomalé, proto ukládáme pouze to co se nevejde do RAM, nebo je velmi malé.\\
+U virtuální paměti se ukládají jen části procesů, kdyby šlo o swapping tak se ukládají celé procesy.\\
+
+\subsubsection*{Translation look-aside buffer}
+Slouží ke zrychlení překladu logické adresy na fyzickou. \\
+Bez TLB se musíme podívat do paměti 2x, podívání do stránkovací tabulky a podívání do paměti.\\
+Typ cache paměti.\\
+Jsou v něm uloženy posledně používané lineární adresy a jejich odpovídající fyzické adresy.\\
+Nová adresa se prvně hledá v TLB.\\
+Většina programů provádí velké množství odkazů do malého počtu stránek.\\
+Je součástí MMU. \\

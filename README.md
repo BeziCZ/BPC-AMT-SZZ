@@ -41,11 +41,11 @@ Procesory CISC a RISC. Rozdíl mezi obvodovým a mikroprogramovým řadičem. Ř
 Jak se liší a pro jaké typy úloh je určen mikroprocesor pro všeobecné použití, mikrokontrolér, signálový procesor a signálový kontrolér (DSC), SoC (System on a Chip), ASIC.
 - [x] Rozdíl mezi izolovanými a paměťově mapovanými periferiemi. Způsoby obsluhy V/V: aktivní čekání, přerušení, DMA.
 Přerušení: řadič přerušení, činnost procesoru při zahájení obsluhy přerušení a návratu z přerušení, tabulka vektorů přerušení. Asynchronní a synchronní přerušení. Maskovatelné, nemaskovatelné a pseudomaskovatelné přerušení. Vnořené přerušení. RESET, činnost procesoru po RESETu.
-- [ ] Princip a vlastnosti pamětí ROM, EEPROM, FLASH. Rozdíl mezi paměťmi NOR FLASH a NAND FLASH. Princip pamětí MRAM a FeRAM.
-- [ ]  Princip a vlastnosti statických pamětí RAM (SRAM) a dynamických pamětí RAM (DRAM), synchronní paměti DRAM (SDRAM).
+- [x] Princip a vlastnosti pamětí ROM, EEPROM, FLASH. Rozdíl mezi paměťmi NOR FLASH a NAND FLASH. Princip pamětí MRAM a FeRAM.
+- [x]  Princip a vlastnosti statických pamětí RAM (SRAM) a dynamických pamětí RAM (DRAM), synchronní paměti DRAM (SDRAM).
 Připojování paralelních pamětí SRAM, FLASH ke sběrnicím mikroprocesoru. Adresový dekodér.
 Hierarchie paměti, paměti cache, specializované paměti cache.
-- [ ] Pojem logická a fyzická adresa, ochrana paměti, memory management unit (MMU). Stránkování (princip, transformace logické adresy na fyzickou, stránkovací tabulka). Virtuální adresový prostor. Zrychlení překladu adres pomocí Translation Look-aside Buffer (TLB).
+- [x] Pojem logická a fyzická adresa, ochrana paměti, memory management unit (MMU). Stránkování (princip, transformace logické adresy na fyzickou, stránkovací tabulka). Virtuální adresový prostor. Zrychlení překladu adres pomocí Translation Look-aside Buffer (TLB).
 
 ### BPC-PPA
 
@@ -87,9 +87,9 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 ### BPC-UIN
 
 - [x] Umělá inteligence (UI) - definice, úzká UI, obecná UI, superinteligence, strojové učení.
-- [ ] Umělé neuronové sítě - paradigmata, perceptron, algoritmus učení Backpropagation, Kohonenova samoorganizační mapa, konvoluční neuronová síť.
-- [ ] Expertní systémy (ES) - definice, architektura, teoretické zdroje pro realizaci ES, tvorba a ladění báze znalostí, průběh konzultace.
-- [ ] Počítačové vidění - předzpracování obrazu, segmentace obrazu, popis a klasifikace obrazu. 
+- [x] Umělé neuronové sítě - paradigmata, perceptron, algoritmus učení Backpropagation, Kohonenova samoorganizační mapa, konvoluční neuronová síť.
+- [x] Expertní systémy (ES) - definice, architektura, teoretické zdroje pro realizaci ES, tvorba a ladění báze znalostí, průběh konzultace.
+- [x] Počítačové vidění - předzpracování obrazu, segmentace obrazu, popis a klasifikace obrazu. 
 
 ### BPC-PRP
 
