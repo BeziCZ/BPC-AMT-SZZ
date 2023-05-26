@@ -16,7 +16,7 @@ Státnicové předměty pro rok 2022/23 jsou následující
 
 ### BPC-MVE
 
-- [ ] Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.
+- [x] Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.
 - [ ] Analogově-číslicové převodníky pro měřicí techniku – rozdělení, princip základní typů AD převodníků, vlastnosti, použití. 
 - [ ] Měření napětí a proudu. Změna rozsahů voltmetrů a ampérmetrů. Rušení u měřicích přístrojů.
 - [ ] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
