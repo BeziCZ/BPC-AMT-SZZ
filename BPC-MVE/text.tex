@@ -349,3 +349,501 @@ dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
 
 \subsection*{Použití}
 Zpracování analogových signálů v digitálních přístrojích.
+
+\section{Měření napětí a proudu. Změna rozsahů voltmetru a ampérmetrů. Rušení u měřicích přístrojů.}
+
+\subsection*{Měření napětí}
+\subsubsection*{voltmetry}
+zapojení paralelně k zátěži\\
+ideální voltmetr - nekonečný vnitřní odpor, reálně digitální 10MOhm, analogový 5kOhm/V \\
+\subsubsection*{Přístroje pro měření napětí}
+\begin{itemize}
+    \item analogové
+    \begin{itemize}
+        \item reagují na hodnotu měřeného napětí výchylkou ručky
+        \item obsahují převodník pro změny rozsahů
+    \end{itemize}
+    \item analogové elektronické 
+    \item číslicové(stejnosměrný voltrmetr je základem multimetru)
+\end{itemize}
+\subsubsection*{Měření stejnosměrného napětí(DC)}
+na DC napětí se převádí pomocí měřicích převodníků všechny ostatní měřené veličiny\\
+v praxi bývá problém s napěťovým offsetem a jeho driftem v jednosměrných předzesilovačích ve voltmetrech\\
+u měření vysokých napětí(v řádu kV) problém s bezpečností a izolačními možnostmi materiálu\\
+\subsubsection*{Měření střídavého napětí(AC)}
+požadovaný parametr obvykle efektivní hodnota\\
+Dělí se podle šířky pásma:
+\begin{itemize}
+    \item Úzkopásmové - selektivní, místo voltmetrl obvykle spektrální analyzátor, oblast vysoké frekvence
+    \item Širokopásmové - nejpoužívanější, oblast nízké frekvence (v řádu Hz až kHz)
+    \item Multimetry - napěťové rozsahy od mV po stovky V
+\end{itemize}
+\newpage
+
+\subsubsection*{Měřicí transformátory napětí}
+k převodu měřené veličiny na velikost vhodnou k měření a ke galvanickému oddělení měřicích obvodů a přístrojů od vysokého napětí 
+Transformační poměr pro idealizovaný stav:
+\begin{equation}
+    p_U = \frac{U_1}{U_2} = \frac{N_1}{N_2}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 2]{images/napeti_transformator.png}
+\end{figure}
+Princip:
+\begin{itemize}
+    \item primární vinutí M-N se připojuje (MTN-měřicí transformátor proudu)do obvodu paralelně
+    \item sekundární vinutí m-n obsahuje měřicí obvod představující vysokou impedanci
+    \item MTN musí pracovat v blízkosti stavu narpázdno
+    \item se chová jako zdroj s malým vnitřním odporem
+\end{itemize}
+Vlastnosti:
+\begin{itemize}
+    \item oproti předřadným odporům velmi malá spotřeba
+    \item hodnota sekundárního napětí obvykle 100V
+    \item způsobují chybu převodu - udává se třídou přesnosti
+    \item způsobují chybu fáze - nutno počítat při měření výkonu
+    \item nelze použít, kde by docházelo k magnetování jádra stejnosměrnou složkou průběhu - bo cívky
+\end{itemize}
+\subsubsection*{Typy rušení}
+Na vstupní svorky stejnosměrného voltmetru se mohou k měřenému napětí přičítat rušívá napětí.\\
+Rušivá napětí:
+\begin{itemize}
+    \item Stejnosměrná
+    \item Střídavá
+    \item Náhodná
+\end{itemize}
+Nejčastěji rušení střídavé od napájecí sítě s frekvencí 50 Hz.\\
+\newpage
+Sériové rušení:
+\begin{itemize}
+    \item Zdroj rušivého signálu je zapojený sériově s měřenou veličinou
+    \item Sčítá se s měřeným
+\end{itemize}
+Odstrańnuje se buď účinným filtrem dolní propusti před číslicovým voltmetrem, nebo některé A/D převodníky dokáží sériové rušení potlačit automaticky.\\
+Souhlasné rušení:
+\begin{itemize}
+    \item při měření napětí mezi dvěma body elektrického obvodu mohou nastat situace, kdy tyto body mají proti společné svorce určité napětí
+    \item je vyvoláno rozdílem potenciálu země voltmetru a země měřeného objektu
+    \item potlačuje se konstrukcí přístroje - rozpojením zemní smyčky použitím multimetru s bateriovým nanápajením
+\end{itemize}
+
+\subsubsection*{Číslicové voltmetry}
+Základní měřicí přístroj v praxi, víc se ale využívají multimetry\\
+Základní části číslicového voltmetru:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/cislicovy_voltmetr.png}
+\end{figure}
+Vstupní část umožňuje volbu dílčích měřicích rozsahů. Převádí velkost měřeného napětí na velikost vyhovujícího převodníku napětí na číslo.\\
+Dočasné uchování naměřených dat.\\
+Parametry:
+\begin{itemize}
+    \item počet míst zobrazovače (3 až 8\textonehalf)
+    \item počet měřicích rozsahů (4 až 6, zkl. rozsah 1 nebo 10V)
+    \item přesnost
+    \item rozlišovací schopnost - velikost napětí na vstupu voltmwtru, která způsobí změnu údaje voltmetru o 1 na posledním místě číslicového zobrazovače při nejnižším rozsahu
+    \item maximální měřené napětí - obvykle 1000 V DC a 750 V AC
+    \item rychlost měření 
+    \item časová stálost
+    \item odolnost proti rušení
+    \item vstupní impedance
+    \item typ použitého AD převodníku
+    \item kmitočtový rozsah(50kHz až 2 MHz)
+\end{itemize}
+
+Chyby číslicových měřicích přístrojů:
+\begin{itemize}
+    \item pevné chyby - nezávislé na velikosti vstupního signálu(vyjařují se v \% z měřicícho rozsahu), chyby způsobené:
+    \begin{itemize}
+        \item Driftem napěťové nesymetrie vstupního zesilovače
+        \item Vnitřním šumem přístroje
+        \item Zbytkovým napětím spínačů
+        \item Chyba kvantováním
+    \end{itemize}
+    \item Chyby úměrné měřené hodnotě(projevují se multiplikativně, taky v \% z rozsahu) - způsobené chybami:
+        \begin{itemize}
+            \item přenosu zesilovačů
+            \item vstupní děliče
+            \item napětí referenčního přístroje
+        \end{itemize}
+\end{itemize}
+Změna rozsahu voltmetru:\\
+Rozsah se zvětší zapojením předřadného rezistoru do série - předřadník:\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/predradnik.png}    
+\end{figure}
+
+\subsection*{Měření proudu}
+
+Pomocí ampérmetrů - zapojení do série s měřeným obvodem.\\
+Ideální ampérmetr má nulový opor, když nějaký má, je to chyba metody.\\
+Velikost měřených proudů:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/Imereni.png}
+\end{figure}
+Měření v rozsahu $\mu A$ až jednotek A.\\
+U nižších proudů problém se vstupními proudy a jejich driftem v předzesilovači.\\
+U vyšších proudů problém se snímáním proudu, lze použít speciální proudové sondy a nepřímé metody.\\
+\newpage
+
+\subsubsection*{Měření malých proudů}
+Je potřeba použít měřící zesilovače nebo použít převodník proudu na napětí.\\
+To umožňuje měření malých proudů bez úbytku napětí, vstupní odpor se bíží 0 Ohm, bývají součástí číslicových ampérmetrů.\\
+Velmi malé proudy se převádí pomocí velkého odporu napětí, které se měří mikrovltmetrem s modulačním zesilovačem.\\
+\subsubsection*{Měření velkých proudů}
+Proudový transformátor:
+\begin{itemize}
+    \item pouze pro střídavý proud 
+    \item úzký frekvenční rozsah
+    \item levné, jednoduché
+\end{itemize}
+Hallova sonda - polovodičový snímač magnetického proudu
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/hallova_sonda.png}
+\end{figure}
+
+Vlastnosti:
+\begin{itemize}
+    \item použití pro DC aj AC proud
+    \item rozsah měřených proudů od mA po stovky kA 
+    \item do frekvence 25 kHz
+    \item přesnost až 1\%
+    \item digitální výstup
+    \item vyšší cena
+\end{itemize}
+\newpage
+Měřicí transformátor proudu\\
+princip:
+\begin{itemize}
+    \item primární obvod měřicícho transformátoru proudu(MTP) je zapojen do série se zdrojem
+    \item sekundární vinutí se uzavirá přes měřicí přístroj
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/proud_transformator.png}
+\end{figure}
+
+Měřicí transformátor proudu musí vždy pracovat v blízkosti stavu nakrátko.
+\begin{itemize}
+    \item před odpojením měřicích přístrojů je nutné sekundární vinutí zkratovat
+    \item protéká-li primárním vinutím proud, nesmí být sekundární vinutí rozpojeno
+\end{itemize}
+
+Parametry:
+\begin{itemize}
+    \item transformační poměr
+    \item jmenovitá hodnota sekundárního proudu
+    \item povolená sekundární zátěž 
+\end{itemize}
+Charakteristické údaje:
+\begin{itemize}
+    \item Dynamický proud MTP - největší amplituda zkratového proudu při sekundárním vinutí nakrátko - nesmí dojít k mechanickému nebo elektrickému poškození
+    \item Tepelný proud - efektivní hodnota primárního proudu po dobu 1 sekundy při sekundárním vinutí nakrátko - nesmí dojít k poškození, závisí na průřezu primárního vinutí
+    \item Nadproudové číslo - násobek jmenovitého proudu, kdy chyba převodu dosáhne 10\% při jmenovité zátěži a účiníku
+\end{itemize}
+Přesnost převodu závisí na:
+\begin{itemize}
+    \item velikosti měřeného proudu
+    \item kmitočtu měřeného proudu 
+    \item tvaru a vlastnostech jádra a vinutí 
+    \item velikost a charakteru sekundární impedance 
+\end{itemize}
+Parazitní vlivy:
+\begin{itemize}
+    \item rozptylová indukčnost obou vinutí 
+    \item ztráty v železe vlivem vířivých proudů 
+\end{itemize}
+\newpage
+Výhody:
+\begin{itemize}
+    \item lze transformovat nejen z větší na menší
+    \item spotřeba měřicích obvodů se s měřicími transformátory nemění se změnou rozsahu
+\end{itemize}
+Nevýhoda - nelze transformovat střídavé průběhy se stejnosměrnou složkou
+
+Měření proudu pomocí multimetru:
+\begin{itemize}
+    \item převod proudu na napětí - požadavek co nejmenší impedance
+    \item typy převodníků:
+    \begin{itemize}
+        \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle poměrů vstupního odporu ampérmetru a bočníku
+        \item aktivní převodník - využití OZ
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Rušení u měřicích přístrojů}
+\subsubsection*{Mechanické vlivy}
+\begin{itemize}
+    \item tření - zvětšením direktivního momentu spirálových pružin, větší spotřeba, menší citlivost přístroje
+    \item Otřesy - dát přístroj na měkkou podložku
+    \item poloha přístroje - měly by se používat jen v poloze uvedené v seznamu
+\end{itemize}
+
+\subsubsection*{Teplota}
+\begin{itemize}
+    \item Mění se odpor měřicích cívek, předřadníků či bočníků a magnetická indukce permanentních magnetů
+    \item předřadníky a bočníky dáváme do přední části přístroje, aby neovlivňovaly měčicí cívky, použijeme materiál, který má nepatrnou závislost na teplotě, chladící otvory
+\end{itemize}
+ \subsubsection*{Vnější elektromagnetické pole}
+ \begin{itemize}
+    \item působí zejména na přístroje, které pracují s vlastním slabým polem 
+    \item bráníme stíněním měřicího ústrojí krytem z feromagnetického materiálu
+ \end{itemize}
+
+ \subsubsection*{Kmitočet}
+ \begin{itemize}
+    \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na kmitočtu závisí
+    \item u každého přístroje se řeší individuálně
+ \end{itemize}
+\newpage
+
+ \section{Měření výkonu v jednofázové a třífázové soustavě. Wattmetry - princip, typy vlastnosti.}
+ Výkon stejnosměrného proudu:
+ \begin{equation}
+    P = U\cdot I \;\;\;\; [W]
+ \end{equation}
+ Výkon střídavého proudu:
+ \begin{itemize}
+    \item Okamžitý výkon(časový okamžik) $p(t) = u(t)\cdot i(t)$   [W]
+    \item střední hodnota výkonu(časový interval) $P = \frac{1}{T}\int_0^Tp(t)dt = \frac{1}{T}\int_0^Tu(t)\cdot i(t)dt$    [W]
+ \end{itemize}
+
+ Výkon harmonického proudu a napětí s fázovým posuvem:
+ \begin{itemize}
+    \item Činný výkon    $P = U\cdot I \cdot cos \upvarphi $    [W]
+    \item Jalový výkon   $Q = U\cdot I \cdot sin \upvarphi $    [VAr]
+    \item Zdánlivý výkon  $S = U \cdot I$                     [VA]
+ \end{itemize}
+ Výkon neharmonických proudů a napětí: $P = U_0\cdot I_0 + \sum^{k=n}_{k=1}U_k\cdot I_k \cdot cos \upvarphi_k$     [W]
+\subsection*{Měření výkonu v jednofázové soustavě}
+Metody:
+\begin{itemize}
+    \item elektromechanické wattmetry s elektrodynamickým ústrojím
+    \item elektronické wattmetry - nejde odečíst proud/napětí na zátěži, přidává se voltmetr/ampermetr
+    \item měření třemi voltmetry
+    \item měření třemi ampérmetry
+\end{itemize}
+
+\subsubsection*{Metoda wattmetrem}
+dva způsoby, oba zatíženy chybou metody
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/wattmetry2.png}
+\end{figure}
+\newpage
+
+\subsubsection*{Metoda třemi voltmetry}
+Nepřímá metoda pro měření malých činných výkonů na malých impedancích zátěže Z 
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/voltrmetry3.png}
+\end{figure}
+
+\subsubsection*{Metoda třemi ampérmetry}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/ampermetry3.png}
+\end{figure}
+
+\subsubsection*{Měření jalového výkonu}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/jalovec.png}
+\end{figure}
+Charakter zátěže spotřebiče:
+\begin{itemize}
+    \item Induktivní - kladný jalový výkon
+    \item Kapacitní - záporný jalový výkon 
+\end{itemize}
+
+\subsubsection*{Měření zdánlivého výkonu}
+Jedině nepřímo, počítá se z proudu a napětí
+
+
+\subsection*{Měření výkonu v třífázové soustavě}
+Všechna zapojení vyžadují znalost sledu fází:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/fazovyDiagram.png}
+\end{figure}
+Sled fází je určem pořadím, v němž veličiny trojfázové soustavy nabývají svého maxima.\\
+
+Fázové napětí - napětí mezi fázovým a nulový vodičem\\
+Sdružené napětí - napětí mezi dvěma fázovými vodiči
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/sdruzeneNapeti.png}
+\end{figure}
+
+\subsubsection*{Základní pojmy}
+\begin{itemize}
+    \item Souměrná zátěž - Síť je zatížena souměrným spotřebičem, protéká v každé fázi stejný proud(motor)
+    \item Nesouměrná zátěž - spotřebič odebírá v každé fázi jiný proud(oblouková pec)
+    \item Obecná (nesymetrická) soustava - má obecné velikosti fázových napětí a obecné úhly mezi nimi - čtyřvodičová má přístupný nulový vodič, třívodičová ne
+    \item Symetrická soustava - zvláštní případ obecné soustavy, fázová napětí mají stejnou velikost i úhel, sdružené napětí je $\sqrt{3}$ krát větší, než fázové
+\end{itemize}
+
+\subsubsection*{Matematický popis}
+Souměrná soustava:
+\begin{itemize}
+    \item efektivní hodnota: $U_1 = U_2 = U_3 = U_f$
+    \item fázový posuv: $\upvarphi = 2\pi /3$
+\end{itemize}
+$u_1 = \sqrt{2}U_fsin(\omega t +\upvarphi)$\\
+$u_2 = \sqrt{2}U_fsin(\omega t -120\degree +\upvarphi)$\\
+$u_3 = \sqrt{2}U_fsin(\omega t -120\degree +\upvarphi)$\\
+
+
+Volba  metody záleží na tom, jestli je měřená zátěž ne/symetrická a jestli je trojfázová síť tří nebo čtyřvodičová\\
+
+\subsubsection*{Blondelův teorém}
+V n-vodičové soustavě se činný výkon zátěže správně měří nejméně n-1 wattmetry
+
+\subsubsection*{Symetrická zátěž, čtyřvodičová symetrická soustava}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/sym_4_sym.png}
+\end{figure}
+
+
+\subsubsection*{Symetrická zátěž, třívodičová symetrická soustava}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/sym_3_sym.png}
+\end{figure}
+
+\subsubsection*{Neymetrická zátěž, čtyřvodičová soustava}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/nesym_4.png}
+\end{figure}
+\newpage
+
+\subsubsection*{Nesymetrická zátěž, třívodičová soustava}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/nesym_3.png}
+\end{figure}
+
+\subsubsection*{Aronovo zapojení}
+Slouží k měření rinného výkonu v třívodičové soustavě bez středového vodiče.\\
+Lze použít pro souměrnou i nesouměrnou zátěž.\\
+Napěťové obvody wattmetrl jsou připojeny na sdružená napětí.
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/Aron.png}
+\end{figure}
+
+\subsubsection*{Měření Jalového výkonu}
+Nutnost zajistit zpoždění fázoru napětí na napěťové cívce každého wattmetru o 90° oproti fázoru napětí při měření činného výkonu - připojit sdružená napětí na napěťové cívky\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/jalonen.png}
+\end{figure}
+\newpage
+
+\subsection*{Wattmetry}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/wattSchemata.png}
+\end{figure}
+Rozdělení:
+\begin{itemize}
+    \item Z funkčního hlediska:
+    \begin{itemize}
+        \item Průchozí - zapojuje se mezi zdroj a zátěž, měří výkon předávaný zdrojem do zátěže
+        \item Pohlcovací - měří výkon předávaný zdrojem do odporové zátěže obsažené ve wattmetru připojeného ke zdroji
+    \end{itemize}
+    \begin{figure}[H]
+        \includegraphics*[scale  = 1]{images/wattTypy.png}
+    \end{figure}
+    \item Podle způsobu měření a charakteru údaje:
+    \begin{itemize}
+        \item Analogové
+        \item Digitální 
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Průchozí wattmetr}
+Použití:
+\begin{itemize}
+    \item nízkofrekvenční oblast
+    \item měření harmonických průběhů - energetika 
+    \item měření neharmonických průběhů - měření výkonu i harmonicky zkresleného průběhu v síti
+\end{itemize}
+
+
+\begin{figure}[H]
+    \includegraphics*[scale  = 1]{images/wattPruchozi.png}
+\end{figure}
+
+Rozdělení:
+\begin{itemize}
+    \item Analogové wattmetry
+    \item Číslicové wattmetry s analogovým zpracováním signálů
+    \item Číslicové wattmetry s číslicovým zpracováním signálů 
+\end{itemize}
+
+Analogový wattmetr:
+\begin{figure}[H]
+    \includegraphics*[scale  = 1.3]{images/wattAnalog.png}
+\end{figure}
+
+Číslicový wattmetr s analogovým zpracováním signálu
+\begin{itemize}
+    \item Smodulační násobičkou
+    \begin{itemize}
+        \item chyba v desetinách procenta
+        \item frekvenční pásmo 0-10kHz 
+        \item Princip:
+        \begin{figure}[H]
+            \includegraphics*[scale  = 1]{images/wattAnalogPrincip.png}
+        \end{figure}
+    \end{itemize}
+\newpage
+
+    \item Hallova násobička
+    \begin{itemize}
+        \item Působí-li na plochu destičky z polovodičového materiálu magnetické pole o indukci B a protéká-li destičkou proud i, objeví se na zbývajících hranách hallovo napětí $U_H$
+        \item Napětí $U_H$ je nutno integrovat, abychom získali stejnosměrnou hodnotu úměrnou činnému výkonu P
+    \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale  = 1.3]{images/wattHallovaNasobicka.png}
+\end{figure}
+
+Číslicový wattmetr s číslicovým zpracováním signálu
+\begin{itemize}
+    \item přechod od předchozího typu doplněný o AD převodník a nahrazení analogové násobičky procesorem
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale  = 1.3]{images/wattCislicovySchema.png}
+\end{figure}
+
+\subsubsection*{Pohlcovací wattmetry}
+Určeny k měření výkonu dodávaného zdrojem do odporové zátěže představované samotným wattmetrem.\\
+Výkon se určuje buď z napětí na zátěži, nebo z tepelného účiníku.\\
+Rozsah MHz až destíky GHz.\\
+Většinou ve formě externích modulů k PC nebo jako doplněk spektrálních analyzátorů.\\
+Analogový nebo číslicový údaj.\\
+Odporová zátěž:
+\begin{itemize}
+    \item Měřicí rozsah $1 \mu W$ až $1 kW$
+    \item pro vyšší frekvence se používá zatěžovací rezistor zakončující koaxiální vedení
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale  = 1.3]{images/wattOdporovaZatez.png}
+\end{figure}
+
+Voní zátěž:
+\begin{itemize}
+    \item pro střední a větší výkony(desítky W až kW) - přivedený měřený výkon protékající vodu ohřívá, měří se průtok a oteplení vody 
+    \item buď v koaxiálním provedení(do 3 GHz) nebo vlnovodném provedení(nad 2GHz)
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale  = 1.3]{images/wattVodniZatez.png}
+\end{figure}
+
+Zátěž v podobě vedení:
+\begin{itemize}
+    \item Pro měření menších výkonů(desítky W)
+    \item použití "suché" zátěže ve formě bezodrazného zakončení koaxiálního vedení nebo vlnovodného vedení
+    \item telpota zátěže, která závisí na rozptylovém výkonu, se měří pomocí:
+    \begin{itemize}
+        \item termočlánkového snímače
+        \item diodového snímače
+        \item termistorového snímače
+    \end{itemize}
+\end{itemize}
+
+\section{Číslicové osciloskopy - princip, vlastnosti, jejich příslušenství}
+
+
+
+
