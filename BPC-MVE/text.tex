@@ -349,3 +349,248 @@ dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
 
 \subsection*{Použití}
 Zpracování analogových signálů v digitálních přístrojích.
+
+\section{Měření napětí a proudu. Změna rozsahů voltmetru a ampérmetrů. Rušení u měřicích přístrojů.}
+
+\subsection*{Měření napětí}
+\subsubsection*{voltmetry}
+zapojení paralelně k zátěži\\
+ideální voltmetr - nekonečný vnitřní odpor, reálně digitální 10MOhm, analogový 5kOhm/V \\
+\subsubsection*{Přístroje pro měření napětí}
+\begin{itemize}
+    \item analogové
+    \begin{itemize}
+        \item reagují na hodnotu měřeného napětí výchylkou ručky
+        \item obsahují převodník pro změny rozsahů
+    \end{itemize}
+    \item analogové elektronické 
+    \item číslicové(stejnosměrný voltrmetr je základem multimetru)
+\end{itemize}
+\subsubsection*{Měření stejnosměrného napětí(DC)}
+na DC napětí se převádí pomocí měřicích převodníků všechny ostatní měřené veličiny\\
+v praxi bývá problém s napěťovým offsetem a jeho driftem v jednosměrných předzesilovačích ve voltmetrech\\
+u měření vysokých napětí(v řádu kV) problém s bezpečností a izolačními možnostmi materiálu\\
+\subsubsection*{Měření střídavého napětí(AC)}
+požadovaný parametr obvykle efektivní hodnota\\
+Dělí se podle šířky pásma:
+\begin{itemize}
+    \item Úzkopásmové - selektivní, místo voltmetrl obvykle spektrální analyzátor, oblast vysoké frekvence
+    \item Širokopásmové - nejpoužívanější, oblast nízké frekvence (v řádu Hz až kHz)
+    \item Multimetry - napěťové rozsahy od mV po stovky V
+\end{itemize}
+\newpage
+
+\subsubsection*{Měřicí transformátory napětí}
+k převodu měřené veličiny na velikost vhodnou k měření a ke galvanickému oddělení měřicích obvodů a přístrojů od vysokého napětí 
+Transformační poměr pro idealizovaný stav:
+\begin{equation}
+    p_U = \frac{U_1}{U_2} = \frac{N_1}{N_2}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 2]{images/napeti_transformator.png}
+\end{figure}
+Princip:
+\begin{itemize}
+    \item primární vinutí M-N se připojuje (MTN-měřicí transformátor proudu)do obvodu paralelně
+    \item sekundární vinutí m-n obsahuje měřicí obvod představující vysokou impedanci
+    \item MTN musí pracovat v blízkosti stavu narpázdno
+    \item se chová jako zdroj s malým vnitřním odporem
+\end{itemize}
+Vlastnosti:
+\begin{itemize}
+    \item oproti předřadným odporům velmi malá spotřeba
+    \item hodnota sekundárního napětí obvykle 100V
+    \item způsobují chybu převodu - udává se třídou přesnosti
+    \item způsobují chybu fáze - nutno počítat při měření výkonu
+    \item nelze použít, kde by docházelo k magnetování jádra stejnosměrnou složkou průběhu - bo cívky
+\end{itemize}
+\subsubsection*{Typy rušení}
+Na vstupní svorky stejnosměrného voltmetru se mohou k měřenému napětí přičítat rušívá napětí.\\
+Rušivá napětí:
+\begin{itemize}
+    \item Stejnosměrná
+    \item Střídavá
+    \item Náhodná
+\end{itemize}
+Nejčastěji rušení střídavé od napájecí sítě s frekvencí 50 Hz.\\
+\newpage
+Sériové rušení:
+\begin{itemize}
+    \item Zdroj rušivého signálu je zapojený sériově s měřenou veličinou
+    \item Sčítá se s měřeným
+\end{itemize}
+Odstrańnuje se buď účinným filtrem dolní propusti před číslicovým voltmetrem, nebo některé A/D převodníky dokáží sériové rušení potlačit automaticky.\\
+Souhlasné rušení:
+\begin{itemize}
+    \item při měření napětí mezi dvěma body elektrického obvodu mohou nastat situace, kdy tyto body mají proti společné svorce určité napětí
+    \item je vyvoláno rozdílem potenciálu země voltmetru a země měřeného objektu
+    \item potlačuje se konstrukcí přístroje - rozpojením zemní smyčky použitím multimetru s bateriovým nanápajením
+\end{itemize}
+
+\subsubsection*{Číslicové voltmetry}
+Základní měřicí přístroj v praxi, víc se ale využívají multimetry\\
+Základní části číslicového voltmetru:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/cislicovy_voltmetr.png}
+\end{figure}
+Vstupní část umožňuje volbu dílčích měřicích rozsahů. Převádí velkost měřeného napětí na velikost vyhovujícího převodníku napětí na číslo.\\
+Dočasné uchování naměřených dat.\\
+Parametry:
+\begin{itemize}
+    \item počet míst zobrazovače (3 až 8\textonehalf)
+    \item počet měřicích rozsahů (4 až 6, zkl. rozsah 1 nebo 10V)
+    \item přesnost
+    \item rozlišovací schopnost - velikost napětí na vstupu voltmwtru, která způsobí změnu údaje voltmetru o 1 na posledním místě číslicového zobrazovače při nejnižším rozsahu
+    \item maximální měřené napětí - obvykle 1000 V DC a 750 V AC
+    \item rychlost měření 
+    \item časová stálost
+    \item odolnost proti rušení
+    \item vstupní impedance
+    \item typ použitého AD převodníku
+    \item kmitočtový rozsah(50kHz až 2 MHz)
+\end{itemize}
+
+Chyby číslicových měřicích přístrojů:
+\begin{itemize}
+    \item pevné chyby - nezávislé na velikosti vstupního signálu(vyjařují se v \% z měřicícho rozsahu), chyby způsobené:
+    \begin{itemize}
+        \item Driftem napěťové nesymetrie vstupního zesilovače
+        \item Vnitřním šumem přístroje
+        \item Zbytkovým napětím spínačů
+        \item Chyba kvantováním
+    \end{itemize}
+    \item Chyby úměrné měřené hodnotě(projevují se multiplikativně, taky v \% z rozsahu) - způsobené chybami:
+        \begin{itemize}
+            \item přenosu zesilovačů
+            \item vstupní děliče
+            \item napětí referenčního přístroje
+        \end{itemize}
+\end{itemize}
+Změna rozsahu voltmetru:\\
+Rozsah se zvětší zapojením předřadného rezistoru do série - předřadník:\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1.5]{images/predradnik.png}    
+\end{figure}
+
+\subsection*{Měření proudu}
+
+Pomocí ampérmetrů - zapojení do série s měřeným obvodem.\\
+Ideální ampérmetr má nulový opor, když nějaký má, je to chyba metody.\\
+Velikost měřených proudů:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/Imereni.png}
+\end{figure}
+Měření v rozsahu $\mu A$ až jednotek A.\\
+U nižších proudů problém se vstupními proudy a jejich driftem v předzesilovači.\\
+U vyšších proudů problém se snímáním proudu, lze použít speciální proudové sondy a nepřímé metody.\\
+\newpage
+
+\subsubsection*{Měření malých proudů}
+Je potřeba použít měřící zesilovače nebo použít převodník proudu na napětí.\\
+To umožňuje měření malých proudů bez úbytku napětí, vstupní odpor se bíží 0 Ohm, bývají součástí číslicových ampérmetrů.\\
+Velmi malé proudy se převádí pomocí velkého odporu napětí, které se měří mikrovltmetrem s modulačním zesilovačem.\\
+\subsubsection*{Měření velkých proudů}
+Proudový transformátor:
+\begin{itemize}
+    \item pouze pro střídavý proud 
+    \item úzký frekvenční rozsah
+    \item levné, jednoduché
+\end{itemize}
+Hallova sonda - polovodičový snímač magnetického proudu
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/hallova_sonda.png}
+\end{figure}
+
+Vlastnosti:
+\begin{itemize}
+    \item použití pro DC aj AC proud
+    \item rozsah měřených proudů od mA po stovky kA 
+    \item do frekvence 25 kHz
+    \item přesnost až 1\%
+    \item digitální výstup
+    \item vyšší cena
+\end{itemize}
+\newpage
+Měřicí transformátor proudu\\
+princip:
+\begin{itemize}
+    \item primární obvod měřicícho transformátoru proudu(MTP) je zapojen do série se zdrojem
+    \item sekundární vinutí se uzavirá přes měřicí přístroj
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/proud_transformator.png}
+\end{figure}
+
+Měřicí transformátor proudu musí vždy pracovat v blízkosti stavu nakrátko.
+\begin{itemize}
+    \item před odpojením měřicích přístrojů je nutné sekundární vinutí zkratovat
+    \item protéká-li primárním vinutím proud, nesmí být sekundární vinutí rozpojeno
+\end{itemize}
+
+Parametry:
+\begin{itemize}
+    \item transformační poměr
+    \item jmenovitá hodnota sekundárního proudu
+    \item povolená sekundární zátěž 
+\end{itemize}
+Charakteristické údaje:
+\begin{itemize}
+    \item Dynamický proud MTP - největší amplituda zkratového proudu při sekundárním vinutí nakrátko - nesmí dojít k mechanickému nebo elektrickému poškození
+    \item Tepelný proud - efektivní hodnota primárního proudu po dobu 1 sekundy při sekundárním vinutí nakrátko - nesmí dojít k poškození, závisí na průřezu primárního vinutí
+    \item Nadproudové číslo - násobek jmenovitého proudu, kdy chyba převodu dosáhne 10\% při jmenovité zátěži a účiníku
+\end{itemize}
+Přesnost převodu závisí na:
+\begin{itemize}
+    \item velikosti měřeného proudu
+    \item kmitočtu měřeného proudu 
+    \item tvaru a vlastnostech jádra a vinutí 
+    \item velikost a charakteru sekundární impedance 
+\end{itemize}
+Parazitní vlivy:
+\begin{itemize}
+    \item rozptylová indukčnost obou vinutí 
+    \item ztráty v železe vlivem vířivých proudů 
+\end{itemize}
+\newpage
+Výhody:
+\begin{itemize}
+    \item lze transformovat nejen z větší na menší
+    \item spotřeba měřicích obvodů se s měřicími transformátory nemění se změnou rozsahu
+\end{itemize}
+Nevýhoda - nelze transformovat střídavé průběhy se stejnosměrnou složkou
+
+Měření proudu pomocí multimetru:
+\begin{itemize}
+    \item převod proudu na napětí - požadavek co nejmenší impedance
+    \item typy převodníků:
+    \begin{itemize}
+        \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle poměrů vstupního odporu ampérmetru a bočníku
+        \item aktivní převodník - využití OZ
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Rušení u měřicích přístrojů}
+\subsubsection*{Mechanické vlivy}
+\begin{itemize}
+    \item tření - zvětšením direktivního momentu spirálových pružin, větší spotřeba, menší citlivost přístroje
+    \item Otřesy - dát přístroj na měkkou podložku
+    \item poloha přístroje - měly by se používat jen v poloze uvedené v seznamu
+\end{itemize}
+
+\subsubsection*{Teplota}
+\begin{itemize}
+    \item Mění se odpor měřicích cívek, předřadníků či bočníků a magnetická indukce permanentních magnetů
+    \item předřadníky a bočníky dáváme do přední části přístroje, aby neovlivňovaly měčicí cívky, použijeme materiál, který má nepatrnou závislost na teplotě, chladící otvory
+\end{itemize}
+ \subsubsection*{Vnější elektromagnetické pole}
+ \begin{itemize}
+    \item působí zejména na přístroje, které pracují s vlastním slabým polem 
+    \item bráníme stíněním měřicího ústrojí krytem z feromagnetického materiálu
+ \end{itemize}
+
+ \subsubsection*{Kmitočet}
+ \begin{itemize}
+    \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na kmitočtu závisí
+    \item u každého přístroje se řeší individuálně
+ \end{itemize}
