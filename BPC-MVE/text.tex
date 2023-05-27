@@ -209,3 +209,143 @@ Odhad veličiny $Y$, která je funkcí vzájemně korelovaných vstupníc velič
     u(\overline{y}) = \sqrt{\sum^N_{i=1}A_i^2\cdot u^2(\overline{x_i})+2\sum^N_{i=2}\sum^{N-1}_{k<i}A_i\cdot A_k \cdot u^2(\overline{x_i},\overline{x_k})}
 \end{equation}
 $u(\overline{x_i},\overline{x_k})$ \dots kovariace mezi navzájem korelovanými odhady vstupních veličin $\overline{x_i},\overline{x_k}$
+
+
+\section{Analogově-číslicové převoddníky pro měřicí techniku - rozdělení, princip základních typů AD převodníků, vlastnosti, použití}
+Převod analogové diskrétní proměnné veličiny(napětí) na diskrétní údaj vyjádřený číslem.\\
+Diskretizace analogového signálu:
+\begin{itemize}
+    \item V amplitudě - kvantování
+    \item V čase - vzorkování(vzorkovací teorém - vzorkovací frekvence musí být větší, než 2* maximální požadovaná přenášená frekvence)
+    \item Kódování
+\end{itemize}
+Kvantizační chyba - chyba zaokrouhlování na nejmenší jednotku přístroje. Při časové změně měřené veličiny vzniká kvantovací šum\\
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 1]{images/adc_prevodni_char.png}
+    \caption*{Převodní charakteristika měřicího přístroje}
+\end{figure}
+$K_i$ ideální převodní charakteristika\\
+$K_S$ je skutečná převodní charakteristika\\
+Chyby, které se vyskytují:
+\begin{itemize}
+    \item chyba nuly - nenulový výstup pro nulové napětí
+    \item chyba konstanty - jiný sklon charakteritiky
+    \item chyba linearity - průměrná charakteristika není lineární
+\end{itemize}
+\newpage
+Kritéria hodnocení AD převodníku:
+\begin{itemize}
+    \item rozlišovací schopnost
+    \item krok kvantování
+    \item chyba kvantování
+    \item rychlost převodu 
+    \item přesnost 
+    \item stabilita
+\end{itemize}
+\subsection*{Rozdělení AD převodníků}
+\begin{itemize}
+    \item Komparační
+    \begin{itemize}
+        \item Metoda paralelního porovnání
+        \item Metoda sérioparalelního porovnání
+    \end{itemize}
+    \item Kompenzační
+    \begin{itemize}
+        \item Kompenzační metoda
+        \item Metoda postupné aproximace
+    \end{itemize}
+    \item Integrační
+    \begin{itemize}
+        \item Integrační metoda (metoda dvojté integrace)
+        \item Převod napětí na kmitočet metodou jednoduché integrace 
+    \end{itemize}
+    \item Sigma-delta modulace
+\end{itemize}
+
+\subsection*{Komparační A/D převodník(FLASH)}
+Srovnává měřené napětí s různě nastavenýma hodnotama referenčního napětí najednou.\\
+Vzorkovací frekvence desítky MHz až 3 GHz\\
+krátká doba převodu(ns) - nejrychlejší\\
+drahý, není odolný vůči sériovému rušení
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/adc_komparacni.png}
+\end{figure} 
+\newpage
+\subsection*{Kompenzační A/D převodník}
+měřené konstantní napětí se porovnává se známým stavitelným kompenzačním napětím - nastavuje se tak, aby se blížilo měřenému\\
+nejde nastavit naprostá shoda, maximálně zanedbatelný rozdíl - nastavuje se postupně\\
+Typy:
+\begin{itemize}
+    \item Přírůstkový převodník
+    \item Sledovací převodník - umožňuje čítat i dolů
+    \item Aproximační převodník - nahrazen registrem
+\end{itemize}
+\subsubsection*{Metoda postupné aproximace}
+Hodnota napětí vyjádřena přirozeným binárním číslem\\
+při převodu se určuje bit po bitu od největšího po nejmenší\\
+8-16 bitové\\
+vzorkovací frekvence 10kHz - 3MHz\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/adc_kompenzacni_aprox.png}
+\end{figure}
+\newpage
+
+\subsection*{Integrační A/D převodník}
+vhodné a často používané pro číslicové voltmetry\\
+výsledkem integrace je střední hodnota\\
+Parametry:
+\begin{itemize}
+    \item 10-27 bitové
+    \item vzorkovací frekvence 0,1Hz až 1kHz 
+    \item pomalé
+    \item velká přesnost, eliminace sériového rušení 
+\end{itemize}
+Princip:
+\begin{itemize}
+    \item dvojí(dvoutaktní) integrace
+    \item neznámé vstupní napětí porovnáváno s referenčním opačné polarity
+    \item po skončení druhého taktu stav čítače hodinových pulsů N udává velikost neznámého napětí
+\end{itemize}
+
+\begin{equation}
+    N = f_hT_2 = f_hT_1\cdot \frac{U_{vst}}{Z_{REF}} = N_c \cdot \frac{U_{vst}}{Z_{REF}} 
+\end{equation}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/adc_integrac.png}
+\end{figure}
+
+\subsubsection*{Převodník napětí na kmitočet}
+Převod měřeného napětí na kmitočet a ten pak změřit číslicově.\\
+převáděné napětíje trvale připojeno na vstup integrátoru, vyvolává změnu napětí na výstupu integrátoru, které se v komparátoru porovnává s konstantním napětím\\
+při překročení hodnoty se změní na opačné výstupní napětí integrátoru\\
+kmitočet výstupních impulsů je pak úměrný měřenému napětí
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/adc_V_na_f.png}
+\end{figure}
+ 
+\subsection*{Sigma-delta modulace}
+Dle taktu Uc vzorkování na komparátor\\
+Uo obdelníkové, dle trvání vyšší a nižší hodnoty vyjadřuje Ux\\
+dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/adc_sigma_delta_schema.png}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/adc_sigma_delta_graf.png}
+\end{figure}
+
+
+\subsection*{Vlastnosti}
+\begin{itemize}
+    \item Rozlišovací schopnost - dána počtem rozlišitelných úrovní analogového signálu. Pro n-bitový převodník je to $2^n$ úrovní
+    \item Krok kvantování(citlivost) - rozdíl dvou hodnot vstupního analogového napětí, kdy nastává přechod od jednoho číslicového výstupu k druhému
+    \item Chyba kvantování - maximální rozdíl mezi hodnotou analogové veličiny a hodnotou odpovídající danému ódovanému slovu(obvykle polovina kroku kvantování)
+    \item Rychlost převodu 
+    \item Přesnost - dána chybou převodníku
+    \item Stabilita - vyjadřuje stálost převodníku při působení různých rušivých vlivů
+\end{itemize}
+
+\subsection*{Použití}
+Zpracování analogových signálů v digitálních přístrojích.
