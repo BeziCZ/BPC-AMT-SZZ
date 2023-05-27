@@ -93,7 +93,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-PRP
 
-- [ ] Kinematický model diferenciálně řízeného podvozku mobilního robotu (schéma, veličiny, matematický popis řízení, výhody a nevýhody oproti jiným typům).
-- [ ] Pohony robotů (přehled, vlastnosti, momentové rovnice, požadavky na robotické aplikace, víceosá NC interpolace, rampy, S-křivka).
-- [ ] Systém ROS - popis, platformy, komunikace uvnitř systému, node, message, topic, možnosti reálného nasazení
-- [ ] Zpětnovazební regulace pozice mobilního robotu při sledování trajektorie (nákres, regulační schéma, popis veličin v procesu, popis parazitních vlivů ovlivňujících kvalitu regulace v důsledku implementace do reálného stroje).
+- [x] Kinematický model diferenciálně řízeného podvozku mobilního robotu (schéma, veličiny, matematický popis řízení, výhody a nevýhody oproti jiným typům).
+- [x] Pohony robotů (přehled, vlastnosti, momentové rovnice, požadavky na robotické aplikace, víceosá NC interpolace, rampy, S-křivka).
+- [x] Systém ROS - popis, platformy, komunikace uvnitř systému, node, message, topic, možnosti reálného nasazení
+- [x] Zpětnovazební regulace pozice mobilního robotu při sledování trajektorie (nákres, regulační schéma, popis veličin v procesu, popis parazitních vlivů ovlivňujících kvalitu regulace v důsledku implementace do reálného stroje).
