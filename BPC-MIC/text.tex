@@ -183,9 +183,9 @@ Každá fáze využívá jinou část CPU -> návrh procesoru pro paralelní pr�
 
 Doba exekuce instrukcí, kde k je počet fází:
 \begin{center}
-    Pipelining: $N = k + (n-1)$\\
-    Sekvenční: $M = n \cdot k$ \\
-    Koeficient zrychlení: $S_k = \frac{M}{N} = \frac{n \cdot k}{n + n-1}$
+    Pipelining: \(N = k + (n-1)\) \\
+    Sekvenční: \(M = n \cdot k\) \\
+    Koeficient zrychlení: \(S_k = \frac{M}{N} = \frac{n \cdot k}{n + n-1}\)
 \end{center}
 
 \subsection{Skokový konflikt}
@@ -486,7 +486,7 @@ USB a SSD disky.\\
 Konstrukčně obdobné DRAM paměti, ale dielektrikum je tvořeno feroelektrickým materiálem.\\
 Informace je zachována i po vypnutí napájení.\\
 Uplatnění v průmyslových a bankovních systémech.\\
-Výhody oproti FLASH - vyšší počet cyklů mazání($10^16$), vyšší rychlost zápisu, nižší spotřeba.\\
+Výhody oproti FLASH - vyšší počet cyklů mazání(\(10^{16}\)), vyšší rychlost zápisu, nižší spotřeba.\\
 Nevýhody oproti FLASH - malá hustota, limitovaná max kapacita, vyšší cena.
 Základem jsou feroelektrické krystaly. Založeno na vystavení feroelektrického krystalu elektrickému poli, centrální atom v mřízce krystalu se vychýlí ve směru elektrického pole. a zapřičiní proudový náraz. Ten je zaznamenán vnitřními obvody a paměť je následně zapnuta. Díky tomu, že atom zůstane vychýlen i po odstranění pole zůstává informace uchována.
 Feroelektrický materiál uvnitř feroelektrického kondezátoru v podobě tenkého filmu mezi elektrodami.
@@ -533,7 +533,7 @@ Snadné připojení k CPU.\\
 \end{figure}
 
 \subsubsection*{DRAM - Dynamická RAM}
-K zapamatování informace využívá náboj na kondenzátoru o kapacitě řádově desítky fF (femtofarad $10^{-15}$ F).\\
+K zapamatování informace využívá náboj na kondenzátoru o kapacitě řádově desítky fF (femtofarad \(10^{-15}\) F).\\
 Paměťová buňka je malá - 1 tranzistor a 1 kondenzátor.\\
 Náboj v kondenzátoru je třeba obnovovat, aby nedošlo ke ztrátě informace. Tomuto se říká refresh, je nutno jej provádět každých 64ms\\
 Na stejné ploše čipu má DRAM větší kapacitu, než SRAM => nižší cena za 1 bit u paměti SRAM.\\
@@ -566,8 +566,8 @@ Adresa je tvořena:
 
 \subsection{Připojování paralelních pamětí SRAM, FLASH ke sběrnicím procesoru}
 \begin{itemize}
-    \item $A_x$ - adresové sběrnice
-    \item $D_x$ - datové sběrnice
+    \item \(A_x\) - adresové sběrnice
+    \item \(D_x\) - datové sběrnice
     \item MEMR\ - řidicí sběrnice memory read
     \item MEMW\ - řidicí sběrnice memory write
     \item OE\ - output enable
@@ -681,7 +681,7 @@ Jednoduché procesory nemají MMU a pracují přímo s fyzickými adresami.\\
 Logický prostor je rozdělen na části stejné velikosti, takzvané stránky. Obvyklá velikost je 4KB.\\
 Fyzická paměť je rozdělena na rámce. Velikost rámce je stejná jako velikost stránky. \\
 Logická adresa se skládá z offsetu, který určuje vzdálenost od začátku stránky a čísla stránky, který určuje číslo stránky. Položky tabulky stránek určují číslo rámce.\\
-Položka obsahuje příznak přítomnosti/nepřítomnosti stránky ve fyzické paměti. Realizace pomocí jednoho bitu. Když se nenachází, generuje přerušení(page fault) a OS musí zajistit přesunutí stránky do fyzické paměti z pevného disku.\\
+Položka obsahuje příznak přítomnosti/nepřítomnosti stránky ve fyzické paměti. Realizace pomocí jednoho bitu. Když se nenachází, generuje přerušení (page fault) a OS musí zajistit přesunutí stránky do fyzické paměti z pevného disku.\\
 Bity ochrany určují jaké operace jsou se stránkou povoleny. V jednodušším případě pouze 1 bit, 0 je R/W a 1 je pouze R. Sofistikovanější využívá 3 bity, bit povolující čtení, zápis a spouštění kódu ve stránce. \\
 Bit odkazu na stránku se nastavuje vždy když je stránka čtena, nebo je do ní zapsáno. Bit pomáhá OS rozhodnout, kterou stránku uvolnit z fyzické paměti, když jsou zaplněny všechny rámce a je požadováno do fyzické paměti umístit další stránku. \\
 \begin{figure}[h!]
@@ -711,4 +711,4 @@ Typ cache paměti.\\
 Jsou v něm uloženy posledně používané lineární adresy a jejich odpovídající fyzické adresy.\\
 Nová adresa se prvně hledá v TLB.\\
 Většina programů provádí velké množství odkazů do malého počtu stránek.\\
-Je součástí MMU. \\
+Je součástí MMU.\\
