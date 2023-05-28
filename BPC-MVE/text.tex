@@ -853,7 +853,314 @@ Základní měřicí přístroj umožňující zobrazi časově proměnný sign�
 \section{Měření frekvence, časového intervalu a fáze. Univerzální čítač - princip, vlastnosti.}
 
 \section{Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.}
+Pasivní elektrické veličiny popisují vlastnosti pasivních součástek.\\
+Definovány pomocí aktivních elektrických veličin.\\
+Měřitelné na základě přiloženého napětí na součástce a vyhodnocením velikosti protékajícího proudu součástkou.\\
+\subsection{Měření elektrického odporu}
+Odpory dělíme na malé (\(<10^{-1}\Omega \)), střední (\(10-10^6\Omega \)) a velké (\(>10^6\Omega \)).\\
+Z hlediska měřícího postupu rozeznáváme metody:
+\begin{enumerate}
+    \item Výchylkové - méně přesné, výsledek ovlivněn přesností jednotlivých členů zapojení a přesností použitých přístrojů.
+    \item Nulové metody - přesnost měřícího přístroje neovlivňuje výsledek měření, přístroj se používá pouze k indikaci stavu měření, použití pro přesná měření
+\end{enumerate}
+\subsubsection{Metody měření elektrického odporu}
+\begin{itemize}
+    \item Ohmova metoda
+    \item Měření odporu uzemněním
+    \item Srovnávací metoda
+    \item Substituční metoda
+    \item Přímo-ukazující měřiče odporu
+    \item Nulové metody (mostová měření, číslicové měření odporu)
+\end{itemize}
 
+\subsubsection{Ohmova metoda}
+Jediná vhodná metoda pro měření lineárních i nelineárních odporů.\\
+Hodnota se stanovuje nepřímo výpočtem ze změřeného proudu a napětí.\\
+Dvě metody zapojení, obě zatížena chybou metody.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/Ohm1.png}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/Ohm2.png}
+\end{figure}
+
+\subsubsection{Měření odporu uzemněním}
+Odpor uzemnění jako přechodový odpor mezi zemnícím vodičem a zemí.\\
+Měří se pomocí ohmovy metody.\\
+Umístění sond: napěťová na vzdálenost nejméně 20 metrů, proudová nejméně 40 metrů.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/OdporUzem.png}
+\end{figure}
+
+\subsubsection{Srovnávací metoda}
+Přenost až 0.1\%.\\
+Vhodnost pro měření velkého počtu rezistorů.\\
+Snadná realizace automatického měření s využitím jednoho přístroje, který přepíná mezi měřeným a srovnávacím „kusem“.\\
+Sériové zapojení pro malé odpory, paralelní pro větší odpory.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/SrovMetodOdp.png}
+\end{figure}
+
+\subsubsection{Substituční metoda}
+Slouží pro přesná porovnání skutečných hodnot odporu dvou rezistorů o stejné jmenovité hodnotě.\\
+Zvláštní případ porovnávací metody.\\
+Použitelné i pro měření jiných veličin (např. kapacita, indukce).\\
+
+\subsubsection{Přímoukazující měřiče}
+Analogové. Většinou převodník odpor-napětí.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.6]{images/Primouk1.png}
+\end{figure}
+
+Nelineární závilost a tudíž nelineární stupnice.\\
+Velký měřící rozsah(\(10\Omega - 10M\Omega\)).\\
+Konstatní relativní chyba.\\
+Změna rozsahu znamená změnu odporu \(R_N\).\\
+Převodník odporu na napětí s operačním zesilovačem.\\
+Možnost čtyřsvorkového připojení měřeného odporu -> eliminace odporu přívodů a svorkových napětí.
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.6]{images/Primouk2.png}
+\end{figure}
+
+\subsubsection{Nulové metody}
+Pro přesné měření odporů (0,01\% laboratorní, 1\% technické).\\
+Wheatstoneův můstek:
+\begin{itemize}
+    \item Nejznámnější můstek k měření odporu
+    \item Vhodná pro měření středních odporů
+    \item Tvořen 4 rezistory a citlivým nulovým indikátorem
+    \item Napájení ze zdroje napětí, nebo proudu
+    \item Největší využití při měření neelektrických veličin a v regulační technice
+    \item Citlivost Wheatstoneova můstku:
+          \begin{itemize}
+              \item Do návrhu musí být zahrnut galvanometr
+              \item Citlivost vyjádřena jako poměr změn výstupní veličiny a vstupní veličiny
+              \item Citlivost závisí na citlivosti galvanometru, napětí zdroje, vzájemném poměru odporů v můstku
+          \end{itemize}
+    \item Přesnost můstku:
+          \begin{itemize}
+              \item Závisí na citlivosti můstku, stálosti nulové výchylky galvanometru, přesnosti rezistorů můstku(chyby se sčítají)
+              \item Pokud chceme dosáhnout lepší přesnosti, je třeba omezit přechodové odpory a termoelektrické napětí
+          \end{itemize}
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.3]{images/Wheatstone.png}
+\end{figure}
+
+Thompsonův můstek:
+\begin{itemize}
+    \item Určen pro měření malých odporů
+    \item Zapojení odporů do obvodu čtyřsvorkově
+    \item Přesnost až 0,1\%
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{images/Thompson.png}
+\end{figure}
+
+Číslicové měření odporu - napájení DC nebo AC signálem o nízké frekvenci.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/CislMerOdp.png}
+\end{figure}
+
+\subsection{Měření kapacity}
+Kapacita je hlavním parametrem kapacitorů.\\
+Kapacitance \(X_C\) je zdánlivý odpor součástky s kapacitou proti průchodu elektrického proudu.\\
+Kapacitory pokládáme za lineární a natolik kvalitní, že není důvod měřit parazitní elektrické veličiny (odpor, indukčnost).\\
+\subsubsection{Metody měření}
+\begin{enumerate}
+    \item Přímoukazující přístroje
+    \item Rezonanční přístroje
+    \item Mostové přístroje
+\end{enumerate}
+\subsubsection{Přímoukazující měřiče}
+\begin{center}
+    \(C = \frac{I}{2\pi f U_c}\)
+\end{center}
+Hodnota kapacity je udávána přímo analogově nebo číslicově pomocí:
+\begin{itemize}
+    \item Poměru velikostí harmonického proudu I tekoucího měřenou kapacitou C a velikostí napětí na ní
+    \item Převodem kapacity na harmonické napětí měřené elektronickým voltmetrem
+    \item Převodem kapacity na časový interval měřený číslicově
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.5]{images/PrimoukC1.png}
+\end{figure}
+Měření kapacity s převodem na napětí:
+\begin{itemize}
+    \item rezonanční obvod s měřenou kapacitou
+    \item indikátor reagující na napětí v rezonančním obvodu (sériový - napěťové buzení, paralelní - proudové)
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/PrimoukC2.png}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/PrimoukC3.png}
+\end{figure}
+
+\subsubsection{Mostové měřiče}
+Široký měřící rozsah a dobrá přesnost při vyvážení mostu do pravé rovnováhy.\\
+Měřič obsahuje:\\
+\begin{itemize}
+    \item zdroj harmonického signálu
+    \item měřící obvod v mostovém zapojení s měřenou kapacitou
+    \item střídavý indikátor
+\end{itemize}
+Vyvážení mostu do rovnováhy:\\
+\begin{itemize}
+    \item indikátor ukazuje minimální hodnotu výstupního signálu mostu
+    \item hodnota měřené kapacity se určí z nastavení vyvažovacích prvků v mostě
+\end{itemize}
+Rozsah měření 0,1pF - 1mF.\\
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.5]{images/CMost.png}
+\end{figure}
+
+\subsection{Měření indukčnosti}
+Duální k měření kapacity, obdobné metody.\\
+Indukčnost jako závislost na protékajícím proudu se musí měřit pomocí dostatečně malého harmonického signálu.\\
+\subsubsection{Metody měření}
+\begin{itemize}
+    \item Přímo ukazující
+    \item Rezonanční
+    \item Mostové
+\end{itemize}
+
+\subsubsection{Rezonanční měřič}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/RezonMerL.png}
+\end{figure}
+
+\subsubsection{Mostový měřič}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MostMerL1.png}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MostMerL2.png}
+\end{figure}
+
+\subsubsection{Měření vzájemné indukčnosti}
+Vzájemná indukčnost vyjadřuje stupeň vazby mezi dvěma vázanými induktory.\\
+Metody měření: Přímá, diferenční, měření naprázdno a nakrátko.\\
+
+Přímá metoda:\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/VzLPrima.png}
+\end{figure}
+
+Diferenční metoda:\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/VzLDiff.png}
+\end{figure}
+\newpage
+Měření naprázdno a nakrátko:\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/VzLNN.png}
+\end{figure}
+
+\subsection{Měření impedance(imitance)}
+Imitance je společný název pro impedanci(zdánlivý odpor) a admitanci(zdánlivá vodivost).\\
+
+\subsubsection{Metody měření}
+\begin{itemize}
+    \item Metody s přímým měřením
+          \begin{itemize}
+              \item R, L, C
+              \item Z, Y
+              \item Analyzátory obvodů
+          \end{itemize}
+    \item Rezonační obvody
+          \begin{itemize}
+              \item Sériová rezonance, Q-metry
+              \item Paralelní rezonance, měřiče ztrátového odporu
+          \end{itemize}
+    \item Nulové metody (nejpřesnější)
+          \begin{itemize}
+              \item Mostové
+              \item Kompenzační
+          \end{itemize}
+    \item Pro VVF využívající (nad 100Mhz)
+          \begin{itemize}
+              \item Měřící vedení(náročné mechanicky a konstrukčně)
+              \item Směrové odbočnice
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Měření imitance}
+Určení imitance měřením napětí a fáze. Na základě ohmova zákona z hodnot harmonického napětí na imitanci a proudu protékajícím imitancí. Modul impedance Z se určí z poměru amplitud obou veličin. Fázový úhel se určí z fázového rozdílu těchto veličin.\\
+Dvy typy zapojení, buzení s konstantním napětím a buzení s konstantním proudem.\\
+
+\subsubsection{Měřič imitance s přímým údajem}
+Neznámá impedance Zx je vypočtena z měřeného napětí a proudu.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{images/ImitPrim.png}
+\end{figure}
+
+\subsubsection{IV sonda}
+Vychází z měření přímého údaje a jeho výpočtu impedance.\\
+Proud je u sondy měřen nepřímo přes vysokofrekvenční proudový transformátor.\\
+Základní metoda do 100 MHz.\\
+
+\subsubsection{Q metr}
+Vychází z rezonanční metody - sériové zapojení.\\
+Slouží pro stanovení činitele jakosti Q.\\
+
+\subsubsection{Rezonanční metoda}
+Měření vychází z chování rezonančních obvodů ve stavu resonance.\\
+Možnosti:\\
+\begin{itemize}
+    \item Paralelní rezonanční obvod - hledáme maximum napětí na rezonančním obvodu při napájení ze zdroje s velkým vnitřním odporem
+    \item Sériový rezonanční obvod - hledáme maximum proudu s malým vnitřním odporem
+\end{itemize}
+Modifikace metody vychází z toho, zda je k dispozici normálová kapacita nebo indukčnost.\\
+
+\subsubsection{Mostová měření}
+Do 100 MHz. \\
+Mechanicky náročné.\\
+Přesnost 1\%.\\
+Typy mostů:
+\begin{itemize}
+    \item Pro imitanci indukčního charakteru:
+          \begin{itemize}
+              \item Owanův
+              \item Hayův
+              \item Maxwell-Wienův
+              \item Rezonanční
+          \end{itemize}
+    \item Pro imitanci kapacitního charakteru:
+          \begin{itemize}
+              \item De Sautyho
+              \item Scheringův
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Srovnání metod měření impedance}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{images/srovnani.png}
+\end{figure}
 
 \section{Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků - měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.}
 Problémy při měření magnetických veličin:
@@ -1008,7 +1315,7 @@ Hysterezní křivka:
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/KrivkyMag.png}
-\end{figure}
+\end{figure}ˇ
 
 \subsubsection{Měření na uzavřených vzorcích}
 \begin{figure}[h!]

@@ -22,7 +22,7 @@ Státnicové předměty pro rok 2022/23 jsou následující
 - [x] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
 - [ ] Číslicové osciloskopy – princip, vlastnosti, jejich příslušenství.
 - [ ] Měření frekvence, časového intervalu a fáze. Univerzální čítač – princip, vlastnosti.
-- [ ] Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.
+- [x] Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.
 - [x] Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků – měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.
 
 ### BPC-LOS
