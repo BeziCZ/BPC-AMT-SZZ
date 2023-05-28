@@ -91,10 +91,18 @@ popsány stavovými rovnicemi:
     \item časově variantní
     \item časově invariantí (paramtry se v čase nemění)
 \end{itemize}
-
+%----------------------------------
+\newpage
 \section{Ustálené chování nelineárních dynamických systémů (rovnovážné stavy, mezní cyklus, metoda
 harmonické rovnováhy, stabilita mezního cyklu)}
 
+Není v otázce přímo zmíněný ale asi dobrý vědět.
+
+\includegraphics[scale = 0.8]{img/trajektorie.png}
+{
+\it stavová trejektorie (po systém 2. řádu) je 3d graf ukazuje jak se v čase mění vnitřní stavy systému.
+Požívá se průmět stavové trajektorie, ukazuje jak se bude systém chovat, šipkou naznačeno odkuk kam se bude v čase pohyboavt.
+}
 \subsection{rovnovážný stav}
 Stav systému, ktrý se v čase nemění. x=0 Průmět stavové trajekotrie je bod. Určíme
 ho jako \[ \dot{x} = 0 \]
@@ -112,4 +120,70 @@ O stabilitě/nestabilitě lze rohodnou lineazizací rozvojem do taylorovy řady 
 
 
 \subsubsection{mezní cyklus}
+Mezní ckyclus nastáva pokud se stavysystému pridicky opakují, průmět satv trajetorie je uazvřený obrazec (kruh).
+Matematicky řečeno :
+\[x(t+T)=x(t)\]
+t-čas \\ T-perioda\\
 
+Mezní cykus muže být stbiln polostabilní nebo nesatbilní:  
+
+
+\includegraphics{img/mez_cykly.png}
+
+
+Zda vrnikou mezní cykly jde určit metodou harmonické rovnováhy
+\subsubsection*{metoda harmonické rovnováhy}
+Vyžívá ekvivalentního opřenosu nelinearity ke zkoumání mezních cyklů.
+
+\subsubsection*{ekvivaletní přenos}
+nelinearitu nahradíme nahdíme ekvivaletním přenosem $N_e$, ten je závislá na AMplitudě vstupního signálu A.
+
+Ekvivalenní přenos zsíkáme  tak, že odezvu nelinearity na harmonický průběh o amplitudě A, převdeme pomocí furierovy tranformace na jeho ekvivaletní přenos. U furierovy transformace uvažujeme pouze 1. harmonickou, 
+protože se bere že další části obvodu mají charakter dolní propusti. Matematicky řečeno:
+\begin{equation*}
+    N_e= \frac{a_1+j\cdot b_1}{A}
+\end{equation*}
+kde
+\begin{equation*}
+    a_1=\frac{2}{T} \int_{0}^{T} f(e) \cdot sin(\omega t) dt
+\end{equation*}
+
+\begin{equation*}
+    a_1=\frac{2}{T} \int_{0}^{T} f(e) \cdot cos(\omega t) dt
+\end{equation*}
+
+{\bf Tuto náhradu lze použít pouze pokud}
+\begin{itemize}
+    \item je dalším prvkem v regulačním obvodu systém typu doní propust, který dostatečně potlačuje vyšší harmonické
+    \item nelinearita při vstupním signálu $e=A\cdot sin (\omega t) $ negeneruje stejnosměrnou složku
+\end{itemize}
+
+
+
+Zjištění mezních cyklů 
+
+
+\includegraphics{img/harm.rovnovha.png}
+
+Pro urční mezních cyhlů musý být systém jako je na obrázku, kde f je nelinearita a G je lin přenos typu dolní propust.
+
+Mezní cykly v systému vzniknou pokud bude "$ F_o =-1 $", tedy pokud bude výstup systému 
+roven jeho vytupu posuntému o 180°, matematicky :
+\begin{equation*}
+    A= N_e \cdot G \cdot A
+\end{equation*}
+Úpravou dostaneme podmínku vzniku mezních cyklů jako :
+\begin{equation*}
+    G=\frac{-1}{N_e}
+\end{equation*}
+Tato rovnice často nelze numericky řešit a musí se řešit garficky.
+
+\includegraphics{img/garf.reseni.png}
+
+dál lze touto metodou určit jeslti je mezní cyklus stabilní, pomocí modifikovaného Nyquistova kritéria :
+ napříklda u bodu 1, pokud se sníží A dostaneme se do bodu 1'' pokud je charakteristika G nalevo do něj systém bude nstabilní tj amplituda se opět zvýší, pokud A zvýšíme dostame se do bodu 1' systém bude stabilní a ampiluda se zmeší, mezní cyklus v bodě 1 je tedy stabilní.
+
+ Tupě řečeno mezní cyklus je stabilní pokud se po snížení A nachází bod 1'' napravo od G a při zvýšení A se bod 1' nachází nalevo do G.
+ mezní cyklus v bodě 1 je stabilní mezni cyklus v bodě 2 nemí.
+ 
+ \includegraphics{img/stab.mez.cyklu.png}
