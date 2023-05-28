@@ -2,9 +2,8 @@
 vliv parazitních nelinearit na průběh regulačního děje)}
 
 
-
 \subsection{bez dynamiky}
-Systém reaguje na odezvu okamžitě, nebo je jeho časová kosatanta výrazně nižší něž zyblé čas. konstanty.
+Systém reaguje na odezvu okamžitě, nebo je jeho časová konstanta výrazně nižší něž zbylé čas. konstanty.
 Dělí se na :
 
 \begin{itemize}
@@ -19,14 +18,14 @@ Dá se vyjádřit jako funkce
     y=f(u)
 \end{equation}
 
-Na zákadě aktuální hodoty se určí výstup. Dá se jednoduše linearizovat rozvojem da taylorovy řady, nebo do polynomu.
-posána funkcí, grafem, tabulkou.
+Na základě aktuální hodnoty se určí výstup. Dá se jednoduše linearizovat rozvojem da Taylorovi řady, nebo do polynomu.
+popsána funkcí, grafem, tabulkou.
 \\
 např. :  saturace, tření\dots
 \\
 \\
 \subsubsection*{nelinearita z pamětí}
-Výstup zálezí i na předchozích satvech, nelze jednoduše popsat jako funkce, často se popisuje slovně nebo jako algorytmus.
+Výstup záleží i na předchozích stavech, nelze jednoduše popsat jako funkce, často se popisuje slovně nebo jako algoritmus.
 \\
 např.: vůle v převodech, relé s hysterezí
 
@@ -34,11 +33,11 @@ např.: vůle v převodech, relé s hysterezí
 
 \subsubsection*{nasycení(saturace)}
 \begin{itemize}
-    \item nejběžnejší nelinearita (obsahuje ji vpodstatě každý reálný systém)
+    \item nejběžnější nelinearita (obsahuje ji v podstatě každý reálný systém)
     \item dá se s ní pracovat jako s po částech lineární funkcí
-    \item pokud zajistíme že se systém nedosatne z <b,a> lze prát jako lin. f-ce 
+    \item pokud zajistíme že se systém nedostane z <b,a> lze prát jako lin. f-ce 
     \item např.: nádrž co přeteče
-    \item (je jedním z faktorů pro vzik wind up jevu)
+    \item (je jedním z faktorů pro vznik wind up jevu)
     \item bez paměti
 \end{itemize}
 \includegraphics[]{img/saturace.png}
@@ -55,11 +54,11 @@ např.: vůle v převodech, relé s hysterezí
 
 \subsubsection*{vůle v převodech (hystereze)}
 \begin{itemize}
-    \item při změně pohybu chíli trvá než se něco začne dít
-    \item v převodovkách , nebo při magnetizaci železa (hysterezní symčka- v otázce MVE mag. měřemí)
-    \item v převodovce lze odstarnit tak že druhý motor tlačí vždycky proti
+    \item při změně pohybu chvíli trvá než se něco začne dít
+    \item v převodovkách, nebo při magnetizaci železa (hysterezní smyčka- v otázce MVE mag. měření)
+    \item v převodovce lze odstranit tak že druhý motor tlačí vždycky proti
     \item rádi se na to ptají
-    \item vetšinou nelze linearizovat
+    \item většinou nelze linearizovat
     \item s pamětí
 \end{itemize}
 \includegraphics{img/vule.png}
@@ -67,7 +66,7 @@ např.: vůle v převodech, relé s hysterezí
 \subsubsection*{tření}
 \begin{itemize}
     \item v mech systémech
-    \item špatně se linearizuje v oklí 0
+    \item špatně se linearizuje v okolí 0
     \item bez paměti
 \end{itemize}
 \includegraphics{img/treni.png}
@@ -79,17 +78,15 @@ např.: vůle v převodech, relé s hysterezí
 \end{itemize}
 \includegraphics*{img/rele.png}
 
-
 \subsection{s dynamikou}
 popsány stavovými rovnicemi:
 \[
     \frac{dx}{dt}=f(x,u)\]
     \[y=g(x,u)\]
 
-
 \begin{itemize}   
     \item časově variantní
-    \item časově invariantí (paramtry se v čase nemění)
+    \item časově invariantí (parametry se v čase nemění)
 \end{itemize}
 %----------------------------------
 \newpage
@@ -100,45 +97,42 @@ Není v otázce přímo zmíněný ale asi dobrý vědět.
 
 \includegraphics[scale = 0.8]{img/trajektorie.png}
 {
-\it stavová trejektorie (po systém 2. řádu) je 3d graf ukazuje jak se v čase mění vnitřní stavy systému.
-Požívá se průmět stavové trajektorie, ukazuje jak se bude systém chovat, šipkou naznačeno odkuk kam se bude v čase pohyboavt.
+\it stavová trajektorie (po systém 2. řádu) je 3d graf ukazuje jak se v čase mění vnitřní stavy systému.
+Požívá se průmět stavové trajektorie, ukazuje jak se bude systém chovat, šipkou naznačeno odkud kam se bude v čase pohybovat.
 }
 \subsection{rovnovážný stav}
-Stav systému, ktrý se v čase nemění. x=0 Průmět stavové trajekotrie je bod. Určíme
+Stav systému, ktrý se v čase nemění. x=0 Průmět stavové trajektorie je bod. Určíme
 ho jako \[ \dot{x} = 0 \]
-Systém může mít o vice rovnocážných stavů, také nemusí mít žádný.
+Systém může mít o vice rovnovážných stavů, také nemusí mít žádný.
 
 Rovnovážné stavy mohu být:
 \begin{itemize}
-    \item izolované - pokud kolem něj exzistuje jeho maůlé okolí ve kterém se nenachází dlaší rovnovážný stav.
+    \item izolované - pokud kolem něj existuje jeho malé okolí ve kterém se nenachází další rovnovážný stav.
     \item neizolované
 \end{itemize}
 
-U rovnovážných stavů pak můžeme řešit jejich stbilitu pokud se systém po drobném vychýlení do rovanážného 
-satvu vrátí je rovnovážný stav stabilní.
-O stabilitě/nestabilitě lze rohodnou lineazizací rozvojem do taylorovy řady (podle polohy pólů náhrady)
-
+U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnaného 
+stavu vrátí je rovnovážný stav stabilní.
+O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovi řady (podle polohy pólů náhrady)
 
 \subsubsection{mezní cyklus}
-Mezní ckyclus nastáva pokud se stavysystému pridicky opakují, průmět satv trajetorie je uazvřený obrazec (kruh).
+Mezní cyklus nastává pokud se stavy systému periodicky opakují, průmět stav trajektorie je uzavřený obrazec (kruh).
 Matematicky řečeno :
 \[x(t+T)=x(t)\]
 t-čas \\ T-perioda\\
 
-Mezní cykus muže být stbiln polostabilní nebo nesatbilní:  
-
+Mezní cyklus muže být stabilní polostabilní nebo nestabilní:  
 
 \includegraphics{img/mez_cykly.png}
 
-
-Zda vrnikou mezní cykly jde určit metodou harmonické rovnováhy
+Zda vzniknou mezní cykly jde určit metodou harmonické rovnováhy
 \subsubsection*{metoda harmonické rovnováhy}
-Vyžívá ekvivalentního opřenosu nelinearity ke zkoumání mezních cyklů.
+Vyžívá ekvivalentního přenosu nelinearity ke zkoumání mezních cyklů.
 
 \subsubsection*{ekvivaletní přenos}
-nelinearitu nahradíme nahdíme ekvivaletním přenosem $N_e$, ten je závislá na AMplitudě vstupního signálu A.
+nelinearitu nahradíme ekvivalentním přenosem $N_e$, ten je závislá na Amplitudě vstupního signálu A.
 
-Ekvivalenní přenos zsíkáme  tak, že odezvu nelinearity na harmonický průběh o amplitudě A, převdeme pomocí furierovy tranformace na jeho ekvivaletní přenos. U furierovy transformace uvažujeme pouze 1. harmonickou, 
+Ekvivalentní přenos získáme  tak, že odezvu nelinearity na harmonický průběh o amplitudě A, převedeme pomocí Fourierovy transformace na jeho ekvivalentní přenos. U Fourierovy transformace uvažujeme pouze 1. harmonickou, 
 protože se bere že další části obvodu mají charakter dolní propusti. Matematicky řečeno:
 \begin{equation*}
     N_e= \frac{a_1+j\cdot b_1}{A}
@@ -154,21 +148,19 @@ kde
 
 {\bf Tuto náhradu lze použít pouze pokud}
 \begin{itemize}
-    \item je dalším prvkem v regulačním obvodu systém typu doní propust, který dostatečně potlačuje vyšší harmonické
+    \item je dalším prvkem v regulačním obvodu systém typu dolní propust, který dostatečně potlačuje vyšší harmonické
     \item nelinearita při vstupním signálu $e=A\cdot sin (\omega t) $ negeneruje stejnosměrnou složku
 \end{itemize}
 
 
-
 Zjištění mezních cyklů 
-
 
 \includegraphics{img/harm.rovnovha.png}
 
-Pro urční mezních cyhlů musý být systém jako je na obrázku, kde f je nelinearita a G je lin přenos typu dolní propust.
+Pro určení mezních cyklů musí být systém jako je na obrázku, kde f je nelinearita a G je lin přenos typu dolní propust.
 
 Mezní cykly v systému vzniknou pokud bude "$ F_o =-1 $", tedy pokud bude výstup systému 
-roven jeho vytupu posuntému o 180°, matematicky :
+roven jeho výstupu posunutému o 180°, matematicky :
 \begin{equation*}
     A= N_e \cdot G \cdot A
 \end{equation*}
@@ -176,14 +168,52 @@ roven jeho vytupu posuntému o 180°, matematicky :
 \begin{equation*}
     G=\frac{-1}{N_e}
 \end{equation*}
-Tato rovnice často nelze numericky řešit a musí se řešit garficky.
+Tato rovnice často nelze numericky řešit a musí se řešit graficky.
 
 \includegraphics{img/garf.reseni.png}
 
-dál lze touto metodou určit jeslti je mezní cyklus stabilní, pomocí modifikovaného Nyquistova kritéria :
- napříklda u bodu 1, pokud se sníží A dostaneme se do bodu 1'' pokud je charakteristika G nalevo do něj systém bude nstabilní tj amplituda se opět zvýší, pokud A zvýšíme dostame se do bodu 1' systém bude stabilní a ampiluda se zmeší, mezní cyklus v bodě 1 je tedy stabilní.
+dál lze touto metodou určit jestli je mezní cyklus stabilní, pomocí modifikovaného Nyquistova kritéria :
+ například u bodu 1, pokud se sníží A dostaneme se do bodu 1'' pokud je charakteristika G nalevo do něj systém bude nestabilní tj amplituda se opět zvýší, pokud A zvýšíme dostane se do bodu 1' systém bude stabilní a amplituda se zmenší, mezní cyklus v bodě 1 je tedy stabilní.
 
  Tupě řečeno mezní cyklus je stabilní pokud se po snížení A nachází bod 1'' napravo od G a při zvýšení A se bod 1' nachází nalevo do G.
- mezní cyklus v bodě 1 je stabilní mezni cyklus v bodě 2 nemí.
+ mezní cyklus v bodě 1 je stabilní mezní cyklus v bodě 2 není.
  
  \includegraphics{img/stab.mez.cyklu.png}
+
+ \section{Stabilita nelineárních systémů (definice, metody vyšetření, věty o nestabilitě, stabilita uzavřené regulační
+ smyčky)}
+
+ stabilitu určujeme podle Ljapunovových kritérií, ty platí pouze pro neřízené systémy.
+ podle Ljapunova existují následující stability :
+
+ \subsection{lokálně stabilní}
+ Pokud v (libovolně malém) okolí $\varepsilon $ rovnovážného stavu $x_0$ vybereme počáteční bod $\delta $ jeho trajektorie dané okolí nepustí.
+
+ \includegraphics{img/lok.stabilní.png}
+
+ podle Václavka :
+
+ \includegraphics{img/vaclave.lok.png}
+
+ \subsection{lokálně asymptoticky stabilní}
+Systém je lokálně stabilní viz předchozí odstavec a zároveň platí že pro $t=\infty$ se systém dostane do $x_0$
+
+\includegraphics[scale = 0.6]{img/lok.asypt.stab.png}
+
+podle Václavka:
+
+\includegraphics{img/vaclavek. lok.asypt..png}
+
+\subsection{globálně  asymptoticky stabilní}
+Pokud je systém lokálně asymptoticky stabilní a jeho okolí přitažlivosti (pokud v daném daného okolí umístíme systém skončí v $x_0$) zabírá 
+celý stavový prostor.
+
+jinými slovy pro libovolný bod stavového prostoru systém skončí v $x_0$.
+
+podle Václavka
+
+\includegraphics{img/vaclavek.golbal.png}
+
+Tato podmínka je docela tvrdá, proto se zavádí Praktická stabilita, systém je prakticky stabilní v oblasti $\Omega$ pokud je lokálně asymptoticky stabilní a má oblast přitažlivosti $\Omega$.
+
+
