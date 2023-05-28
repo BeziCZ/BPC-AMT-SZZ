@@ -1,39 +1,37 @@
-\title{Měření v elektrotechnice}
-
 \section{Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.}
 Chyba měřění = přesnost prováděného měření, vyjadřuje se jako rozdíl mezi naměřenou a skutečnou hodnotou měřené veličiny.
 \subsection*{Rozdělení}
 \begin{itemize}
     \item Chyby měření
-    \begin{itemize}
-        \item Absolutní
-        \item Relativní
-    \end{itemize}
+          \begin{itemize}
+              \item Absolutní
+              \item Relativní
+          \end{itemize}
     \item Chyba metody
     \item Chyba měřícího přístroje
-        \begin{itemize}
-            \item Třída přesnosti u analogových měřících přístrojů
-            \item Základní chyba číslicových měřících přístrojů
-        \end{itemize}
+          \begin{itemize}
+              \item Třída přesnosti u analogových měřících přístrojů
+              \item Základní chyba číslicových měřících přístrojů
+          \end{itemize}
     \item Chyby rušivými vlivy
     \item Podle způsobu výskytu
-        \begin{itemize}
-            \item systematické
-            \item náhodné
-            \item hrubé
-        \end{itemize}
+          \begin{itemize}
+              \item systematické
+              \item náhodné
+              \item hrubé
+          \end{itemize}
     \item podle místa vzniku
-        \begin{itemize}
-            \item Chyby metody měření
-            \item Chyba měřícího zařazení
-            \item Chyba použitých etalonů
-        \end{itemize}
+          \begin{itemize}
+              \item Chyby metody měření
+              \item Chyba měřícího zařazení
+              \item Chyba použitých etalonů
+          \end{itemize}
     \item podle příčiny vzniku
-        \begin{itemize}
-            \item Chyby experimentátora
-            \item způsobené rušivými vlivy
-            \item vliv přístroje na měřený objekt
-        \end{itemize}
+          \begin{itemize}
+              \item Chyby experimentátora
+              \item způsobené rušivými vlivy
+              \item vliv přístroje na měřený objekt
+          \end{itemize}
 \end{itemize}
 \newpage
 \subsection*{Absolutní chyba měření}
@@ -82,7 +80,7 @@ index M - naměřená hodnota \\
 index R - rozsah \\
 Relativní chyba:
 \begin{equation}
-    |\delta_p| = |\delta_M| + |\delta_R| 
+    |\delta_p| = |\delta_M| + |\delta_R|
 \end{equation}
 \\
 Způsob zapsání chyby:\\
@@ -109,7 +107,7 @@ směrodatná odchylka do jisté míry určuje přesnost měření - určuje tvar
 hrubý zásah do procesu měření, výrazně převyšuje rozptyl statistické chyby \\
 omyl člověka, výrazná změna podmínek, porucha\\
 \begin{figure}[H]
-        \includegraphics{images/chyby.png}
+    \includegraphics{images/chyby.png}
 
 \end{figure}
 
@@ -117,7 +115,7 @@ omyl člověka, výrazná změna podmínek, porucha\\
 Parametr přidružený k výsledku měření, který charakterizuje rozptyl hodnot, které by mohly být důvodně přisuzovány k měřené veličině s určitou pravděpodobností.\\
 \begin{itemize}
     \item Standartní nejistota typu A
-    \item Standartní nejistota typu B 
+    \item Standartní nejistota typu B
     \item Kombinovaná standartní nejistota
     \item Rozšířená standartní nejistota
     \item Nejistoty pro nepřímá měření
@@ -170,7 +168,7 @@ Vzorový výpočet pro nejistotu typu B pro digitální přístroj:
 \end{figure}
 
 \subsubsection*{Kombinovaná standartní nejistota}
-Geometrický součet nejistoty typu A a B 
+Geometrický součet nejistoty typu A a B
 \begin{equation}
     u_C(x) = \sqrt{u_A^2(x)+u_B^2(x)}
 \end{equation}
@@ -239,27 +237,27 @@ Kritéria hodnocení AD převodníku:
     \item rozlišovací schopnost
     \item krok kvantování
     \item chyba kvantování
-    \item rychlost převodu 
-    \item přesnost 
+    \item rychlost převodu
+    \item přesnost
     \item stabilita
 \end{itemize}
 \subsection*{Rozdělení AD převodníků}
 \begin{itemize}
     \item Komparační
-    \begin{itemize}
-        \item Metoda paralelního porovnání
-        \item Metoda sérioparalelního porovnání
-    \end{itemize}
+          \begin{itemize}
+              \item Metoda paralelního porovnání
+              \item Metoda sérioparalelního porovnání
+          \end{itemize}
     \item Kompenzační
-    \begin{itemize}
-        \item Kompenzační metoda
-        \item Metoda postupné aproximace
-    \end{itemize}
+          \begin{itemize}
+              \item Kompenzační metoda
+              \item Metoda postupné aproximace
+          \end{itemize}
     \item Integrační
-    \begin{itemize}
-        \item Integrační metoda (metoda dvojté integrace)
-        \item Převod napětí na kmitočet metodou jednoduché integrace 
-    \end{itemize}
+          \begin{itemize}
+              \item Integrační metoda (metoda dvojté integrace)
+              \item Převod napětí na kmitočet metodou jednoduché integrace
+          \end{itemize}
     \item Sigma-delta modulace
 \end{itemize}
 
@@ -270,7 +268,7 @@ krátká doba převodu(ns) - nejrychlejší\\
 drahý, není odolný vůči sériovému rušení
 \begin{figure}[H]
     \includegraphics*[scale = 1.3]{images/adc_komparacni.png}
-\end{figure} 
+\end{figure}
 \newpage
 \subsection*{Kompenzační A/D převodník}
 měřené konstantní napětí se porovnává se známým stavitelným kompenzačním napětím - nastavuje se tak, aby se blížilo měřenému\\
@@ -297,9 +295,9 @@ výsledkem integrace je střední hodnota\\
 Parametry:
 \begin{itemize}
     \item 10-27 bitové
-    \item vzorkovací frekvence 0,1Hz až 1kHz 
+    \item vzorkovací frekvence 0,1Hz až 1kHz
     \item pomalé
-    \item velká přesnost, eliminace sériového rušení 
+    \item velká přesnost, eliminace sériového rušení
 \end{itemize}
 Princip:
 \begin{itemize}
@@ -309,7 +307,7 @@ Princip:
 \end{itemize}
 
 \begin{equation}
-    N = f_hT_2 = f_hT_1\cdot \frac{U_{vst}}{Z_{REF}} = N_c \cdot \frac{U_{vst}}{Z_{REF}} 
+    N = f_hT_2 = f_hT_1\cdot \frac{U_{vst}}{Z_{REF}} = N_c \cdot \frac{U_{vst}}{Z_{REF}}
 \end{equation}
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/adc_integrac.png}
@@ -323,7 +321,7 @@ kmitočet výstupních impulsů je pak úměrný měřenému napětí
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/adc_V_na_f.png}
 \end{figure}
- 
+
 \subsection*{Sigma-delta modulace}
 Dle taktu Uc vzorkování na komparátor\\
 Uo obdelníkové, dle trvání vyšší a nižší hodnoty vyjadřuje Ux\\
@@ -342,7 +340,7 @@ dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
     \item Rozlišovací schopnost - dána počtem rozlišitelných úrovní analogového signálu. Pro n-bitový převodník je to $2^n$ úrovní
     \item Krok kvantování(citlivost) - rozdíl dvou hodnot vstupního analogového napětí, kdy nastává přechod od jednoho číslicového výstupu k druhému
     \item Chyba kvantování - maximální rozdíl mezi hodnotou analogové veličiny a hodnotou odpovídající danému ódovanému slovu(obvykle polovina kroku kvantování)
-    \item Rychlost převodu 
+    \item Rychlost převodu
     \item Přesnost - dána chybou převodníku
     \item Stabilita - vyjadřuje stálost převodníku při působení různých rušivých vlivů
 \end{itemize}
@@ -359,11 +357,11 @@ ideální voltmetr - nekonečný vnitřní odpor, reálně digitální 10MOhm, a
 \subsubsection*{Přístroje pro měření napětí}
 \begin{itemize}
     \item analogové
-    \begin{itemize}
-        \item reagují na hodnotu měřeného napětí výchylkou ručky
-        \item obsahují převodník pro změny rozsahů
-    \end{itemize}
-    \item analogové elektronické 
+          \begin{itemize}
+              \item reagují na hodnotu měřeného napětí výchylkou ručky
+              \item obsahují převodník pro změny rozsahů
+          \end{itemize}
+    \item analogové elektronické
     \item číslicové(stejnosměrný voltrmetr je základem multimetru)
 \end{itemize}
 \subsubsection*{Měření stejnosměrného napětí(DC)}
@@ -381,7 +379,7 @@ Dělí se podle šířky pásma:
 \newpage
 
 \subsubsection*{Měřicí transformátory napětí}
-k převodu měřené veličiny na velikost vhodnou k měření a ke galvanickému oddělení měřicích obvodů a přístrojů od vysokého napětí 
+k převodu měřené veličiny na velikost vhodnou k měření a ke galvanickému oddělení měřicích obvodů a přístrojů od vysokého napětí
 Transformační poměr pro idealizovaný stav:
 \begin{equation}
     p_U = \frac{U_1}{U_2} = \frac{N_1}{N_2}
@@ -443,7 +441,7 @@ Parametry:
     \item přesnost
     \item rozlišovací schopnost - velikost napětí na vstupu voltmwtru, která způsobí změnu údaje voltmetru o 1 na posledním místě číslicového zobrazovače při nejnižším rozsahu
     \item maximální měřené napětí - obvykle 1000 V DC a 750 V AC
-    \item rychlost měření 
+    \item rychlost měření
     \item časová stálost
     \item odolnost proti rušení
     \item vstupní impedance
@@ -454,23 +452,23 @@ Parametry:
 Chyby číslicových měřicích přístrojů:
 \begin{itemize}
     \item pevné chyby - nezávislé na velikosti vstupního signálu(vyjařují se v \% z měřicícho rozsahu), chyby způsobené:
-    \begin{itemize}
-        \item Driftem napěťové nesymetrie vstupního zesilovače
-        \item Vnitřním šumem přístroje
-        \item Zbytkovým napětím spínačů
-        \item Chyba kvantováním
-    \end{itemize}
+          \begin{itemize}
+              \item Driftem napěťové nesymetrie vstupního zesilovače
+              \item Vnitřním šumem přístroje
+              \item Zbytkovým napětím spínačů
+              \item Chyba kvantováním
+          \end{itemize}
     \item Chyby úměrné měřené hodnotě(projevují se multiplikativně, taky v \% z rozsahu) - způsobené chybami:
-        \begin{itemize}
-            \item přenosu zesilovačů
-            \item vstupní děliče
-            \item napětí referenčního přístroje
-        \end{itemize}
+          \begin{itemize}
+              \item přenosu zesilovačů
+              \item vstupní děliče
+              \item napětí referenčního přístroje
+          \end{itemize}
 \end{itemize}
 Změna rozsahu voltmetru:\\
 Rozsah se zvětší zapojením předřadného rezistoru do série - předřadník:\\
 \begin{figure}[H]
-    \includegraphics*[scale = 1.5]{images/predradnik.png}    
+    \includegraphics*[scale = 1.5]{images/predradnik.png}
 \end{figure}
 
 \subsection*{Měření proudu}
@@ -493,7 +491,7 @@ Velmi malé proudy se převádí pomocí velkého odporu napětí, které se mě
 \subsubsection*{Měření velkých proudů}
 Proudový transformátor:
 \begin{itemize}
-    \item pouze pro střídavý proud 
+    \item pouze pro střídavý proud
     \item úzký frekvenční rozsah
     \item levné, jednoduché
 \end{itemize}
@@ -505,7 +503,7 @@ Hallova sonda - polovodičový snímač magnetického proudu
 Vlastnosti:
 \begin{itemize}
     \item použití pro DC aj AC proud
-    \item rozsah měřených proudů od mA po stovky kA 
+    \item rozsah měřených proudů od mA po stovky kA
     \item do frekvence 25 kHz
     \item přesnost až 1\%
     \item digitální výstup
@@ -532,7 +530,7 @@ Parametry:
 \begin{itemize}
     \item transformační poměr
     \item jmenovitá hodnota sekundárního proudu
-    \item povolená sekundární zátěž 
+    \item povolená sekundární zátěž
 \end{itemize}
 Charakteristické údaje:
 \begin{itemize}
@@ -543,14 +541,14 @@ Charakteristické údaje:
 Přesnost převodu závisí na:
 \begin{itemize}
     \item velikosti měřeného proudu
-    \item kmitočtu měřeného proudu 
-    \item tvaru a vlastnostech jádra a vinutí 
-    \item velikost a charakteru sekundární impedance 
+    \item kmitočtu měřeného proudu
+    \item tvaru a vlastnostech jádra a vinutí
+    \item velikost a charakteru sekundární impedance
 \end{itemize}
 Parazitní vlivy:
 \begin{itemize}
-    \item rozptylová indukčnost obou vinutí 
-    \item ztráty v železe vlivem vířivých proudů 
+    \item rozptylová indukčnost obou vinutí
+    \item ztráty v železe vlivem vířivých proudů
 \end{itemize}
 \newpage
 Výhody:
@@ -564,10 +562,10 @@ Měření proudu pomocí multimetru:
 \begin{itemize}
     \item převod proudu na napětí - požadavek co nejmenší impedance
     \item typy převodníků:
-    \begin{itemize}
-        \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle poměrů vstupního odporu ampérmetru a bočníku
-        \item aktivní převodník - využití OZ
-    \end{itemize}
+          \begin{itemize}
+              \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle poměrů vstupního odporu ampérmetru a bočníku
+              \item aktivní převodník - využití OZ
+          \end{itemize}
 \end{itemize}
 
 \subsection*{Rušení u měřicích přístrojů}
@@ -583,37 +581,37 @@ Měření proudu pomocí multimetru:
     \item Mění se odpor měřicích cívek, předřadníků či bočníků a magnetická indukce permanentních magnetů
     \item předřadníky a bočníky dáváme do přední části přístroje, aby neovlivňovaly měčicí cívky, použijeme materiál, který má nepatrnou závislost na teplotě, chladící otvory
 \end{itemize}
- \subsubsection*{Vnější elektromagnetické pole}
- \begin{itemize}
-    \item působí zejména na přístroje, které pracují s vlastním slabým polem 
+\subsubsection*{Vnější elektromagnetické pole}
+\begin{itemize}
+    \item působí zejména na přístroje, které pracují s vlastním slabým polem
     \item bráníme stíněním měřicího ústrojí krytem z feromagnetického materiálu
- \end{itemize}
+\end{itemize}
 
- \subsubsection*{Kmitočet}
- \begin{itemize}
+\subsubsection*{Kmitočet}
+\begin{itemize}
     \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na kmitočtu závisí
     \item u každého přístroje se řeší individuálně
- \end{itemize}
+\end{itemize}
 \newpage
 
- \section{Měření výkonu v jednofázové a třífázové soustavě. Wattmetry - princip, typy vlastnosti.}
- Výkon stejnosměrného proudu:
- \begin{equation}
+\section{Měření výkonu v jednofázové a třífázové soustavě. Wattmetry - princip, typy vlastnosti.}
+Výkon stejnosměrného proudu:
+\begin{equation}
     P = U\cdot I \;\;\;\; [W]
- \end{equation}
- Výkon střídavého proudu:
- \begin{itemize}
+\end{equation}
+Výkon střídavého proudu:
+\begin{itemize}
     \item Okamžitý výkon(časový okamžik) $p(t) = u(t)\cdot i(t)$   [W]
     \item střední hodnota výkonu(časový interval) $P = \frac{1}{T}\int_0^Tp(t)dt = \frac{1}{T}\int_0^Tu(t)\cdot i(t)dt$    [W]
- \end{itemize}
+\end{itemize}
 
- Výkon harmonického proudu a napětí s fázovým posuvem:
- \begin{itemize}
+Výkon harmonického proudu a napětí s fázovým posuvem:
+\begin{itemize}
     \item Činný výkon    $P = U\cdot I \cdot cos \upvarphi $    [W]
     \item Jalový výkon   $Q = U\cdot I \cdot sin \upvarphi $    [VAr]
     \item Zdánlivý výkon  $S = U \cdot I$                     [VA]
- \end{itemize}
- Výkon neharmonických proudů a napětí: $P = U_0\cdot I_0 + \sum^{k=n}_{k=1}U_k\cdot I_k \cdot cos \upvarphi_k$     [W]
+\end{itemize}
+Výkon neharmonických proudů a napětí: $P = U_0\cdot I_0 + \sum^{k=n}_{k=1}U_k\cdot I_k \cdot cos \upvarphi_k$     [W]
 \subsection*{Měření výkonu v jednofázové soustavě}
 Metody:
 \begin{itemize}
@@ -631,7 +629,7 @@ dva způsoby, oba zatíženy chybou metody
 \newpage
 
 \subsubsection*{Metoda třemi voltmetry}
-Nepřímá metoda pro měření malých činných výkonů na malých impedancích zátěže Z 
+Nepřímá metoda pro měření malých činných výkonů na malých impedancích zátěže Z
 \begin{figure}[H]
     \includegraphics*[scale = 1.5]{images/voltrmetry3.png}
 \end{figure}
@@ -648,7 +646,7 @@ Nepřímá metoda pro měření malých činných výkonů na malých impedancí
 Charakter zátěže spotřebiče:
 \begin{itemize}
     \item Induktivní - kladný jalový výkon
-    \item Kapacitní - záporný jalový výkon 
+    \item Kapacitní - záporný jalový výkon
 \end{itemize}
 
 \subsubsection*{Měření zdánlivého výkonu}
@@ -736,25 +734,25 @@ Nutnost zajistit zpoždění fázoru napětí na napěťové cívce každého wa
 Rozdělení:
 \begin{itemize}
     \item Z funkčního hlediska:
-    \begin{itemize}
-        \item Průchozí - zapojuje se mezi zdroj a zátěž, měří výkon předávaný zdrojem do zátěže
-        \item Pohlcovací - měří výkon předávaný zdrojem do odporové zátěže obsažené ve wattmetru připojeného ke zdroji
-    \end{itemize}
-    \begin{figure}[H]
-        \includegraphics*[scale  = 1]{images/wattTypy.png}
-    \end{figure}
+          \begin{itemize}
+              \item Průchozí - zapojuje se mezi zdroj a zátěž, měří výkon předávaný zdrojem do zátěže
+              \item Pohlcovací - měří výkon předávaný zdrojem do odporové zátěže obsažené ve wattmetru připojeného ke zdroji
+          \end{itemize}
+          \begin{figure}[H]
+              \includegraphics*[scale  = 1]{images/wattTypy.png}
+          \end{figure}
     \item Podle způsobu měření a charakteru údaje:
-    \begin{itemize}
-        \item Analogové
-        \item Digitální 
-    \end{itemize}
+          \begin{itemize}
+              \item Analogové
+              \item Digitální
+          \end{itemize}
 \end{itemize}
 
 \subsubsection*{Průchozí wattmetr}
 Použití:
 \begin{itemize}
     \item nízkofrekvenční oblast
-    \item měření harmonických průběhů - energetika 
+    \item měření harmonických průběhů - energetika
     \item měření neharmonických průběhů - měření výkonu i harmonicky zkresleného průběhu v síti
 \end{itemize}
 
@@ -767,7 +765,7 @@ Rozdělení:
 \begin{itemize}
     \item Analogové wattmetry
     \item Číslicové wattmetry s analogovým zpracováním signálů
-    \item Číslicové wattmetry s číslicovým zpracováním signálů 
+    \item Číslicové wattmetry s číslicovým zpracováním signálů
 \end{itemize}
 
 Analogový wattmetr:
@@ -778,21 +776,21 @@ Analogový wattmetr:
 Číslicový wattmetr s analogovým zpracováním signálu
 \begin{itemize}
     \item Smodulační násobičkou
-    \begin{itemize}
-        \item chyba v desetinách procenta
-        \item frekvenční pásmo 0-10kHz 
-        \item Princip:
-        \begin{figure}[H]
-            \includegraphics*[scale  = 1]{images/wattAnalogPrincip.png}
-        \end{figure}
-    \end{itemize}
-\newpage
+          \begin{itemize}
+              \item chyba v desetinách procenta
+              \item frekvenční pásmo 0-10kHz
+              \item Princip:
+                    \begin{figure}[H]
+                        \includegraphics*[scale  = 1]{images/wattAnalogPrincip.png}
+                    \end{figure}
+          \end{itemize}
+          \newpage
 
     \item Hallova násobička
-    \begin{itemize}
-        \item Působí-li na plochu destičky z polovodičového materiálu magnetické pole o indukci B a protéká-li destičkou proud i, objeví se na zbývajících hranách hallovo napětí $U_H$
-        \item Napětí $U_H$ je nutno integrovat, abychom získali stejnosměrnou hodnotu úměrnou činnému výkonu P
-    \end{itemize}
+          \begin{itemize}
+              \item Působí-li na plochu destičky z polovodičového materiálu magnetické pole o indukci B a protéká-li destičkou proud i, objeví se na zbývajících hranách hallovo napětí $U_H$
+              \item Napětí $U_H$ je nutno integrovat, abychom získali stejnosměrnou hodnotu úměrnou činnému výkonu P
+          \end{itemize}
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale  = 1.3]{images/wattHallovaNasobicka.png}
@@ -823,7 +821,7 @@ Odporová zátěž:
 
 Voní zátěž:
 \begin{itemize}
-    \item pro střední a větší výkony(desítky W až kW) - přivedený měřený výkon protékající vodu ohřívá, měří se průtok a oteplení vody 
+    \item pro střední a větší výkony(desítky W až kW) - přivedený měřený výkon protékající vodu ohřívá, měří se průtok a oteplení vody
     \item buď v koaxiálním provedení(do 3 GHz) nebo vlnovodném provedení(nad 2GHz)
 \end{itemize}
 \begin{figure}[H]
@@ -835,11 +833,11 @@ Zátěž v podobě vedení:
     \item Pro měření menších výkonů(desítky W)
     \item použití "suché" zátěže ve formě bezodrazného zakončení koaxiálního vedení nebo vlnovodného vedení
     \item telpota zátěže, která závisí na rozptylovém výkonu, se měří pomocí:
-    \begin{itemize}
-        \item termočlánkového snímače
-        \item diodového snímače
-        \item termistorového snímače
-    \end{itemize}
+          \begin{itemize}
+              \item termočlánkového snímače
+              \item diodového snímače
+              \item termistorového snímače
+          \end{itemize}
 \end{itemize}
 
 \section{Číslicové osciloskopy - princip, vlastnosti, jejich příslušenství}
@@ -853,3 +851,189 @@ Základní měřicí přístroj umožňující zobrazi časově proměnný sign�
 
 % SEM psát od zadu
 
+\section{Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků - měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.}
+Problémy při měření magnetických veličin:
+\begin{itemize}
+    \item Obtížné stanovení přesné dráhy magnetického toku a plochy, kterou magnetické toky prostupují.
+    \item Změna teploty vzorku ovlivňuje magnetické vlastnosti.
+    \item Mechanické namáhání mlže ovlivnit magnetické vlastnosti.
+    \item Ovlivnění výsledků měření vnějšími magnetickými poli.
+\end{itemize}
+
+\subsection{Magnetické převodníky}
+Převod měřené veličiny (B, H, \(\mu r\)) na elektrický signál.\\
+Typy převodníků:
+\begin{itemize}
+    \item Měřící cívka
+    \item Hallova sonda
+    \item Feromagnetická sonda
+    \item Rogowskiho-Chattockův potenciometr
+    \item Anizotropní magnetorezistor
+\end{itemize}
+\subsection{Měřící cívka}
+Převodník změny magnetického toku \(\Phi \) [Wb] na elektrické napětí u(t).\\
+Použití pro střídavé magnetické pole bet stejnosměrné složky.\\
+\begin{center}
+    \(u(t) = -N\cdot\frac{d\Phi}{dt} = -N\cdot S\cdot \frac{dB}{dt}\)
+\end{center}
+Kmitočtové omezení je dáno vlastní rezonancí cívky.\\
+Mění-li se magnetický tok \(\Phi\) obepínaný N závity měřicí cívky, indukuje se v cívce napětí u(t):
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{images/MerCivka.png}
+\end{figure}
+
+\subsection{Hallova sonda}
+Využití Hallova jevu.\\
+Sonda s polovodičovou destičkou.\\
+Stejnosměrný proud I tekoucí v podélném směru.\\
+Lorentzova síla - působí na pohybující se nosiče elektrického náboje v magnetickém poli. Jev spočívá ve vychylování směru toku el. Proudu v závislosti na velikosti indukce mag. Pole, které je kolmé na polovodičovou destičku.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MVEHall1.png}
+\end{figure}
+\begin{center}
+    \(u_H = \frac{R_H\cdot I}{d}\cdot B [V]\)
+\end{center}
+Kde \(R_H\) je Hallova konstanta \([m^3/C]\)
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MVEHall3.png}
+\end{figure}
+
+\subsubsection{Charakteristika a použití}
+\begin{itemize}
+    \item Malé konsrukční rozměry
+    \item Měření kolmé složky magnetické indukce ve vzduchových mezerách
+    \item Měření nejsou ovlivňována, sonda nemá feromagnetické části
+    \item Malý napájecí proud(10-100mA)
+    \item Dobrá linearita převodní charakteristiky
+    \item Meření stejnosměrných a střídavých magnetických polí nízkých kmitočtů
+    \item Nevýhoda - teplotní závislost (kompenzace pomocí polovodičů s opačným teplotním koeficientem než má sonda)
+\end{itemize}
+
+\subsection{Feromagnetická sonda}
+Nejrozšířenější typ magnetické sondy obsahuje 2 jádra. Má 2 feromagnetické jádra z kvalitního feromagnetického materiálu(měkký ferit) a ta jsou ovinuta stejným počtem závitů a umístěna do vnější cívky. Vinutí jader jsou zapojena proti sobě a napájena střídavým proudem.\\
+Vlivem vnějšího stejnosměrného magnetického pole s intenzitou H, je souměrnost magnetický toků \(\Phi_1\) a \(\Phi_2\) porušena a na vnější cívce se indukuje napětí úměrné H.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/FeromagSonda.png}
+\end{figure}
+\subsubsection{Charakteristika a použití}
+\begin{itemize}
+    \item Měření velmi slabých magnetických polí - stejnosměrné nebo nízkofrekvenční střídavá pole.
+    \item Měřící rozsah \(100pT\) až \(200\mu T\)
+    \item Vysoká citlivost oproti Hallově sondě
+    \item Měření kolísání magnetického pole země
+    \item Magnetické kompasy v letadlech a lodích
+    \item Hledání rudných ložisek a feromagnetických materiálů pod povrchem
+    \item Indikace vad materiálů
+\end{itemize}
+
+\subsection{Rogowskiho-Chattockův potenciometr}
+Potenciometr jako zvláštní úprava měřící cívky pro integrační měření.\\
+Pásek z nemagnetického a nevodivého materiálu s konstantním průřezem rovnoměrně ovinutý po celé délce vodičem.\\
+Změny magnetického toku \(\Phi\) v cívce -> vznik indukovaného impulsu napětí u(t).\\
+Konstrukce: Měřící cívka pro integrační měření. Měření změn magnetického napětí \(U_m\).\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/RChPoten.png}
+\end{figure}
+
+\subsection{Anizotropní magnetorezistor(AMR)}
+Magnetorezistivita - změna odporu s magnetickým polem.\\
+Anizotropní magnetorezistivita - změna odporu souvisí se změnou úhlu mezi vektorem magnetizace a směrem proudu, který protéká daným materiálem.\\
+Princip: Změna elektrického odporu vlivem magnetického pole - dochází k ovlivňování nosičů náboje, což se projeví jako změna odporu materiálu. Vodivost feromagnetika ve směru magnetizace je menší než ve směru kolmém.\\
+AMR efekt: elektrický opor ve směru magnetizace je vyšší než ve směru kolmém.\\
+Provedení: tenká vrstva permalloye je nanesena na křemíkový substrát.\\
+Remanentní magnetizace leží ve směru x (remanentní magnetizace je zbytková magnetizace, kterou si udrží feromagnetický materiál, když na něj přestane působit magnetické pole).\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/AMR.png}
+\end{figure}
+
+\(H_Y\) otáčí magnetizaci M a velikost R se mění o 2-3\%.\\
+Senzor je tvořen tenkou vrstvou slitiny železa a niklu (permalloy). Pokud na senzor nepůsobí magnetické pole, má svůj klidový odpor. Působením magnetického pole tento klidový odpor klesá téměř lineárně(jen v rozsahu 2-3\%).\\
+Použití:
+\begin{itemize}
+    \item Stejnosměrné i střídavé pole
+    \item Měřící rozsah B od \(1\mu T\) do \(10mT\), v můstkovém uspořádání \(10nT\) až \(100\mu T\).
+    \item Frekvenční rozsah DC až MHz
+\end{itemize}
+Vlastnosti: Závilost odporu na úhlu mezi proudem a magnetizací je silně nelineární.\\
+Linearizace pomocí Barber poles struktury: Na pásek z permalloye jsou napařeny pod úhlem 45°proužky hliníku, který má výrazně vyšší vodivost než permalloy. Proud teče mezi hliníkovými proužky pod úhlem 45° k ose proužku, tím dochází k posunu charakteristiky. Tato technika vhodnější pro menší pole (kompas). \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.7]{images/AMRLin.png}
+\end{figure}
+
+\subsection{Měření magnetizačních charakteristik materiálů}
+\subsubsection{Vzorky}
+Uzavřené:
+\begin{itemize}
+    \item Tvoří homogenní magnetický obvod s konstantním průřezem nepřerušený vzduchovou mezerou nebo s mezerou vyplněnou jiným materiálem
+    \item Magnetický tok se uzavírá pouze feromagnetikem
+    \item Výhoda - intenzita magnetického pole lze vypočítat z magnetizačního proudu, počtu závitů magnetizačního vinutí a střední délky siločar
+\end{itemize}
+
+Otevřené:
+\begin{itemize}
+    \item Obvykle tvar tyčí nebo pásků
+    \item Magnetický tok se uzavírá vně vzorku vzduchem
+    \item Intenzita magnetického pole se nedá určit výpočtem
+    \item Obtížné dosažení homogenního rozložení toku v celém objemu vzorku
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.6]{images/Vzorky.png}
+\end{figure}
+
+\subsubsection{Křivky}
+Křivka prvotní magnetizace:
+\begin{itemize}
+    \item Výchozí stav - dokonalé odmagnetování
+    \item Pomalu zvyšující se intenzita mag. Pole jedním směrem
+    \item Nesmí nastat změna intenzity H opačného směru
+\end{itemize}
+Hysterezní křivka:
+\begin{itemize}
+    \item Vyjadřující závislost B = f(H) pro magnetizační cykly
+    \item Změny intenzity mag. Pole → +H … -H
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/KrivkyMag.png}
+\end{figure}
+
+\subsubsection{Měření na uzavřených vzorcích}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MerUzavVzor.png}
+\end{figure}
+Elektronický Wb-metr:
+\begin{itemize}
+    \item Tvořen integračním zesilovačem
+    \item Nepříznicvě působí rušivá termoelektrická napětí ve vstupním obvodu. Kvůli tomu se používají vodiče a kontakty s malým termoelektrickým napětím.
+    \item Rozsahy lze měnit přepínáním velikosti integračního rezistoru
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.9]{images/Wb-metr.png}
+\end{figure}
+
+\subsubsection{Měření na otevřených vzorcích}
+Otevřené vzorky mají tvar válečku nebo kostky, jsou k dispozici častěji než prstencové vzorky.\\
+Problém je správné určení intenzity magnetického pole, nelze ji odvodit z proudu jako u uzavřených vzorků -> pro magnetování se používá jha(ruční elektromagnet) z magneticky měkkého materiálu.\\
+Postup:\\
+\begin{itemize}
+    \item Magnetické pole je buzeno magnetovacím vinutím \(N_1\) napájeným magnetovacím proudem ze zdroje Z.
+    \item Tangenciální Hallova sonda (HS) slouží při určení intenzity H
+    \item Magnetická indukce B se měří měřící cívkou s \(N_2\) závity pomocí fluxmetru F
+\end{itemize}
+Hysterezigrafy - přístroje jsou řízeny počítačem a proces měření je digitalizován.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{images/MerOtevVzor.png}
+\end{figure}

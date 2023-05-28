@@ -17,13 +17,13 @@ Státnicové předměty pro rok 2022/23 jsou následující
 ### BPC-MVE
 
 - [x] Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.
-- [ ] Analogově-číslicové převodníky pro měřicí techniku – rozdělení, princip základní typů AD převodníků, vlastnosti, použití. 
-- [ ] Měření napětí a proudu. Změna rozsahů voltmetrů a ampérmetrů. Rušení u měřicích přístrojů.
-- [ ] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
+- [x] Analogově-číslicové převodníky pro měřicí techniku – rozdělení, princip základní typů AD převodníků, vlastnosti, použití. 
+- [x] Měření napětí a proudu. Změna rozsahů voltmetrů a ampérmetrů. Rušení u měřicích přístrojů.
+- [x] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
 - [ ] Číslicové osciloskopy – princip, vlastnosti, jejich příslušenství.
 - [ ] Měření frekvence, časového intervalu a fáze. Univerzální čítač – princip, vlastnosti.
 - [ ] Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.
-- [ ] Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků – měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.
+- [x] Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků – měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.
 
 ### BPC-LOS
 
