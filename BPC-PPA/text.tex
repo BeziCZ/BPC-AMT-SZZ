@@ -252,3 +252,273 @@ Rozhraní je fyzicky tvořeno buď tranzistorovou logikou, nebo pomocí relé. P
 
 \textbf{!!! Ostatní info k jednotlivým snímačům už určitě znáš z otázek předmětu BPC-SNI ;) !!!
 }
+
+\section{Průmyslové pohony (elektrické, pneumatické) - typy, vlastnosti a způsoby řízení. Zapojení průmyslových pohonů do
+systému.}
+Elektrické - elektromotory pro rotační či lineární pohyb (krokové, servomotory, asynchronní, synchronní) elektromagnety (relé). Aplikací těchto komponent jsme schopni realizovat složitější systémy (např. klapky, robotická ramena, dopravník).
+\\
+Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybovou energii média, její přenos a zpětná transformace na mechanickou energii (stlačený vzduch je nositelem energie), jednoduché, levné a snadné na údržbu. Jedná se o manipulátory, přísavky, lineární pohyb (písty), rotační nebo kyvný pohyb, přeměna na mechanickou energii pomocí membrány, vlnovce, lamely, lopatky.
+
+\subsection{Elektrické pohony}
+\subsubsection*{Rozdělení}
+\begin{itemize}
+  \item Podle napájecího napětí: \begin{itemize}
+    \item Stejnosměrné - DC
+    \item Střídavé - AC 
+  \end{itemize}
+  \item Podle konstrukce: \begin{itemize}
+    \item BLDC (bezkartáčový)
+    \item PMSM 
+    \item Krokové
+  \end{itemize}
+  \item Podle druhu pohybu: \begin{itemize}
+    \item Točivý nebo přímočarý
+    \item Spojitý nebo nespojitý
+  \end{itemize}
+  \item Podle poháněného mechanismu: \begin{itemize}
+    \item Jeřáby, výtahy, dopravníky
+    \item Lokomotivy, trolejbusy, tramvaje
+    \item Obráběcí stroje,\dots
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{DC motor}
+\begin{itemize}
+  \item Stejnosměrné napájení
+  \item Postupné spouštění cívek rotoru (díky komutátoru - přepíná vinutí motoru) v poli statoru.
+  \item Jednoduché řízení a zapojení, účinnost 80 \%, dobrý kroutící moment při nízkých otáčkách.
+  \item Opotřebovává se komutátor a uhlíky, je hlučnější. V průmyslu se moc nevyužívají, spíše hobby účely.
+\end{itemize}
+
+\textbf{Typy vnitřního zapojení:}
+\begin{itemize}
+  \item \textbf{S cizím buzením} - rotor i stator mají sepáratní napájení
+  \item \textbf{Sériové buzení} - rotor a stator sériově propojen
+  \item \textbf{S permanentními magnety} - stator je tvořen magnety (závislost otáček na momentu je lineární, moment závisí na napájecím proudu)
+\end{itemize}
+
+\textbf{Řízení:}
+\begin{itemize}
+  \item Změna napětí
+  \item Reverzace změnou polarity napětí
+  \item PWM - střídou napětí na určité frekvenci - výsledné napětí se rovná střední hodnotě signálu
+  \item H-můstek - změna směru, říení nadřazeným systémem
+  \item Driver - PWM a DIR signál, komunikace (registry)
+\end{itemize}
+
+\subsubsection*{BLDC motor}
+\begin{itemize}
+  \item Bezkartáčový DC motor
+  \item Využívá elektronickou komutaci (měření polohy rotoru Hallovými senzory)
+  \item Stator - cívky (3 póly), rotor - magnet
+  \item Většinou malé provedení - několik wattů
+  \item Rychlost není přesně dána, pokud není podřízena ref. frekvenci.
+\end{itemize}
+
+\textbf{Řízení:}
+\begin{itemize}
+  \item Nejčastěji pomocí 3-fázového DC/DC konventoru - algoritmus řízení 6 krokrů, kde se skutečná poloha rotoru určuje od 3 Hallových senzorů a generuje se 6 vektorů
+  \item Pomocí signálů - start/stop, forward/reverse, velocity
+  \item Pomocí komunikace (registry)
+\end{itemize}
+
+\textbf{Vlastnosti a použití}
+\begin{itemize}
+  \item Tichý chod, efektivnější než DC motor, není nutná údržba
+  \item Potřebuje speciální driver se snímačm pro řízení, nerovnoměrnost momentu
+  \item Používá se pro nepřerušovaný chod, při důrazu na bezúdržbovost, vytlačuje DC motory
+\end{itemize}
+
+\subsubsection*{Krokový motor}
+\begin{itemize}
+  \item Bezkomutátorový stejnosměrný synchronní elektrický motor.
+  \item Motor rozděluje každou svou otáčku do množství menžích kroků.
+  \item Určen pro přesné otáčení.
+  \item Existují 3 verze, u kterých se postupně zvyšuje přesnost, ale zhoršují se dynamické vlastnosti (setrvačnost rotoru).
+\end{itemize}
+
+\textbf{Reluktační krokový motor}
+\begin{itemize}
+  \item Přepínáním statorových cívek se vytváří rotační mag. pole pro rotor z magnetického železa.
+  \item Jednoduchá a levná konstrukce.
+  \item Rotor má malý moment setrvačnosti, tím pádem má dobré dynamické vlastnosti => je rychlejší.
+  \item Bez napájení má nulový moment - lze rukou otáčet.
+  \item Poměrně velký krok - 15 stupňů.
+  \item Typicky 3 vinutí rozdělené mezi páry pólů, rotor ze 4 pólových nástavců - 30 stupňů na krok.
+  \item Řídí se postupným spínáním jednotlivých fází.
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/picture7.png}
+  \end{center}
+\end{figure}
+
+\textbf{S permanentním magnetem}
+\begin{itemize}
+  \item Rotor - permamentní magnet s radiální magnetizací.
+  \item Staor má nástavce s vinutím, dvě vinutí o 1/4 zubu posunuta.
+  \item Pouze dvě vinutí, ale i přesto má 24 pólů v každé ze dvou fází.
+  \item Pólové nástavce jsou z magnetické měkké oceli s posunytími zuby.
+  \item Krok cca 15 stupňů, největší přídržný moment.
+\end{itemize}
+
+\textbf{Hybridní}
+\begin{itemize}
+  \item Kombinace reluktačního a s permanentním magnetem. 
+  \item Rotor z permamentního magnetu, který má nástavec se zuby, jenž jsou mezi sebou o půl zubu posunuty.
+  \item Nejmenší krok a je nejdražší.
+  \item Rotor a stator mají různé počty zubů, aby nemohlo dojít k "uchycení" všech zunů najednou (zastavení).
+\end{itemize}
+
+\textbf{Zapojení a řízení}
+\begin{itemize}
+  \item Zapojení: \begin{itemize}
+    \item 4 vodičové - pouze bipolární řízení
+    \item 5 vodičové - pouze unipolární řízení
+    \item 6 vodičově - nejčastější - lze zapojit uni i bipolárně
+    \item 8 vodičové - max. možnost zapojení jako 6 nebo 5 vodičové
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/picture8.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Řízení: \begin{itemize}
+    \item Unipolární - jednodušší budič - pouze spínání jednotlivých vinutí, lze zapojit i jako Bipolární.
+    \item Bipolární - vyšší moment/efektivita, sériové - vyšší moment v nizkých otáčkách + vyšší impenandce, paralelní - vyšší rychlost, řídí se můstkem na každou fázi - otáčení smru proudu vinutím.
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture9.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Řízení podle sekvence: \begin{itemize}
+    \item Jednofázové řízené - wave-drive - vždy spínaná pouze jedna fáze (jedno vinutí)
+    \item Dvoufázové - full nebo half step\begin{itemize}
+      \item Full step - vždy sepnuty dvě vinutí vedle sebe - pořád stejný moment, ale větší krok
+      \item Hakf step - Sepnuto jedno vinutí => sepnuta dvě vedle sebe => sepnuo druhé vinutí, menší krok (plynulejší), rozdílný moment v jednotlivých fázích.
+      \item Microstepping - Postupné buzení jednotlivých kroků
+    \end{itemize}
+  \item Řízení driverem: \begin{itemize}
+    \item Ovládání nadřazeným systémem - step, driv, enable sígnály
+    \item S nadřazeným systémem komunikuje po sběrnici - EtherCAT, Profinet, SPI,\dots
+  \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\textbf{Výhody a nevýhody krokových notorů}
+\begin{itemize}
+  \item Výhody: \begin{itemize}
+    \item Polohování v otevřené smyčce
+    \item Přesné polohování, velký moment
+    \item Rychlost nezávisí na zátěži, konstantní příkon
+    \item Více možností zapojení, snadné přepínání fází
+  \end{itemize}
+  \item Nevýhody: \begin{itemize}
+    \item nízká rychlost
+    \item Rezonance - vibrace, hluk
+  \end{itemize}
+  \item Oproti servo-pohonům jsou levnější, jednodušší, momentově silnější při stejné rychlosti, méně přesné, pomalejší, méně dynamické.
+\end{itemize}
+
+\textbf{Servopohon}
+Řízení krokového motoru v uzavřené smyčce může určit fázový přechod s polohou rotoru pomocí zpětné vazby polohy a (nebo) zpětné vazby rychlosti, což může výrazně zlepšit výkon krokového motoru. -> servopohony
+\begin{itemize}
+  \item motor + zpětná vazba + regulátor
+  \item drahé, složitá elektronika, řízení komunikací
+\end{itemize}
+
+\subsubsection*{Asynchronní motor}
+\begin{itemize}
+  \item Napájen střídavým 3-fázovým napětím
+  \item Zapojení do hvězdy(výkon) nebo trojuhelníka (proud)
+  \item Staror - cívky, Rotor - klec z feromagnetického materiálu
+  \item Levný, odolný porti přetížení, nejrozšířenější druh motoru
+  \item Velký počáteční proud, složíté na řízezení na polohu
+  \item Má skluz - tok magnetického pole je rychlejší než otáčení rotoru
+  \item Reverzace směru otáčení - prohození fází
+\end{itemize}
+
+\textbf{Řízení}
+\begin{itemize}
+  \item Pomocí stykače (el. signálem)
+  \item Pomocí frekvečního měniče - elektrické signály (start/stop, forward/reverse,\dots), pomocí kominkace (registry)
+  \item Řízení rychlosti - napětím, frekvencí
+\end{itemize}
+
+\subsubsection*{Synchronní motor - PMSM}
+\begin{itemize}
+  \item Napájen střídavým 3-fázovým napětím
+  \item Stator - cívky, Rotor - magnet (podoba s BLDC)
+  \item Neumí se sám rozběhnout - přidává se např. klec z feromagnetika jako u indukčního
+  \item Dražší, přesnější, nemá skluz
+  \item Lepší řízení na polohu než asynchronní.
+\end{itemize}
+
+\subsection{Pneumatické pohony}
+\textbf{Fyzikální podstata}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 0.7]{img/Picture12.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Komponenty: \begin{itemize}
+    \item lineární - pneumatický válec
+    \item rotační - rotační pneumatický pohon
+    \item kyvný - kyvný pneumatický pohon
+  \end{itemize}
+  \item Přeměnu pneumatické tlakové energie na mechanickou zajišťuje: \begin{itemize}
+    \item membrána
+    \item píst (piston)
+    \item vlnovcelamely
+    \item lopatky - turbína
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture10.png}
+  \end{center}
+\end{figure}
+
+\textbf{Vlastnosti}
+\begin{itemize}
+  \item Dostupnost - Stalčený vzduch je ve většině podniků k dispozici, případně pojízdné kompresory
+  \item Skladování - Velké objemy stlačeného vzduchu lze skladovat
+  \item Jednoduchá konstrukce - Pneumatické prvky mají jednoduchou konstrukci
+  \item Řízení proudu a tlaku - Lze dobře nastvovat pomocí škrtícího ventilu
+  \item Trvanlivost při malých nárocích na údržbu
+  \item Bez negativních vlivů na životní prostředí
+  \item Bezpečnost - pneumatické pohony se při provozu nezahřávají, při přetížení se zastaví a nepoškodí se
+  \end{itemize}
+
+\textbf{Výhody}
+\begin{itemize}
+  \item Možnost rozvodu a delší vzdálenost
+  \item Rychlé pohyby
+  \item Snadná regulace a automatizace
+  \item Vzduch je dostupné a bezpečné médium
+  \item Cenová dostupnost komponent
+\end{itemize}
+
+\textbf{Nevýhody}
+\begin{itemize}
+  \item Omezená síla
+  \item Problematické dosažení pomalých či plynulých pohybů
+  \item Nutná úprava vzduch
+  \item V důsledku špatné údržby vznikají netěsnosti
+  \item Hlučné, Nelinearita, je třeba mazat (bezolejové provedení)
+\end{itemize}
+
