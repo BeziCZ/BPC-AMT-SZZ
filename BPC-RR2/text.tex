@@ -217,3 +217,65 @@ podle Václavka
 Tato podmínka je docela tvrdá, proto se zavádí Praktická stabilita, systém je prakticky stabilní v oblasti $\Omega$ pokud je lokálně asymptoticky stabilní a má oblast přitažlivosti $\Omega$.
 
 
+\subsection*{určení stability}
+Jedná pouze o podminky postačující pro satbilitu, pokud tedy systém podmínce nevyhoví nelze o něm říct že je nestabilní.
+\subsubsection{I Ljapunovovo kritériu stability}
+Určuje stabilitu systému na zákldadě stbility linearizovéhé náhardy v okolí rovnovážnéh o stavu.
+
+\noindent \includegraphics[scale = 0.6]{img/Ljap.1.png}
+
+
+\subsubsection{II Ljapunovovo kritériu stability}
+Určíme si fukci V aby byla postivně definitní (PD), spočítáme W jako gradiet V (vpodstatě spíš derivaci ale ve skriptech to mají nazváno gradiet). Podle toje jestli je w ND , NSD urřime stabilitu.
+
+\includegraphics[scale = 0.6]{img/Ljap.2.png}
+
+V můžeme volit náhodně nebo lze využít {\bf Krasovského metodou}, kde V zvolíme jako součin námi zvolené matice L a funkcí f, ktré ziskáme ze stavových rovic.
+L musí být symetrická a PD. Matamatickými čáry pak dostaneme že W bude ND pokud T bude PD.
+T spočítáme jako :
+\begin{equation*}
+    T=J^TL+JL
+\end{equation*}
+
+další metodu volby V je {\bf metoda variabilního gardietu } to ale doufám že umět nemusíme.
+
+\subsubsection{Popovo kritérium stability}
+Aby byl podle popova systém stabilní musí být splneno:
+\begin{itemize}
+    \item systém je neřízený
+    \item systém  je v kofigraci jak ne an obr.
+
+        \includegraphics{img/popov.schem.png}
+    \item hodnota nelinerity v 0 je 0 $f(0)=0$
+    \item průbeh nellinearity je "pod" přímkou procházejíci počátkem se směrnicí k
+
+        \includegraphics{img/popov_nelilin.png}
+    \item modnifikovaná frekvenční charakteristika $f^*=Re{F}+j\omega Im{F}$ (F je frekvenční charakteristika zkoumaného systému) se musí nacháze pod popovovou přímkou,
+    ta může mít libovolný sklon a musí procházet bodem -1/k
+
+        \includegraphics{img/popov_frek.png}
+\end{itemize}
+pod jsou všechny podminky splněny systém je globálně asymptoticky stabilní.
+
+
+\subsection{věty o nestabilitě}
+Opět se jedná pouze o posatčující podmínky, pokud jimsystém nevyhoví nevíme nic.
+
+\subsubsection{I Ljapunovova věta o o nestbilitě}
+podud exzistuje funkce V pro ktrou platí :
+\begin{itemize}
+    \item V(0)=0
+    \item $\frac{dV}{dt}$ je PD
+    \item V není ND nebo NSD v libovolně málem okolí počátku
+\end{itemize}
+poto je rovnovážný bod v počátku nestabilní.
+
+
+\subsubsection{II Ljapunovova věta o o nestbilitě}
+pokud V není ND , nebo NSD, a její drivace je PSD, je rovnovážný bod v počátku nestabilní.
+* V musí být spojitá a musí mít spojitou 1. derivaci.
+\subsubsection{četajevoa věta o nestabilitě}
+vůbec nechápu
+
+%------------------------
+\section{title}
