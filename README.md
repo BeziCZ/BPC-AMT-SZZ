@@ -16,23 +16,23 @@ Státnicové předměty pro rok 2022/23 jsou následující
 
 ### BPC-MVE
 
-- [x] Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.
-- [x] Analogově-číslicové převodníky pro měřicí techniku – rozdělení, princip základní typů AD převodníků, vlastnosti, použití. 
-- [x] Měření napětí a proudu. Změna rozsahů voltmetrů a ampérmetrů. Rušení u měřicích přístrojů.
-- [x] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
+- [ ] Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.
+- [ ] Analogově-číslicové převodníky pro měřicí techniku – rozdělení, princip základní typů AD převodníků, vlastnosti, použití. 
+- [ ] Měření napětí a proudu. Změna rozsahů voltmetrů a ampérmetrů. Rušení u měřicích přístrojů.
+- [ ] Měření výkonu v jednofázové a třífázové soustavě. Wattmetry – princip, typy, vlastnosti.
 - [ ] Číslicové osciloskopy – princip, vlastnosti, jejich příslušenství.
 - [ ] Měření frekvence, časového intervalu a fáze. Univerzální čítač – princip, vlastnosti.
-- [x] Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.
-- [x] Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků – měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.
+- [ ] Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.
+- [ ] Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků – měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.
 
 ### BPC-LOS
 
-- [x] Logická funkce, její vyjádření pomocí tabulky, algebraického výrazu a map. Úplný součtový a součinový tvar algebraického vyjádření logické funkce. Metody a principy minimalizace logických funkcí. Úprava logické funkce pro realizaci pomocí členů NAND a NOR.
-- [x] Kombinační logické obvody: binární dekodér, multiplexor, demultiplexor, kodér, prioritní kodér, číslicový komparátor, binární sčítačka a odčítačka. Druhý doplněk. Logické obvody s třístavovým výstupem a s otevřeným kolektorem. Připojování zařízení na sběrnici.
-- [x] Přechodné děje v kombinačních logických obvodech, hazardní stavy (souběhový, dynamický a statický hazard), metody detekce a řešení statického hazardu ve dvoustupňové struktuře NAND-NAND, konsensus, řešení hazardu pomocí sekvenčních obvodů.
-- [x] Rozdíl mezi kombinačním a sekvenčním logickým obvodem. Klopné obvody: RS, D, JK, T, hladinové, hranové a master-slave, pravdivostní tabulka, pojem metastabilita v sekvenčních logických obvodech.
-- [x] Sekvenční logické obvody: posuvný registr, posuvné registry se zpětnou vazbou (kruhový čítač, Johnsonův čítač, lineární čítač - LFSR), asynchronní a synchronní čítače, popis jejich funkce pomocí jazyka HDL. Vysvětlete pojmy HDL jazyka: souběžný a sekvenční příkaz, okamžité a odložené přiřazení.
-- [x] Konečné stavové automaty: Obecný (Huffmanův) model sekvenčního logického obvodu, přechodová funkce, výstupní funkce, budicí funkce. Mealyho, Mooreho a autonomní automat. Popis konečného automatu pomocí stavového diagramu, tabulky přechodů a tabulky výstupů. Návrhová tabulka (budicí funkce KO).
+- [ ] Logická funkce, její vyjádření pomocí tabulky, algebraického výrazu a map. Úplný součtový a součinový tvar algebraického vyjádření logické funkce. Metody a principy minimalizace logických funkcí. Úprava logické funkce pro realizaci pomocí členů NAND a NOR.
+- [ ] Kombinační logické obvody: binární dekodér, multiplexor, demultiplexor, kodér, prioritní kodér, číslicový komparátor, binární sčítačka a odčítačka. Druhý doplněk. Logické obvody s třístavovým výstupem a s otevřeným kolektorem. Připojování zařízení na sběrnici.
+- [ ] Přechodné děje v kombinačních logických obvodech, hazardní stavy (souběhový, dynamický a statický hazard), metody detekce a řešení statického hazardu ve dvoustupňové struktuře NAND-NAND, konsensus, řešení hazardu pomocí sekvenčních obvodů.
+- [ ] Rozdíl mezi kombinačním a sekvenčním logickým obvodem. Klopné obvody: RS, D, JK, T, hladinové, hranové a master-slave, pravdivostní tabulka, pojem metastabilita v sekvenčních logických obvodech.
+- [ ] Sekvenční logické obvody: posuvný registr, posuvné registry se zpětnou vazbou (kruhový čítač, Johnsonův čítač, lineární čítač - LFSR), asynchronní a synchronní čítače, popis jejich funkce pomocí jazyka HDL. Vysvětlete pojmy HDL jazyka: souběžný a sekvenční příkaz, okamžité a odložené přiřazení.
+- [ ] Konečné stavové automaty: Obecný (Huffmanův) model sekvenčního logického obvodu, přechodová funkce, výstupní funkce, budicí funkce. Mealyho, Mooreho a autonomní automat. Popis konečného automatu pomocí stavového diagramu, tabulky přechodů a tabulky výstupů. Návrhová tabulka (budicí funkce KO).
 
 ### BPC-MIC
 
@@ -49,7 +49,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-PPA
 
-- [ ] Úrovně řízení výroby a jejich funkce. Zařazení komponent do jednotlivých vrstev a možnosti jejich propojení. Způsoby řízení výroby (centralizované a distribuované). Toky dat (informací) v systému a jejich popis. Vlastnosti a možnosti nadřazených výrobních systémů (MES, ERP).
+- [x] Úrovně řízení výroby a jejich funkce. Zařazení komponent do jednotlivých vrstev a možnosti jejich propojení. Způsoby řízení výroby (centralizované a distribuované). Toky dat (informací) v systému a jejich popis. Vlastnosti a možnosti nadřazených výrobních systémů (MES, ERP).
 - [ ] Standardní rozhraní průmyslových signálů - typy, obvodové provedení, vlastnosti a použití. Logika digitálních signálů. Zpracování analogové veličiny. Standardizace a destandardizace. Senzory - popis, typy a jejich použití. Možnosti zapojení snímačů do systému.
 - [ ] Průmyslové pohony (elektrické, pneumatické) - typy, vlastnosti a způsoby řízení. Zapojení průmyslových pohonů do systému.
 - [ ] Řídicí členy (PLC, DCS, průmyslová PC, průmyslové regulátory, vestavné systémy, HMI aj.) – vlastnosti a použití. Typy provedení komponentů. Možnosti jejich programování (parametrizace, reprezentace veličin, struktura projektu, struktura programu, stavový automat). Postup programování technologických procesů.
@@ -93,7 +93,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-PRP
 
-- [x] Kinematický model diferenciálně řízeného podvozku mobilního robotu (schéma, veličiny, matematický popis řízení, výhody a nevýhody oproti jiným typům).
-- [x] Pohony robotů (přehled, vlastnosti, momentové rovnice, požadavky na robotické aplikace, víceosá NC interpolace, rampy, S-křivka).
-- [x] Systém ROS - popis, platformy, komunikace uvnitř systému, node, message, topic, možnosti reálného nasazení
-- [x] Zpětnovazební regulace pozice mobilního robotu při sledování trajektorie (nákres, regulační schéma, popis veličin v procesu, popis parazitních vlivů ovlivňujících kvalitu regulace v důsledku implementace do reálného stroje).
+- [ ] Kinematický model diferenciálně řízeného podvozku mobilního robotu (schéma, veličiny, matematický popis řízení, výhody a nevýhody oproti jiným typům).
+- [ ] Pohony robotů (přehled, vlastnosti, momentové rovnice, požadavky na robotické aplikace, víceosá NC interpolace, rampy, S-křivka).
+- [ ] Systém ROS - popis, platformy, komunikace uvnitř systému, node, message, topic, možnosti reálného nasazení
+- [ ] Zpětnovazební regulace pozice mobilního robotu při sledování trajektorie (nákres, regulační schéma, popis veličin v procesu, popis parazitních vlivů ovlivňujících kvalitu regulace v důsledku implementace do reálného stroje).
