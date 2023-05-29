@@ -106,7 +106,7 @@ Poloviční počet sběrnic oproti HA. Jednodušší konstrukce. \\
 Oddělena paměť dat a programu. To umožňuje číst obě zaráz a urychluje práci.\\
 Může být různě adresována datová paměť a programová paměť.\\
 Bezpečnější, nelze si poškodit program přepsáním jeho paměti.\\
-Dvojnásobek sběrnic oproti VN, technilogicky velký problém. \\
+Dvojnásobek sběrnic oproti VN, technologicky velký problém. \\
 Nevyužitou část paměti nejde použít pro program a naopak. Z toho plyne, že je nižší efektivita využití paměti. \\
 Využívá se u signálových procesorů, jinak moc ne.\\
 \begin{figure}[h!]
@@ -133,7 +133,7 @@ Výhodou je jednoduchost a malý počet součástek. \\
 Nevýhodou je nutnost složité operace rozdělovat na více instrukcí. \\
 
 \subsubsection*{Mikroprogramový řadič}
-KSA, jehož paměť je tvořena pamětí mikroprogramu. \\
+KSA, jehož kombinační část je tvořena pamětí mikroprogramu. \\
 Implementuje složité instrukce za cenu složitosti řadiče. \\
 Složité instrukce není možné přímo provést, proto jsou rozděleny na mikroinstrukce. \\
 Posloupnost mikroinstrukcí, jimiž se vykoná instrukce se nazývá mikroprogram. \\
@@ -227,7 +227,7 @@ Stolní PC, notebooky, servery.\\
 Modifikace pro telefony a tablety, optimalizovány na nízkou spotřebu, nižší výkon a paměť. \\
 
 \subsubsection*{Mikrokontrolér}
-Základní stavební kámen vesvných zařízeních. \\
+Základní stavební kámen vestavných zařízeních. \\
 Na jednom čipu procesor (řadič, ALU, registry, případně cache a MMU), paměti RAM a FLASH, řadič přerušení a periferie.\\
 Menší výkon a paměť.\\
 Určen pro embedded aplikace, spotřební elektronika, průmysl, automobily, řídící aplikace. \\
@@ -599,9 +599,9 @@ Na základě nejvyšších bitů adresy je aktivován vždy pouze jeden výstup 
 Procesory jsou o několik řádů rychlejší než operační paměť, tudíž musí čekat, což je plýtvání časem.
 Chování programů jde popsat pomocí lokalit instrukcí a dat.
 \subsubsection*{Časová lokalita instrukcí}
-Je-li použita instrukce, dá se očekávat, že se vrzy použije znovu.
+Je-li použita instrukce, dá se očekávat, že se brzy použije znovu.
 \subsubsection*{Prostorová lokalita instrukcí}
-Je-li použita instrukce, dá se očekávat, že se vrzy použije instrukce na blízké adrese.
+Je-li použita instrukce, dá se očekávat, že se brzy použije instrukce na blízké adrese.
 
 \subsubsection*{Hierarchie paměti}
 Schéma VonNeumannova počítače je doplněno o vyrovnávací paměti procesoru takzvané cache, které jsou umístěny mezi procesor a hlavní paměť.
@@ -690,8 +690,8 @@ Bit odkazu na stránku se nastavuje vždy když je stránka čtena, nebo je do n
 \end{figure}
 
 \subsubsection*{Víceúrovňové stránkovací tabulky}
-Většina dnešních počítačových systémů umožňuje pracovat s logickým adresovým prostorem od $2^32$ do $2^64$.
-Logickou adresu o velikosti 32 bitů můžeme například rozdělit na 3 části: 10 bitové pole PT1 představující index do stránkovací tabulky první úrovně, 10 bitové pole PT2 představující index do stránkovací tabulky druhé úrovně a 12 bitový offset v rámci stránky. Stránkovací tabulka první úrovně má 2 10 = 1024 položek. Každá stránkovací tabulka druhé úrovně má také 1024 položek, přitom položka tabulky reprezentuje stránku o velikosti 2 12 = 4096 B. Každá tabulka druhé úrovně tedy reprezentuje paměťový prostor 1024*4096 = 4MiB.
+Většina dnešních počítačových systémů umožňuje pracovat s logickým adresovým prostorem od $2^{32}$ do $2^{64}$.
+Logickou adresu o velikosti 32 bitů můžeme například rozdělit na 3 části: 10 bitové pole PT1 představující index do stránkovací tabulky první úrovně, 10 bitové pole PT2 představující index do stránkovací tabulky druhé úrovně a 12 bitový offset v rámci stránky. Stránkovací tabulka první úrovně má \(2^{10}\) = 1024 položek. Každá stránkovací tabulka druhé úrovně má také 1024 položek, přitom položka tabulky reprezentuje stránku o velikosti \(2^{12}\) = 4096 B. Každá tabulka druhé úrovně tedy reprezentuje paměťový prostor 1024*4096 = 4MiB.
 
 \begin{figure}[h!]
     \centering
