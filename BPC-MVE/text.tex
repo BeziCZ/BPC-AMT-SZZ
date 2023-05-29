@@ -840,18 +840,451 @@ Zátěž v podobě vedení:
           \end{itemize}
 \end{itemize}
 
+
 \section{Číslicové osciloskopy - princip, vlastnosti, jejich příslušenství}
 Základní měřicí přístroj umožňující zobrazi časově proměnný signál obvykle ve formě grafu
+umožňují současná záznam několika kanálů před příchodem spouštěcího pulsu, snané zachycení jednorázových dějů, výstup na tiskárnu, uložení průběhu do paměti a jejich číslicové zpracování, přenos dat do PC.\\
+\subsection*{Princip}
+\begin{itemize}
+    \item Pracují na principu vzorkování sledovaného jevu
+    \item u číslicového osciloskopu není paprsek bezprostředně vychylován vstupním signálem - plynulý vstupní signál je rozložen na diskrétní měřicí body - vzorky, které jsou digitalizovány, uloženy do paměti a znovu skládány na displej 
+    \item víc tlačítek, než analog(ukládání paměti, meření zobrazovaného signálu)
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/osciloskopSchema.png}
+\end{figure}
+\newpage
+
+\subsection*{Rozdělení}
+\begin{itemize}
+    \item Číslicobé osciloskopy DSO(Digital Storage Oscilloscope)
+    \begin{figure}[H]
+        \includegraphics*[scale = 1]{images/osciloskopSchemaDSO.png}
+    \end{figure}
+    \item Dosvitové osciloskopy DPO(Digital Phosphor Oscilloscope)
+    \begin{figure}[H]
+        \includegraphics*[scale = 1]{images/osciloskopSchemaDPO.png}
+    \end{figure}
+    text1 : Snapshosts of the Digital Phosphor contents are periodically sent directly to the display without stopping the acquisition.\\
+    text2 : Waveform math, measurements, and front panel control are executed by the microprocessor parallel to the integrated acquisition/display system.\\
+    \item MSO - Mixed signal oscilloscope - mix oscloskopu a logického analyzátoru, 2-4 analogové kanály a větší počet digitálních 
+\end{itemize}
+
+\subsection*{Výhody oproti analogovým}
+\begin{itemize}
+    \item lze sledovat signál i před výskytem synchronizace
+    \item kvalitnější zobrazení
+    \item kvalitnější sledování jednorázových dějů
+    \item možnost úpravy signálu, odstranění rušení, operace se signálem
+    \item přímé měřená vybraných parametrů, ukládání do paměti a možnost vyvolání paměti
+\end{itemize}
+
+\subsection*{Nevýhody oproti analogovým}
+\begin{itemize}
+    \item výskyt aliasing efektu
+    \item omezená přesnost A/D převodníku
+    \item složitější obsluha
+    \item Cena 
+\end{itemize}
+
+\subsection*{Použití}
+\begin{itemize}
+    \item Analýza časového průběhu
+    \begin{itemize}
+        \item Měření napětí, napěťových rozdílů, špičkové hodnoty
+        \item Měření časových rozdílů, periody, frekvence, doby náběhu a pokles, doby překmitu, šířky pulzu
+        \item Měření fázového rozdílu dvou průběhů napětí(Lissajousovy obrazce)
+        \item Měření V-A charakteristik elektronických prvků
+        \item Měření dynamické hysterezní křivky feromagnetických materiálů
+        \item Měření pomocí kurzorů - manuální umístění X a Y, osciloskp určí rozdíl mezi nima
+        \item Automatické měření signálu - z nabídky se vyberou požadované parametry, které chcem měřit(některé měří, některé dopočítává)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Vlastnosti}
+\begin{itemize}
+    \item Počet kanálů - dán počtem současně zobrazovaných průběhů
+    \item vzorkovací frekvence 
+    \item Vstupní napěťové rozsahy - určeny rozsahem vychylovacích činitelů vertikálních kanálů(obvykle 1mV/dílek až 5V/dílek)
+    \item Vstupní impedance - obvykle paralelní kombinace odporu 1 MOhm a kapacity 5-50 pF
+    \item Přesnost - obvykle 1-5\%
+\end{itemize}
+
+\subsection*{Šířka pásma}
+Označuje kmitočtové pásmo osciloskopu, ve kterém může být zobrazen harmonický průběh.\\
+Všechny osciloskopy mají charakteristiku dolní propust.\\
+Šířka pásma odpovídá frekvenci, při které dojde k poklesu o 3 dB(zhruba 30\% chyby měření amplitudy).\\
+
+\subsection*{Vzorkování}
+V reálném čase RTS - dostatečný počet vzorků(12-16 během jedné periody).\\
+Musí platit vzorkovací teorém.\\
+Reži  pretriggering - záznam probíhá neustále a detekce spouštěcí podmínky jej po přednastavené podmínce ukončí.\\
+Výhoda co nejvyšší vzorkovací rychlost a co největš paměť.\\
+\subsubsection*{Opakované vzorkování}
+Dostatečný počet vzorků se sbírá několik period.\\
+Menší nároky na HW, protože stačí nižší vzorkovací frekcence.\\
+Pouze pro periodické singály.\\
+Dvě varianty:
+\begin{itemize}
+    \item Sekvenční, kogerentní - neumožňuje pretriggering, může trvat déle, vzorky se zobrazují v pořadí zachycení.
+    \item Náhodné - umožňuje pretriggering, nutnost ukládat informaci o pořadí vzorku.
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 0.8]{images/opakovaneVzorkovani.png}
+\end{figure}
+\subsection*{Blokové schéma číslicového osciloskopu}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/osciloskopSchema2.png}
+\end{figure}
+
+\subsubsection*{Vstupní obvody - vertikální kanál}
+Přizpůsobení měřeného signálu vnitřním obvodům.\\
+Vstupní impedance - typicky 1 MOhm, paralelně 5-50pF.\\
+Vazba - DC,AC, GND
+
+\subsubsection*{Blok preprocessingu}
+Umožňuje předzpracovat navzorkované data, cyklicky ukládat data bez ohledu na synchronizaci, zvýšit vzorkovací kmitočet. \\
+\subsubsection*{Paměť}
+FIFO\\
+Velikost paměti vzorků má vliv na vzorkovací kmitočet:
+\begin{equation}
+    f_{vz} = \frac{N}{t \cdot a} 
+\end{equation}
+$N$ \dots kapacita paměti(počet vzorků)\\
+$t$ \dots nastavení časové základny\\
+$a$ \dots zobrazení, počet dílků na vodotovné ose\\
+
+\subsubsection*{Synchronizační obvody}
+Rozšířené možnosti oproti analogovým osciloskopům.\\
+Spouštění úrovní nebo hranou.\\
+Spouštění podle délky impulsu.\\
+Spouštění počtem impulsů.\\
+
+\subsubsection*{Zobrazení}
+Vakuová obrazovka nebo jiný typ(LCD).\\
+Nejsou zobrazeny pouze jednotlivé body, meziéhlé hodnoty početně interpolovány.\\
+Rastr pro odečítání, kurzory.\\
+Pomocné informace o režimu přístroje.\\
+Výstup na tiskárnu pro grafickou dokumentaci.\\
+
+\subsection*{Režim sběru dat}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/rezimSberuDat.png}
+\end{figure}
+
+\subsection*{Triggering}
+\subsubsection*{Spouštění z jednoho zdroje signálu}
+Zdroj spouštění signálu:
+\begin{itemize}
+    \item Interní - spouštění je odvozeno z měřeného průběhu 
+    \item Externí - externí signál přivedený na speciální vstup 
+\end{itemize}
+Způsob spouštění:
+\begin{itemize}
+    \item Normální - čeká na spouštěcí podmínku
+    \item Automatické - vzorkuje stále
+    \item Jednorázové - čeká na spouštěcí podmínku a zobrazí pouze jeden průběh 
+\end{itemize}
+Podmínky spouštění:
+\begin{itemize}
+    \item Spouštění od hrany a úrovně
+    \item Spouštění s nastavitelným zpožděním spouštěcího pulzu - hold-off time
+\end{itemize}
+
+\subsubsection*{Spouštění z několika zdrojů}
+Logické spouštění množinou logických stavů - kombinace stavů na vybraných kanálech.\\
+
+\subsubsection*{Maska}
+Zachycení poruchového "mimotolerantního" signálu.\\
+Toleranční pásmo je dané maskou, které nastavíme manuálně toleranci.\\
+
+\subsubsection*{Speciální typy spouštění}
+Video signál\\
+Pro digitální datové signály v komunikacích.\\
+
+\subsection*{Příslušenství}
+\subsubsection*{Osciloskopické sondy}
+Používají se ke snímání signálu, základní úpravu jeho velikosti a přizpůsobení k nesymetrickému napěťovému vstupu osciloskopu. \\
+Existuje velké množství různých sond pro různé použití.\\
+Nejčastější sondy: pasivní napěťové sondy bez útlumu 1:1 nebo s útlumem 1:10\\
+Pasivní napěťová sonda:
+\begin{itemize}
+    \item Kmitočtově kompenzovaný vstupní dělič 
+    \item Paralelní kombinace R, C 
+    \item Dělící poměr je potřeba brát v úvahu při odečítání napětí z obrazovky osciloskopu, zkreslení měřeného průběhu při špatně vykompenzované sondě
+    \item Kompenzace pasivní napěťové sondy
+    \begin{itemize}
+        \item Slouží k přesnému nastavení reálného přenosu sondy 
+        \item Obvykle se využívá obdelníkový signál s rychlými hranami
+        \item Kompenzace se provádí nastavovacím prvkem sondy
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/osciloskopSonda.png}
+\end{figure}
+
+Aktivní napěťová sonda:
+\begin{itemize}
+    \item obsahuje předzesilovač a je určena pro měření velmi malých signálů
+    \item aktivní sonda s nesymetrickým vstupem, nebo pro měření neuzemněných zdrojů signálů 
+    \item aktivní diferenciální sonda
+    \item víceméně pasivní sonda + zabudovaný zesilovač s velmi nízkou kapacitou
+    \item nutnost napájecího zdroje a vyšší cena
+\end{itemize}
+
+Proudová sonda:
+\begin{itemize}
+    \item používá se k zobrazení průběhu proudu na stínítku osciloskopu 
+    \item převodníky proudu na napětí 
+    \item Pasivní sonda - malé měřicí transformátory proudu 
+    \item Aktivní sonda - zpětnovazební sondy s Hallovým generátorem
+\end{itemize}
+
+\subsubsection*{Scopemetr}
+Měřicí přístroj, který v sobě slučuje funkci osciloskopu, multimetru a bezpapírového zapisovače.\\
+Vyrobeno za účelem osciloskopu, které vydrží velmi tvrdé podmínky při práci na místě.\\
+Přístroj s LCD displejem, bateriovým napájením a odolnou skříní.\\
 
 
+\section{Měření frekvence, časového intervalu a fáze. Univerzální čítač - princip, vlastnosti.}
+Frekvence a čas jsou definovýny: $f = 1/T$\\
+Nejpřesnější měření času a frekvence v porovnání s měřením jiných fyzikálních veličin(etalon - atomové hodiny $10^(-12)$)\\
 
+\subsection*{Měření časového intervalu}
+Během měřeného intervalu se čítačem načítávají impulsy dostatečně velkého a stabilního kmitočtu\\
+Časový interval vymezen dvojicí krátkých impulsů START-STOP - odvozeny od nástupných/sestupných hran\\
+U většiny univerzálních čítačů si můžeme sami aktivní hranu zvolit\\
 
+\subsubsection*{Způsob generování START a STOP impulsu}
+Využití dvou vstupních kanálů - na jeden se přivede START impuls a na druhý STOP\\
+Využití jednoho vstupního kanálu - oba impulsy odvozovány od náběžné nebo sestupné hrany 
+
+\subsubsection*{Měření časových parametrů signálu}
+Délka pulsu\\
+Perioda\\
+Vzájemný posun dvou signálů\\
+
+\subsubsection*{Časové intervaly lze měřit}
+Osciloskopem\\
+Číslicovou čítací metodou - univerzální čítač\\
+\newpage
+
+\subsubsection*{Způsoby vymezení časového intervalu}
+Nutnost vhodného způsobu vymezení začátku a konce.\\
+Nejběžnější způsoby:
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/vymezeniCasovehoIntervalu.png}
+\end{figure}
+
+\subsubsection*{Číslicové měření časového intervalu}
+Přesnost je dána stabilitou a přesností oscilátoru, chyba kvantování času\\
+Za pomocí hradla, měří se čas otevření Tx\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/minKvantChyb.png}    
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/minKvantChyb2.png}
+\end{figure}
+
+Odvození impulsů START a STOP ze vstupního signálu.\\
+Odstranění stejnosměrné složky vstupního signálu kapacitou C(vypínač vypnutý).\\
+Zmenšení vstupního signálu na děliči(10x, 100x)\\
+Odfiltrování rušivých signálů - filtr dolní propust.\\
+Komparátor mění signál na obdelníkový.\\
+
+\subsection*{Univerzální čítač}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/univerzalniCitac.png}
+\end{figure}
+\subsubsection*{Přepínatelný dělič frekvence}
+Dekadické dělení.\\
+Změna časového intervalu.\\
+
+\subsubsection*{Čítač}
+Sekvenční logický obvod \\
+Stav závisí na počtu přivedených impulsů a odpovvídá použitému kódu(binární, BCD(binary code decimal)).\\
+
+\subsubsection*{Zobrazovač}
+Numerický typ, vybaven pamětí\\
+Výpočty matematických statistik\\
+
+\subsection*{Měření periody signálu}
+Shodné s měřením časového intervalu.\\
+START a STOP je odvozen od jednoho signálu.\\
+
+\subsection*{Měření kmitočtu}
+
+\subsection*{Analogové metody}
+Využívají selektivní LC nebo RC obvody - mostová nebo rezonanční metoda.\\
+Porovnávací metoda\\
+Metoda s přímým údajem\\
+\newpage 
+
+\subsubsection*{Selektivní obvody}
+Vstupní napětí je po případném zesílení přivedeno na selektivní obvod.\\
+Výstup z tohoto obvodu přichází na střídavý analogový indikátor(střídavý voltmetr s potřebnou citlivostí).\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/selekivniObvod.png}
+\end{figure}
+
+RC obvod:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/RCObvod.png}
+\end{figure}
+Charakter frekvenční zátěže
+\begin{itemize}
+    \item Wienův můstek - mostová metoda
+    \begin{figure}[H]
+        \includegraphics*[scale = 1.2]{images/wienuvMustek.png}
+    \end{figure}
+    \item Dvojité T-články, přemostěné T-články
+\end{itemize}
+Zadržovaná frekvence je nastavitelná:
+\begin{itemize}
+    \item snaha nastavit tak, aby údaj na indikátoru byl minimální
+    \item hodnota frekvence dána parametry zátěže 
+\end{itemize}
+Nevýhoda - obvod vyvážen jen pro jeden kmitočet, signály s vyššími harmonickýmiznemožňují přesné vyvážení.\\
+\newpage
+
+LC obvod:
+\begin{figure}[H]
+    \includegraphics*[scale = 1.3]{images/LCObvod.png}
+\end{figure}
+Do 100 MHz, nad = rezonance souosého vedení zakončeného stavitelným zkratem - měření vlnové délky.\\
+Snaha nastavit indikátor na maximální hodnotu.\\
+\begin{figure}[H]%htbp
+    \centering
+    \includegraphics*[scale = 1.2]{images/indikatorMax.png}
+\end{figure}
+
+\subsubsection*{Porovnavaci metody}
+Vyžadují pro svoji činnost zdroj harmoniického signálu se známým a stavitelným kmitočtem.\\
+Porovnání kmitočtů:
+\begin{itemize}
+    \item Směšování - vysoká přesnost
+    \item Pomocí dvoukanálového osciloskopu
+    \begin{itemize}
+        \item Harmonické - Lissajousovy obrazce 
+        \item Harmonické i neharmonické - srovnávací metoda
+    \end{itemize}
+\end{itemize}
+
+Osciloskopická metoda - Lissajousova :\\
+\begin{itemize}
+    \item změnou kmitočtu nastavíme stojící Lissajousův obrazec, jehož tvar závisí na poměru kmitočtů a jejich fázi 
+    \item Snaha o co nejjednodušší obrazec
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/Lissajous1.png}
+\end{figure}
+
+Osciloskopická metoda - srovnávací : \\
+\begin{itemize}
+    \item využití dvoukanálového osciloskopu, měřený porovnáváme se známým
+    \item synchronizaceod prvního kanálu 
+    \item kmitočet měníme, perioda u obou stejná 
+\end{itemize}
+
+\subsubsection*{Metoda s přímým údajem}
+lineární převodník kmitočtu na stejnosměrné napětí nebo proud\\
+existuje ve  formě sondy, kterou lze připojit k univerzálnímu multimetru\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/primyUdaj.png}
+\end{figure}
+
+\subsubsection*{Číslicové měření kmitočtu}
+
+Umožňují i další zpracování naměřených výsledků a mají možnostt připojení k měřicímu systému.\\
+Snaha dosáhnout co nejširšího kmitočtového rozsahu, vysoké přesnosti při malé době měření a snadné obsluhy.\\
+Nevýhody - u zkreslených nebo zarušených signálů může vést měření k chybným výsledkům.\\
+
+\subsubsection*{Přímé číslicové měření}
+
+Duální měření periody\\
+Čítáním se určuje počet period měřeného signálu N, které spadají do měřicího intervalu o známé délce T.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{images/PrimeCislicoveMereni.png}
+\end{figure}
+
+\subsubsection*{Nepřímé číslicové měření}
+Měření nízkých kmitočtů - výhodnější měřit periodu a kmitočet vypočítat - použití násobiče kmitočtu.\\
+Měření vysokých kmitočtů - předřadit rychlý dělič kmitočtu na principu čítače, použití směšovače, kde se získá rozdíl kmitočtů $n.f_p - f_x$ - ten se měří - kmitočtový měnič.\\
+Princip:
+\begin{itemize}
+    \item Vstupní signál přichází na směšovač, kde je ještě přiváděn signál fp z laditelného osciloskopu 
+    \item Na výstupu směšovače je signál o kmitočtu n.fp-fx - nastavujeme jej změnou fp tak, aby byl nulový
+    \item indikátor musí být selektivní
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/NeprimeCislicoveMereni.png}
+\end{figure}
+
+\subsection*{Měření fáze}
+Fázový posuv $\upvarphi $ vyjádřený ve stupních je možno zjiistit měření časového posunu $t_0$ a periody T (čítačem, osciloskopem). Platí pro harmonické signály.\\
+Pro fázový posuv platí:
+\begin{equation}
+    \upvarphi = \frac{t_0}{T}\cdot 100 \;\;\;\; [\degree]
+\end{equation}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/faze.png}
+\end{figure}
+
+\subsubsection*{Metody pro měření fáze}
+\begin{itemize}
+    \item Kompenzační metoda 
+    \item Přímo ukazující fázoměr impulsového typu
+    \item Osciloskopické metody 
+    \item Metoda s přímým údajem 
+    \item Číslicová metoda pro měření okamžité hodnoty fázového rozdílu 
+    \item Číslicová metoda pro měření střední hodnoty fázového rozdílu
+\end{itemize}
+
+\subsubsection*{Kompenzační metoda}
+Obě napětí musí být harmonická.\\
+Princip - rozdíl dvou harmonických napětí se stejnou fází, amplitudou a frekvencí je nulový.\\
+pomocí zeslabovače a měniče fáze nastavujeme na indikátoru nulové napětí.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/fazeKompenzacni.png}
+\end{figure}
+
+\subsubsection*{Osciloskopické metody}
+Metoda Lissajousových obrazců:
+\begin{itemize}
+    \item pouze pro harmonické signály, nebo pro ty, které se od sebe harmonicky liší málo.
+    \item Nejpřesnější v oblasti 0  \textdegree až 180 \textdegree , dále přesnost klesá 
+    \item Při připojení harmonických napětí nám vznikne "tvar", z jehož rozměrů lze vypočítat fázový rozdíl:
+    \begin{equation}
+        \upvarphi = arcsin\frac{X_a}{X} = arcsiin\frac{Y_b}{Y}
+    \end{equation}
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/Lissajous2.png}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/Lissajous3.png}
+\end{figure}
+
+\subsubsection*{Číslicové měření okamžité hodnoty fázového rozdílu}
+Metoda vychází z číslicového měření časových intervalů(viz úvod k měření fáze).\\
+Výhody: jsou zachyceny fázové rozdíly za každou periodu\\
+Nevýhody: nevhodné pro vyšší kmitočty, protože kmitočet zdroje impulsů by byl příliš velký(volí se zhruba 360x větší, než měřený)
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/fazeCislicovaOkamzita.png}
+\end{figure}
+
+\subsubsection*{Číslicová metoda pro měření střední hodnoty fázového rozdílu}
+Čítač čítá impulsy ze zdroje impulsů, které prochází dvěma hradly. Hradlo 2 se otvírá na dobu vymezenou průchody nulou měřených signálů $u_1$ a $u_2$.
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/fazeCislicovaStredni.png}
+\end{figure}
 
 
 
 % SEM psát od zadu
-\section{Měření frekvence, časového intervalu a fáze. Univerzální čítač - princip, vlastnosti.}
-
 \section{Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.}
 Pasivní elektrické veličiny popisují vlastnosti pasivních součástek.\\
 Definovány pomocí aktivních elektrických veličin.\\
