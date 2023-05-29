@@ -278,4 +278,29 @@ pokud V není ND , nebo NSD, a její drivace je PSD, je rovnovážný bod v poč
 vůbec nechápu
 
 %------------------------
-\section{title}
+\section{Reléová regulace (on-off regulátory, řízení v klouzavém režimu).
+}
+
+Jako regulátor je použito relé, nebo jiný spínací prvek, chovající se stejně. 
+Použije se pokud akční zásah nabývá jen 2 hodnot (on-off control),nebo pokud akční veličina max kladné nebo max záporné hodnoty (bang-bang control).
+
+Nejtypičtější využití regulace teploty (žehlička, topení), tlak v kopresorech se zásobníkem.
+Možné variaty relé josu o dvě otázky víš.
+
+Pokud bychom chtěli regulovat např teplotu pomocí klasického relé, neustále by spínalo  (i vlivem šumu), proto je lepší použít relé s hysterezi, podle šížky hasterezre můžeme nastavit s jakou periodou bude kmitat.
+
+Pokud nám u řízení pomocí zelíé s hysterezí nevyhovuje nastvení hystereze a z nějakýho (nepochopielnýho) duvodu ji nemůžeme měnit lze chvání upravi přidáním setrvačného článku do zpětné vazby.
+Musí platit že oba přepínací body jsou větší než 0, potom při sepnutí relé dojde ke zpoždění informace ve zpětný vazbě a relé sepne zpět až pozdeji. Časová konstanta setrvačného článku musí být malá.
+
+
+\includegraphics{img/rele_reg.png}
+
+{ \it
+Pokud řídím polohu a chci stihnou zastavit včas, může být přijená další zpětná vazba od rychlosti, tuoudle hodnotou si upravím kdy bude relé spínat.
+}
+
+pro návrh releového regulátoru lze využít např Ljapunova...
+
+Pro složitější systémy se využívá {\bf řízení v klouzavém režimu}
+Relé ja nastaveno tak, aby se systém dosatl na přepínací rozhraní  po přepínacím rozhraní došel až do 0.
+
