@@ -862,3 +862,241 @@ Ještě tu je aj \textbf{EtherCAT} a \textbf{ETHERNET Powerlink}, ale na ty kukn
     \item Bluetooth, ZigBee, WirelessHART,\dots
   \end{itemize}
 \end{itemize}
+
+\section{Spolehlivost a bezpečnost průmyslových zařízení a systémů. Metody vyhodnocení spolehlivosti. Komponenty a metody zajišťující funkční bezpečnost průmyslových strojů a zařízení. Aspekty kybernetické bezpečnosti. Kybernetické útoky a metody jejich zmírnění.}
+
+\subsubsection*{Definice spolehlivosti a bezpečnosti}
+Čeština má jedno slovo pro slovo SAFETY a SECURITY = Bezpečnost.
+\begin{itemize}
+  \item \textbf{Safety} - bezpečnost při práci a funkční bezpečnost výrobních zařízení
+  \item \textbf{Security} - datová bezpečnost a kyberbezpečnost
+  \item \textbf{Spolehlivost} - schopnost systému plnit danou funkci v daném časovém intervalu
+\end{itemize}
+
+\subsubsection*{Riziko a jeho vyhodnocení}
+\begin{itemize}
+  \item Riziko = Pravděpodobnost újmy * Závažnost následku
+  \item Pravděpodobnost újmy = frekvence poškození za rok
+  \item Závažnost následku - peněžní, lidské
+  \item Proces je považován za bezpečný, pokud je množství vznikající újmy na zdraví, poškození životního prostředí a poškození produkce během procesu akceptovatelný.
+  \item Maximální přijatelné riziko si definujeme tím, kam umístíme červenou čáru\dots
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture20.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{Bezpečnost} - souhrn úkolů pro odstranění nepřijatelného rizika
+  \item \textbf{Bezpečností funkce (SIF)} - funkce, kterou systém realizuje pro snížení rizika
+  \item \textbf{Intenzita poruch} - očekávaný počet nezávislých poruch za jednotku času
+  \item \textbf{MTBF} - střední doba mezi poruchami
+  \item \textbf{MTTF} - středí doba do poruchy  
+\end{itemize}
+
+\subsubsection*{Koncepce SIL}
+Čím větší redukce rizika je vyžadována, tím vyšší je SIL bezpečností funkce. => definuje požadavky na bezpečnostní funkce (SIF) zařízení.
+\begin{itemize}
+  \item Safety Integrity Level je odstupňovaný soubor opatření určený ke snížení rizika na tolerovatelnou úroveň.
+  \item Požaduje splnění požadavků - kvantitativní požadavky na minimální hladinu redundance (tolerance k chybám HW, podíl bezpečných a nebezpečných poruch), Kvalitativní požadavky (Vhodnost komponentů, požadavky pro SWm,\dots)
+  \item \textbf{Integrita bezpečnosti} - pravděpodobnost, s jakou bude bezpečnostní systém uspokojivě plnit požadované bezpečnostní funkce za všech podmínek po stanovenou dobu.
+  \item Probability of failure per demand (PFD) - pro "low demand" systémy
+  \item Probability of failure per hour (PFH) - pro "high demand" systémy
+\end{itemize}
+
+\subsubsection*{Funkční Bezpečnost - životní cyklus provedení bezpečnostních opatření stroje}
+\begin{itemize}
+  \item \textbf{Identifikace rizik}: Nejdůležitějším prvním krokem je identifikace všech rizik spojených s daným strojem. Tyto rizika mohou být fyzická, elektrická, chemická nebo jiné povahy.
+  \item \textbf{Analýza rizik}: Po identifikaci rizik se provádí jejich analýza, aby se posoudila vážnost a pravděpodobnost každého z nich a určilo se, jaká bezpečnostní opatření jsou nezbytná k minimalizaci rizik.
+  \item \textbf{Návrh bezpečnostních opatření}: Na základě výsledků analýzy rizik se navrhují a implementují vhodná bezpečnostní opatření. Tyto opatření mohou být fyzické, jako jsou například bariéry nebo zábrany, nebo technické, jako jsou například senzory nebo automatické vypínání.
+  \item \textbf{Testování a ověření}: Po implementaci bezpečnostních opatření se provádí testování, aby se zajistilo, že jsou opatření účinná a odpovídají požadovaným bezpečnostním standardům.
+  \item \textbf{Monitorování a údržba}: Bezpečnostní opatření musí být pravidelně monitorována a údržbou, aby bylo zajištěno, že zůstávají účinná a nezhoršují se. Také je důležité průběžně sledovat a aktualizovat bezpečnostní opatření v případě, že se změní podmínky provozu stroje nebo změní bezpečnostní standardy.
+  \item \textbf{Odstranění stroje}: Nakonec, když je stroj starý nebo již není bezpečný, musí být odstraněn v souladu s příslušnými normami a zákony.
+\end{itemize}
+(převzato z BPC-PGA - lepší popis než z obrázku - obsahuje ještě 6. část, kdy se stroj odstraní)
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture21.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Funkční bezpečnost - metody boje proti chybám}
+\begin{itemize}
+  \item Predcházení chybám (Fault prevention, avoidance): \begin{itemize}
+    \item Konstrokční chyby - upravení procesu, řízení kvality,\dots
+    \item Provozní chyby - stínění, vhodné podmínky,\dots
+  \end{itemize}
+  \item Odstranění chyb (fault removal) \begin{itemize}
+    \item Verifikace a validace - při návrhu, kontrola, analýza,\dots
+    \item Údržba - při provozu, mazání, pravidelná kontrola,\dots
+    \item Fault forecasting - simulace, modelování, historuická data, testy,\dots
+  \end{itemize}
+  \item Maskování chyb (fault masking) \begin{itemize}
+    \item Zabránění projevu chyby - redundance (2 zařízení dělaj to samé, při chybě začne fungovat druhé)
+  \end{itemize}
+  \item Odolnost proti chybám (fault tolerance) \begin{itemize}
+    \item Detekce chyby (fault detectino) - watchdog (periodický občerstvovaný časovač - monitoruje a reaguje na problémy)
+    \item Zotavení (recovery) - restart
+    \item Odstranění poruchy (fault removal) - načtení naposledy správného stavu 
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{HW funkční bezpečnost}
+\begin{itemize}
+  \item Vstupy - STOP tlačítko, světelná závora, zámek, koncový spínač, ruční spínač (deadman switch)
+  \item Výstupy - Bezpečnostní stykače, frekvenční měniče s bezpečnostními funkcemi,\dots
+  \item Logické obvody - Bezpečnostní relé, safety PLC,\dots
+\end{itemize}
+
+\subsubsection*{Chyby - pojmy}
+TIP - nauč se hlavně anglický pojem, čeština je mrcha. A i tak v tom budeš mít guláš
+\begin{itemize}
+  \item Fault (závada,chyba) - defekt, potenciální příčina chyby systému
+  \item Error (chyba, porucha) - nesprávný stav systému, může vést k selhání
+  \item Failure (porucha, selhání) - defekt, systém neplní požadovanou funkci
+  \item Havárie - porucha s vážnými následky
+  \item Fault tolerance (odolnost proti poruchám) - závada nevede k poruče
+  \item Safety (bezpečnost) - porucha nevede k havárii
+\end{itemize}
+
+\subsubsection*{Ukazatele spolehlivosti}
+
+\begin{itemize}
+  \item Intenzita poruch - očekavaný počet poruch za jednotku času - počet poruch za milion provozních hoditn nebo jako Failure in time (miliarda hodin)
+  \item Střední doba bezporuchového provozu (MTBF) - střední doba mezi dvěma poruchami
+  \item Střední doba do poruchy (MTTF) - nezahrnuje dobu opravy, rozlišení poruchy a nebezpečné poruchy
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \textwidth]{img/Picture23.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Analýza spolehlivosti}
+\begin{itemize}
+  \item Analýza stromu poruchových stavů (FTA) - postup shoda dolů, hledání možných příčin jednotlivých poruchových stavů, zápis formou diagramu
+  \item Failure mode and effects analysis (FMEA) - postup shora nahoru, hledání možných poruch a jejich vlivu na fungování systému, posouzení závažnosti poruch, četnosti, možnost odhalení,\dots Zápis formou tabulky.
+\end{itemize}
+
+\subsubsection*{Kybebezpečnost v průmyslu}
+Je třeba zajistit zabezpečení dat v celém podnikovém systému – celistvost a nepodvrhnutelnost dat, bezpečný přenos dat, zabezpečení před neoprávněnou manipulací.
+\begin{itemize}
+  \item Vnější aspekty - ochrana před útočníky z vnějšku
+  \item Vnitřní aspekty - Ochrana přes samotnými zařízeními a nedbalostí zaměstanců
+\end{itemize}
+
+\subsubsection*{Zranitelná místa a útoky}
+\begin{itemize}
+  \item Backdoor - neúmyslně při návrhu nebo konfiguraci, případně úmyslně
+  \item Denial of Serivce (DoS) - znemožnění dostupnosti síťové služby
+  \item Útok s přímým přístupem - červ, keylogger, trojan, ransomware,\dots
+  \item Odposlech - odcizení firemních informací
+  \item Spoofing - podvrhnutí dat vedoucí k poškození procesů ve výrobě
+  \item Tampering - modifikace zařízení pro získání dozoru, "Evil made attack"
+  \item Phising - snaha získat citlivé informace, sociální inženýrství
+\end{itemize}
+
+\subsubsection*{Zamezení kybernetickým útokům}
+\begin{itemize}
+  \item Bounty program - finanční kompenzace za nalezení chyb, aby tyto chyby nebyly prodány zlé straně
+  \item Zabezpečení fyzického přístupu - autorizace, autentizace
+  \item Zabezpečení IT systému - VLAN, Firewall, VPN, antiviry
+  \item Zabezpečení informací - zálohování, šifrování dat
+\end{itemize}
+
+\subsubsection*{Prostředky pro kyberbezpečnost}
+\begin{itemize}
+  \item Zálohovací severy, HW šifrovací klíče, přístupové čipy, biometrika, kamerové systémy,\dots
+\end{itemize}
+
+\section{Systémy reálného času – vlastnosti a použití v průmyslové automatizaci. Pojmy determinismus, včasnost a jitter. Metody zajištění determinismu.}
+Všechny systémy, které musí reagovat v reálném čase = musí vykonat akční zásah v reakci na podměty maximálně v definovaném čase.
+\begin{itemize}
+  \item Jde o všechny PLC, IPC zpracovávající časově-kritická data používané v průmyslu.
+  \item Příklad real-time zpracování jsou například PLC dle IEC 61131, které podporují periodické a kontinuální úlohy. Kontinuální úlohy vykonává v každém cyklu PLC, periodické vždy jednou za nějaký časový úsek. Pokud je čas vykonat periodickou úlohu, pozastaví se vykonávání kontinuální úlohy a vykoná se periodická. Tohle „režíruje“ firmware PLC.
+\end{itemize}
+
+\subsubsection*{Determinismus, včasnost, jitter}
+\begin{itemize}
+  \item \textbf{Determinismus} - "opakovatelnost" událostí v systému. Deterministicky se chová něco, co se nechová náhodně, ale na základě jasných vstupů. V RTOS se tímto pojmem označuje to, že existují jasné časové meze při vykonávání funkce.
+  \item  \textbf{Včasnost} - Požadavek na včasnost znamená, že vstupní data musejí být získána v časovém limitu. V tomto limitu musí být proveden výpočet a výstupní data musí být dýna na výsutp. Dá se posuzovat dvěma rúznými časovými podmínkami: \begin{itemize}
+    \item Absolutní časová podmínka - V daný čas musí být podmínka splněna
+    \item Relativní časová podmínka - Podmínka musí být splněna do x sekund od splnění jiné podmínky.
+  \end{itemize}
+  \item \textbf{Jitter} - Variabilita periodicity (nestálost frekvence) - velikost kolísání při odezvě internetu.
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture24.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Řízení v supersmyčce}
+Jednoduché, intuitivní řešení, vhodné pro jednoduché úlohy. Není potřeba žádná složitá režie – není potřeba operační systém. Složitější úlohy takhle nelze řešit, nebyly by real-time kvůli zpoždění.
+Je definována jako situace kdy:
+\begin{itemize}
+  \item Úlohy jsou implementovány jako funkce
+  \item Úlohy volány za sebou ve while cyklu
+  \item Úlohy jsou řazeny za sebou
+\end{itemize}
+Problém s délkou cyklu nastane, když do cyklu zařadíme např. komunikace, nebo složitější úlohy. 
+Pokud potřebujeme přesnou periodu, musíme měřit čas a variabilní dobu na konci čekat.
+
+\subsubsection*{Víceúlohové operační systémy}
+\begin{itemize}
+  \item Dekompozice úlohy na samostatné procesy vede ke zjednodušení procedur a ke snadnějšímu ladění/ověření jejich funkce.
+  \item Selhání jednoho procesu nemusí nutně vést k selhání celého systému.
+  \item Procesům lze různě přiřadit priority.
+  \item Pararelismus se systémem priorit a deterministickým plánovačem jádra (kernel) je NUTNOU podmínkou pro real-time chování řídící úlohy
+  \item Snadnější úpravy, možnost zaručení real-time odezvy, více složitý, režie OS
+\end{itemize}
+
+\subsubsection*{Operační systém reálného času (RTOS)}
+\begin{itemize}
+  \item takový OS, který je schopen provádět výpočy a reagovat na událost v definovaných časových intervaltech (v deadlines).
+  \item Musí obsahovat deterministický plánovač jádra
+  \item Podmínka realizace v RTOS není dostačující – programátor musí vždy řídicí úlohu přizpůsobit schopnostem a možnostem daného RTOS na dané HW platformě
+\end{itemize}
+
+\subsubsection*{Deadline}
+\begin{itemize}
+  \item Hard - požadavky musí být bezpodmínečně splněny při každé vyskytnuté události v systému
+  \item Soft - stačí, když budou slněny v nějakém průměrném časovém intervalu
+  \item V informatickém pojetí jsou v hard deadlines systémech data, která přijdou pozdě bezcenná, popřípadě neplatná a mnohdy i potenciálně nebezpečná. Systém s nimi často nesmí dále pracovat. Pokud by hard deadlines splněny nebyly, došlo by k selhání systému se všemi z toho vyplývajícími důsledky.
+\end{itemize}
+Má několik softwarových součástí:
+\begin{itemize}
+  \item 1. Správa úloh - vyhodnocuje a zařazuje úlohy
+  \item 2. Správa paměti - alokuje a dealokuje paměť 
+  \item 3. Meziprocesorová komunikace - synchronizace úloh
+  \item 4. Správa zařízení - drivery, HAL (Hardware Abstraction Layer)
+  \item 5. Správa času - obnova časovačů, hlídání času
+\end{itemize}
+
+Příklady RTOS
+\begin{itemize}
+  \item POSIX (Linux) - QNX, LynxOS
+  \item Win32 - Windows CE
+  \item Embedded (ARM) - FreeRTOS
+\end{itemize}
+
+RTOS vs supersmyčka:
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \textwidth]{img/Picture25.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Aby mohly řídící prostředky pracovat v real time, musí obsahovat systém reaálného času - supersmyčka nebo RTOS
+  \item RTOS je komplexní nástroj plnící deadline jednotlivých úloh
+  \item RTOS se používá v PLC jako firmware, v embedded nebo PC řídících systémech
+  \item Pro zajištění komunikace v real time je nutná součinnost software pracující v real time a HW.
+\end{itemize}
+
+
