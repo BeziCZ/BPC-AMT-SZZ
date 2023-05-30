@@ -290,14 +290,14 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Opotřebovává se komutátor a uhlíky, je hlučnější. V průmyslu se moc nevyužívají, spíše hobby účely.
 \end{itemize}
 
-\textbf{Typy vnitřního zapojení:}
+\subsubsection*{Typy vnitřního zapojení:}
 \begin{itemize}
   \item \textbf{S cizím buzením} - rotor i stator mají sepáratní napájení
   \item \textbf{Sériové buzení} - rotor a stator sériově propojen
   \item \textbf{S permanentními magnety} - stator je tvořen magnety (závislost otáček na momentu je lineární, moment závisí na napájecím proudu)
 \end{itemize}
 
-\textbf{Řízení:}
+\subsubsection*{Řízení:}
 \begin{itemize}
   \item Změna napětí
   \item Reverzace změnou polarity napětí
@@ -315,14 +315,14 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Rychlost není přesně dána, pokud není podřízena ref. frekvenci.
 \end{itemize}
 
-\textbf{Řízení:}
+\subsubsection*{Řízení:}
 \begin{itemize}
   \item Nejčastěji pomocí 3-fázového DC/DC konventoru - algoritmus řízení 6 krokrů, kde se skutečná poloha rotoru určuje od 3 Hallových senzorů a generuje se 6 vektorů
   \item Pomocí signálů - start/stop, forward/reverse, velocity
   \item Pomocí komunikace (registry)
 \end{itemize}
 
-\textbf{Vlastnosti a použití}
+\subsubsection*{Vlastnosti a použití}
 \begin{itemize}
   \item Tichý chod, efektivnější než DC motor, není nutná údržba
   \item Potřebuje speciální driver se snímačm pro řízení, nerovnoměrnost momentu
@@ -337,7 +337,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Existují 3 verze, u kterých se postupně zvyšuje přesnost, ale zhoršují se dynamické vlastnosti (setrvačnost rotoru).
 \end{itemize}
 
-\textbf{Reluktační krokový motor}
+\subsubsection*{Reluktační krokový motor}
 \begin{itemize}
   \item Přepínáním statorových cívek se vytváří rotační mag. pole pro rotor z magnetického železa.
   \item Jednoduchá a levná konstrukce.
@@ -354,7 +354,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \end{center}
 \end{figure}
 
-\textbf{S permanentním magnetem}
+\subsubsection*{S permanentním magnetem}
 \begin{itemize}
   \item Rotor - permamentní magnet s radiální magnetizací.
   \item Staor má nástavce s vinutím, dvě vinutí o 1/4 zubu posunuta.
@@ -363,7 +363,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Krok cca 15 stupňů, největší přídržný moment.
 \end{itemize}
 
-\textbf{Hybridní}
+\subsubsection*{Hybridní}
 \begin{itemize}
   \item Kombinace reluktačního a s permanentním magnetem. 
   \item Rotor z permamentního magnetu, který má nástavec se zuby, jenž jsou mezi sebou o půl zubu posunuty.
@@ -371,7 +371,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Rotor a stator mají různé počty zubů, aby nemohlo dojít k "uchycení" všech zunů najednou (zastavení).
 \end{itemize}
 
-\textbf{Zapojení a řízení}
+\subsubsection*{Zapojení a řízení}
 \begin{itemize}
   \item Zapojení: \begin{itemize}
     \item 4 vodičové - pouze bipolární řízení
@@ -415,7 +415,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \end{itemize}
 \end{itemize}
 
-\textbf{Výhody a nevýhody krokových notorů}
+\subsubsection*{Výhody a nevýhody krokových notorů}
 \begin{itemize}
   \item Výhody: \begin{itemize}
     \item Polohování v otevřené smyčce
@@ -430,7 +430,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Oproti servo-pohonům jsou levnější, jednodušší, momentově silnější při stejné rychlosti, méně přesné, pomalejší, méně dynamické.
 \end{itemize}
 
-\textbf{Servopohon}
+\subsubsection*{Servopohon}
 Řízení krokového motoru v uzavřené smyčce může určit fázový přechod s polohou rotoru pomocí zpětné vazby polohy a (nebo) zpětné vazby rychlosti, což může výrazně zlepšit výkon krokového motoru. -> servopohony
 \begin{itemize}
   \item motor + zpětná vazba + regulátor
@@ -448,7 +448,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Reverzace směru otáčení - prohození fází
 \end{itemize}
 
-\textbf{Řízení}
+\subsubsection*{Řízení}
 \begin{itemize}
   \item Pomocí stykače (el. signálem)
   \item Pomocí frekvečního měniče - elektrické signály (start/stop, forward/reverse,\dots), pomocí kominkace (registry)
@@ -465,7 +465,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 \end{itemize}
 
 \subsection{Pneumatické pohony}
-\textbf{Fyzikální podstata}
+\subsubsection*{Fyzikální podstata}
 
 \begin{figure}[h]
   \begin{center}
@@ -493,7 +493,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \end{center}
 \end{figure}
 
-\textbf{Vlastnosti}
+\subsubsection*{Vlastnosti}
 \begin{itemize}
   \item Dostupnost - Stalčený vzduch je ve většině podniků k dispozici, případně pojízdné kompresory
   \item Skladování - Velké objemy stlačeného vzduchu lze skladovat
@@ -504,7 +504,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Bezpečnost - pneumatické pohony se při provozu nezahřávají, při přetížení se zastaví a nepoškodí se
   \end{itemize}
 
-\textbf{Výhody}
+\subsubsection*{Výhody}
 \begin{itemize}
   \item Možnost rozvodu a delší vzdálenost
   \item Rychlé pohyby
@@ -513,7 +513,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Cenová dostupnost komponent
 \end{itemize}
 
-\textbf{Nevýhody}
+\subsubsection*{Nevýhody}
 \begin{itemize}
   \item Omezená síla
   \item Problematické dosažení pomalých či plynulých pohybů
@@ -522,3 +522,343 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
   \item Hlučné, Nelinearita, je třeba mazat (bezolejové provedení)
 \end{itemize}
 
+\section{Řídicí členy (PLC, DCS, průmyslová PC, průmyslové regulátory, vestavné systémy, HMI aj.) – vlastnosti a použití. Typy provedení komponentů. Možnosti jejich programování (parametrizace, reprezentace veličin, struktura projektu, struktura programu, stavový automat). Postup programování technologických procesů.}
+
+\subsection{Reléová Logika}
+Realizování logiky pomocí soustav relátek. Dříve tak muselo být realizováno vše, dnes už max jen jednoduché zapojení. Nahrazeno logikou v PLC.
+
+\subsection{PLC}
+\begin{itemize}
+  \item Malý průmyslový počítač pracující v reálném čase.
+  \item Je u něj kladen velký důraz na spolehlivost - z toho důvodu jsou používány procesory, které jsou již ověřené (Chybovost atp.). 
+  \item Nasazován pro řízení strojů, výrobních linek, robotů, sběr dat ze zařízení atp.
+  \item Zpravidla obsahuje rozhraní pro komunikaci - sériová linka, ethernetové porty, USB (k programování).
+  \item Většinou má digitální a analogové vstupy/výstupy.
+  \item Programuje se dle standardu IEC 61131 - jazyky Structured Text, Ladder, Function Block Diagram,\dots
+  \item Programuje se ve vývojovém prostředí - každý výrobce používá většinou to své, např. Siemens - TIA portal. Případně se často využívá CODESYS.
+\end{itemize}
+\subsubsection*{Struktura PLC}
+\begin{itemize}
+  \item Vnější: \begin{itemize}
+    \item Zdroj
+    \item Procesor 
+    \item IO moduly 
+    \item Komunikační moduly
+  \end{itemize}
+  \item Vnitřní: \begin{itemize}
+    \item Napájecí modul
+    \item Vstupní modul
+    \item Procesorová jednotka
+    \item Paměť pro data
+    \item Paměť pro program
+    \item Výstupní model
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture13.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Konstrukce}
+\begin{itemize}
+  \item Kompaktní - jednodušší, všechny vnější komponenty jsou v jedné "krabičce"
+  \item Modulární - větší, dražší, viz obrázek
+\end{itemize}
+
+\subsubsection*{Komunikační rozhraní}
+\begin{itemize}
+  \item Point to point - programování
+  \item Multi point interface - programování a jednoduchá komunikace
+  \item Čím dál častěji se využívají komunikační protokoly přes ethernet - Ethernet/IP, ProfiNET, Modbus TCP, EtherCAT,\dots
+  \item Případně komunikace přes RS422, RS 485, Profibus,\dots
+\end{itemize}
+
+\subsubsection*{Programovatelné relé}
+Miniaturní PLC s omezenými možnostmi (výkon, komunikace, IO). Integruje několik relé, časovačů a jednoduchou komunikaci.
+
+\subsubsection*{Soft PLC}
+Celé zařízení vykonává standardní PC, případně umí i Raspberry Pi, ve kterém je nainstalován software, který emuluje PLC. Připojení různých rozhraní je pomocí modulů, které jsou připojeny k PC. 
+\begin{itemize}
+  \item Levnější
+  \item Velká operační paměť
+  \item Není až tak moc realtime kvůli operačnímu systému.
+\end{itemize}
+
+\subsubsection*{Slot PLC}
+PLC realizováno jako karta do PC
+
+\subsubsection*{Průmyslový počítač - IPC}
+\begin{itemize}
+  \item Je to počítač přizpůsoben do průmyslového prostředí.
+  \item Má pasivní chlazení, vysoká tepelná odolnost, dlouhá životnost, spolehlivost, ochrana proti prachu, mechanická odolnost.
+  \item Operační systém - Windows embedded, Linux RT, RTX.
+  \item Z hlediska průmyslového řízení má několikanásobně vyšší výkon než PLC.
+  \item Oproti PLC jsou zaměřeny spíše na komunikace než na IO.
+  \item Spíše starší HW - starší HW je více otestován na krizové situace.
+\end{itemize}
+
+\subsubsection*{Procesní stanice}
+\begin{itemize}
+  \item Rozšiřuje řídící komponentu o IO.
+  \item U modernějších typů možná i parametrizace.
+  \item Ovládaná pomocí průmyslové komunikace.
+  \item Jsou velké - i 150 IO.
+  \item Nemá logiku, jen vykonává příkazy
+\end{itemize}
+
+\subsubsection*{DCS}
+\begin{itemize}
+  \item DCS = Distributed Control System.
+  \item Každá řídící komponenta má na starost svou dílčí oblast, která je do jisté míry autonomní - například PLC.
+  \item Tyto komponenty komunikují mezi sebou, případně s nadřazeným systémem, který je ovládá jako celek.
+\end{itemize}
+
+\subsubsection*{HMI}
+\begin{itemize}
+  \item HMI = Human Machine Interface.
+  \item Rozhraní mezi člověkem a strojem, vizualizace a řízení menších technologických celků (stroj, linka,\dots).
+  \item Nepodporuje realtime OS.
+  \item Integrován jako HMI panel zabudován ve stroji, HMI+PLC dohromady (Když se jedno posere, musí se vyměnit celek).
+  \item Propojení pomocí průmyslové komunikace - ethernet - Modbus TCP, Ethernet/IP, \dots
+  \item HMI může být využíváno pro konkretní stroj nebo jako jedno HMI na více strojů - více obrazovek.
+\end{itemize}
+
+\subsubsection*{Průmyslové regulátory}
+\begin{itemize}
+  \item Jednoúčelová komponenta pro regulaci nějakého procesu na základě vstupu. Např. pro regulaci teploty.
+  \item Pravděpodobně vždy PID regulátor. Většinou má auto-tuning (Automatické určení regulované soustavy).
+\end{itemize}
+
+\subsubsection*{Vestavné systémy}
+Tak tu fakt nevim, co po nás z "PPA gangu" chcou - bude to chtít naučit se i BPC-MIC :)
+
+\subsubsection*{Programování dle IEC61131}
+Parametrizace a programování PLC se dnes už často dělá dle této normy
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture14.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Zdrojový kód se pak píše do \textbf{Program Organisation Unit (POU)}, což může být funkce, funkční blok, nebo kus programu.
+  \item Tyto POU pak mohou být zařazeny do \textbf{Task}ů. Každý Task má pak definován, jak často je vykonáván – periodicky, při události, v každém cyklu PLC. 
+  \item Dle normy je taky oddělená konfigurace PLC a modulů a definice CPU (Resource), který vykonává Tasky.
+  \item Každý projekt může mít několik seznamů globálních proměnných, pomocí kterých mohou POU mezi sebou komunikovat.  
+\end{itemize}
+
+Tato norma také definuje jakým způsobem pracuje PLC. Pracuje v tzv. cyklech, kdy dokola provádí následující operace:
+\begin{itemize}
+  \item Čtení stavů vstupů do vnitřní paměti
+  \item Vykonání celého programového vybavení pracujáícího s vnitřní pamětí
+  \item Zpracování komunikace
+  \item Diagnostika chybovosti
+  \item Zápis stavů výstupů z vnitřní paměti
+\end{itemize}
+
+\subsubsection*{Task}
+\begin{itemize}
+  \item Sbírka podprogramů vykonávající se v daném pořadí - najednou.
+  \item Kontinuální task - vykonává se vždy, když je to možné - přerušení s periodickým taskem
+  \item Periodický task - spoušten v daný okamžik s periodou
+  \item Událostní task - spouštěn na zákaldě splnění nějaké podmínky
+\end{itemize}
+
+\subsubsection*{Vestavěné funkce}
+\begin{figure}[h] 
+  \includegraphics[scale = 0.85]{img/Picture15.png}
+\end{figure}
+
+\subsubsection*{Datové typy}
+\begin{figure}[!h]
+  \includegraphics[scale = 0.85]{img/Picture16.png}
+\end{figure}
+
+\subsubsection*{Postup pro vytvoření programu}
+\begin{itemize}
+  \item HW konfigurace 
+  \item Konfigurace komunikace
+  \item Vytvoření seznamu aliasů (GVL)
+  \item Vytvoření programu
+  \item Nahrání do PLC a testování
+\end{itemize}
+
+\subsubsection*{Režimy PLC}
+\begin{itemize}
+  \item STOP - výstupy neaktivní, vstupy Aktivní
+  \item RUN 
+  \item ERROR 
+  \item MAINT - režim údržby
+\end{itemize}
+
+\subsubsection*{Postup programování technologických procesů}
+\begin{itemize}
+  \item Model logického programu \begin{itemize}
+    \item Nastavování výstupů na základě časových a logických podmínek
+    \item Jednoduchý a názorný přístup
+    \item Nutno úplně definovat podmínky nastavování
+  \end{itemize}
+  \item Model sekvenčního programu \begin{itemize}
+    \item Nastavování výstupu na základě stavu programu
+    \item Systematický přístup
+    \item Úloha rozdělna na posloupnost kroků
+    \item např. stavový automat
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{Stavový automat}
+Viz BPC-LOS - Mealy, Moore
+
+\section{Průmyslové komunikační sítě (sběrnice a protokoly) – dělení, vlastnosti a použití. Referenční model ISO/OSI. Způsoby komunikace. Průmyslový Ethernet. Bezdrátový přenos dat v průmyslovém prostředí.}
+\subsubsection*{Referenční model ISO / OSI}
+Tento model popisuje chování klientů při komunikaci, definuje služby, protokoly a rozhraní pro jednotlivé vrstvy.
+\begin{itemize}
+  \item 7. Aplikační vstva - rozhraní na aplikaci (nebo OS)
+  \item 6. Prezentační vrstva - konverze dat, šifrování, komprese
+  \item 5. Relační vrstva - ustanovení relace, autorizace, autentizace [data]
+  \item 4. Transportní vrstva - řízení toku dat přes síť [segment] 
+  \item 3. Síťová vrstva - směrování, adresování, udržování síťových spojení [paket]
+  \item 2. Spojová vrstva - zajišťuje spojení bod-bod (oprava chyb, adresování, rámce, tok, přístup k médiu) [rámec]
+  \item 1. Fyzická vrstva - fyzické parametry komunikace (specifikace HW, el. signály, konektory, vedení) [bit]
+\end{itemize}
+
+\subsubsection*{Fyzická vrsta ISO/OSI}
+Rozlišujeme několik typů zpaojení týkajících se fyzické vstvy ISO/OSI modelu:
+\begin{itemize}
+  \item Nesymetrický přenos - Signál vztahován k zemi, jednoduchý, levný, málo odolný protio rušení, krátká vzdálenost, malá rychlost
+  \item Symetrický přenos - Signály vztahovány proti sobě, měří se potenciál mezi dvěma vodiči. Vysoké rychlosti, velká odolnost vůči rušení.
+  \item Point-to-Point (simplex) - 1 vysílač, 1 přijímač - komunikace v jednom směru
+  \item Multidrop (distributed simplex) - 1 vysílač, více přijímačů - komunikace v jednom směru
+  \item Multipoint (mupliplex) - více vysílačů i přijimačů, obousměrná komunikace
+  \item Half-Duplex - obousměrná komunikace - v jeden okamžik pouze v jednom směru
+  \item Full-Duplex - obousměrná komunikace - v obou směrech najednou
+\end{itemize}
+
+\subsubsection*{Spojová vrsva ISO/OSI}
+Přenos a synchronizace rámců, řízení toku, detekce a ošetření chyb. U ethernetu například switche - pomocí MAC adresy směřují rámce na správné porty.
+
+\subsubsection*{Síťová vrstva}
+Slouží ke konkrétnějšímu směrování rámců. Rozlišuje se několik druhů adresování:
+\begin{itemize}
+  \item Unicast - zpráva pro jediného příjemce
+  \item Anycast - zpráva pro příjemce v určitém dosahu
+  \item Multicast - zpráva pro skupinu příjemců
+  \item Broadcast - zpráva určená všem
+\end{itemize}
+S touto vrstvou pracují například routery, které podle IP adresy směřují pakety na správné zařízení.
+
+\subsubsection*{Průmyslové komunikační sítě - protokoly}
+Používají se pro přenos dat ve větším množství, nebo pokud chceme připojovat více zařízení na stejnou sběrnici.
+Rozděluje se do několika kategorií (od nejjedodušší k nejsložitější):
+\begin{itemize}
+  \item \textbf{Sensor Bus} - K propojení senzorů s řídícími systémy. AS-interface, IO-Link
+  \item \textbf{Device Bus} - K propojení zařízení jako akční prvky (ventily, motory,...) s řídícími systémy. Profibus DP, CANopen\dots
+  \item \textbf{Fieldbus} - K propojení senzorů, akčních prvků a dalších průmyslových zařízení se řídícími systémy. Profibus PA, Modbus,\dots
+  \item \textbf{Průmyslový ethernet} - Využití výhod ethernetu s kombinací prvků z průmyslu. Ethernet/IP, Modbus TCP, Profinet, Powerlink, EtherCAT\dots
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture17.png}
+  \end{center}
+\end{figure}
+
+\begin{figure}[!h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture18.png}
+  \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection*{AS-Interface}
+\begin{itemize}
+  \item Sensor Bus
+  \item Různé topologie, plug and play 
+  \item Speciální fyzická vrstva s profilovým nestíněným nekrouceným kabelem
+  \item Především pro přenos binárních signálů (0,1)
+  \item Jen do nevýbušného prostředí, existuje i varianta pro toto prostředí.
+\end{itemize}
+
+\subsubsection*{Profibus}
+
+\begin{itemize}
+  \item V průmyslu je stále nejrozšířenějším protokolem
+  \item Profibus DP (decentralized periphery) - devicebus - rychlejší, jednodušší, využívá RS-485, optika. Optimalizován na výkon, cyklický přenos dat
+  \item Profibus PA (process automation) - fielbus - pomalejší, bezpečnější (aj výbušné prostředí), využívá vlastní fyzickou vrstvu.
+  \item Profibus využívá deterministickou komunikaci v reálném čase.
+\end{itemize}
+
+\subsubsection*{HART}
+\begin{itemize}
+  \item Sériový protokol umožňující digitální přenos příkazů přes analogovou proudovou smyčku 4-20mA pomocí změn frekvence
+  \item Umožňuje diagnostiku, seřizování a parametrizaci přístrojů
+  \item Existuje i bezdrátová varianta - WirelessHART
+\end{itemize}
+
+\subsubsection*{Průmyslový ethernet}
+Postupnou konvergencí průmyslu k internetu jsme dospěli k tomu, že je velmi praktické jako fieldbus používat ethernet. Dostaneme tak řešení, které je mnohem více standardizované, rychlejší, lze využít mnoho poznatků z provozování běžných sítí (např. rozdělování přístupu) a lze na něm provozovat i „běžné“ počítačové komunikace. 
+Je u něj třeba zaručit několik real-time vlastností:
+\begin{itemize}
+  \item Včasnost - rychlost provedení operace od vyslání zprávy - zajistí se fyzickým oddělením časově kritické komunikace od časově nekritické, nebo třeba prioritizací paketů na úronvi switchů
+  \item Současnost - synchronizace akcí všech účastníků na ethernetu - zajistí se mechanismy na synchronizaci času - časové značky u paketů
+\end{itemize}
+Další z možností jak tyto dvě vlastnosti zařídit: Použít UDP namísto TCP, snížit časové toleranční pásmo (jitter).
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture19.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Modbus}
+\begin{itemize}
+  \item De facto standard pro průmyslové PLC komunikace
+  \item Jednoduchá a rychlá digitální komunikace - Klient-Server
+  \item Modbus RTU - sériové rozhraní (RS-485) (Fieldbus)
+  \item Modbus TCP - průmyslový ethernet - datová část na TCP paketu (Průmyslový ethernet)
+  \item Strikně Master-Slave protokol
+\end{itemize}
+
+\subsubsection*{Ethernet/IP}
+\begin{itemize}
+  \item Ethernet industrial protocol
+  \item Časově kritické zprávy přenášeny způsobem producent-konzument
+  \item Konfigurace a parametry přes TCP 
+  \item Časově kritické data přes UDP
+\end{itemize}
+
+\subsubsection*{Profinet}
+\begin{itemize}
+  \item Návaznost na profibus, redundantní topologie a safety funkce.
+  \item Profinet CBA - TCP/IP komunikace, jitter 5-100 ms, cyklus sítě nad 100 ms
+  \item Profinet IO-RT - decentralizované periferie, především cyklický režim, jak profibus DP, jitter 10-100 us, cyklus sítě 5-10 ms
+  \item Profinet IO -IRT - real-time cyklická komunikace se servoměniči, spešl HW, jitter 1-100 us, cyklus sítě 31,25us - 1ms
+\end{itemize}
+
+Ještě tu je aj \textbf{EtherCAT} a \textbf{ETHERNET Powerlink}, ale na ty kukněte do prezentace, ať jen víte, že existují\dots
+
+\subsubsection*{Bezdrátová komunikace}
+\begin{itemize}
+  \item Rádiové vlny - elektromagnetický signál v rozsahu 3 kHz až 300 GHz \begin{itemize}
+    \item Analogová modulace (AM,FM,\dots)
+    \item Digitální (ASK,FSK,GSk,\dots)
+  \end{itemize}
+  \item Síla signálu se vyjadřuje jako výkon [W].
+\end{itemize}
+
+\subsubsection*{Bezdrávoté technologie}
+\begin{itemize}
+  \item Wireless MAN (metropolitní síť) \begin{itemize}
+    \item WiMAX, GPRS, EDGE, UMTS, HSDPA,\dots
+  \end{itemize}
+  \item Wireless LAN (lokální sítě) \begin{itemize}
+    \item Wi-Fi, HIPERLAN, DECT,\dots
+  \end{itemize}
+  \item Wireless PAN ("osobní" sítě (krátkého dosahu)) \begin{itemize}
+    \item Bluetooth, ZigBee, WirelessHART,\dots
+  \end{itemize}
+\end{itemize}
