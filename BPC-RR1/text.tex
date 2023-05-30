@@ -255,6 +255,9 @@ Výhodou je, že dostaneme rozsahy parametrl, pro které je Uzavřený obvod sta
 Hurwitzuv determinant:
 \begin{itemize}
     \item Z charakteristické rovnice se vytvoří čtvercová matice, ze které se určí determinant, který pro stabilitu musí být větší, než 0.
+    \begin{figure}[H]
+        \includegraphics*[scale = 1.2]{images/Hurwitz.png}
+    \end{figure}
     \item Všechny podmínky vycházející z příkladu musí platit společně.
 \end{itemize}
 
@@ -274,5 +277,124 @@ Vzorový příklad k charakteristickému polynomu: $0.1p^5+2.01p^4+10.2p^3+(K_0+
 
 
 
+
+\section{Analýza dymanických vlastností zpětnovazebních obvodů. Metoda geometrického místa kořenů. Zásoba stability v amplitudě, fázi, modulu. Integrální kritéria kvality regulace, praktická kritéria}
+Dynamickými vlastnostmi popisujeme chování systému v přechodných dějích. Tím je myšleno rchlost odeznění, maximální překmit a kmitavost přechodného děje. Neexistuje univerzálně optimálně navrhnutý regulátor, dost záleží na situaci. 
+Dynamické vlastnosti se zjišťují z těchto hledisek:
+\begin{itemize}
+    \item z rozložení nul a pólů v komplexní rovině 
+    \item z odezev v časové oblasti
+    \item z průběhu frekvenčních charakteristik
+\end{itemize}
+
+
+\subsection*{Metoda kořenového hodografu}
+Jedná se o zobrazení průběhu pólů vharakteristické rovnice v závislosti na proměnlivém parametru v komplexní rovině.\\
+Postup grafického řešení:
+\begin{itemize}
+    \item v přenosu otevřené smyčky za p dosdíme p0 jako konkrétní bod 
+    \item dále vektor $(p_0 - \alpha_1)$ se dá zapsat v goniometrickém tvaru jako $|p_0 - \alpha_1|\angle (p_0 - \alpha_1)$
+    \item fázi získáme tak, že sečtem fáze v čitateli a odečtem fáze ze jmenovatele 
+    \item modul je dělení čitatele jmenovatelem
+    \item vzorový příklad:
+    \begin{figure}[H]
+        \includegraphics*[scale = 0.3]{images/hodograf.png}
+    \end{figure}
+\end{itemize}
+\newpage 
+
+\subsubsection*{Soubor pravidel pro konstrukci kořenového hodografu}
+\begin{itemize}
+    \item Symetrie - kořenový hodograf je symetrucký kolem reálné osy
+    \item Počet větví - kořenový hodograf obsahuje n větví 
+    \item Segmenty na reálné ose - pokud napravo od části reálné osy leží lichý počet nul a pólů, tak tato část osy je větev kořenového hodografu 
+    \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólů a končí v k = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
+    \item Poloha asymptot - asymptoty se protínají na reálné ose v bodě $\sigma = \frac{\sum^n_{i=1} \alpha_i \sum^m_{i=1}\beta_i}{n-m}$ a svírá s kladnou reálnou poloosou úhel $\varphi = \frac{180 \degree + i360\degree}{n - m}$ \dots i = 0, 1 ..., n-m-1
+    \item Průsečík s imaginární osou - hodnota K, pro kterou prochází větve kořenového hodografu imaginární osou se dá určit pomocí algebraických kritérií stability
+    \item Úhel v komplexní nule nebo pólu - úhel tečny, se kterým vychází větev kořenového hodografu z komplexního pólu $\alpha_k$ se vypočítá jako $\gamma_k = 180 \degree + i360 \degree -\sum^n_{i=1, i\neq k}\angle(\alpha_k - \alpha_i) + \sum^m_{i=1}\angle(\alpha_k - \beta_i)$. Úhel tečny, se kterým vchází větev kořenového hodografu do komplexní nuly $\beta_k$, se vypočítá jako $\delta_k = 180 \degree + i360 \degree -\sum^n_{i=1}\angle(\beta_k - \alpha_i) + \sum^m_{i=1, i\neq k}\angle(\beta_k - \beta_i)$
+    \item Průsečík s reálnou osou - průsečík větve kořenového hodografu s reálnou osou se většinou analyticky vyřešit nedá, řeší se iterativně
+\end{itemize}
+\subsection*{Zásoba stability v amplitudě, ve fázi a v modulu}
+\subsubsection*{Zásoba stability v amplitudě}
+Hodnota zesílení, se kterou když vynásobíme stávající zesílení otevřené smyčky, tak přivedeme uzavřenou smyčku na mez stability.\\
+Udává se ve formě násobícího faktoru nebo v decibelech.\\
+Značí se Mg.\\
+
+\subsubsection*{Zásoba stability ve fázi}
+Záporně vzatá změna fáze otevřeného obvodu, která přivede uzavřený obvod na mez stability.\\
+Značí se Mp.\\
+
+\subsubsection*{Zásoba stability v modulu}
+Nejkratší vzdálenost frekvenční charakteristiky otevřené smyčky do bodu -1 v komplexní rovině.\\
+Silnější kritérium než Mg a Mp.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 1.2]{images/zasobaStabiliity.png}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.1]{images/zasobaStabiliityTabulka.png}
+\end{figure}
+
+
+\subsection*{Integrální kritéria kvality regulace, praktická kritéria}
+Výčet kritérií:
+\begin{itemize}
+    \item Lineární
+    \item Usměrněné lineární 
+    \item Kvadratické
+    \item ITAE
+\end{itemize}
+\newpage 
+
+\subsubsection*{Lineární}
+Odečtení ustálené odchylky zajišťuje konvergenci integrálu k nějaké konečné hodnotě.\\
+\begin{equation}
+    J_L = \int^\infty_0[e(t) - e(\infty)]dt
+\end{equation}
+Musí se dodržet, že celá odchylka se pohybuje v kladné hodnotě, jinak nemá smysl, proto se moc nepoužívá.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 0.3]{images/linearniKriterium.png}
+\end{figure}
+
+\subsubsection*{Usměrněné lineární kritérium}
+Dá se člen integrálu do absolutní hodnoty.\\
+Problém nelinearita u středu.
+\begin{equation}
+    J_{UL} = \int^\infty_0|e(t) - e(\infty)|dt
+\end{equation}
+\begin{figure}[H]
+    \includegraphics*[scale = 0.3]{images/usmerneneLinearniKriterium.png}
+\end{figure}
+
+\subsubsection*{Kvadratické kritérium}
+Člen integrálu se dá na druhou.\\
+Problém optimální průběhy jsou hodně kmitavé.\\
+Přisuzuje se větší váha větším odchylkám.\\
+\begin{equation}
+    J_K = \int^\infty_0[e(t) - e(\infty)]^2dt
+\end{equation}
+\begin{figure}[H]
+    \includegraphics*[scale = 0.3]{images/kvadratickeKriterium.png}
+\end{figure}
+\newpage
+Existuje analytické řešení - Nekolneho doplněk:
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/nekolnehoDoplnek.png}
+\end{figure}
+\newpage
+
+\subsubsection*{ITAE kritérium}
+Nejpoužívanější\\
+Nedá se řešit analyticky.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 0.3]{images/ITAE.png}
+\end{figure}
+Zhodnocení vlastností:
+\begin{itemize}
+    \item méně kmitavý průběh ve srovnání s kvadratickým
+    \item váhové kritérium - váha odchylky narůstá s časem
+    \item analytický výpočet prakticky nemožný, řešení simulace
+\end{itemize}
 
 
