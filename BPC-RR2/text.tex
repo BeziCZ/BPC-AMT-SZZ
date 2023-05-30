@@ -304,3 +304,32 @@ pro návrh releového regulátoru lze využít např Ljapunova...
 Pro složitější systémy se využívá {\bf řízení v klouzavém režimu}
 Relé ja nastaveno tak, aby se systém dosatl na přepínací rozhraní  po přepínacím rozhraní došel až do 0.
 
+ \includegraphics{img/kluzavy_obr.png}
+
+ \begin{itemize}
+    \item systém může obsahovat neurčitost -> jedná se o robustní řízení
+    \item musím být schopen měřit aktuání hodnotu vnitřních stavů
+    \item na přepínacím rozhraní kmitá relé nesmyslně ryhcle, proto se nahrazuje něčím pozvolnějším 
+
+    \includegraphics[scale = 0.5]{img/kluzavy_rele.png}
+
+ \end{itemize}
+
+obeně postup návrhu řízení v klouzavém režimu
+\begin{enumerate}
+    \item popis systému převedeme na požadovaný tvar (odělené neurčitosti $\delta $ od zbylých závislostí)
+    
+    \includegraphics[scale =0.4]{img/klouzavy_tavr.png}
+    \item navrhneme žízení systému na který může epůsobit přímo vstupem - tím definujeme přepínací rozhraní
+    \item zavedeme proměnou co určuje odchylku od přepínacího rozharní, její derivcí získáme "systém", který musí směřovat do 0 (navrhneme pro něj takové řízení)
+    \item určíme ekvivalentí žizení $u_{eq}$, tak aby v rovnici došlol k elimiaci znmých člneů
+    \item dosadíme získáme $\Delta$
+    \item urrčíme max $\Delta$ 
+    \item dosadíme, určíme řízení (předppis pro regulátro) V
+
+\end{enumerate}
+
+%-----------------------------------
+\section{0. Linearizace nelineárních dynamických systémů (rozvoj do Taylorovy řady, exaktní zpětnovazební
+linearizace).
+}
