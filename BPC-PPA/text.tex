@@ -972,7 +972,7 @@ TIP - nauč se hlavně anglický pojem, čeština je mrcha. A i tak v tom budeš
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[scale = 0.5]{img/Picture23.png}
+    \includegraphics[width = \textwidth]{img/Picture23.png}
   \end{center}
 \end{figure}
 
@@ -1012,3 +1012,91 @@ Je třeba zajistit zabezpečení dat v celém podnikovém systému – celistvos
 \begin{itemize}
   \item Zálohovací severy, HW šifrovací klíče, přístupové čipy, biometrika, kamerové systémy,\dots
 \end{itemize}
+
+\section{Systémy reálného času – vlastnosti a použití v průmyslové automatizaci. Pojmy determinismus, včasnost a jitter. Metody zajištění determinismu.}
+Všechny systémy, které musí reagovat v reálném čase = musí vykonat akční zásah v reakci na podměty maximálně v definovaném čase.
+\begin{itemize}
+  \item Jde o všechny PLC, IPC zpracovávající časově-kritická data používané v průmyslu.
+  \item Příklad real-time zpracování jsou například PLC dle IEC 61131, které podporují periodické a kontinuální úlohy. Kontinuální úlohy vykonává v každém cyklu PLC, periodické vždy jednou za nějaký časový úsek. Pokud je čas vykonat periodickou úlohu, pozastaví se vykonávání kontinuální úlohy a vykoná se periodická. Tohle „režíruje“ firmware PLC.
+\end{itemize}
+
+\subsubsection*{Determinismus, včasnost, jitter}
+\begin{itemize}
+  \item \textbf{Determinismus} - "opakovatelnost" událostí v systému. Deterministicky se chová něco, co se nechová náhodně, ale na základě jasných vstupů. V RTOS se tímto pojmem označuje to, že existují jasné časové meze při vykonávání funkce.
+  \item  \textbf{Včasnost} - Požadavek na včasnost znamená, že vstupní data musejí být získána v časovém limitu. V tomto limitu musí být proveden výpočet a výstupní data musí být dýna na výsutp. Dá se posuzovat dvěma rúznými časovými podmínkami: \begin{itemize}
+    \item Absolutní časová podmínka - V daný čas musí být podmínka splněna
+    \item Relativní časová podmínka - Podmínka musí být splněna do x sekund od splnění jiné podmínky.
+  \end{itemize}
+  \item \textbf{Jitter} - Variabilita periodicity (nestálost frekvence) - velikost kolísání při odezvě internetu.
+\end{itemize}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale = 1]{img/Picture24.png}
+  \end{center}
+\end{figure}
+
+\subsubsection*{Řízení v supersmyčce}
+Jednoduché, intuitivní řešení, vhodné pro jednoduché úlohy. Není potřeba žádná složitá režie – není potřeba operační systém. Složitější úlohy takhle nelze řešit, nebyly by real-time kvůli zpoždění.
+Je definována jako situace kdy:
+\begin{itemize}
+  \item Úlohy jsou implementovány jako funkce
+  \item Úlohy volány za sebou ve while cyklu
+  \item Úlohy jsou řazeny za sebou
+\end{itemize}
+Problém s délkou cyklu nastane, když do cyklu zařadíme např. komunikace, nebo složitější úlohy. 
+Pokud potřebujeme přesnou periodu, musíme měřit čas a variabilní dobu na konci čekat.
+
+\subsubsection*{Víceúlohové operační systémy}
+\begin{itemize}
+  \item Dekompozice úlohy na samostatné procesy vede ke zjednodušení procedur a ke snadnějšímu ladění/ověření jejich funkce.
+  \item Selhání jednoho procesu nemusí nutně vést k selhání celého systému.
+  \item Procesům lze různě přiřadit priority.
+  \item Pararelismus se systémem priorit a deterministickým plánovačem jádra (kernel) je NUTNOU podmínkou pro real-time chování řídící úlohy
+  \item Snadnější úpravy, možnost zaručení real-time odezvy, více složitý, režie OS
+\end{itemize}
+
+\subsubsection*{Operační systém reálného času (RTOS)}
+\begin{itemize}
+  \item takový OS, který je schopen provádět výpočy a reagovat na událost v definovaných časových intervaltech (v deadlines).
+  \item Musí obsahovat deterministický plánovač jádra
+  \item Podmínka realizace v RTOS není dostačující – programátor musí vždy řídicí úlohu přizpůsobit schopnostem a možnostem daného RTOS na dané HW platformě
+\end{itemize}
+
+\subsubsection*{Deadline}
+\begin{itemize}
+  \item Hard - požadavky musí být bezpodmínečně splněny při každé vyskytnuté události v systému
+  \item Soft - stačí, když budou slněny v nějakém průměrném časovém intervalu
+  \item V informatickém pojetí jsou v hard deadlines systémech data, která přijdou pozdě bezcenná, popřípadě neplatná a mnohdy i potenciálně nebezpečná. Systém s nimi často nesmí dále pracovat. Pokud by hard deadlines splněny nebyly, došlo by k selhání systému se všemi z toho vyplývajícími důsledky.
+\end{itemize}
+Má několik softwarových součástí:
+\begin{itemize}
+  \item 1. Správa úloh - vyhodnocuje a zařazuje úlohy
+  \item 2. Správa paměti - alokuje a dealokuje paměť 
+  \item 3. Meziprocesorová komunikace - synchronizace úloh
+  \item 4. Správa zařízení - drivery, HAL (Hardware Abstraction Layer)
+  \item 5. Správa času - obnova časovačů, hlídání času
+\end{itemize}
+
+Příklady RTOS
+\begin{itemize}
+  \item POSIX (Linux) - QNX, LynxOS
+  \item Win32 - Windows CE
+  \item Embedded (ARM) - FreeRTOS
+\end{itemize}
+
+RTOS vs supersmyčka:
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width = \textwidth]{img/Picture25.png}
+  \end{center}
+\end{figure}
+
+\begin{itemize}
+  \item Aby mohly řídící prostředky pracovat v real time, musí obsahovat systém reaálného času - supersmyčka nebo RTOS
+  \item RTOS je komplexní nástroj plnící deadline jednotlivých úloh
+  \item RTOS se používá v PLC jako firmware, v embedded nebo PC řídících systémech
+  \item Pro zajištění komunikace v real time je nutná součinnost software pracující v real time a HW.
+\end{itemize}
+
+
