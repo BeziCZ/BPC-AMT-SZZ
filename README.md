@@ -53,8 +53,8 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 - [x] Standardní rozhraní průmyslových signálů - typy, obvodové provedení, vlastnosti a použití. Logika digitálních signálů. Zpracování analogové veličiny. Standardizace a destandardizace. Senzory - popis, typy a jejich použití. Možnosti zapojení snímačů do systému.
 - [x] Průmyslové pohony (elektrické, pneumatické) - typy, vlastnosti a způsoby řízení. Zapojení průmyslových pohonů do systému.
 - [x] Řídicí členy (PLC, DCS, průmyslová PC, průmyslové regulátory, vestavné systémy, HMI aj.) – vlastnosti a použití. Typy provedení komponentů. Možnosti jejich programování (parametrizace, reprezentace veličin, struktura projektu, struktura programu, stavový automat). Postup programování technologických procesů.
-- [ ] Průmyslové komunikační sítě (sběrnice a protokoly) – dělení, vlastnosti a použití. Referenční model ISO/OSI. Způsoby komunikace. Průmyslový Ethernet. Bezdrátový přenos dat v průmyslovém prostředí.
-- [ ] Spolehlivost a bezpečnost průmyslových zařízení a systémů. Metody vyhodnocení spolehlivosti. Komponenty a metody zajišťující funkční bezpečnost průmyslových strojů a zařízení. Aspekty kybernetické bezpečnosti. Kybernetické útoky a metody jejich zmírnění.
+- [x] Průmyslové komunikační sítě (sběrnice a protokoly) – dělení, vlastnosti a použití. Referenční model ISO/OSI. Způsoby komunikace. Průmyslový Ethernet. Bezdrátový přenos dat v průmyslovém prostředí.
+- [x] Spolehlivost a bezpečnost průmyslových zařízení a systémů. Metody vyhodnocení spolehlivosti. Komponenty a metody zajišťující funkční bezpečnost průmyslových strojů a zařízení. Aspekty kybernetické bezpečnosti. Kybernetické útoky a metody jejich zmírnění.
 - [ ] Systémy reálného času – vlastnosti a použití v průmyslové automatizaci. Pojmy determinismus, včasnost a jitter. Metody zajištění determinismu.
 
 ### BPC-RR1
