@@ -1,7 +1,6 @@
 \section{Základní nelinearity a popis nelineárních systémů (popis statických a dynamických nelineárních systémů,
 vliv parazitních nelinearit na průběh regulačního děje)}
 
-
 \subsection{bez dynamiky}
 Systém reaguje na odezvu okamžitě, nebo je jeho časová konstanta výrazně nižší něž zbylé čas. konstanty.
 Dělí se na :
@@ -152,7 +151,6 @@ kde
     \item nelinearita při vstupním signálu $e=A\cdot sin (\omega t) $ negeneruje stejnosměrnou složku
 \end{itemize}
 
-
 Zjištění mezních cyklů 
 
 \includegraphics{img/harm.rovnovha.png}
@@ -216,53 +214,51 @@ podle Václavka
 
 Tato podmínka je docela tvrdá, proto se zavádí Praktická stabilita, systém je prakticky stabilní v oblasti $\Omega$ pokud je lokálně asymptoticky stabilní a má oblast přitažlivosti $\Omega$.
 
-
 \subsection*{určení stability}
-Jedná pouze o podminky postačující pro satbilitu, pokud tedy systém podmínce nevyhoví nelze o něm říct že je nestabilní.
+Jedná pouze o podmínky postačující pro stabilitu, pokud tedy systém podmínce nevyhoví nelze o něm říct že je nestabilní.
 \subsubsection{I Ljapunovovo kritériu stability}
-Určuje stabilitu systému na zákldadě stbility linearizovéhé náhardy v okolí rovnovážnéh o stavu.
+Určuje stabilitu systému na základě stability linearizované náhrady v okolí rovnovážného stavu.
 
 \noindent \includegraphics[scale = 0.6]{img/Ljap.1.png}
 
-
 \subsubsection{II Ljapunovovo kritériu stability}
-Určíme si fukci V aby byla postivně definitní (PD), spočítáme W jako gradiet V (vpodstatě spíš derivaci ale ve skriptech to mají nazváno gradiet). Podle toje jestli je w ND , NSD urřime stabilitu.
+Určíme si fukci V aby byla pozitivně
+ definitní (PD), spočítáme W jako gradient V (v podstatě spíš derivaci ale ve skriptech to mají nazváno gradiet). Podle toho jestli je w ND , NSD určíme stabilitu.
 
 \includegraphics[scale = 0.6]{img/Ljap.2.png}
 
-V můžeme volit náhodně nebo lze využít {\bf Krasovského metodou}, kde V zvolíme jako součin námi zvolené matice L a funkcí f, ktré ziskáme ze stavových rovic.
+V můžeme volit náhodně nebo lze využít {\bf Krasovského metodou}, kde V zvolíme jako součin námi zvolené matice L a funkcí f, které získáme ze stavových rovnic.
 L musí být symetrická a PD. Matamatickými čáry pak dostaneme že W bude ND pokud T bude PD.
 T spočítáme jako :
 \begin{equation*}
     T=J^TL+JL
 \end{equation*}
 
-další metodu volby V je {\bf metoda variabilního gardietu } to ale doufám že umět nemusíme.
+další metodu volby V je {\bf metoda variabilního gradientu } to ale doufám že umět nemusíme.
 
 \subsubsection{Popovo kritérium stability}
-Aby byl podle popova systém stabilní musí být splneno:
+Aby byl podle popova systém stabilní musí být splněno:
 \begin{itemize}
     \item systém je neřízený
-    \item systém  je v kofigraci jak ne an obr.
+    \item systém  je v konfiguraci jak je na obr.
 
         \includegraphics{img/popov.schem.png}
     \item hodnota nelinerity v 0 je 0 $f(0)=0$
-    \item průbeh nellinearity je "pod" přímkou procházejíci počátkem se směrnicí k
+    \item průbeh nellinearity je "pod" přímkou procházející počátkem se směrnicí k
 
         \includegraphics{img/popov_nelilin.png}
-    \item modnifikovaná frekvenční charakteristika $f^*=Re{F}+j\omega Im{F}$ (F je frekvenční charakteristika zkoumaného systému) se musí nacháze pod popovovou přímkou,
+    \item modnifikovaná frekvenční charakteristika $f^*=Re{F}+j\omega Im{F}$ (F je frekvenční charakteristika zkoumaného systému) se musí nacházet pod popovovou přímkou,
     ta může mít libovolný sklon a musí procházet bodem -1/k
 
         \includegraphics{img/popov_frek.png}
 \end{itemize}
-pod jsou všechny podminky splněny systém je globálně asymptoticky stabilní.
-
+pod jsou všechny podmínky splněny systém je globálně asymptoticky stabilní.
 
 \subsection{věty o nestabilitě}
-Opět se jedná pouze o posatčující podmínky, pokud jimsystém nevyhoví nevíme nic.
+Opět se jedná pouze o postačující podmínky, pokud jim systém nevyhoví nevíme nic.
 
-\subsubsection{I Ljapunovova věta o o nestbilitě}
-podud exzistuje funkce V pro ktrou platí :
+\subsubsection{I Ljapunovova věta o o nestabilitě}
+podud exzistuje funkce V pro kterou platí :
 \begin{itemize}
     \item V(0)=0
     \item $\frac{dV}{dt}$ je PD
@@ -270,9 +266,8 @@ podud exzistuje funkce V pro ktrou platí :
 \end{itemize}
 poto je rovnovážný bod v počátku nestabilní.
 
-
 \subsubsection{II Ljapunovova věta o o nestbilitě}
-pokud V není ND , nebo NSD, a její drivace je PSD, je rovnovážný bod v počátku nestabilní.
+pokud V není ND , nebo NSD, a její derivace je PSD, je rovnovážný bod v počátku nestabilní.
 * V musí být spojitá a musí mít spojitou 1. derivaci.
 \subsubsection{četajevoa věta o nestabilitě}
 vůbec nechápu
@@ -284,32 +279,31 @@ vůbec nechápu
 Jako regulátor je použito relé, nebo jiný spínací prvek, chovající se stejně. 
 Použije se pokud akční zásah nabývá jen 2 hodnot (on-off control),nebo pokud akční veličina max kladné nebo max záporné hodnoty (bang-bang control).
 
-Nejtypičtější využití regulace teploty (žehlička, topení), tlak v kopresorech se zásobníkem.
-Možné variaty relé josu o dvě otázky víš.
+Nejtypičtější využití regulace teploty (žehlička, topení), tlak v kompresorech se zásobníkem.
+Možné varianty relé jsou o dvě otázky víš.
 
-Pokud bychom chtěli regulovat např teplotu pomocí klasického relé, neustále by spínalo  (i vlivem šumu), proto je lepší použít relé s hysterezi, podle šížky hasterezre můžeme nastavit s jakou periodou bude kmitat.
+Pokud bychom chtěli regulovat např teplotu pomocí klasického relé, neustále by spínalo  (i vlivem šumu), proto je lepší použít relé s hysterezi, podle šířky hystereze můžeme nastavit s jakou periodou bude kmitat.
 
-Pokud nám u řízení pomocí zelíé s hysterezí nevyhovuje nastvení hystereze a z nějakýho (nepochopielnýho) duvodu ji nemůžeme měnit lze chvání upravi přidáním setrvačného článku do zpětné vazby.
-Musí platit že oba přepínací body jsou větší než 0, potom při sepnutí relé dojde ke zpoždění informace ve zpětný vazbě a relé sepne zpět až pozdeji. Časová konstanta setrvačného článku musí být malá.
-
+Pokud nám u řízení pomocí relé s hysterezí nevyhovuje nastavení hystereze a z nějakýho (nepochopitelného) důvodu ji nemůžeme měnit lze chování upravit přidáním setrvačného článku do zpětné vazby.
+Musí platit že oba přepínací body jsou větší než 0, potom při sepnutí relé dojde ke zpoždění informace ve zpětný vazbě a relé sepne zpět až později. Časová konstanta setrvačného článku musí být malá.
 
 \includegraphics{img/rele_reg.png}
 
 { \it
-Pokud řídím polohu a chci stihnou zastavit včas, může být přijená další zpětná vazba od rychlosti, tuoudle hodnotou si upravím kdy bude relé spínat.
+Pokud řídím polohu a chci stihnou zastavit včas, může být přivedená další zpětná vazba od rychlosti, touhle hodnotou si upravím kdy bude relé spínat.
 }
 
-pro návrh releového regulátoru lze využít např Ljapunova...
+pro návrh reléového regulátoru lze využít např Lipanova...
 
 Pro složitější systémy se využívá {\bf řízení v klouzavém režimu}
-Relé ja nastaveno tak, aby se systém dosatl na přepínací rozhraní  po přepínacím rozhraní došel až do 0.
+Relé je nastaveno tak, aby se systém dostal na přepínací rozhraní  po přepínacím rozhraní došel až do 0.
 
  \includegraphics{img/kluzavy_obr.png}
 
  \begin{itemize}
     \item systém může obsahovat neurčitost -> jedná se o robustní řízení
-    \item musím být schopen měřit aktuání hodnotu vnitřních stavů
-    \item na přepínacím rozhraní kmitá relé nesmyslně ryhcle, proto se nahrazuje něčím pozvolnějším 
+    \item musím být schopen měřit aktuální hodnotu vnitřních stavů
+    \item na přepínacím rozhraní kmitá relé nesmyslně rychle, proto se nahrazuje něčím pozvolnějším 
 
     \includegraphics[scale = 0.5]{img/kluzavy_rele.png}
 
@@ -317,19 +311,65 @@ Relé ja nastaveno tak, aby se systém dosatl na přepínací rozhraní  po pře
 
 obeně postup návrhu řízení v klouzavém režimu
 \begin{enumerate}
-    \item popis systému převedeme na požadovaný tvar (odělené neurčitosti $\delta $ od zbylých závislostí)
+    \item popis systému převedeme na požadovaný tvar (oddělené neurčitosti $\delta $ od zbylých závislostí)
     
     \includegraphics[scale =0.4]{img/klouzavy_tavr.png}
-    \item navrhneme žízení systému na který může epůsobit přímo vstupem - tím definujeme přepínací rozhraní
-    \item zavedeme proměnou co určuje odchylku od přepínacího rozharní, její derivcí získáme "systém", který musí směřovat do 0 (navrhneme pro něj takové řízení)
-    \item určíme ekvivalentí žizení $u_{eq}$, tak aby v rovnici došlol k elimiaci znmých člneů
+    \item navrhneme řízení systému na který může působit přímo vstupem - tím definujeme přepínací rozhraní
+    \item zavedeme proměnou co určuje odchylku od přepínacího rozhraní, její derivací získáme "systém", který musí směřovat do 0 (navrhneme pro něj takové řízení)
+    \item určíme ekvivalentní řízení $u_{eq}$, tak aby v rovnici došlo k eliminaci známých členů
     \item dosadíme získáme $\Delta$
-    \item urrčíme max $\Delta$ 
-    \item dosadíme, určíme řízení (předppis pro regulátro) V
+    \item určíme max $\Delta$ 
+    \item dosadíme, určíme řízení (předpis pro regulátor) V
 
 \end{enumerate}
 
 %-----------------------------------
-\section{0. Linearizace nelineárních dynamických systémů (rozvoj do Taylorovy řady, exaktní zpětnovazební
+\section{Linearizace nelineárních dynamických systémů (rozvoj do Taylorovi řady, exaktní zpětnovazební
 linearizace).
 }
+
+\subsection{Linearizace do Taylorovi řady}
+\begin{itemize}
+    \item nejrozšířenější 
+    \item linearizuje systém pouze v okolí daného bodu
+    \item vstupní výstupní vektory linearizovaného systému odpovídají { \bf odchylkám} od bodu ve kterém linearizujeme
+    \item pro linearizaci využijeme pouze prví člen Taylorovi rady, ostatní zanedbáváme.
+    \item výpočet se provádí pomocí parciálních derivací jednotlivých rovnic- Jakobyho matice
+\end{itemize}
+
+\subsection{exaktní zpětnovazební linearizace}
+oproti rozvoji do Taylorovi řady popisuje celý systém, ale musíme znát hodnoty vnitřních stavů.
+\subsubsection{cstup-stav}
+Spočívá v tom že zavedeme nový vstup u ,ten bude osahovat opravdový vstup v + další prvky, které nahradí nelinearity.
+Diferenciální r-ce je potřeba upravit tak(substituce, transformace), aby nelineární část byla jen v rovnici kde je u, potom napíšeme vhodné u.
+Př.:
+zadaný systém:
+\begin{equation}
+    \dot{x_1}=cokoliv lineárního
+\end{equation}
+\begin{equation*}
+    \dot{x_2}=x_1+2x_2+cos(x_2)+u
+\end{equation*}
+řešení
+\begin{equation*}
+    \dot{x_1}  zůstává
+\end{equation*}
+\begin{equation}
+    \dot{x_2}=x_1+2x_2+u
+\end{equation}
+\begin{equation*}
+    u=v+cos(x_2)
+\end{equation*}
+
+někdy můžou být úpravy hodně složité
+
+\subsubsection{linearizace vstup-výstup}
+zajímá nás pouze jak se chová výstup v závislosti na vstupu. Postupně derivujeme výstup dokud nedostaneme závislost na vstupu.
+
+Může dojít k tomu že aproximovaný systém bude nižšího řádu něž byl původně, tj systém bude mít skrytou vnitřní dynamiku to může působit problémy.
+
+\includegraphics[scale =0.6]{img/vstup-výstup1}
+
+\includegraphics[scale =0.6]{img/vstup-výstup2.png}
+
+
