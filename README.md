@@ -67,11 +67,11 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-RR2
 
-- [ ] Základní nelinearity a popis nelineárních systémů (popis statických a dynamických nelineárních systémů, vliv parazitních nelinearit na průběh regulačního děje).
-- [ ] Ustálené chování nelineárních dynamických systémů (rovnovážné stavy, mezní cyklus, metoda harmonické rovnováhy, stabilita mezního cyklu).
-- [ ] Stabilita nelineárních systémů (definice, metody vyšetření, věty o nestabilitě,stabilita uzavřené regulační smyčky).
-- [ ] Reléová regulace (on-off regulátory, řízení v klouzavém režimu).
-- [ ] Linearizace nelineárních dynamických systémů (rozvoj do Taylorovy řady, exaktní zpětnovazební linearizace).
+- [x] Základní nelinearity a popis nelineárních systémů (popis statických a dynamických nelineárních systémů, vliv parazitních nelinearit na průběh regulačního děje).
+- [x] Ustálené chování nelineárních dynamických systémů (rovnovážné stavy, mezní cyklus, metoda harmonické rovnováhy, stabilita mezního cyklu).
+- [x] Stabilita nelineárních systémů (definice, metody vyšetření, věty o nestabilitě,stabilita uzavřené regulační smyčky).
+- [x] Reléová regulace (on-off regulátory, řízení v klouzavém režimu).
+- [x] Linearizace nelineárních dynamických systémů (rozvoj do Taylorovy řady, exaktní zpětnovazební linearizace).
 
 ### BPC-SNI
 
