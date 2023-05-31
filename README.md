@@ -75,8 +75,8 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-SNI
 
-- [ ] Měření polohy - principy odporové, indukčnostní, kapacitní  
-- [ ] Měření polohy - principy optické, magnetické, ultrazvukové 
+- [x] Měření polohy - principy odporové, indukčnostní, kapacitní  
+- [x] Měření polohy - principy optické, magnetické, ultrazvukové 
 - [ ] Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti 
 - [ ] Tenzometry, snímače síly, hmotnosti, momentu a tlaku 
 - [ ] Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů

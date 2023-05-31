@@ -94,7 +94,7 @@ Kde:
 \begin{center}
     \(L \approx \frac{N^2}{R_m}\)
 \end{center}
-\subsubsection{Indukční snímač s uzavřeným magnetickým obvodem}
+\subsubsection{Indukčnostní snímač s uzavřeným magnetickým obvodem}
 \subsubsection*{Indukčnostní snímač s proměnnou vzduchovou mezerou}
 Jednoduchý parametrický snímač s proměnnou délkou střední siločáry ve vzduchové mezeře.\\
 U \(R_m\) můžeme vypustit "kovovou" část, protože děláme permeabilitou železa, která je cca 300k a tím pádem je ten zlomek zanedbatelný oproti vzduchové části.\\
@@ -108,11 +108,64 @@ Nezávislý na parazitních vlivech.\\
 Diferenční snímač, přidáme stejný systém na druhou stranu (symetricky). Poté budem porovnávat rozdíl indukčností obou částí.\\
 Při pohybu větší indukčnost bude na straně bude vzduchová mezera (d) menší.\\
 Velmi jednoduchý,stabilní, robustní a má velkou citlivost(až extrémní).\\
-Změna indučknosti napravo oproti te nalevo - můstkové zapojení.\\
+Změna indučknosti napravo oproti te nalevo - můstkové zapojení. Musíme měřit nejen absolutní hodnotu napětí, ale musíme měřit i fázi výstupního signálu vůči vstupnímu signálu. Absolutní hodnotou měříme posun a fází směr posunu\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.1]{img/IndukDif.png}
 \end{figure}
+
+\subsubsection{Indukčnostní snímač s otevřeným magnetickým obvodem}
+\subsubsection*{Diferenční}
+Když do cívky budeme vkládat magneticky vodivý materiál, ovlivňujeme magnetickou vodivost celého obvodu a tím se mění indukčnost.\\
+Snižujeme magnetický odpor a tím roste indukčnost.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/DifOtInd.png}
+\end{figure}
+
+Můstkové zapojení, pokud bude materiál přesně uprostřed, indukčnost cívek bude stejná, pohybem materiálu měníme indukčnosti cívek a měříme rozvážení můstku. Dioda(fázový detektor) dělá fázové vyhodnocení.\\
+
+
+\subsubsection*{Transformátorový - LVDT}
+LVDT - Linear variable differential transformer.\\
+Častěji používaný.\\
+Mění se vzájemná indukčnost mezi prostřední cívkou a cívkami na okraji.\\
+Změnou polohy jádra ovlivňujeme vzájemnou indukčnost primární cívky vůči sekundárním cívkám. Pokud je materiál přesně uprostřed, pak je vzájemná indukčnost stejná vůči horní i spodní cívce. Pokud pohneme jádrem nahoru, tak větší část MP primární cívky bude procházet cívkou \(S_1\), tím se do cívky \(S_1\) bude indukovat větší napětí. Změnu vzájemné indukčnosti vyhodnocujeme měřením velikosti indukovaného napětí na sekundárních cívkách, jejich poměrem pak určujeme polohu jádra. Alternativou je vyhodnocování fáze mezi primárním a sekundárním napětím.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/TransOtevInd.png}
+\end{figure}
+
+\subsubsection{Indukčnostní snímače s vířivými proudy(Eddy-current sensors)}
+Také nazývány s potlačeným pólem či s vnesenou impedancí.\\
+Bezkontaktní, všechny předchozí byly kontaktní.\\
+Provedení s 1, 2 či 3 cívkami.\\
+Snímač vzdálenosti nebo vodivosti.\\
+Mějme cívku napájenou ze zdroje, taková cívka si vytvoří MP, když do něj vložíme elektricky vodivý předmět, tak v něm vzniknou vířivé proudy. Které část pole odčerpávají a přetvoří ho na teplo. Odčerpáním pole klesne indučnost cívky, což vede ke zvýšení proudu tekoucího cívkou.\\
+Pokud vkládáme magneticky vodivý, ale elektricky nevodivý předmět, tak se zvyšuje indukčnost, kvůli tomu, že měníme geometrii magnetického obvodu.\\
+Pokud je materiál vodivý jak elektricky tak magneticky, pak záleží na jakém kmitočtu pracujeme. Při nižších kmitočtech převažuje magnetická složka, na vysokých převažuje elektrická složka.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.2]{img/EddyCurr.png}
+\end{figure}
+Zapojení diferenční nebo transformátorové:
+\begin{itemize}
+    \item Diferenční - máme 2 cívky, jednu měřící a druhou referenční, měříme rozvážení můstku. Prostřední obrázek.
+    \item Transformátorové - primární a 2 sekundární cívky, měříme změnu napětí na sekundárních cívkách.
+\end{itemize}
+Typické využití jsou binární proximitní snímače, které detekují přítomnost elekticky vodivých předmětů před aktivní plochou snímače.\\
+
+\subsubsection{Resolver}
+Snímač úhlového natočení.\\
+Využití pro měření polohy hřídele motoru. Vzájemná poloha rotoru a statoru. Když bude rotor ve svislé poloze tak bude největší indukčnost sekundární cívky(\(u_2\)).\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/Resolver.png}
+\end{figure}
+Relativně přesný, je nahrazován optickými.\\
+
 \subsection{Kapacitní snímače polohy}
 Základní vztah:
 \begin{center}
@@ -168,9 +221,180 @@ Kontrola počtu/přítomnosti výrobků na balících linkách.\\
 
 
 \section{Měření polohy - principy optické, magnetické, ultrazvukové}
+\subsection{Optické snímače polohy}
+Bezkontaktní měření polohy.\\
+Poloha či její změna je detekována:
+\begin{itemize}
+    \item Změnou polohy zdroje světelného záření - polohy optické stopy
+    \item Změna úhlu odrazu paprsku zdroje
+    \item Interferencí zdrojového a odraženého paprsku
+    \item Měření doby letu
+    \item Zastínění nebo přerušení zdroje světla - optická závora
+\end{itemize}
 
+\subsubsection{CCD a CMOS obrazové snímače}
+Maticové, řádkové.\\
+Základem každého pixelu je fotodioda, pokud na ni dopadne záření, dojde ke generování páru elektron-díra a díky fotoelektrickému jevu se objeví na fotodiodě napětí. Čím větší intenzita záření, tím větší generované napětí.\\
+Řádkové mají výhodu vysoké rychlosti vyčítání, rychlá detekce změny polohy paprsku. Maticové mají výhodu měření změny ve 2 osách.\\
+Kritické parametry: šum a rozměr fotodiody.\\
+CMOS snímače nejčastěji, díky ceně a výkonu.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.2]{img/CMOS.png}
+\end{figure}
 
-\section{Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti }
+Využití:
+\begin{itemize}
+    \item Přímé měření rozměrů
+    \item Triangulační snímače
+    \item Snímače clonícího typu
+\end{itemize}
+
+\subsubsection{Trianguční snímač vzdálenosti}
+Princip: zdroj světla, typicky laser či fotodioda, jeho paprsky jsou pomocí čoček fokusovány do svazku. Svazek pak dopadá na předmět, jehož vzdálenost chceme detekovat, na předmětu dojde k difúznímu odrazu a my pomocí čoček tento odraz koncentrujeme na plochu řádkové kamery, při pohybu předmětem se nám bude pohybovat i poloha odraženého paprsku.\\
+Využívá se známé vzdálenosti detektoru a vysílače a trojúhelníku mezi čočkou a rozměrem CMOS čipu. Využije se podobnosti trojúhelníků předmět, detektor, vysílač a čočky a krajů detektoru.\\
+Rozlišení od jednotek mikrometrů po desítky milimetrů.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/Triang.png}
+\end{figure}
+
+\subsubsection{Inkrementální snímač}
+Kontaktní snímač, abychom mohli snímač použít, musíme mít clonku spojenou s pohybujícím se předmětem.\\
+Například v servomechanizmech. Pro přesné nastavení úhlu.\\
+Také označován jako optická enkodér.\\
+Max rozlišení \(0.05\mu m\), 1" nutné držet správnou geometrii.\\
+Princip: Pohybující se clonka s ryskami(uchycená na hřídeli, otáčí se) a nad ní je pevní clonka s kukátkem(součástí statoru). Na jedné straně jsou pak diody, jako zdroj světla a na druhé straně jsou příjmací fotodiody. Clonky jsou 2, vzájemně posunuté o čtvrt rozestupu rysek na hlavní clonce. V každé clocne jsou 2 kukátka vzájemně posunuta o 180°. Clonky jsou 2 kvůli určení směru otáčení, pokud by byla jedna můžeme detekovat otáčení, ale jeho směr. Pokud se pohybujeme po směru hodinových ručiček, pak signál A předbíhá o čtvrt periody signál B, pokud proti směru, pak B předbíhá A.\\
+Refereční značka používána pro určení polohy.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/Inkrem.png}
+\end{figure}
+Od stovek impulzů na otáčku až po desítky tisíc impulzů na otáčku. Při vysokých rozlišeních se řeší interpolací.\\
+\newpage
+\subsubsection{Snímače polohy s prostorovým kódem}
+Pro lineární i rotační posun.\\
+Výhoda, pokud vypadne napájení tak i přes to víme podobu.\\
+Ze snímače dostáváme ne impulsy, ale bitové slova, které odpovídá absolutní poloze.\\
+V grayově kódu či PRC(pseudo random code). Mění se pouze jeden bit při přechodu z jednoho stavu do druhého.\\
+Rozlišení 4 až 17 bitů, nejčastěji 8-12b.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.2]{img/ProstKod.png}
+\end{figure}
+
+\subsubsection{Interferometrické snímače}
+Základní princip Michelsonův interferometr. Máme referenční optickou trasu a měřící trasu, které jsou různě dlouhé a díky tomu, že jsou různě dlouhé, tak dochází k interferenci zdroje koherentního záření. \\
+Princip pro debily: Máme zdroj koherentního záření, typicky helium-neonový laser, na pevné vlnové délce. To že je koheretní znamená, že se nemění fáze a frekvence v čase a prostoru. Tato sinusovka dopadne na polopropustné zrcátko, které polovinu propustí a polovinu odrazí, takže polovina paprsku dopadne na měřící zrcadlo(součástí pohybujícího se předmětu), které má vlastnost, že ať se na něj z kamakoliv posvítí, odrazí se to zpátky stejnou cestou. Takže se to vrací na polopropustné zrcátko, takže čtvrtina se odrazí do detektoru. Druhá polovina jde do referenčního zrcadla a stejně tak se polovina z této části dostane na detektor. Detektor je obyčejná fotodioda na kterou dopadá záření, v podstatě jsou to 2 sinusovky, které na něj dopadají. Pokud by byla vzdálenost obou zrcadel přesně stejná, dopadnou se stejnou fází a jejich energie se sečte(konstruktivní interferometrie) a intenzita záření se zdvojnásobí. Pokud je rozdíl vzdálenosti zrcadel násobkem vlnové délky záření, také dopadnou se stejnou fází. Pokud jsou mimo tyto pozice, tak se fáze rozchází, sinusovky se budou sčítat, ale nedostanou se na maximální hodnotu, pokud jsou posunuty tak, že okamžité hodnoty jsou jedna v maximu a druhá v minimu, dojde k destruktivní interferometrii a intenzita světla bude nulová.\\
+Když tedy pohybujeme zrcadlem, dostanem harmonický signál se vzdáleností maxim poloviny vlnové délky záření. Na výstup se dá čítač, který tyto maxima počítá a tím se určuje vzdálenost.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.2]{img/InterfSnim.png}
+\end{figure}
+
+Nevýhoda je, že nepoznáme směr pohybu. Řeší se stejně jako u inkrementálního, posunem o čtvrt periody.\\
+Záření vracející se do laseru by mohlo být problém, pro se před něj umisťuje jednosměrně propustné zrcátko.\\
+Pro zvýšení přesnosti a rozlišení Laser Doppler Interferometer - signál se moduluje a vyhodnocuje se nejen fázový posun, ale také posuv ve frekvenci daný dopplerovým jevem. Pohyb od nás, kmitočet se snižuje, pohyb k nám kmitočet se zvětšuje. Těleso však musí být v pohybu. Je schopen měřit na pikometry, oproti klasickým na nanometrech.\\
+
+\subsubsection{Měření doby letu}
+Vyšleme optický impulz a měříme dobu za jakou se vrátí. \\
+Problém s rychlostí. Vyšleme amplitudově nebo frekvenčně modulovaný signál, posunem měřený kmitočet, takže měříme fázový rozdíl časově posunutého signálu s modulací
+
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.1]{img/TOF.png}
+\end{figure}
+
+Dá se použít i pro velmi velké vzdálenosti, použila se pro měření vzdálenosti země měsíc.\\
+
+\subsection{Magnetické snímače polohy}
+\subsubsection{Hallův snímač}
+Využívá Hallova jevu. Máme destičku z vodivého materiálu a když tou destičkou prochází elektrický proud a umístíme ji do magnetického pole, dojde k vychýlení nosičů náboje kolmo k směru jejich pohybu skrze vodič, k tomuto vychýlení dochází pomocí Lorentzovy síly. Tento přesun nosičů do jedné části destičky vyvolává rozdílný potenciál na jejích krajích. Což můžeme měřit jako takzvané Hallovo napětí. \\
+
+\begin{center}
+    \(U_H = k_H \frac{I_p \cdot B}{d}\)
+\end{center}
+Kde k je materiálová konstanta, I je proud procházející elektrický proud, d je tloušťka materiálu destičky, B je magnetická indukce.\\
+Destička je tvořena tenkou vrstvou monokrystalu polovodiče InAs, InSb, Si, GaAs. \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.07]{img/HallSonda.png}
+\end{figure}
+Konstanta, tloušťka, proud se nemění a výstupní napětí je přímoúměrné působícímu magnetickému poli/indukci. Tím pádem můžeme detekovat zdroj magnetického pole, případně jeho vzdalování.\\
+Bezkontaktní měření polohy nebo otáček.\\
+
+\subsubsection{Magnetorezistor}
+AMR - anizotropní magnetorezistance.\\
+GMR - Gigantická magnetorezistance.\\
+TMR - Tunelová magnetorezistance.\\
+Citlivější, vyhodnocujeme změnu odporu.\\
+Magnetorezistivní jev: Na nevodivém stubrtrátu nanesena vodivá vrsta. Tato vrsta se skládá ze dvou částí. Niklových jehliček, které mají dobrou vodivost a mezi nimi je polovodivá vrstva. V podstatě máme mnoho halových sond v sérii za sebou. Na začátku se elektrony rovnoměrně rozmístí, protože se odpuzují. Po přivedení proudu se elektrony rozběhnou a magnetickým polem jsou pomocí lorentzovy síly vytlačovány jedním směrem, tím jak velká je intenzita tohoto pole určujeme velikost průřezu vodiče. Elektrony doběhnou na další vodivou vrstu, kde se opět srovnají a cyklus jde znova.\\
+Toto se navenek projevuje jako elektrický odpor v závislosti na intenzitě magnetického pole.\\
+Slabá citlivost - malé změny odporu.\\
+\newpage
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/MagnetoRez.png}
+\end{figure}
+
+Častěji se využívá anizotropní magnetorezistivní jev - není stejný ve všech geometrických směrech. Aniztropní materiál má v sobě nějakou nesymetričnost. Tato je v našem případě to že mění svůj odpor různě podle toho v jakém směru na něj působí magnetické pole. Například permaloy.
+Princip anizotropní: vrstvou necháváme procházet proud, když na vrsvu bude působit vnější magnetické pole a budeme měnit úhel jeho působení vůči úhlu proudu procházejícímu destičku, tak budeme měnit výsledný odpor. Největší odpor při kolmém působení, neprojeví se když je souběžné se směrem proudu.\\
+Poměrně lineární, stabilní a opakovatelná.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/AnizoMag.png}
+\end{figure}
+Obří magnetorezistence - GMR.\\
+Velký závislost na teplotě, nelineárnější než AMR.\\
+Tunelové magnetorezistence - TMR.\\
+Elektrony tunelují skrze vrstvy - kvantová fyzika hard.\\
+\subsubsection*{AMR}
+Zapojuje se do Whitsonova můstku ze 4 magnetorezistorů.\\
+Pokud není MP přítomno, můstek je vyvážený a měřené napětí je nulové, když bude MP působit můstek se rozváží a my naměříme napětí.\\
+Vždy se u 2 magnetorezistorů odpor zvětší a u 2 zmenší.\\
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width = \textwidth]{img/AMR1.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.4\textwidth}
+        \includegraphics[width = \textwidth]{img/AMR2}
+    \end{minipage}
+\end{figure}
+
+\subsubsection{Magnetostrikční snímače}
+Využívá anizotropii, ale mechanickou a ne magnetickou.\\
+Vyrobeny ze slitiny niklu, když je takový materiál vložen do magnetického pole, tak mění své rozměry. V jednom směru se rozměr zvětší a ve druhém zmenší.\\
+Trubka z magnetostrikčního materiálu, trubkou je protažen vodič. Když se do vodiče přivede elektrický proud, tím se kolem něj vytvoří magnetické pole. Kolem vodiče je umístěn permanentní magnet tvořící své vlastní magnetické pole. V místě kde se tato pole setkají se pole superponují a mění svoji orientaci magnetické indukce/intenzity. V místě kde se pole setkají bude materiál vystaven jinému vektoru magnetické intezity což vede ke změně rozměru trubky.\\
+Místo stálého vedení proudu posíláme proudový impulz, díky kterému vznikne škubnutí trubky. Měříme časový interval mezi vysláním proudového impulzu a příchodem mechanické vlny. Měříme nejčastěji piezoelektrickým materiálem. Tím změříme polohu permanentního magnetu.\\
+Snímač lineárního posunutí. Rozsah i několika metrů, vysoká přesnost(mm).\\
+Problémem je vliv teploty. Řeší se detekcí i poměrem časů příchodů mechanických vln, jedné přímé a jedné odražené od konce trubky.\\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/Magnetostrik.png}
+\end{figure}
+\subsection{Ultrazvukové snímače polohy}
+Stejný princip jako doba letu u optických, tím že je rychlost menší, což se lépe měří a jsou jednodušší na zpracování, ale jsou méně přesné.\\
+Mechanické vlnění, které se šíří nějakou rychlostí, závisí na materiálech, největší vliv teplota, ovlivňuje konstanty materiálů.\\
+Vzdálenost minimálně taková, aby se signál nevracel v dobu, kdy se ještě vysílá a maximální, aby se něco vrátilo zpět.\\
+Přídavná měřidla pro korekci okolních vlivů, například teploty.\\
+Je tvořen piezoelektrickým měničem.\\
+Měření doby letu pro větší vzdálenosti 30cm+, pro kratší se měří rozdíl fáze.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.1]{img/ultrazvPol.png}
+\end{figure}
+
+\subsection{Srovnání}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.3]{img/srovnaniPoloh.png}
+\end{figure}
+\section{Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti}
 
 
 \section{Tenzometry, snímače síly, hmotnosti, momentu a tlaku }
