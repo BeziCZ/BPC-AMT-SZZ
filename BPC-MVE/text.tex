@@ -592,6 +592,43 @@ Měření proudu pomocí multimetru:
     \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na kmitočtu závisí
     \item u každého přístroje se řeší individuálně
 \end{itemize}
+
+
+\subsection{Rušení}
+Další možné rozdělení rušení je 
+\begin{itemize}
+    \item Stejnosměrná
+    \item střídavá
+    \item Náhodná
+    \item v sérii
+    \item proti zemi
+\end{itemize}
+
+\subsubsection{v sérii}
+\begin{itemize}
+    \item dá se potlačit filtry, (problém je v tom že nejvic rušní je na 50 Hz, tzn časová kostatna filtru je 1s, takže jeho použití pomalí měření)
+    \item další možnost je použít dobrý AD převodník
+    \begin{itemize}
+        \item ANO itegarční převodník s mezipřevodem na frekvenci
+        \item ANO integrační převodní  s dvojnásoubnou integarcí
+        \item ne integrační převodník s metipřevodem na časový interval
+        \item osattní spíš taky ne
+    \end{itemize}
+    \item určuje se činnitel potlačení sériového rušení
+        \begin{equation}
+            H=SMRR= 20log\frac{U_{SM}}{\Delta U_{ch}}
+        \end{equation}
+        Usm rušivé napětí napětí $ \Delta U_{ch} $ změna údaje voltmetru
+\end{itemize}
+
+\subsubsection{Proti zemi}
+\begin{itemize}
+    \item odsatranění oddělením měřící země od napájecí
+    \item extra svorka na zemění
+    \item polovoucí vstup
+\end{itemize}
+
+\includegraphics{images/ruseni.png}
 \newpage
 
 \section{Měření výkonu v jednofázové a třífázové soustavě. Wattmetry - princip, typy vlastnosti.}
