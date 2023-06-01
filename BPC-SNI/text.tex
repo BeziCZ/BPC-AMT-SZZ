@@ -394,8 +394,339 @@ Měření doby letu pro větší vzdálenosti 30cm+, pro kratší se měří roz
     \centering
     \includegraphics[scale = 0.3]{img/srovnaniPoloh.png}
 \end{figure}
-\section{Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti}
 
+\section{Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti}
+Kmitavým pohybem se rozumí časová změna polohy vybraného bodu na objektu vzhledem ke vztažnému (referenčnímu) bodu. K přímému měření okamžitých hodnot polohy je tedy obecně možné použít senzory polohy - v tomto případě jde o relativní senzory kmitavého pohybu, jelikož je určována poloha relativně k pevnému vztažnému bodu.
+
+\subsubsection*{Rozdělení}
+\begin{itemize}
+    \item Dle typu měřené veličiny \begin{itemize}
+        \item Lineární \begin{itemize}
+            \item Rychlost - měřič rychlosti
+            \item Zrychlení - akcelerometr
+        \end{itemize}
+        \item Rotační \begin{itemize}
+            \item Odklon od roviny - inklinometr
+            \item Otáčky - snímač otáček, tachometr, otáčkoměr
+            \item Úhlová rychlost - gyroskop
+        \end{itemize}
+        \item Vibrace (kmity kolem rovnovážné polohy) \begin{itemize}
+            \item Výchylka, rychlost, zrychlení - měřič vibrací, akcelerometr
+        \end{itemize}
+    \end{itemize}
+    \item Dle fyzikálního principu \begin{itemize}
+        \item Piezoelektrické
+        \item Kapacitní
+        \item Indukční, elektrodynamické
+        \item Optické (LIDAR, interferometry, kamera)
+        \item Speciální - magnetické, tepelné
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Snímače vibrací}
+\begin{itemize}
+    \item Vibrace - kmitavý pohyb, můžeme použít libovolný snímač polohy, výsledkem je relativní snímač vibrací
+    \item Výchylka - vzdálenost vibrujícího tělesa od referenčního bodu
+    \item Rychlost - rychlost, kterou se těleso pohybuje
+    \item Zrychlení - zrychlení, kterým se těleso pohybuje
+\end{itemize}
+
+Pokud neexistuje pevný referenční bod, potřebujeme absolutní snímač vibrací. Pevný referenční bod se vytvoří uměle pomocí setrvačné hmoty uvnitř snímače, poté se měří silové účinky setrvačné hmoty pomocí relativního snímače polohy (kapacitní, indukční, indukčnostní) nebo snímače mechanického napětí (odporový tenzometr, piezoelektrický krystal,\dots)
+Absolutní snímač vibrací lze využít pro inerciální navigaci - zvýšení přesnosti a stability dosaženo elektromechanickou zpětnou vazbou.
+
+\subsubsection*{Absolutní snímač vibrací}
+\begin{itemize}
+    \item Používá se v případě neexistujícího pevného referenčního bodu.
+    \item Podstatou mech. kmit. soustava o hmotnosti m, pružinou o tuhosti k a tlumič s viskózním tlumením b (často zanedbáváme, protože je vůči objektu malé)
+    \item Pomyslný bod A leží na měřeném objektu.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{img/AbsVib.png}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.5]{img/AbsVib1.png}
+\end{figure}
+
+\newpage
+
+\subsection*{Elektrodynamický snímač vibrací - indukční}
+\begin{itemize}
+    \item Pracuje v nadrezonanční oblasti -> měření výchylky
+    \item Konstrukčně uspořádán jako reproduktor - pracuje v inverzním režimu
+    \item Seismickou hmnotnost zde tvoří měřící cívka a cívka tlumení
+    \item Tlumení - vířivé proudy indukované v tlumící cívce
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.4]{img/elektrodynVIB.png}
+\end{figure}
+
+\begin{itemize}
+    \item Reproduktor v inv. režimu(obr. vpravo) - Permanentní magnet s pólovými nástavci. Vzniká Homogenní magnetické pole ve štěrbině, kde se pohybuje cívka (šrafovaně), pohybuje se nahoru a dolů v poli permanentního magnetu. Kvůli lorenzově síle bude cívka vytlačována nebo vtahována do magnetického pole a membrána se pak hýbe - mechanické vlnění -> zvuk
+    \item obr. vlevo - Hýbeme membránou (setrvačnou hmotou) připojenou k měřenému povrchu, dojde k vzájemnému pohybu megnetu vůči setrvačné hmotě - do cívky se indukuje napětí úměrné rychlosti pohybující se cívky v magnetickém poli.
+\end{itemize}
+
+$u = B*l*v$
+\begin{itemize}
+    \item l - délka cívky
+    \item B - magnetická indukce v mezeře
+    \item v - rychlost magnetického pole
+\end{itemize}
+
+\subsubsection*{Použití}
+\begin{itemize}
+    \item V nadrezonanční oblasti - řežim měření výchylky - výstup úměrný rychlosti pohybu cívky v mag. poli
+    \item Vhodné pro nižší kmitočky do 100 Hz
+    \item Geofony - pro měření vibrací země - využití velké setrvační hmoty
+    \item Extrémní citlivost - detekce ponorek
+\end{itemize}
+
+\subsection*{Piezoelektrický snímač vibrací}
+\begin{itemize}
+    \item Využívá piezoelektrického jevu \begin{itemize}
+        \item Jednoduše: Na piezoelektrický materiál je vyvíjeno mechanické napětí, tím se mění jeho tvar nebo objem, to vede k vytvoření elektrického náboje.
+        \item Složitě: Na piezoelektrický materiál, dielektrikum, který je mechanicky namáhán, dojde ke změně vnitřní polohy atomu v krystalové mřížce. Navenek se to projeví tak, že dojde k rozvážení vnitřní elektrické polarizace. Toto se projeví tak, že se materiál stane elektrický aktivní (předtím neutrální), objeví se na jeho povrchu náboj a v případě, že na toto dielektrikum přivedeme elektrody, můžeme na něm sledovat změnu náboje.
+    \end{itemize}
+    \item Pracují v podrezonanční oblasti
+    \item Výchylka se měří tak, že se převede na mechanícké napětí
+    \item Piezoelektrický materiál představuje pružnost/tuhost materiálu
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/piezoVIB.png}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/piezoVIB1.png}
+\end{figure}
+
+\begin{itemize}
+    \item Pracovní oblast je dána frekvenční charakteristikou \begin{itemize}
+        \item Na jedné straně požadavek, aby pracoval pod rezonanční oblastí
+        \item Ze spoda je omezena - vychází ze schéma, náboj se generuje jenom při působívcí síle, což nabije kondenzítor, který neudrží do nekonečna -> na nízkých kmitočtech se nestíhá kondenzátor dobíjet
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Snímač vibrací s vetknutým nosníkem}
+\begin{itemize}
+    \item Typické pro MEMS snímače
+    \item Setrvačná hmota, ale neměří se mechanické účinky, měří se změna polohy setrvačné hmoty vůči obalu - pevným elektrodám.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/MEMSVIB.png}
+\end{figure}
+
+\begin{itemize}
+    \item Měří se změna střední elektrody vůči krajním
+    \item Pracuje v podrezonanční oblasti -> snímač zrychlení - výchylka odpovídá zrychlení
+    \item Zespoda není omezen, z vrchu dostatečnou citlivostí
+    \item Vyhodnocuje se výchylka nosníku deformovaného setrvačnou hmotou pomocí diferenčního kapacitního snímače (další možností je měřit mech. napětí v nosníku tenzometry)
+\end{itemize}
+
+\subsubsection*{Tepelný akcelerometr}
+\begin{itemize}
+    \item Setrvačná hmota je zahřátý plyn, měří se rozdíl teplot
+    \item Je to tenká membrána, která má uprostřed topné tělísko, kterým vyhřívá okolí 
+    \item Ohřev způsobí rozložení teploty tím, jak se budeme vzdalovat od topného tělíska ke krajům -> klesá teplota
+    \item Pokud snímač naklopíme, teplý plyn nejde nahoru, protože je to setrvačná hmota, zůstane tam, kde byl a pod něj se v podstatě podsune snímač teploty, který měří rozložení teploty v okolí tělesa
+    \item Vyhodnocuje se změna polohy, podle polohy topného tělíska
+    \item Měření náklonu
+    \item Nemá rezonanční kmitočet
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/teplovib.png}
+\end{figure}
+
+\subsubsection*{Servoakcelerometr}
+\begin{itemize}
+    \item Vysoce přesné a stabilní => drahé 
+    \item Pro navigační účely 
+    \item Pro určení polohy nutná dvojí integrace => vysoké požadavky na stabilitu nuly
+    \item Využíváme zpětnou vazbu na stabilitu nuly 
+    \item Čerevené kolečko - setrvačná hmota zavěšená na nosníáku, při pohybu se začne vychylovat.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/servoakVIB.png}
+\end{figure}
+
+\begin{itemize}
+    \item Indikátor vyrobí nenulový singál, který je zesílen zesilovačem
+    \item To žluté je snímač polohy
+    \item Setrvačná hmota je kovová a lorenzova síle z cívek, kterýma protéká proud působí na setrvačnou hmotu 
+    \item Výstupní veličina je proud, který pak putuje do cívek, pomocí který setrvačnou sílu dáváme do nulové polohy
+\end{itemize}
+
+\subsection*{Snímače otáček}
+\subsubsection*{Tachodynamo}
+\begin{itemize}
+    \item analogový snímač úhlové rychlosti
+    \item Komutátorový motor v inverzním režimu
+    \item Otáčí se motorem a měří se indukované výstupní napětí
+    \item Uzavřený magnetický obvod, ve kterém je vzduchová mezera a v té se otáčí cívka. Jak se mění poloha cívky, tak se mění magnetický tok (cívka svisle = kolmo na siločáry = největší tok).
+    \item Komutátory na začátku a na konci cívky - dochází k přepínání polarity.
+    \item Přímo dává napětí, které je úměrné otáčkám
+    \item Změní-li se směr otáčení - změní se polarita výstupního napětí
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/TachoRYCH.png}
+\end{figure}
+
+\subsubsection*{Impulzní snímače otáček}
+\begin{itemize}
+    \item Nespojité
+    \item Detekuje se poloha značky - měří se počet značek za čas, časový interval mezi značkami
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/impulzRYCH.png}
+\end{figure}
+
+\begin{itemize}
+    \item Indukční - nepotřebuje napájení, nedokáže indukovat malé Otáčky
+    \item Indukčnostní - mění se indukčnost cívky - když zub najede mezi pólové nástavce, tak se zvětší indukčnost
+    \item Oscilátorový - Jak se mění indukčnost, tak se mění v rezonančním rozsahu i rezonanční kmitočet - pak se měří impedance rezonančního obvodu
+    \item Relé - Pomocí hallovy sondy, detekce otáčení kol
+    \item Fotoelektrický - Nedokážeme u něj poznat směr 
+\end{itemize}
+
+\subsection*{Snímače úhlové rychlosti}
+\begin{itemize}
+    \item Gyroskop - absolutní snímač úhlové rychlosti
+    \item Mechanické 
+    \item S využitím Coriolisova jevu (MEMS) - 99 \% toto využívá \begin{itemize}
+        \item Podle pohybu setrvačné hmoty - rotační, vibrační
+        \item Podle způsobu buzení - elektromagnetické, piezoelektrické, elektrostatické
+        \item Podle způsobu vyhodnocení - piezoelektrické, kapacitní, tunelový jev, SAW (povrcnová akustická vlna)
+    \end{itemize}
+    \item optické s využitím Sagnacova jevu - top shit \begin{itemize}
+        \item FOG - fiber optic gyroscope - optická trasa vedená ve vlákně 
+        \item RLG - ring laser gyroscope - dutina laseru přímo zdroj laseru
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Mechanický gyroskop}
+\begin{itemize}
+    \item založen na rotující setrvačné hmotě s velkým momentem hybnosti
+    \item Když ho roztočíme, má snahu zůstat ve své původní poloze, k vychýlení osy rotace potřebujem velkou sílu
+    \item Úhel natočení vstupu je úměrný výstupnímu
+    \item Příliš se nesetkáme
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.50]{img/TyPicoMeTakBaviVypracovavatSnimace.png}
+\end{figure}
+
+\subsubsection*{MEMS gyroskop}
+\begin{itemize}
+    \item Měří se silový účinek Coriolisovy síly odpovídající úhlové rychlosti otáčení vibrujícího hmotného tělesa
+    \item Coriolisova síla - virtuální síla, vzniká, když máme setrvačné těleso pohybující se v rotujícím neinerciálním systému \begin{itemize}
+        \item Když se těleso nehýbe, nebo systém nerotuje, síle je nulová
+        \item Když su na kolotoči a hodím míč dopředu, tak zahne - pro někoho mimo kolotoč to tak nevypadá
+        \item V zeleném místě hážu míčem, rychlost je dána směrem pohybu (žluta čara), vektor úhlové rychlosti v ose rotace a kolmo na ty dva vektory je coriolisova síla
+    \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/coriolis.png}
+\end{figure}
+
+\subsubsection*{MEMS gyroskop s lineárním (rotačním) rezonátorem}
+\begin{itemize}
+    \item Coriolisova síla způsobí výchylku vibrující setrvačné hmoty
+    \item Otáčením rámu rozkmítáme krychlu aj do boku a pomocí kapacitních snímačů měříme změnu polohy krychle vůči obalu
+    \item Když hýbem nahoru, tak coriolisiova síla působí směrem doleva
+    \item Potřebná citlivost je mega velká, coriolisova síle je malá
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/coriool123.png}
+\end{figure}
+
+\subsubsection*{MEMS gyroskop s vibračním rezonátorem (tunning fork)}
+\begin{itemize}
+    \item Coriolisova síla způsobí periodickou výchylku vibrujících ramen rezonátoru, kmity se přenesou na spodní ramena, kde se to vyhodnotí - třeba kapacitně
+    \item Vidličky se od sebe vzdalují a přibližují, a když se vidlička začne otáčet, tak se začne působit coriolisova síla, takže v ose y bude na každou vidličku působit síla opačným směrem - to se vyhodnocuje
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/vidlicka.png}
+\end{figure}
+
+\subsubsection*{MEMS gyroskop s vibrujícím prstencem}
+\begin{itemize}
+    \item Coriolisova síla způsobí úhlové natočení kmitem a uzlů
+    \item Když kroužíme na vrchní hraně kulaté skleničky mokrým prstem, tak vydává zvuky - vyvolá se tím rezonance skleničky, pod mikroskopem by šlo vidět, že mění svůj tvar.
+    \item Do místa uzlů se dávahá snímače polohy - coriolisova síla je kolmá na vektor úhlové rychlosti a vektor rychlosti
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/VibrujiciPrstenec.png}
+\end{figure}
+
+\subsubsection*{Optické gyroskopy- Sagnacův jev}
+\begin{itemize}
+    \item Měří se rozdíl dvou světelných svazků vyslaných proti směru a ve směru otáčení.
+    \item Sagnacův jev - zvýšení (snížení) rychlosti o hodnotu v = w * r
+    \item Ve stejný čas pošlem paprsek oběma směry a zpátky ve stejný čas - Když dráhu roztočíme, tak signál, který jsme poslali do protisměru dorazí dřív, vzniká tak rozdíl fáze, který měříme.
+    \item Funguje nezávisle na indexu lomu
+\end{itemize}
+
+\begin{figure}[h]
+    \includegraphics[scale = 0.40]{img/sagnac.png}
+\end{figure}
+
+\subsubsection*{Optické gyroskopy - FOG}
+\begin{itemize}
+    \item Optické vlákno, které je měřící element. Ze zdroje záření se pošle paprsek, ten se na polopropustném zrcátku rozdělí na měřící a referenční svazek. Měřící se pak ještě rozdělí na další dva svazky a to kvůli tomu, aby šly do optického vlákna každý jiným směrem.
+    \item Na fázovém (de)modulátoru (FM) sledujeme vzniklé interferenční jevy.
+    \item Kdybychom vyhodnocovali fázový rozdíl při nulové úhlové rychlosti, tak bude nulový, protože na vrcholu sinusovky je víceméně nulová citlivost a fázový rozdíl se tam blbě měří.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/fog.png}
+\end{figure}
+
+\subsubsection*{Optické gyroskopy - RLG}
+\begin{itemize}
+    \item Zásadní rozdíl je v tom, že dutina rezonátoru je snímač, který vyhodnocuje rychlost.
+    \item Rozměr rezonanční dutiny nám ovlivňuje výstupní vlnovou délku
+    \item V dutině jsou současně dva rezonátory (pro oba směry), když se dutina neotáčí a dráha je stejná.
+    \item Pokud budeme otáčet, tak dráha pro jeden foton bude kratší.
+    \item Na detektoru se nám potkávají lasery s rozdílem kmitočtu, čím větší je úhlová rychlost, tím větší je rozdíl kmitočtů mezi lasery
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/lgr.png}
+\end{figure}
+
+\subsubsection*{Srovnání gyroskopů}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.40]{img/srovnaini.png}
+\end{figure}
 
 \section{Tenzometry, snímače síly, hmotnosti, momentu a tlaku }
 
