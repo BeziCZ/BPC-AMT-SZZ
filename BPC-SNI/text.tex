@@ -732,7 +732,198 @@ $u = B*l*v$
 
 
 \section{Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů}
+\subsection*{Základní pojmy}
+\begin{itemize}
+    \item Problém s tím, že měřené médium je pokaždé jiné a hodí se tím pádem jiný snímač.
+    \item Urostřed toku největší rychlost - tření od stěn se postupně snižuje
+    \item Reynoldsovo číslo - Souvislost setrvačné síly a viskozity = čím vyšší číso, tím nižší odporové síly. Když toto číslo přesáhne 3000, průtok přejde na turbulentní propudění - zvyšuje se jeho hydraulický odpor, proudy se pohybují chaoticky, porušený rychlostní profil.
+\end{itemize}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale = 0.8]{img/prutokZaklad.png}
+\end{figure}
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale = 1]{img/proudoverozdeleni.png}
+\end{figure}
+
+\subsection*{Plováčkové průtokoměry}
+
+\subsubsection*{Rotametry - průtokoměry s proměnným průřezem}
+\begin{itemize}
+    \item Kuželovitý plovák jako indikátor rovnováhy sil
+    \item Tekutina proudící zespodu plovák nadnáší, ten má drážky po obvodu pro stabilizaci rotace.
+    \item Vztlaková síla díky kuželovitému tvaru umožňuje tlakovou diferenci.
+    \item V určitém místě se síly vyrovnají. Tato hodnota se poté odečte na stupnici. 
+    \item Snímá se bezkonaktně poloha.
+    \item Opakovatelnost 0.25 \%, malá tlak. ztráta
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/rotatometr.png}
+\end{figure}
+
+\subsubsection*{Turbínkové a lopatkové snímače průtoku}
+\begin{itemize}
+    \item Protékající tekutina roztočé vrtulku, měří se bezkontaktně Otáčky
+    \item Citlivost cca 3 \% z rozsahu, přesnost až 0.1 \%, poměrně velká chyba při malých průtocích
+    \item Lopatkové - lopatky kolmo na tok, levnější než turbínkové
+    \item Turbínkové - lopatky souběžně na tok
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.7]{img/lopatkaaturbin.png}
+\end{figure}
+
+\section*{Vírové snímače průtoku}
+\begin{itemize}
+    \item Do průtoku vložíme překážku
+    \item Za překážkou se tvoří víry, překročí se reynoldsovo číslo, víry se začnou nastřídačku odtrhávat - tzv- Karmánová stezka, kmitoče vírů je přímo úměrný rychlosti průtoku
+    \item Víry jsou detekovány: \begin{itemize}
+        \item Ze změn rychlosti proudění - tepelný anemometr, ultrazvuk
+        \item Ze změn tlaku - tenzometry, kapacitně, piezoelektricky
+    \end{itemize}
+    \item Jsou víry - měříme, nejsou- neměříme
+    \item Problém s vyhodnocením vírů
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/ViroveSnimaceTrojskyVirPhishingBackdoormrkmrk.png}
+\end{figure}
+
+\subsection*{Ultrazvukové snímače průtoku}
+\begin{itemize}
+    \item Princip je skládání rychlosti ultrazvukového signálu a proudícího média
+    \item Rychlost je úměrná rozdílu doby průletu ultrazvukového signálu ve směru (delta t1) a v protisměru (delta t2) proudící tekutiny.
+    \item Princip je takový, že máme proti sobě umístěné dva piezoelektrické měniče, které mohou fungovat jako vysílače a přijímače \begin{itemize}
+        \item Z jedné strany se pošle ultrazvukový signál, ten letí na druhou stranu k přijímači a měří se čas. Pak se pošle zpátky a opět se měří čas.
+        \item Když se médium nehýbe, tak čas tam a zpět je stejný.
+        \item Když se médium hýbe, tak k rychlosti šíření signálu se přicítá relativní rychlost pohybujícího se média. Takže v jednom směru je signál zrychlován a ve druhém zpomalován. Počítá se rozdíl času
+        \item Jejich diferenční zapojení maže okolní vlivy.
+        \item Výhoda je dodatečná montáž na potrubí, tím, že se montuje jen z "venku", tak v potrubí nic nepřekáží = nejmenší tlaková ztráta.
+        \item Jsou poměrně drahé a toto řešení není tak triviální jak se zdá.
+    \end{itemize} 
+\end{itemize}
+
+\subsection*{Indukční snímač průtoku}
+\begin{itemize}
+    \item Pro vodivé kapaliny (i voda), pohyb "vodiče" v magnetickém poli generuje napětí U = Blv
+    \item Pro zpracování lepší střídavé mag. pole
+    \item Levný, větší rozsah měřených průtokoměrů
+    \item Princip podobný jako dynamo - pohybuje se vodič v magnetickém poli, na jeho koncích naměříme napětí.
+    \item Interakce mag. pole s kapaliny s vnějším - lorentzova síla.
+    \item Na stěnách trubky se začnou hromadit kladné ionty a na druhé záporné. Tím se dostane rozdíl potenciálu.
+    \item Výsledkem je střídavé magnetické pole => homogenní magnetické pole a měří se rozdíl napětí na bočních elektrodách, které je přímouměrné magnetické indukci.
+    \item 
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/indukceViiir.png}
+\end{figure}
+
+\subsection*{Snímače průtoku s tlakovou diferencí}
+\begin{itemize}
+    \item Založen na měření tlakového spádu na zúženém místě potrubí
+    \item Čkrtící orgán - clona, dýza, Venturiho trubice, Pitotova trubice
+    \item Rozdíl tlaku se měří diferenčním snímačem tlaku
+    \item Typicky průtokoměr pro měření páry
+    \item Nelineární závislost
+    \item Není třeba nic normalizovat - vše je spočítané
+    \item Kritický parametr - snaha mít, co nejmenší tlakové ztráty a největší differenci
+    \item Potřebujeme velký kus potrubí
+\end{itemize}
+
+\subsection*{Dávkové snímače průtoku}
+\begin{itemize}
+    \item Plní se nějaký objem průtoke, jakmile se naplní, tak se vylije a plní se znova.
+    \item Existují různé varianty - rotační, pístové, membránové
+    \item Pohyb je způsoben rozdílem sil nebo točivých momentů vyvolaných vstupním a výstupním tlakem
+    \item Používá se pro plyny a kapaliny v rozsahu l/h, m3/h
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/davkovaci.png}
+\end{figure}
+\newpage
+\begin{itemize}
+    \item Princip zubového čerpadle - médium tlačí na písty, které se kvůli tomu točí a definovaný průtok se tak dostane na druhou stranu
+    \item Přesné měření průtoku oleje - kalibrační, referenční
+    \item Musí být dobře těsněné, čisté a samomazné
+\end{itemize}
+
+\subsection*{Hmotnostní snímač průtoku}
+\begin{itemize}
+    \item Princip založen na detekci silového působení hmotného pohybujícího elementu tekutiny
+    \item Praktické provedení - U trubice, Delta trubice, přímá trubice
+    \item Trubice je rozkmitána silou FM na rezonančním kmitočtu, FC způsobí zkroucení, snímači polohy se vyhodnocuje fázový posun
+    \item Přesnost až 0.1 \%, nezávislost na viskozitě, tlaku, teplotě.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/FC.png}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/hmotnostniprutok.png}
+\end{figure}
+
+\begin{itemize}
+    \item Využívá se Coriolisovy síly - hmotný bod se nám bude pohybovat určitou rychlostí a současně bude v nějakém otáčejícím/kmitajícím systému \begin{itemize}
+        \item Otáčející se bod - element kapaliny - trubka, kterou nuceně rozmitáme - kapalina uvedena do rotačního pohybu - elektromagneticky rozkmitáváme
+        \item Když se kapalina v trubce pohybuje, tak začne působit Coriolisova síla, na jedné straně působí dolů, na druhé nahoru.
+        \item Měřená veličina je amplituda zkroucení na obou maximech - snímače polohy -> pokud tam něco poteče, bude fázový posun, pokud nepoteče, stejná fáze.
+        \item Je zde problém s bublinkama - mění se tím skokově hustota - blbě se drží snímač v rezonanci
+    \end{itemize}
+    \item Technicky velmi náročné mechanický systém vyrobit a ten fázový rozdíl bývá ve vtečinách - "fes malo"
+    \item Drahé, využívá se u drahých paliv, čerpací stanice.
+    \item Z rezonančního kmitočtu můžem měřit i hustotu
+    \item Vadí mu skokové změny, teplotní, znečištění a celkově prostředí mu nevadí.
+\end{itemize}
+
+\subsection*{Tepelné hmotnostní snímače průtoku}
+\begin{itemize}
+    \item Zahříváme nějaký element a měříme odvod tepla prouděním - proudící plyn/kapalina
+    \item Odvod tepla souvisí s hustotou tekutiny - čím hustší, tím větší přestup tepla
+    \item Měříme ochlazení drátku - termoanemometrie \begin{itemize}
+        \item Udržuje konstantní proud nebo konstantní teplotu
+        \item Okolí mu odebírá teplo
+        \item Měří se kolik proudu musíme do obvodu pouštět, aby měl drát stejnou teplotu
+    \end{itemize}
+    \item Měříme přenos tepla - kalorimetrický princip \begin{itemize}
+        \item Měříme rozložení teploty v okolí zdroje
+        \item Protékající plyn deformuje teplotní pole
+        \item Komplikované při větších průtocích - dělá se odbočka na menší průřez
+        \item Provovnání pomocí můstku
+    \end{itemize}
+    \item Využívají se ve vzduchotechnice, průtok benzínu
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/kalorime.png}
+\end{figure}
+
+\subsection*{Snímače průtoku v otevřených kanálech}
+\begin{itemize}
+    \item Princip založen na měření výšky hladiny v průtokovém kanále definovaného typu - přeliv, žlab
+    \item Snímač výšky hladiny obvykle ultrazvukový
+    \item Snímače výšky hladiny - nespojité (plovákové, vibrační, ultrazvuk,...), spojité (diferenčí tlak, meření vztlakové síly, kapacitní,...)
+\end{itemize}
+
+\subsection*{Srovnání}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 1]{img/srovnaniprutok.png}
+\end{figure}
 
 \section{Kontaktní snímače teploty (dilatační, odporové, termoelektrické)}
 
