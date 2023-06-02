@@ -150,7 +150,7 @@ Soustavy s dopravním zpožděním:
     1+F_0(p)
 \end{equation}
 Všechny přenosy uzavřeného obvodu mají ve jmenovateli tento tvar\\
-když jsou jeho kořeny menší nule, je stabilní, pokud jsou rovny nule, tak je na mezi stability\\
+když jsou jeho reálné části kořenů menší nule, je stabilní, pokud jsou rovny nule, tak je na mezi stability\\
 \subsection*{Věta o počáteční a konečné hodnotě, požadavky na ustálené hodnoty}
 \begin{figure}[H]
     \includegraphics[scale = 0.8]{images/tvary_prenosu.png}
@@ -396,5 +396,225 @@ Zhodnocení vlastností:
     \item váhové kritérium - váha odchylky narůstá s časem
     \item analytický výpočet prakticky nemožný, řešení simulace
 \end{itemize}
+\newpage
+
+
+\section{ Návrh PID regulátorů různými metodami (metoda standardních tvarů frekvenčních charakteristik, metoda optimálního
+modulu, metoda Zieglera-Nicholse, metoda standardních tvarů charakteristického polynomu, metoda požadovaného
+rozložení pólů uzavřeného obvodu).}
+
+\subsection*{Metoda standartních tvarů frekvenčních charakteristik}
+
+Tvarujem frekveční charakteristiku tak, abychom dosáhli vyhovujícího tvaru - obecně platný postup neexistuje.\\
+Průběh soustavy i regulátoru se sčítají za předpokladu, že jsou charakteristiky v decibelech.\\
+Obecné požadavky na přenos:
+\begin{itemize}
+    \item co nejvyšší hodnota kmitočtu řezu - rychlost děje
+    \item co největší fázová bezpečnost - zajišťuje malý překmit
+    \item kolem kmitočtu řezu v co největším okolí sklon -20dB/dek
+    \item Realizovatelnost - řád jmenovatele větší než řád čitatele regulátoru (PID a PD se dává realizační konstanta do jmenovatele, obvykle se volí tak, že časová konstanta čitatele je míň jak 100x větší ) 
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 0.8]{images/freqNavrh.png}
+\end{figure}
+\newpage 
+
+\subsection*{Metoda optimálního modulu}
+Oproti návrhu z frekvenční charakteristiky pracuje tato metoda s frekvenční charakteristikou uzavřené smyčky(FW). $F_W(p) = \frac{b_mp^m+b_{m-1}p^{m-1}+\dots + b_1p+b_0}{a_np^n+a_{n-1}p^{n-1}+\dots + a_1p+a_0}$\\
+Založená na tom, že přechodný děj bude optimální. pokud FW $\doteq$ 1 do co nejvyšších frekvencí.\\
+To se dá zapsat matematicky jako: $\frac{d|F_W(j\omega) |}{d\omega} \leq 0$\\
+Postup:
+\begin{enumerate}
+    \item p se nahradí $j\omega$
+    \item čitatel i jmenovatel se vyjádří ve tvaru reálná složka + imaginární složka 
+    \item spočítá se absolutní hodnota přenosu (tj. každý člen na druhou a celé pod odmocninou)
+    \item stejné podmínky platí i pro druhou mocninu přenosu, tak se dá nadruhou, aby se nemuselo počítat s odmocninou 
+    \begin{figure}[H]
+        \includegraphics*[scale = 1.0]{images/optimalniModul1.png}
+    \end{figure}
+    \item porovnáním rovnic dostaneme toto:
+    \begin{figure}[H]
+        \includegraphics*[scale = 1.0]{images/optimalniModul2.png}
+    \end{figure}
+    \item Dříve uvedné podmínky pro optimální průběh lze vyjádřiit ve formě 
+    \begin{equation}
+        \frac{B_i}{A_i} \leq \frac{B_0}{A_0}
+    \end{equation}
+\end{enumerate}
+
+Tímto je zaručena monotónost průběhu, ale NEZARUČUJE STABILITU OBVODU.  Nutné zvlášť dopočítat.
+(Vzorový příklad viz skripta, nebo coz rr1)\\
+\newpage
+
+\subsection*{Metoda Zieglera-Nicholse}
+V praxi oblíbená a hojně používaná.\\
+Vychází se z PID regulátoru ve tvaru: $F_R(p) = K_R(1+\frac{1}{T_Ip}+T_Dp)$
+Princip:
+\begin{enumerate}
+    \item Vyřadíme integrační a derivační složku($T_D = 0$ a $T_I = \infty$)
+    \item Zvyšujeme zesílení proporciální složky $K_R$, dokud nedosáhnem meze stability. Čímž dosáhneme netlumených kmitů a taky hodnoty $K_{KRIT}$$T_{KRIT}$
+    \item Hodnoty jednotlivých složek určíme z tabulky
+    \begin{figure}[H]
+        \includegraphics*[scale = 1]{images/ZHtab.png}
+    \end{figure}
+\end{enumerate} 
+Kriitické parametry se dají určit několia způsoby:
+\begin{itemize}
+    \item Z přechodové charakteristiky 
+    \item výpočtem ze známého modelu 
+    \item rozkmitávání použitím relé bez hysterze
+\end{itemize}
+
+\subsubsection*{Určení kritických parametrů z přechodové charakteristiky}
+Odečtením doby průtahu $T_u$ a doby náběhu $T_n$ a následně dopočítat pomocí vzorců:
+\begin{equation}
+    K_{KRIT} \doteq \frac{\pi T_n}{2T_u}+1 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; T_{KRIT} \doteq 4T_u
+\end{equation}
+
+\subsubsection*{Určení kritiiických parametrů výpočtem ze známého modelu}
+Existuje několik způsobů, jeden z nich je pomocí Nyquistova kriitéria stability. Uzavřený obvod je na mezi stability pokud frekvenční charakteristika otevřené smyčky prochází bodem (-1;0). Následně seurčí průsečík frekvenční charakteristiky otevřené smyčky se zápornou částí reálné osy(-x;0). Krittické zesílení je následně určeno jako $\frac{1}{x}$.\\
+Pro soustavy vyššího řádu je obtížné najít průsečík, proto se využívá algebraických kritérií stabiility(Hurwitzh nebo Routh-Schur)
+
+\subsubsection*{Rozkmitávání použitím relé bez hysterze}
+Velká výhoda, že kmity jsou řízené - nehrozí, že by se systém nekontrolovaně rozkmital.\\
+Určuje se tak, že zvětšujeme zesílení, dokud relé  nezačne kmitat.\\
+
+Metoda Ziegler-Nicholse je výhodná v případě, kdy nemáme k dispozici přenos soustavy a můžeme experimentovat. To občas může být nebezpečné, proto se pak využívá relé bez hysterze, kde se jedná o řízené kmitání.\\
+
+\subsection*{Metoda standartních tvarů}
+Vychazí se z toho, že kořeny charakteristiického polynomu určují dynamiku uzavřeného obvodu.\\
+Koeficienty se určují z Whiteleyho tvarů, které se nachází v tabulce, jedná se o poměry jednotlivých složek. Platí pouze pro soustavy s astatismem prvního řádu.\\
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 0.8]{images/metodaStandartnichTvaru.png}
+\end{figure}
+Pro použití tabulky je však nutné charakteristický polynom ipravit na bezrozměrný tvar.\\
+V tomto tvaru je první a poslední koeficient roven jedné.To se dělá pomocí koeficientu q, který se získá pomocí vzorce:
+\begin{equation}
+    \frac{a_n}{a_0}p^n = q^n
+\end{equation}
+\newpage
+
+\subsection*{Metoda požadovaného rozložení pólů uzavřeného obvodu}
+Tato metoda využívá vztahu mezi časovými odedzvami a rozložením pólů v přenosu uzavřené smyčky. Využívá se konstrukce kořenového hodografu.\\
+Stanovíme si požadavky na tlumení obvodu a tím vymezíme jistou oblast v rovině p, ve které mohou ležet póly.
+Čím větší tlumení zvolíme, tím menší úhel bude svírat reálná osa s výsečí. Větší roli hrají dominantní póly(ty blíže ke středu) a zrychlení odezvy dosáhneme posunem těchto pólů co nejvíc vlevo(viz d)\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/metodaRozlozeniPolu.png}
+\end{figure}
+
+
+\newpage
+
+
+\section{PSD regulátory, základní složky a vlastnosti. Aproximace vzorkovače s tvarovačem, diskretizace PID regulátoru.
+Rozvětvené regulační obvody. Obvod s pomocnou regulovanou veličinou, s pomocnou akční veličinou, s měřením
+poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy.}
+
+Popis stejný jak spojitý PID akorát v diskrétní oblasti.\\
+Převod mezi spojitým a diskrétním přenosem se dělá pomocí Z-transformace. Dochazí zde ke zpoždění o 0,5 vzorkovací periody.
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/PSDVzorkovani.png}
+\end{figure}
+Derivační složka se nahrazuje výpočtem diference: $\frac{de}{dt} \rightarrow \frac{e(k)-e(k-1)}{t_{vz}} = \frac{1-z^{-1}}{t_{vz}}$.\\
+Tvary PSD regulátoru:
+\begin{itemize}
+    \item $F_R(z^{-1}) = K_R(1+\frac{T_D}{T_{vz}}(1-z^{-1})+\frac{T_{vz}}{T_I}\frac{1}{1-z^{-1}})$
+    \item $u(k) = K_R(e(k)+\frac{T_D}{T_{vz}}(e(k)-e(k-1))+\frac{T_{vz}}{T_I}\sum^k_{i=1}e(i))$
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 0.3]{images/PSD_regulator.png}
+\end{figure}
+\newpage 
+
+Z důvodu vzorkování se počítá, že přechodová charakretistika je zpožděná o polovinu vzorkovací periody:
+\begin{figure}[H]
+    \centering
+    \includegraphics*[scale = 0.27]{images/PSDVzorkovaniZpozdeni.png}
+\end{figure}
+
+\subsubsection*{Konečná doba přechodného děje}
+Existují dva případy:
+\begin{itemize}
+    \item v okamžicích vzorkování 
+    \item i mezi okamžiky vzorkování
+\end{itemize}
+V okamžicích vzorkování je podmínka, aby dva po sobě jdoucí vzorky byly nulové.\\
+V druhém případě musí vyhovovat i diference hodnot y[(m + n)t] a y[(m + 1 + n)t], kde 0 $0 \leq m \geq 1$\\
+Vychází se z rovnice přenosu $F_W(z) = f_0 + f_1z^{-1}+f_2z^{-2} \dots $ \\
+Přechodný děj je konečný i v časech mimo vzorkování, jestli že F(z,m) má konečný počet členů pro všechna m z intervalu <0;1>. To je splněno pouze, když funkce FW(z,m) obsahuje celý čitatelový polynom přenosu spojitě pracující části obvodu P(z,m).\\
+\subsubsection*{Aproximace vzorkovače s tvarovačem}
+Tvarovač nultého řádu.Dopředný(generuje se zpětně), zpětný(klasická vzorkovačka nultého řádu), aproximační(spojuje dvě hodnoty vzorkovací - aproximace 1.řádu)
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/tvarovace.png}
+\end{figure}
+
+\subsection*{Rozvětvené regulační obvody}
+Jsou-li na kvalitu regulace kladeny vyšší nároky, využívá se rozvětvených regulačních obvodů.
+Hlavní typy jsou:
+\begin{itemize}
+    \item s pomocnou regulovanou veličinou
+    \item s pomocnou akční veličinou
+    \item s měřením poruchy
+    \item s modelem regulované soustavy 
+\end{itemize}
+
+\subsection*{Obvody s pomocnou regulovanou veličinou}
+V tomto případě je místo bloku soustavy regulovaná soustava(S1+R2) v sérii s S2 a hlavní regulátor je R1. Často se využívá k regulaci teploty a v polohových servomechanismech. Při regulaci teploty je soustava tvořena větším počtem setrvačných článků spojených sériově. Zavedením pomocné regulované veličiny u vstupu do soustavy jsme schopni rychleji reagovat na vznik poruchy. \\
+Pěkné příklady jsou ve skriptech rr1 str.154.  
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/pomocnaRegulace.png}
+\end{figure}
+Pomocí Z-N metody se dá dosáhnout automatizace opakovaným navrhováním(info navíc asi).\\
+
+\subsection*{Regulační obvody s pomocnou akční veličinou}
+Podmínkou pro realizaci je možnost působit na soustavu nejméně dvěma akčníma veličinama. Musí se lišit velikost časových konstant obou přenosů a to z důvodu, že akční zásah jedné akční veličiny musí být rychlej přenášen na soustavu, než změna druhé akční veličiny. Pomocnou akční veličinou výrazně zlepšíme přenos řízení.\\
+Pěkné příklady rr1 skripta str.157.
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/pomocnaAkcniVelicina.png}
+\end{figure}
+
+\subsection*{Regulační obvody s měřením poruchy}
+Teoreticky lze pomocí regulátoru R2 dosáhnout úplné kompenzace poruchy(invariantnosti systému vůči poruše). U reálného regulátoru je to však omezeno podmínkou, kdy přenos poruchy musí být vyššího nebo stejného řádu jak přenos soustavy, což málokdy nastává. Na stabilitu systému pomocný regulátor R2 nemá vliv.\\
+Bývá realizováno při regulaci velkého objemu teplot(vytápění teplot). 
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/pomocnaPorucha.png}
+\end{figure}
+
+\subsection*{Regulační obvody s modelem regulované soustavy}
+Primárně se používají v adaptivních obvodech, ale dají se použít pro zlepšení vlastností i v jednoduchém regulačním obvodu.\\
+Hlavní přínos je necitlivost kvality regulace na změnu parametrů soustavy, to zajišťuje regulátor M, který vyrovnává rozdíly mezi soustavou a jejim modelem. 
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/pomocnaModelRegulovaneSoustavy.png}
+\end{figure}
+\newpage 
+
+Speciálním případem je obvod kompenzující přítomnost dopravního zpoždění. Dle schématu soustava obsahuje dopravní zpoždění o velikosti $\Delta$.
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/pomocneDP.png}
+\end{figure}
+V charakteristickém polynomu se nevyskytuje člen s dopravním zpoždění, což přispívá ke stabilitě systému. Realizace modelu ve spojité variantě by byla náročná a nákladná, proto se v praxi používá její diskrétní model.
+\subsection*{Vícerozměrové řídící systémy}
+Většina regulovaných soustav má více vstupů a více výstupů, s čímž se váže víc akčních veličin, poruch atd. Jelikož závisí na pořadí nasobení jednotlivých matic, pravidla blokové algebry jsou modifikovány.\\
+Ikdyž počet vstupů a výstupů se většinou liší, bývají doplněny nulovými a to z důvodu, že práce se čtvercovými maticemi jsou jednodušší.
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/vicerozmerneSoustavy.png}
+\end{figure}
+Vztah je popsán maticově, vyplývá z něj, že každý vstup ovlivňuje každý výstup.
+\begin{equation}
+    Y(p) = S(p)\cdot X(p)
+\end{equation}
+Jedním z hlavních požadavků na Vícerozměrné systémy je autonomnost. Systém je autonomní, pokud změna k-té žádané hodnoty způsobí změnu k-té regulované veličiny a na ostatních se neprojeví. Což by nastalo, kdyby matice soustavy byla diagonální, pokud tomu tak není, je nutné nežádoucí vazby mezi sobě neodpovídajícími akčními a regulovanými veličinami kompenzovat vhodnými vazbami v regulátorech. Proto každá akční veličina může být vázána na jakoukoliv regulační odchylku.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/vicerozmerneSoustavySchema.png}
+\end{figure} 
+Ve většině systémů nejde dosáhnout úplné autonomnosti, proto se často spokojíme i s autonomností ustálených stavů, neboli že přenos je diagonální.\\
+Další požadavek je invariantnost, což je necitlivost vůči poruchám. Úplné invariantnosti lze dosáhnout pouze, když je informace k poruchách, neboli poruchy lze měřit.
+diagonální matice přenosů:
+
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{images/DiagonalniMaticePrenosu.png}
+\end{figure}
 
 
