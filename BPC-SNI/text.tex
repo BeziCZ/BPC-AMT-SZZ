@@ -733,9 +733,166 @@ $u = B*l*v$
 
 \section{Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů}
 
+\newpage
 
 \section{Kontaktní snímače teploty (dilatační, odporové, termoelektrické)}
+Termodynamická teplota - stavová veličina charakrerizující termodynamickou rovnováhu systému, souvisí s kinetickou energií částic látky.\\
+Teplotní stupnice:
+\begin{itemize}
+    \item Celsiova  - trojný bod vody (T = 273,15 K)
+    \item Kelvinova - absolutní nula 
+\end{itemize}
+\subsection*{Dilatační snímače teploty}
 
+Dělí se na kapalinové, plynové, parní a bimetalové\\
+Levné, běžná přesnost\\
+Princip založen na změně objemu látek vlivem teploty:
+\begin{itemize}
+    \item Kapalinové - rtuť(jedny z nejpřesnější z této kategorie), líh 
+    \item Plynovézměna tlaku při konstantním objemu - pro měření nízkých teplot, využití membrán 
+    \item Parní - změna tlaku par s teplotou - pro vyšší teploty, taky membrána 
+    \item bimetalové - pevně spojené dvě látky s různou teplotní roztažnostíkdyž 
+\end{itemize}
+
+\subsection*{Odporové snímače teploty}
+\subsubsection*{Kovové}
+Většina kovových materiálů při zvětšování teploty zvětšuje svůj odpor.\\    
+Pro rozsah 0-100°C platí $R = R_0(1+\alpha T)$ - $\alpha$ teplotní součinitel odporu: $\alpha = \frac{R_100-R_0}{100R_0}$\\
+Index odporu značí odpor při dané telotě.\\
+Vyrábí se z platiny, niklu a mědi\\
+\begin{figure}[H]
+    \includegraphics*[scale = 0.2]{img/odporoveSnimace.png}
+\end{figure}
+ Platinové:
+ \begin{itemize}
+    \item vyznačuje se chemickou netečností
+    \item časová stálost
+    \item vysoká teplota tání
+    \item Vyrábí se:
+    \begin{itemize}
+        \item drátková technologie - drátkový měřicí odpor je tvořen spirálově stočeným plat. drátkem zataveným do keramiky, případně skla
+        \item platinová vrstva nanesená na keramické podložce 
+        \item v obou případech dochází k systematické chybě  způsobenérelativními délkovými změnami obou materiálů - chyba má charakter hystereze(u teplot nad 400°C až \textpm 0,25°C)
+    \end{itemize}
+    \item čistota platiny se posuzuje podle redukovaného odporu: $W_{100} = \frac{R_{100}}{R_0} \leq 1,385$
+    \item existují dvě toleranční třídy:
+    \begin{itemize}
+        \item třída A - -200°C do 650°C s tolerancí\textpm 0,125 °C 
+        \item třída B - -200°C do 850°C s tolerancí \textpm 0,25 °C 
+    \end{itemize}
+ \end{itemize}
+ \begin{figure}[H]
+    \includegraphics*[scale = 0.25]{img/odporoveSnimacePlatina.png}
+\end{figure}
+Vyrábějí se i vysokoteplotní do telpoty 1100°C.\\
+Sensory jsou 2, 3, nebo 4 vodičové, čím víc vodičů, tím víc kompezujem chybu odporu měřicího odporu.\\
+
+Niklové:
+\begin{itemize}
+    \item vysoká citlivost 
+    \item rychlá časová odezva 
+    \item malé rozměry 
+    \item omezený teplotní rozsah -60°C až 180°C 
+    \item oproti platině značná nelinearita 
+\end{itemize}
+
+Měděné:
+\begin{itemize}
+    \item -200°C až 200 °C
+    \item malá rezistivita
+    \item snadná oxidace
+    \item téměř se nevyrábí
+    \item maximálně přímé měření teploty měděného vinutí elektromotoru
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 0.7]{img/odporoveSnimaceGrafy.png}
+\end{figure}
+
+\subsubsection*{Termistory}
+Dělí se na NTC a PTC, liší se v tom, jestli mají kladný nebo záporný teplotní součinitel.\\
+Dle struktury jsou amorfní(beztvárné, nepravidelné), nebo polykrystalické(opakující).\\
+NTC termistory:
+\begin{itemize}
+    \item záporný teplotní součinitel
+    \item vyráběny práškovou technologií(lisování za vysokých teplot)
+    \item klasické rozsahy jsou zhruba -50°C až 150°C, ale jsou i extrémní od 4,2K do 1000°C 
+    \item v porovnání s platinovými jsou méně stabilní 
+    \item malé rozměry 
+    \item oproti platině o řád vyšší součinitel odporu 
+    \item hlavní nevýhoda značná nelienarita
+\end{itemize}
+PTC termistory:
+\begin{itemize}
+    \item kladný teplotní součinitel
+    \item vyráběny z polykrystalické feroelektrické keramiky 
+    \item odpor s rostoucí teplotou mírně klesá a od Courierovy teploty exponenciálně roste, po nárůstu cca o 3 řády zas pomalu klesá 
+    \item Courierova teplota se odvíjí od složení, pohybuje se v rozmezí 60°C až 180°C 
+    \item používají se jako dvoustavové sensory
+\end{itemize}
+\newpage
+
+Polovodičové monokrystalické sensory teplot:
+\begin{itemize}
+    \item z křemíku, germánia, india a jejich slitin 
+    \item nejčastější z křemíku 
+    \item z nevlastního polovodiče typu N - s dominantní elektronovou vodivostí 
+    \item S rostoucí teplotou dochází vlivem rozptylu nosičů náboje na mřížce polovodiče ke zmenšování pohyblivosti těchto nosičů a rezistivita dotovaného polovodiče stoupá
+    \item symetrické uspořádání struktury je výhodné tím, že odpor sensoru je dán dotační koncentrací a geometrií kontaktů a nezávisí na tloušťce H, která se technologicky blbě dodržuje
+    \item vzhledem k efektu nelineárního přechodového odporu kov-polovodič se doporučuje pracovat s menšími proudy(pár mA) 
+\end{itemize}
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{img/odporoveSnimaceSi.png}
+\end{figure}
+
+MonoKrystalické PN sensory teploty:
+\begin{itemize}
+    \item založeny na teplotní závislosti napětí PN přechodu v propustném směru 
+    \item Vychází ze Shockleyovy rovnice:
+    \begin{figure}[H]
+        \includegraphics*[scale = 1.2]{img/odporoveSnimacePN.png}
+    \end{figure}
+    \item Tranzistorové PN sensory - obdobný princip jak PN diody, teplotní závislost přechodu báze-emitor na teplotě v propustném směru(po zapojení tranzistorové diody není závislý ani na proudu Ic ani teplotě T)
+\end{itemize}
+
+\subsection*{Termoelektrické sensory teploty}
+Založeny na Seebeckovu jevu - přeměna teplotních rozdílů na elektrické napětí.\\
+V každém vodiči, kde tepllota není konstantní vzniká termoelektrické napětí. Napětí mezi konci vodiče A,B je závislé pouze na rozdílu tplot těchto konců.\\
+\begin{figure}[H]
+    \includegraphics*[scale = 1]{img/termoclanek.png}
+\end{figure}
+Toto napětí není přímo měřitelné, ale když spojíme dva dráty z materiálů s rozdílným Seebeckovým koeficientem, bude mezi jejich rozpojenými konci B,C napětí.\\
+Jestliže jsme schopni na koncích B,C držet stejnou známou teplotu, můžeme tuto dvojici drátů použít ke změření teploty spoje A.\\
+\begin{equation}
+    U = \int^{T_{1}}_{T{2}}(S_B(T)-S_A(T))dT
+\end{equation}
+$S$ \dots Seebeckovy koeficienty materiálů\\
+$T$ \dots teplota spoje\\
+
+Napětí termočlánku nevzniká na měřicím spoji, ale v těch místech, kde se mění teplota, proto je nutné dbát na kvalitu celého termočlánku, zejména homogenitu materiálu.\\
+Zapojení s referenčním spojem - jednodušší, 2 spoje, 3 dráty, měřící konec, srovnávací referrenci(ideálně do 0°C)
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{img/termoclanek_2spoje.png}
+\end{figure}
+\newpage
+Zapojení s referenčním obvodem - 3 spoje, 4 dráty, obsahuje kompenzaci referenčního spoje
+\begin{figure}[H]
+    \includegraphics*[scale = 1.2]{img/termoclanek_3spoje.png}
+\end{figure}
+
+Velmi důležitá je homogenita materiálů, koeficienty jsou řádově desítky až stovky $\mu V/ °C$\\
+Normalizovány dle IEC(J, K, T, E, N \dots )\\
+referenční teplotu lze korigovat dalším teplotním snímačem\\
+\begin{figure}[H]
+    \includegraphics*[scale = 0.9]{img/termoclanek_graf.png}
+\end{figure}
+
+Pravidla pro klasifikaci:
+\begin{itemize}
+    \item termoelektrické napětí se nemění, ikdyž je vedení vystaveno různým teplotním podmínkám. Podmínkou platnosti pravidla je homogenita vodičů a nulový protéající proud. 
+    \item vložený vodič do termočlánku může představovat vnitřní měřicí obvod voltmetru 
+    \item spájení měřicího bodu nemá vliv na termoelektrické napětí 
+    \item umožňuje kalibraci vzájemným porovnáním přírůstků napětí článků na více článcích
+\end{itemize}
 
 \section{Měření záření (tepelné a kvantové snímače IR záření, snímače ionizujícího záření)}
 
