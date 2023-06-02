@@ -62,8 +62,8 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 - [x] Definice ovládání, řízení a regulace (řízení bez a se zpětnou vazbou), výhody a nevýhody. Základní veličiny a přenosy. Rozdělení řízení podle různých kritérií. PID regulátory, základní složky a vlastnosti. Statická analýza zpětnovazebních obvodů. Standardní přenosy ve zpětnovazebním řízení, charakteristický polynom. Věta o počáteční a konečné hodnotě, požadavky na ustálené hodnoty. 
 - [x] Standardní struktury regulačních obvodů. Stabilita obvodů se zpětnou vazbou. Frekvenční charakteristiky v komplexní rovině, Nyquistovo kritérium stability, jeho zjednodušená verze a řešení v logaritmických souřadnicích, použití algebraických kritérií.
 - [x] Analýza dynamických vlastností zpětnovazebních obvodů. Metoda geometrického místa kořenů. Zásoba stability v amplitudě, ve fázi a v modulu. Integrální kritéria kvality regulace, praktická kritéria.
-- [ ] Návrh PID regulátorů různými metodami (metoda standardních tvarů frekvenčních charakteristik, metoda optimálního modulu, metoda Zieglera-Nicholse, metoda standardních tvarů charakteristického polynomu, metoda požadovaného rozložení pólů uzavřeného obvodu).
-- [ ] PSD regulátory, základní složky a vlastnosti. Aproximace vzorkovače s tvarovačem, diskretizace PID regulátoru. Rozvětvené regulační obvody. Obvod s pomocnou regulovanou veličinou, s pomocnou akční veličinou, s měřením poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy. 
+- [x] Návrh PID regulátorů různými metodami (metoda standardních tvarů frekvenčních charakteristik, metoda optimálního modulu, metoda Zieglera-Nicholse, metoda standardních tvarů charakteristického polynomu, metoda požadovaného rozložení pólů uzavřeného obvodu).
+- [x] PSD regulátory, základní složky a vlastnosti. Aproximace vzorkovače s tvarovačem, diskretizace PID regulátoru. Rozvětvené regulační obvody. Obvod s pomocnou regulovanou veličinou, s pomocnou akční veličinou, s měřením poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy. 
 
 ### BPC-RR2
 
@@ -79,7 +79,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 - [x] Měření polohy - principy optické, magnetické, ultrazvukové 
 - [x] Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti 
 - [ ] Tenzometry, snímače síly, hmotnosti, momentu a tlaku 
-- [ ] Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů
+- [x] Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů
 - [ ] Kontaktní snímače teploty (dilatační, odporové, termoelektrické)
 - [ ] Měření záření (tepelné a kvantové snímače IR záření, snímače ionizujícího záření)
 - [x] Chemické snímače
