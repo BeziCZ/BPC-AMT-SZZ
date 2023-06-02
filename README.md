@@ -82,7 +82,7 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 - [ ] Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů
 - [ ] Kontaktní snímače teploty (dilatační, odporové, termoelektrické)
 - [ ] Měření záření (tepelné a kvantové snímače IR záření, snímače ionizujícího záření)
-- [ ] Chemické snímače
+- [x] Chemické snímače
 
 ### BPC-UIN
 
