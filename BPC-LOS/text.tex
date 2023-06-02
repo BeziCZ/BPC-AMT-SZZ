@@ -62,7 +62,7 @@ Minterm obsahuje všechny proměnné a pouze operaci AND.\\
 Maxterm obsahuje všechny proměnné a pouze operaci OR.
 \begin{center}
     Minterm: \(y = (x_2 \cdot \overline{x_1} \cdot x_0)\)\\
-    Maxterm: \(y = (\overline{x_2} \cdot x_1 \cdot \overline{x_0})\)
+    Maxterm: \(y = (\overline{x_2} + x_1 + \overline{x_0})\)
 \end{center}
 
 Logickou funkci lze zapsat ve dvou základních tvarech.\\
@@ -88,7 +88,7 @@ Maxterm musí obsahovat všechny proměnné funkce.\\
 Rovnice pak jsou:
 \begin{center}
     ÚDNF: \(y=\sum_{n = 1}(0,2,5,7)= \overline{x_2} \cdot \overline{x_1} \cdot \overline{x_0} + \overline{x_2} \cdot x_1 \cdot \overline{x_0} + x_2 \cdot \overline{x_1} \cdot x_0 + x_2 \cdot x_1 \cdot x_0 \)\\
-    ÚKNF: \(y = \prod (1,3,4,6) = (x_2 \cdot x_1 \cdot \overline{x_0}) + (x_2 \cdot \overline{x_1} \cdot \overline{x_0}) + (\overline{x_2} \cdot x_1 \cdot x_0) + (\overline{x_2} \cdot \overline{x_1} \cdot x_0)\)
+    ÚKNF: \(y = \prod (1,3,4,6) = (x_2 + x_1 + \overline{x_0}) \cdot (x_2 + \overline{x_1} + \overline{x_0}) \cdot (\overline{x_2} + x_1 + x_0) \cdot (\overline{x_2} + \overline{x_1} + x_0)\)
 \end{center}
 \subsection{Minimalizace logické funkce}
 Vyjádření logické funce považujeme za minimální pokud má minimální počet termů, minimální počet nezávisle proměnných v každném termu, minimální počet negovaných proměnných.\\
