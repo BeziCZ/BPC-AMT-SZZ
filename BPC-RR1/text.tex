@@ -1,9 +1,9 @@
-\section{Definice ovládání, řízení a regulace(řízení bez a se zpětnou vazbou),výhody a nevýhody.Základní veličiny a přenosy. Rozdělení řízení podle různých kritérií. PID regulátory, základní složky a vlastnosti. Statistická analýza zpětnovazebních obvodů. Standartní přenosy ve zpětnovazebním řízení, charakteristický polynom. Věta o počáteční a konečné hodnotě, požadavky na ustálené hodnoty.}
+\section{Definice ovládání, řízení a regulace(řízení bez a se zpětnou vazbou),výhody a nevýhody.Základní veličiny a přenosy. Rozdělení řízení podle různých kritérií. PID regulátory, základní složky a vlastnosti. Statická analýza zpětnovazebních obvodů. Standartní přenosy ve zpětnovazebním řízení, charakteristický polynom. Věta o počáteční a konečné hodnotě, požadavky na ustálené hodnoty.}
 \subsection*{Ovládání}
 tj. bez zpětné vazby\\
 bez znalosti skutečné hodnoty na výstupu, tím pádem nelze kompenzovat vliv poruchových signálů, nelze zajistit správné sledování v případě změn parametrů soustavy\\
 \subsection*{Řízení}
-se zpětnou vazbou, tím pádem regulační odchylka e - rozdíl mezi vstupem a výstupem 
+se zpětnou vazbou, tím pádem regulační odchylka e - rozdíl mezi vstupem a výstupem
 \subsection*{Regulace}
 Krom regulační odchylky je zde i regulátor, který generuje akční zásah na základě odchylky a poruchy.
 \begin{figure}[H]
@@ -16,7 +16,7 @@ Krom regulační odchylky je zde i regulátor, který generuje akční zásah na
     \caption{Regulačnní smyčka}
 \end{figure}
 w(t) \dots vstupní signál \\
-$\epsilon(t)$ \dots odchylka \\
+$\varepsilon(t)$ \dots odchylka \\
 x(t) \dots akční veličina \\
 u(t) \dots porucha \\
 y(t) \dots výstupní signál\\
@@ -30,15 +30,15 @@ Přenos regulované soustavy:
 \end{equation}
 Přenos regulátoru:
 \begin{equation}
-    F_R(p) = \frac{X(p)}{\epsilon(p)}
+    F_R(p) = \frac{X(p)}{\varepsilon(p)}
 \end{equation}
 Přenos zpětné vazby:
 \begin{equation}
-    F_Z(p) \frac{V(p)}{Y(p)}
+    F_Z(p) = \frac{V(p)}{Y(p)}
 \end{equation}
 Otevřené smyčky:
 \begin{equation}
-    F_0(p) = \frac{Y(p)}{W(p)}
+    F_0(p) = \frac{V(p)}{\varepsilon(p)} %opravit
 \end{equation}
 Přenos řízení:
 \begin{equation}
@@ -60,11 +60,14 @@ Přenos akční veličiny:
 Řízení na konstantní hodnotu:
 \begin{itemize}
     \item obecně regulátory
+    \item Žádaná hodnota se s časem němění
+    \item Úkolem je pouze kompenzace poruch, které na systém působí.
     \item např. frekvence, napětí, hladina vody, teplota
 \end{itemize}
 Řízení hodnoty s neznámým průběhem
 \begin{itemize}
     \item cíl zajistit co nejpřesnější a nejpřesnější sledování průběhu - obecně servomechanismus
+    \item Úloha kompenzace poruch je druhotná, primární je zajištění co nejrychlejší a nejvěrnější shdoy řícící a řízené veličiny
     \item sledování polohy
 \end{itemize}
 Řízení na hodnoty s předem známým průběhem:
@@ -75,7 +78,7 @@ Přenos akční veličiny:
 \subsection*{PID regulátor}
 Obsahuje proporciální, integrační a derivační složku
 \begin{equation}
-    F_R(p) = K_R(1+T_Dp+\frac{1}{T_Ip}) = k_r\frac{(T_1p+1)(T_2p+1)}{p}
+    F_R(p) = r_0 + \frac{r_i}{p} + r_d p= K_R(1+T_Dp+\frac{1}{T_Ip}) = k_r\frac{(T_1p+1)(T_2p+1)}{p}
 \end{equation}
 proporciální složka == offset, větší zesílení, větší přesnost \\
 integrační složka - zhoršuje dynamické vlastnosti, zpomaluje regulační děj, slouží k nulové ustálené odchylce nebo poruše\\
@@ -93,6 +96,10 @@ Rozdíl mezi reálným PID a PID:
     \item reálný má realizační konstantu ve jmenovateli
     \item křivky jsou více zaoblené(viz obr. č. \ref{PID})
 \end{itemize}
+Reálný PID je pak, kde \(\varepsilon << T_1,T_2\):
+\begin{equation}
+    F_R(p) = \frac{X(p)}{E(p)} = K_R\frac{(T_1p + 1)(T_2p+1)}{p(\varepsilon p +1)}
+\end{equation}
 \begin{figure}[H]
     \includegraphics[scale = 0.3]{images/PID.png}
     \caption{Reálný PID}
@@ -111,13 +118,12 @@ Přetlumené soustavy
     \includegraphics[scale = 1]{images/tlumeni.png}
     \caption{regulační křivky s rozdílným n}
 \end{figure}
-\newpage
 
 Kmitavé soustavy:
 \begin{itemize}
     \item v přenosové funkci se vyskytují komplexně sdružené póly
-    \item v časových odezvách se nacházejí harmonické funkce sin a cos
-    \item pokud kmitavé póly nejsou domunantní, kmitání nemusí být patrné
+    \item v časových odezvách (impulzní a přechodová charakteristika) se nacházejí harmonické funkce sin a cos
+    \item pokud kmitavé póly nejsou dominantní, kmitání nemusí být patrné
 \end{itemize}
 \begin{equation}
     F(p) = \frac{k}{(p^2+p+1)(0,1p+1)}
@@ -135,7 +141,7 @@ Soustavy s astatismem:
 Soustavy s neminimální fází:
 \begin{itemize}
     \item jedna nebo více nul v pravé polorovině
-    \item chová se divně . podkmit u jednotkového skoku na začátku
+    \item chová se divně, nastává podkmit u jednotkového skoku na začátku. Přejde do záporných hodnot, ale pak se vrátí. Například když do kamen nasypeme uhelný prach, prvně se oheň zadusí, ale chytne a dojde ke zvýšení teploty.
     \item ve frekvenčních charakteristikách neplatí vztah mezi sklonem a fází frekvenční charakteristiky
 \end{itemize}
 
@@ -182,13 +188,13 @@ PSD:
 Rozdělení podle stupňů volnosti(kolik regulátorů, tolik stupňů):
 \begin{itemize}
     \item jeden stupeň volnosti - odchylkový regulátor
-    \begin{figure}[H]
-        \includegraphics*[scale = 0.45]{images/jedenStupenVolnostii.png}
-    \end{figure}
+          \begin{figure}[H]
+              \includegraphics*[scale = 0.45]{images/jedenStupenVolnostii.png}
+          \end{figure}
     \item dva stupňě volnosti(lze plnit požadavky na změnu řízení i poruchy)
-    \begin{figure}[H]
-        \includegraphics*[scale = 0.4]{images/dvaStupenVolnostii.png}
-    \end{figure}
+          \begin{figure}[H]
+              \includegraphics*[scale = 0.4]{images/dvaStupenVolnostii.png}
+          \end{figure}
 \end{itemize}
 
 \subsection*{Stabilita obvodů se zpětnou vazbou}
@@ -229,7 +235,7 @@ Příspěvek pólů a nul uvnitř křivky je $2\pi$ s tím, že příspěvek pó
 V tomto případě je příspěvek nulový, jelikož pól a nula se odečtou.\\
 Využití Cauchyho teorému u Nyquistova kritéria stability:\\
 \begin{itemize}
-    \item Vytvoření záporně orientované křivky, která obkličuje celou pravou polorovinu roviny p 
+    \item Vytvoření záporně orientované křivky, která obkličuje celou pravou polorovinu roviny p
     \item Uzavřený systém bude stabilní, pokud bude frekvenční charakteristika pro $\omega = (-\infty, \infty)$ obíhat počátek roviny F v kladném směru tolikrát, kolik nestabilních pólů má přenos F(p)
     \item Jednodušší je sledovat počet oběhů funkce $F_0$ kolem bodu (-1,0)
 \end{itemize}
@@ -255,9 +261,9 @@ Výhodou je, že dostaneme rozsahy parametrl, pro které je Uzavřený obvod sta
 Hurwitzuv determinant:
 \begin{itemize}
     \item Z charakteristické rovnice se vytvoří čtvercová matice, ze které se určí determinant, který pro stabilitu musí být větší, než 0.
-    \begin{figure}[H]
-        \includegraphics*[scale = 1.2]{images/Hurwitz.png}
-    \end{figure}
+          \begin{figure}[H]
+              \includegraphics*[scale = 1.2]{images/Hurwitz.png}
+          \end{figure}
     \item Všechny podmínky vycházející z příkladu musí platit společně.
 \end{itemize}
 
@@ -279,10 +285,10 @@ Vzorový příklad k charakteristickému polynomu: $0.1p^5+2.01p^4+10.2p^3+(K_0+
 
 
 \section{Analýza dymanických vlastností zpětnovazebních obvodů. Metoda geometrického místa kořenů. Zásoba stability v amplitudě, fázi, modulu. Integrální kritéria kvality regulace, praktická kritéria}
-Dynamickými vlastnostmi popisujeme chování systému v přechodných dějích. Tím je myšleno rchlost odeznění, maximální překmit a kmitavost přechodného děje. Neexistuje univerzálně optimálně navrhnutý regulátor, dost záleží na situaci. 
+Dynamickými vlastnostmi popisujeme chování systému v přechodných dějích. Tím je myšleno rchlost odeznění, maximální překmit a kmitavost přechodného děje. Neexistuje univerzálně optimálně navrhnutý regulátor, dost záleží na situaci.
 Dynamické vlastnosti se zjišťují z těchto hledisek:
 \begin{itemize}
-    \item z rozložení nul a pólů v komplexní rovině 
+    \item z rozložení nul a pólů v komplexní rovině
     \item z odezev v časové oblasti
     \item z průběhu frekvenčních charakteristik
 \end{itemize}
@@ -292,22 +298,22 @@ Dynamické vlastnosti se zjišťují z těchto hledisek:
 Jedná se o zobrazení průběhu pólů vharakteristické rovnice v závislosti na proměnlivém parametru v komplexní rovině.\\
 Postup grafického řešení:
 \begin{itemize}
-    \item v přenosu otevřené smyčky za p dosdíme p0 jako konkrétní bod 
+    \item v přenosu otevřené smyčky za p dosdíme p0 jako konkrétní bod
     \item dále vektor $(p_0 - \alpha_1)$ se dá zapsat v goniometrickém tvaru jako $|p_0 - \alpha_1|\angle (p_0 - \alpha_1)$
-    \item fázi získáme tak, že sečtem fáze v čitateli a odečtem fáze ze jmenovatele 
+    \item fázi získáme tak, že sečtem fáze v čitateli a odečtem fáze ze jmenovatele
     \item modul je dělení čitatele jmenovatelem
     \item vzorový příklad:
-    \begin{figure}[H]
-        \includegraphics*[scale = 0.3]{images/hodograf.png}
-    \end{figure}
+          \begin{figure}[H]
+              \includegraphics*[scale = 0.3]{images/hodograf.png}
+          \end{figure}
 \end{itemize}
-\newpage 
+\newpage
 
 \subsubsection*{Soubor pravidel pro konstrukci kořenového hodografu}
 \begin{itemize}
     \item Symetrie - kořenový hodograf je symetrucký kolem reálné osy
-    \item Počet větví - kořenový hodograf obsahuje n větví 
-    \item Segmenty na reálné ose - pokud napravo od části reálné osy leží lichý počet nul a pólů, tak tato část osy je větev kořenového hodografu 
+    \item Počet větví - kořenový hodograf obsahuje n větví
+    \item Segmenty na reálné ose - pokud napravo od části reálné osy leží lichý počet nul a pólů, tak tato část osy je větev kořenového hodografu
     \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólů a končí v k = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
     \item Poloha asymptot - asymptoty se protínají na reálné ose v bodě $\sigma = \frac{\sum^n_{i=1} \alpha_i \sum^m_{i=1}\beta_i}{n-m}$ a svírá s kladnou reálnou poloosou úhel $\varphi = \frac{180 \degree + i360\degree}{n - m}$ \dots i = 0, 1 ..., n-m-1
     \item Průsečík s imaginární osou - hodnota K, pro kterou prochází větve kořenového hodografu imaginární osou se dá určit pomocí algebraických kritérií stability
@@ -341,11 +347,11 @@ Silnější kritérium než Mg a Mp.\\
 Výčet kritérií:
 \begin{itemize}
     \item Lineární
-    \item Usměrněné lineární 
+    \item Usměrněné lineární
     \item Kvadratické
     \item ITAE
 \end{itemize}
-\newpage 
+\newpage
 
 \subsubsection*{Lineární}
 Odečtení ustálené odchylky zajišťuje konvergenci integrálu k nějaké konečné hodnotě.\\
@@ -400,8 +406,8 @@ Zhodnocení vlastností:
 
 
 \section{ Návrh PID regulátorů různými metodami (metoda standardních tvarů frekvenčních charakteristik, metoda optimálního
-modulu, metoda Zieglera-Nicholse, metoda standardních tvarů charakteristického polynomu, metoda požadovaného
-rozložení pólů uzavřeného obvodu).}
+  modulu, metoda Zieglera-Nicholse, metoda standardních tvarů charakteristického polynomu, metoda požadovaného
+  rozložení pólů uzavřeného obvodu).}
 
 \subsection*{Metoda standartních tvarů frekvenčních charakteristik}
 
@@ -412,12 +418,12 @@ Obecné požadavky na přenos:
     \item co nejvyšší hodnota kmitočtu řezu - rychlost děje
     \item co největší fázová bezpečnost - zajišťuje malý překmit
     \item kolem kmitočtu řezu v co největším okolí sklon -20dB/dek
-    \item Realizovatelnost - řád jmenovatele větší než řád čitatele regulátoru (PID a PD se dává realizační konstanta do jmenovatele, obvykle se volí tak, že časová konstanta čitatele je míň jak 100x větší ) 
+    \item Realizovatelnost - řád jmenovatele větší než řád čitatele regulátoru (PID a PD se dává realizační konstanta do jmenovatele, obvykle se volí tak, že časová konstanta čitatele je míň jak 100x větší )
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale = 0.8]{images/freqNavrh.png}
 \end{figure}
-\newpage 
+\newpage
 
 \subsection*{Metoda optimálního modulu}
 Oproti návrhu z frekvenční charakteristiky pracuje tato metoda s frekvenční charakteristikou uzavřené smyčky(FW). $F_W(p) = \frac{b_mp^m+b_{m-1}p^{m-1}+\dots + b_1p+b_0}{a_np^n+a_{n-1}p^{n-1}+\dots + a_1p+a_0}$\\
@@ -426,20 +432,20 @@ To se dá zapsat matematicky jako: $\frac{d|F_W(j\omega) |}{d\omega} \leq 0$\\
 Postup:
 \begin{enumerate}
     \item p se nahradí $j\omega$
-    \item čitatel i jmenovatel se vyjádří ve tvaru reálná složka + imaginární složka 
+    \item čitatel i jmenovatel se vyjádří ve tvaru reálná složka + imaginární složka
     \item spočítá se absolutní hodnota přenosu (tj. každý člen na druhou a celé pod odmocninou)
-    \item stejné podmínky platí i pro druhou mocninu přenosu, tak se dá nadruhou, aby se nemuselo počítat s odmocninou 
-    \begin{figure}[H]
-        \includegraphics*[scale = 1.0]{images/optimalniModul1.png}
-    \end{figure}
+    \item stejné podmínky platí i pro druhou mocninu přenosu, tak se dá nadruhou, aby se nemuselo počítat s odmocninou
+          \begin{figure}[H]
+              \includegraphics*[scale = 1.0]{images/optimalniModul1.png}
+          \end{figure}
     \item porovnáním rovnic dostaneme toto:
-    \begin{figure}[H]
-        \includegraphics*[scale = 1.0]{images/optimalniModul2.png}
-    \end{figure}
-    \item Dříve uvedné podmínky pro optimální průběh lze vyjádřiit ve formě 
-    \begin{equation}
-        \frac{B_i}{A_i} \leq \frac{B_0}{A_0}
-    \end{equation}
+          \begin{figure}[H]
+              \includegraphics*[scale = 1.0]{images/optimalniModul2.png}
+          \end{figure}
+    \item Dříve uvedné podmínky pro optimální průběh lze vyjádřiit ve formě
+          \begin{equation}
+              \frac{B_i}{A_i} \leq \frac{B_0}{A_0}
+          \end{equation}
 \end{enumerate}
 
 Tímto je zaručena monotónost průběhu, ale NEZARUČUJE STABILITU OBVODU.  Nutné zvlášť dopočítat.
@@ -454,14 +460,14 @@ Princip:
     \item Vyřadíme integrační a derivační složku($T_D = 0$ a $T_I = \infty$)
     \item Zvyšujeme zesílení proporciální složky $K_R$, dokud nedosáhnem meze stability. Čímž dosáhneme netlumených kmitů a taky hodnoty $K_{KRIT}$$T_{KRIT}$
     \item Hodnoty jednotlivých složek určíme z tabulky
-    \begin{figure}[H]
-        \includegraphics*[scale = 1]{images/ZHtab.png}
-    \end{figure}
-\end{enumerate} 
+          \begin{figure}[H]
+              \includegraphics*[scale = 1]{images/ZHtab.png}
+          \end{figure}
+\end{enumerate}
 Kriitické parametry se dají určit několia způsoby:
 \begin{itemize}
-    \item Z přechodové charakteristiky 
-    \item výpočtem ze známého modelu 
+    \item Z přechodové charakteristiky
+    \item výpočtem ze známého modelu
     \item rozkmitávání použitím relé bez hysterze
 \end{itemize}
 
@@ -508,8 +514,8 @@ Stanovíme si požadavky na tlumení obvodu a tím vymezíme jistou oblast v rov
 
 
 \section{PSD regulátory, základní složky a vlastnosti. Aproximace vzorkovače s tvarovačem, diskretizace PID regulátoru.
-Rozvětvené regulační obvody. Obvod s pomocnou regulovanou veličinou, s pomocnou akční veličinou, s měřením
-poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy.}
+  Rozvětvené regulační obvody. Obvod s pomocnou regulovanou veličinou, s pomocnou akční veličinou, s měřením
+  poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy.}
 
 Popis stejný jak spojitý PID akorát v diskrétní oblasti.\\
 Převod mezi spojitým a diskrétním přenosem se dělá pomocí Z-transformace. Dochazí zde ke zpoždění o 0,5 vzorkovací periody.
@@ -526,7 +532,7 @@ Tvary PSD regulátoru:
     \centering
     \includegraphics*[scale = 0.3]{images/PSD_regulator.png}
 \end{figure}
-\newpage 
+\newpage
 
 Z důvodu vzorkování se počítá, že přechodová charakretistika je zpožděná o polovinu vzorkovací periody:
 \begin{figure}[H]
@@ -537,7 +543,7 @@ Z důvodu vzorkování se počítá, že přechodová charakretistika je zpožd�
 \subsubsection*{Konečná doba přechodného děje}
 Existují dva případy:
 \begin{itemize}
-    \item v okamžicích vzorkování 
+    \item v okamžicích vzorkování
     \item i mezi okamžiky vzorkování
 \end{itemize}
 V okamžicích vzorkování je podmínka, aby dva po sobě jdoucí vzorky byly nulové.\\
@@ -557,12 +563,12 @@ Hlavní typy jsou:
     \item s pomocnou regulovanou veličinou
     \item s pomocnou akční veličinou
     \item s měřením poruchy
-    \item s modelem regulované soustavy 
+    \item s modelem regulované soustavy
 \end{itemize}
 
 \subsection*{Obvody s pomocnou regulovanou veličinou}
 V tomto případě je místo bloku soustavy regulovaná soustava(S1+R2) v sérii s S2 a hlavní regulátor je R1. Často se využívá k regulaci teploty a v polohových servomechanismech. Při regulaci teploty je soustava tvořena větším počtem setrvačných článků spojených sériově. Zavedením pomocné regulované veličiny u vstupu do soustavy jsme schopni rychleji reagovat na vznik poruchy. \\
-Pěkné příklady jsou ve skriptech rr1 str.154.  
+Pěkné příklady jsou ve skriptech rr1 str.154.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaRegulace.png}
 \end{figure}
@@ -577,18 +583,18 @@ Pěkné příklady rr1 skripta str.157.
 
 \subsection*{Regulační obvody s měřením poruchy}
 Teoreticky lze pomocí regulátoru R2 dosáhnout úplné kompenzace poruchy(invariantnosti systému vůči poruše). U reálného regulátoru je to však omezeno podmínkou, kdy přenos poruchy musí být vyššího nebo stejného řádu jak přenos soustavy, což málokdy nastává. Na stabilitu systému pomocný regulátor R2 nemá vliv.\\
-Bývá realizováno při regulaci velkého objemu teplot(vytápění teplot). 
+Bývá realizováno při regulaci velkého objemu teplot(vytápění teplot).
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaPorucha.png}
 \end{figure}
 
 \subsection*{Regulační obvody s modelem regulované soustavy}
 Primárně se používají v adaptivních obvodech, ale dají se použít pro zlepšení vlastností i v jednoduchém regulačním obvodu.\\
-Hlavní přínos je necitlivost kvality regulace na změnu parametrů soustavy, to zajišťuje regulátor M, který vyrovnává rozdíly mezi soustavou a jejim modelem. 
+Hlavní přínos je necitlivost kvality regulace na změnu parametrů soustavy, to zajišťuje regulátor M, který vyrovnává rozdíly mezi soustavou a jejim modelem.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaModelRegulovaneSoustavy.png}
 \end{figure}
-\newpage 
+\newpage
 
 Speciálním případem je obvod kompenzující přítomnost dopravního zpoždění. Dle schématu soustava obsahuje dopravní zpoždění o velikosti $\Delta$.
 \begin{figure}[H]
@@ -608,7 +614,7 @@ Vztah je popsán maticově, vyplývá z něj, že každý vstup ovlivňuje každ
 Jedním z hlavních požadavků na Vícerozměrné systémy je autonomnost. Systém je autonomní, pokud změna k-té žádané hodnoty způsobí změnu k-té regulované veličiny a na ostatních se neprojeví. Což by nastalo, kdyby matice soustavy byla diagonální, pokud tomu tak není, je nutné nežádoucí vazby mezi sobě neodpovídajícími akčními a regulovanými veličinami kompenzovat vhodnými vazbami v regulátorech. Proto každá akční veličina může být vázána na jakoukoliv regulační odchylku.\\
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/vicerozmerneSoustavySchema.png}
-\end{figure} 
+\end{figure}
 Ve většině systémů nejde dosáhnout úplné autonomnosti, proto se často spokojíme i s autonomností ustálených stavů, neboli že přenos je diagonální.\\
 Další požadavek je invariantnost, což je necitlivost vůči poruchám. Úplné invariantnosti lze dosáhnout pouze, když je informace k poruchách, neboli poruchy lze měřit.
 diagonální matice přenosů:
