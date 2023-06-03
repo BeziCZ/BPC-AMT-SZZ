@@ -256,7 +256,7 @@ Uzavřený systém je stabilní, jestli při frekvenci řezu je fáze kladnějš
 
 \subsubsection*{Algebraické kritéria}
 Nevýhodou algebraických kritérií je, že i pro jednoduché příklady vznikají dosti složité řešení.\\
-Výhodou je, že dostaneme rozsahy parametrl, pro které je Uzavřený obvod stabilní.\\
+Výhodou je, že dostaneme rozsahy parametrů, pro které je Uzavřený obvod stabilní.\\
 Hurwitzuv determinant:
 \begin{itemize}
     \item Z charakteristické rovnice se vytvoří čtvercová matice, ze které se určí determinant, který pro stabilitu musí být větší, než 0.
@@ -294,26 +294,25 @@ Dynamické vlastnosti se zjišťují z těchto hledisek:
 
 
 \subsection*{Metoda kořenového hodografu}
-Jedná se o zobrazení průběhu pólů vharakteristické rovnice v závislosti na proměnlivém parametru v komplexní rovině.\\
+Jedná se o zobrazení průběhu pólů charakteristické rovnice v závislosti na proměnlivém parametru v komplexní rovině.\\
 Postup grafického řešení:
 \begin{itemize}
-    \item v přenosu otevřené smyčky za p dosdíme p0 jako konkrétní bod
+    \item v přenosu otevřené smyčky za p dosaíme \(p_0\) jako konkrétní bod
     \item dále vektor $(p_0 - \alpha_1)$ se dá zapsat v goniometrickém tvaru jako $|p_0 - \alpha_1|\angle (p_0 - \alpha_1)$
-    \item fázi získáme tak, že sečtem fáze v čitateli a odečtem fáze ze jmenovatele
+    \item fázi získáme tak, že součtem fáze v čitateli a odečtem fáze ze jmenovatele
     \item modul je dělení čitatele jmenovatelem
     \item vzorový příklad:
           \begin{figure}[H]
               \includegraphics*[scale = 0.3]{images/hodograf.png}
           \end{figure}
 \end{itemize}
-\newpage
 
 \subsubsection*{Soubor pravidel pro konstrukci kořenového hodografu}
 \begin{itemize}
-    \item Symetrie - kořenový hodograf je symetrucký kolem reálné osy
+    \item Symetrie - kořenový hodograf je symetrický kolem reálné osy
     \item Počet větví - kořenový hodograf obsahuje n větví
     \item Segmenty na reálné ose - pokud napravo od části reálné osy leží lichý počet nul a pólů, tak tato část osy je větev kořenového hodografu
-    \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólů a končí v k = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
+    \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólu a končí v k = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
     \item Poloha asymptot - asymptoty se protínají na reálné ose v bodě $\sigma = \frac{\sum^n_{i=1} \alpha_i \sum^m_{i=1}\beta_i}{n-m}$ a svírá s kladnou reálnou poloosou úhel $\varphi = \frac{180 \degree + i360\degree}{n - m}$ \dots i = 0, 1 ..., n-m-1
     \item Průsečík s imaginární osou - hodnota K, pro kterou prochází větve kořenového hodografu imaginární osou se dá určit pomocí algebraických kritérií stability
     \item Úhel v komplexní nule nebo pólu - úhel tečny, se kterým vychází větev kořenového hodografu z komplexního pólu $\alpha_k$ se vypočítá jako $\gamma_k = 180 \degree + i360 \degree -\sum^n_{i=1, i\neq k}\angle(\alpha_k - \alpha_i) + \sum^m_{i=1}\angle(\alpha_k - \beta_i)$. Úhel tečny, se kterým vchází větev kořenového hodografu do komplexní nuly $\beta_k$, se vypočítá jako $\delta_k = 180 \degree + i360 \degree -\sum^n_{i=1}\angle(\beta_k - \alpha_i) + \sum^m_{i=1, i\neq k}\angle(\beta_k - \beta_i)$
@@ -323,11 +322,11 @@ Postup grafického řešení:
 \subsubsection*{Zásoba stability v amplitudě}
 Hodnota zesílení, se kterou když vynásobíme stávající zesílení otevřené smyčky, tak přivedeme uzavřenou smyčku na mez stability.\\
 Udává se ve formě násobícího faktoru nebo v decibelech.\\
-Značí se Mg.\\
+Značí se Mg. Je to převrácená vzdálenost místa kde frekvenční charakretistika protíná zápornou reálnou osu a počátku soustavy souřadnic.\\
 
 \subsubsection*{Zásoba stability ve fázi}
 Záporně vzatá změna fáze otevřeného obvodu, která přivede uzavřený obvod na mez stability.\\
-Značí se Mp.\\
+Značí se Mp. Úhel mezi zápornou částí reálné osy a přímkou mezi počátkem a průsečíkem frekvenční chrakteristiky s kuržnicí se středem v počátku a poloměrem 1.\\
 
 \subsubsection*{Zásoba stability v modulu}
 Nejkratší vzdálenost frekvenční charakteristiky otevřené smyčky do bodu -1 v komplexní rovině.\\
@@ -357,6 +356,7 @@ Odečtení ustálené odchylky zajišťuje konvergenci integrálu k nějaké kon
 \begin{equation}
     J_L = \int^\infty_0[e(t) - e(\infty)]dt
 \end{equation}
+Počítá plochu mezi průběhem regulační odchylky e(t) a ustálenou odchylkou e(\(\infty\)).
 Musí se dodržet, že celá odchylka se pohybuje v kladné hodnotě, jinak nemá smysl, proto se moc nepoužívá.\\
 \begin{figure}[H]
     \includegraphics*[scale = 0.3]{images/linearniKriterium.png}
@@ -375,14 +375,20 @@ Problém nelinearita u středu.
 \subsubsection*{Kvadratické kritérium}
 Člen integrálu se dá na druhou.\\
 Problém optimální průběhy jsou hodně kmitavé.\\
-Přisuzuje se větší váha větším odchylkám.\\
+Přisuzuje se větší váha větším odchylkám. Z čehož plyne nevýhoda, protože na začátku je generován velký překmit kvůli rychlé kompenzaci velkých odchylek.\\
 \begin{equation}
     J_K = \int^\infty_0[e(t) - e(\infty)]^2dt
 \end{equation}
 \begin{figure}[H]
     \includegraphics*[scale = 0.3]{images/kvadratickeKriterium.png}
 \end{figure}
-\newpage
+Druhy výpočtu:
+\begin{itemize}
+    \item Výpočet \(\mathfrak{L}\{E(o)\}\) s integrací podle \(J_K = \int^\infty_0[e(t) - e(\infty)]^2dt\)
+    \item Analytický výpočet pomocí reziduové věty
+    \item Pomocí Nekolého doplňku k Routh-Schurově algoritmu
+    \item Pomocí simulace
+\end{itemize}
 Existuje analytické řešení - Nekolneho doplněk:
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/nekolnehoDoplnek.png}
