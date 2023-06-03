@@ -78,9 +78,9 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 - [x] Měření polohy - principy odporové, indukčnostní, kapacitní  
 - [x] Měření polohy - principy optické, magnetické, ultrazvukové 
 - [x] Měření vibrací, rychlosti, zrychlení, akcelerometry, snímače úhlové rychlosti 
-- [ ] Tenzometry, snímače síly, hmotnosti, momentu a tlaku 
+- [x] Tenzometry, snímače síly, hmotnosti, momentu a tlaku 
 - [x] Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů
-- [ ] Kontaktní snímače teploty (dilatační, odporové, termoelektrické)
+- [x] Kontaktní snímače teploty (dilatační, odporové, termoelektrické)
 - [ ] Měření záření (tepelné a kvantové snímače IR záření, snímače ionizujícího záření)
 - [x] Chemické snímače
 
