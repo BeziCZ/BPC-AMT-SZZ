@@ -729,7 +729,96 @@ $u = B*l*v$
 \end{figure}
 
 \section{Tenzometry, snímače síly, hmotnosti, momentu a tlaku }
+\subsection*{Tenzometry}
+Měří mechanické napětí v materiálech. 
+Pomcí tezometrů měříme prodloužení, to odpovídá právě mech. napětí 
+Využívaní hookova zákona : $\sigma=E\epsilon \;[Pa]$, kde $\sigma$ je mech napětí (chceme měřit), $\epsilon$ relativní prodloužění a E je materiálová konstanta.
 
+\subsubsection*{rezonanční tenzometry}, využínají toho že refonační f struny se meění v závislosti na tom jakou silu je napínána, už se noc nepužívají, jsou drahé.
+
+\subsubsection*{odporové tenzometry}
+Bejběžnější josu odporové tenzometry= kus drátu který měmí odporpokud ho natujeme (tj měníme jeho délku a průžez). Změnu odopu měříme.\\
+
+mouhou být \begin{itemize}
+    \item kovové
+        \begin{itemize}
+            \item drátkové
+            \item fóliové
+            \item vrstvové
+        \end{itemize}
+    \item Polovodičové (citlivější na telplo, větší citlivost)    
+\end{itemize}
+
+nejběžněji se jedná o nálepku co se připevní na povrch a sleduje změnu jeho natažení.
+
+Největší problém je se změnou teploty,kdy dochází k rozathování materiálu vlivem teploty a ne napětí. Proto se používá můstkové zapojení kde 2 tenzometry jsou namáhány na tlak a 2 na tah.
+Změna oporu je stejně atk malá že nelze měřit ohmmetrem takže je potřeba můstek.
+
+
+
+\includegraphics*[scale= 0.8]{img/mustek_tenzometrovy.png}
+
+
+\subsection*{měření hmotnosti}
+
+\includegraphics*[scale= 0.8]{img/hmotnost.png}
+
+pružné členy:
+mají problém s malými hmotnostmi
+
+\includegraphics*[scale= 0.2]{img/pruznyclen.png}
+
+převod polohy na sílu
+
+\includegraphics*[scale= 0.6]{img/kompenacni_hmotnost.png}
+
+{\bf Piezoelektrické}
+\begin{itemize}
+    \item využívají piezo efektu- tj matriály genenrují náboj při mech zatížení
+    \item přesné
+    \item pomocí šroubu je vytvořeno předpětí
+    \item problematické měření U -> nabojové zesilovče ...
+    \item po zatížení se pomalu vybíjí -> jsou méně vhodné pro statické zatížení - váhy lepří jako snímače "změny síly"
+\end{itemize}
+
+{\bf Magnetoanizotropní snímač síly}
+
+\includegraphics*[scale= 0.5]{img/magnetosila.png}
+
+\subsection*{snímače momentu}
+ 
+\subsubsection*{sn. momentem s tenzometry}
+do hřídele je pridán drformační člen, na něm jsou tezometry kterými měříme jeho zkorucení.
+Je problém dosat informaci z rotujícího hřídele. Zabírá dost místa.
+
+\subsubsection*{s převodem na úhel}
+
+\includegraphics*[scale= 0.2]{img/moment-uhel.png}
+
+\subsubsection*{magnetické snímače momentu}
+zkroucení přeneseno na zkroucení fólie z magnetoanizotropního materiálu, tím dojde ke změmě vzájemné indučnosti cívek ktreé jsou okolo hřídele.
+Nižší přesnost ale věětří přetížitelnost
+
+\subsection*{snímače tlaku}
+Rozdělení
+
+\includegraphics*[scale = 0.2]{img/tlak.png}
+
+\subsubsection*{membránové s tenzometrem}
+tenzometry měří jak moc se membrán a prohne.
+
+\includegraphics*[scale =0.2]{img/tlak_membrana.png}
+
+
+\subsubsection*{kapacitní}
+měří rozdíl 2 tlaků poocí velikosti vychýlení memebrány, využída se difernčního zapojí kondenzátorů.
+
+\includegraphics*[scale = 0.5]{img/tlak_kapacita.png}
+
+\subsection*{piezo snímače tlaku}
+pouze pro dynamické měření, např. tlak ve válci spalovcího motoru
+
+\includegraphics*[scale = 0.2]{img/tlak_piezo.png}
 
 \section{Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů}
 
