@@ -47,9 +47,11 @@ Základní přístupy ke strojovému učení:
 
 \subsubsection{Deep learning}
 Druh algoritmů storjového učení, který používá vícevrstvých neuronových sítí pro extrakci rysů ze surových dat, v čím pokročilejší vrstvě jsme tím vyšší úroveň rysy mají.\\
+Druh algoritmů strojového učení, který používá vícevrstvých neuronových sítí pro extrakci rysů ze surových dat, v čím pokročilejší vrstvě jsme tím vyšší úroveň rysy mají.\\
 Jako příklad mějme ve zpracování obrazu, kde v nižší vrstvy identifují hrany v obraze a vyšší vrstvy již identifikují věci relevatní pro člověka, například písmena nebo číslice.\\
 Většina modelů hlubokého učení je založená na umělých neuronových sítích(většinou konvolučních).\\
 Mohou však také být založeny na statisticky založených hlubokých generativních modelech (deep generative models), tyto modely používají učení bez učitele a jsou založeny na statistickém rozložení dat v trénovací množině a dělat rozhodnutí založená na podobnosti charakteristiky předložených dat. Příklady těchto modelů jsou Deep belief network (DBN) a Boltzamannův stroj.\\
+Mohou však také být založeny na statisticky založených hlubokých generativních modelech (deep generative models), tyto modely používají učení bez učitele a jsou založeny na statistickém rozložení dat v trénovací množině a dělat rozhodnutí založená na podobnosti charakteristiky předložených dat. Příklady těchto modelů jsou Deep belief network (DBN) a Boltzmannův stroj.\\
 \subsubsection{Predictive analysis}
 Proces využívání statistických modelů kde studiu dat a identifikaci vzorců, kterými se mohou předpovídat budoucí události či chování. Využívá se například pro predikci prodejů, finančního chování, doporučování reklam na základě historie prohlížení uživatele, atd.\\
 \subsubsection{Učení s učitelem}
@@ -323,6 +325,7 @@ Vysvětlivky: \(\Phi\) je podmínka ukončení, \(\alpha\) je koeficient učení
 Typické využití u zpracování obrazu.\\
 Místo klasického násobení matic, jako je tomu u ANN, využívá CNN konvoluci.\\
 Konvoluce je matematická operace, která 2 vstupní funce spojí do jedné výstupní funkce.\\
+Konvoluce je matematická operace, která 2 vstupní funkce spojí do jedné výstupní funkce.\\
 Má konvoluční jádro, kterým prochází každý prvek obrazu/pole. Velikosti konvolučních jader bývají 3x3 až 11x11\\
 Topologie vícevrstvá neuronová síť.\\
 Vstupní obraz se musí většinou zkomprimovat pomocí konvoluce a poolingu.\\
@@ -420,12 +423,14 @@ Plánovací
 \end{itemize}
 
 Smíšený - funguje na základě střdání jednotlivých přístupů podlde potřeby\\
+Smíšený - funguje na základě střdání jednotlivých přístupů podle potřeby\\
 
 \subsection{Teoretické zdroje}
 Reprezentace znalostí
 \begin{itemize}
     \item Deklarativní - jednotlivá fakta
     \item proceduální - znalosti ve formě procesů
+    \item procedurální - znalosti ve formě procesů
     \item pravidla, rozhodovací stromy
 \end{itemize}
 Řešení úloh a prohledávání stavového prostoru(inferenční mechanismus)
@@ -485,6 +490,7 @@ Matematická funkce, dvou nebo více argumentů. Obrazová fce: \(f(x,y)\), spoj
 Hodnoty obrazové funkce: jas(BW obraz), RBG(barevný obraz), teplota(termovize), schopnost pohltit záření(rentgenový tomograf).\\
 Diskrétní obrazová funkce \(f(x,y)\) je matice pixelů, hodnota pro BW obraz 0 je černá barva, 255 bílá.\\
 Pomocí vzorkování v matici MxN bodů, kvantování spoijité jasové úrovně každého vzorku do k intervalů. Vzorkování je rozložení bodů v ploše \(g_s = g(x,y)\cdot s(x,y)\), kde \textit{g} je spojitý obraz a \textit{s} je vzorkovací funkce. Kvantování je převod spojité hodnoty jasové funkce v daném vzorku do příslušného číselného údaje z intervalu jasových hodnot.\\
+Pomocí vzorkování v matici MxN bodů, kvantování spojité jasové úrovně každého vzorku do k intervalů. Vzorkování je rozložení bodů v ploše \(g_s = g(x,y)\cdot s(x,y)\), kde \textit{g} je spojitý obraz a \textit{s} je vzorkovací funkce. Kvantování je převod spojité hodnoty jasové funkce v daném vzorku do příslušného číselného údaje z intervalu jasových hodnot.\\
 Obrazový šum jsou velké změny hodnoty jasových hodnot sousedních bodů, vzniká během snímání, zpracování nebo přenosu. Typy šumu: aditivní, multiplikativní, pepř a sůl.\\
 
 \subsection{Předzpracování obrazu}
@@ -508,6 +514,7 @@ Závisle na pozici:
 \begin{itemize}
     \item zdroj poruch vzniklý při digitalizaci a přenosu obrazu
     \item systematické chyby lze potlačit na základěznalosti odchylky citlivosti každého bodu od ideální převodní charakteristiky:
+    \item systematické chyby lze potlačit na základě  znalosti odchylky citlivosti každého bodu od ideální převodní charakteristiky:
           $f(i,j) = e(i,j)\cdot g(i,j)$\\
           Násobíme degradačním koeficientem g
 \end{itemize}
@@ -556,6 +563,7 @@ Detekce hran:
 \end{figure}
 Robertsův, Prewittové, Sobelův, Robinsonův\\
 Kirschův, Laplaceuv(čtyřokolí, osmiokolí)\\
+Kirschův, Laplaceův(čtyřokolí, osmiokolí)\\
 
 \subsubsection{Obnovení obrazu}
 rozostření objektivu, rozmazání pohybujícícho se objektu\\
@@ -593,12 +601,15 @@ Vychází z toho, že mnoho objektů či oblastí obrazu je charakterizováno ko
 Hranice objektů se tvoří z hran nalezených pomocí hranových detektorů.\\
 Prahování obrazu hran vychází z obrazu velikosti gradientu, který je prahovaný vhodným prahem. Odstrańuje bezvýznamné hrany. Zpracování výsledku pomocí vypuštění všech hran, které nesplňují určitou velikost.\\
 Relaxace hran je vytváření souvislých hranic. Při konstrukci se uvažuje s vlastnosti každé hranu, v kontextu hran, které se vyskytují v jejím okolí. Vlastnosti hran se iterčně zpřesňují až dokud není hranový objektu přesný.\\
+Prahování obrazu hran vychází z obrazu velikosti gradientu, který je prahovaný vhodným prahem. Odstraňuje bezvýznamné hrany. Zpracování výsledku pomocí vypuštění všech hran, které nesplňují určitou velikost.\\
+Relaxace hran je vytváření souvislých hranic. Při konstrukci se uvažuje s vlastnostmi každé hrany, v kontextu hran, které se vyskytují v jejím okolí. Vlastnosti hran se iteračně zpřesňují až dokud není hranový objekt přesný.\\
 
 \subsubsection{Segmentace narůstání oblastí}
 Spojování oblastí:
 \begin{itemize}
     \item počáteční rozdělení obrazu do velkého množství malých oblastí
     \item defnice kritéria spojování
+    \item definice kritéria spojování
     \item spojování sousedních oblastí na základě kritéria
 \end{itemize}
 Štěpení oblastí:
@@ -661,6 +672,8 @@ Vztahy mezi primitivy se nazývají relace.\\
 Klasifikace vychází z teorie formálních jazyků.\\
 Primitivum je popsané terminálem, množina terminálů se nazývá abeceda. Řetěz terminálovů pak tvoří větu. Věty popisují objekty, které patří do třídy daného jazyka.\\
 Rozhoduje se zda věta popisující objekt patří či nepatří do do některé třídy.\\
+Primitivum je popsané terminálem, množina terminálů se nazývá abeceda. Řetěz terminálů pak tvoří větu. Věty popisují objekty, které patří do třídy daného jazyka.\\
+Rozhoduje se zda věta popisující objekt patří či nepatří do některé třídy.\\
 \begin{figure}[H]
     \includegraphics[scale = 0.7]{images/syntakticke.png}
 \end{figure}
