@@ -1,57 +1,59 @@
 \section{Základní nelinearity a popis nelineárních systémů (popis statických a dynamických nelineárních systémů,
-vliv parazitních nelinearit na průběh regulačního děje)}
+  vliv parazitních nelinearit na průběh regulačního děje)}
 
-\subsection{bez dynamiky}
-Systém reaguje na odezvu okamžitě, nebo je jeho časová konstanta výrazně nižší něž zbylé čas. konstanty.
-Dělí se na :
-
+\subsection{Nelineární systémy bez dynamiky}
+Systém reaguje na odezvu okamžitě bez přechodného děje a zpoždění, nebo je jeho časová konstanta výrazně nižší něž zbylé časové konstanty.
+Dělí se na:
 \begin{itemize}
     \item bez paměti
     \item s pamětí
 \end{itemize}
 
-\subsubsection*{nelinearita bez paměti}
-
-Dá se vyjádřit jako funkce 
+\subsubsection*{Systém bez paměti}
+Vztah mezi vstupem a výstupem se dá vyjádřit jako funkce:
 \begin{equation}
     y=f(u)
 \end{equation}
+Takové systémy můžeme považovat za systémy s jedním stavem, který se němění. Stavový prostor je tedy množina o jednom prvku.\\
+Na základě aktuální hodnoty se určí výstup. Dá se jednoduše linearizovat rozvojem do Taylorovy řady nebo do polynomu. Může být popsána funkcí, grafem, tabulkou.\\
+Pokud je systém zadán grafem nebo tabulkou je potřeba pro výpočet provést náhradu interpolační funkcí.\\
+Metody linearizace:
+\begin{itemize}
+    \item Metoda nejmenších čtverců
+    \item Taylorova řada
+    \item Systémy po částech lineární
+\end{itemize}
+Například: saturace, tření\dots
 
-Na základě aktuální hodnoty se určí výstup. Dá se jednoduše linearizovat rozvojem da Taylorovi řady, nebo do polynomu.
-popsána funkcí, grafem, tabulkou.
-\\
-např. :  saturace, tření\dots
-\\
-\\
-\subsubsection*{nelinearita z pamětí}
+\subsubsection*{Systémy s pamětí}
 Výstup záleží i na předchozích stavech, nelze jednoduše popsat jako funkce, často se popisuje slovně nebo jako algoritmus.
 \\
-např.: vůle v převodech, relé s hysterezí
+Například vůle v převodech, relé s hysterezí
 
 \subsection*{Základní nelinearity}
 
-\subsubsection*{nasycení(saturace)}
+\subsubsection*{Nasycení(saturace)}
 \begin{itemize}
     \item nejběžnější nelinearita (obsahuje ji v podstatě každý reálný systém)
     \item dá se s ní pracovat jako s po částech lineární funkcí
-    \item pokud zajistíme že se systém nedostane z <b,a> lze prát jako lin. f-ce 
+    \item pokud zajistíme že se systém nedostane z <b,a> lze brát jako lineární funkce
     \item např.: nádrž co přeteče
     \item (je jedním z faktorů pro vznik wind up jevu)
     \item bez paměti
 \end{itemize}
 \includegraphics[]{img/saturace.png}
 
-\subsubsection*{necitlivost}
+\subsubsection*{Necitlivost}
 \begin{itemize}
-    \item nejčasttěji u mech systémů (projev tření a mech. nepřesností)
+    \item nejčastěji u mechanických systémů (projev tření a mechanické nepřesností)
     \item např.: DC motor se roztočí až od určitého napětí
-    \item občas se vkládá do reg. umělěle aby se omezili oscilace
+    \item občas se vkládá do regulace uměle aby se omezily oscilace
     \item po částech lineární (většinou)
     \item bez paměti
 \end{itemize}
 \includegraphics{img/necitlivost.png}
 
-\subsubsection*{vůle v převodech (hystereze)}
+\subsubsection*{Vůle v převodech (hystereze)}
 \begin{itemize}
     \item při změně pohybu chvíli trvá než se něco začne dít
     \item v převodovkách, nebo při magnetizaci železa (hysterezní smyčka- v otázce MVE mag. měření)
@@ -62,76 +64,146 @@ např.: vůle v převodech, relé s hysterezí
 \end{itemize}
 \includegraphics{img/vule.png}
 
-\subsubsection*{tření}
+\subsubsection*{Tření}
 \begin{itemize}
-    \item v mech systémech
+    \item Představuje třecí síly a momenty, nejčastěji v mechanických systémech
+    \item Popis chování se aproximuje
     \item špatně se linearizuje v okolí 0
     \item bez paměti
+    \item \(y = \begin{cases}
+              y_a + xtg\alpha & x > 0 \\
+              y_b - xtg\beta  & x < 0
+          \end{cases}\)
 \end{itemize}
 \includegraphics{img/treni.png}
 
-\subsection*{releové charakteistiky}
+\subsection*{Releové charakteristiky}
 \begin{itemize}
     \item s pamětí i bez
     \item požití jako regulátor
+    \item Relé bez hystereze
+          \begin{itemize}
+              \item Ideální 2-stavové relé
+              \item Nelze linearizovat v bodě x=0
+          \end{itemize}
+    \item Relé s hysterezí
+          \begin{itemize}
+              \item S pamětí
+              \item Například regulátory teploty(lednička, pokojové termostaty), hystereze se využívá k omezení četnosti přepínání.
+          \end{itemize}
 \end{itemize}
 \includegraphics*{img/rele.png}
+\subsection*{Obecná nelinearita}
+Lze vyjádřit obecnou funkcí \(y = f(x)\).\\
+Například charakteristiky elektronických prvků(diody, tyristory), fyzikální jevy(aerodynamická odporová síla, gravitační zákon)
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/ObecNelin.png}
+\end{figure}
+\subsection{Nelineární systémy s dynamikou}
+Není možné je popsat statickými převodními charakteristikami, které vyjadřují závislost mezi okamžitou hodnotou výstupního v vstupního signálu. Musíme posuzovat jejich vývoj v čase.\\
+Popsány stavovými rovnicemi:
+\[\frac{dx}{dt}=\mathbf{f}(\mathbf{x},\mathbf{u})\]
+\[\mathbf{y}=\mathbf{g}(\mathbf{x},\mathbf{u})\]
 
-\subsection{s dynamikou}
-popsány stavovými rovnicemi:
-\[
-    \frac{dx}{dt}=f(x,u)\]
-    \[y=g(x,u)\]
-
-\begin{itemize}   
-    \item časově variantní
+\begin{itemize}
+    \item časově variantní - \(\frac{dx}{dt}=\mathbf{f}(\mathbf{x},\mathbf{u},t)\) a \(\mathbf{y}=\mathbf{g}(\mathbf{x},\mathbf{u},t)\)
     \item časově invariantí (parametry se v čase nemění)
 \end{itemize}
+Často se dá systém rozdělit na lineární a nelineární část:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.4]{img/RozdNelLin.png}
+\end{figure}
 %----------------------------------
 \newpage
 \section{Ustálené chování nelineárních dynamických systémů (rovnovážné stavy, mezní cyklus, metoda
-harmonické rovnováhy, stabilita mezního cyklu)}
+  harmonické rovnováhy, stabilita mezního cyklu)}
 
 Není v otázce přímo zmíněný ale asi dobrý vědět.
 
 \includegraphics[scale = 0.8]{img/trajektorie.png}
 {
-\it stavová trajektorie (po systém 2. řádu) je 3d graf ukazuje jak se v čase mění vnitřní stavy systému.
-Požívá se průmět stavové trajektorie, ukazuje jak se bude systém chovat, šipkou naznačeno odkud kam se bude v čase pohybovat.
+    \it stavová trajektorie (po systém 2. řádu) je 3d graf ukazuje jak se v čase mění vnitřní stavy systému.
+    Požívá se průmět stavové trajektorie, ukazuje jak se bude systém chovat, šipkou naznačeno odkud kam se bude v čase pohybovat.
 }
-\subsection{rovnovážný stav}
-Stav systému, ktrý se v čase nemění. x=0 Průmět stavové trajektorie je bod. Určíme
+\subsection{Rovnovážný stav}
+Stav systému, který se v čase nemění. Průmět stavové trajektorie do stavového prostoru je bod, také označován jako singulární bod. Určíme
 ho jako \[ \dot{x} = 0 \]
-Systém může mít o vice rovnovážných stavů, také nemusí mít žádný.
+Systém může mít více rovnovážných stavů, také nemusí mít žádný.
 
-Rovnovážné stavy mohu být:
+Rovnovážné stavy mohou být:
 \begin{itemize}
     \item izolované - pokud kolem něj existuje jeho malé okolí ve kterém se nenachází další rovnovážný stav.
     \item neizolované
 \end{itemize}
 
-U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnaného 
-stavu vrátí je rovnovážný stav stabilní.
-O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovi řady (podle polohy pólů náhrady)
+U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnovážného stavu vrátí je rovnovážný stav stabilní. O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovy řady (podle polohy pólů náhrady)
 
-\subsubsection{mezní cyklus}
+\subsection{Mezní cyklus}
 Mezní cyklus nastává pokud se stavy systému periodicky opakují, průmět stav trajektorie je uzavřený obrazec (kruh).
 Matematicky řečeno :
 \[x(t+T)=x(t)\]
 t-čas \\ T-perioda\\
 
-Mezní cyklus muže být stabilní polostabilní nebo nestabilní:  
-
+Mezní cyklus muže být stabilní polostabilní nebo nestabilní:
+\begin{itemize}
+    \item Stabilní je takový mezní cyklus, kterého trajektorie vycházející z počátečních podmínek systému v okolí izolovaného mezního cyklu směřují do vnitřku tohoto mezního cyklu.
+    \item Nestabilní je takový, jehož trajektorie se od mezního cyklu vzdaluje.
+    \item Polostabilní je takový mezní cylkus, kterého trajektorie se na jedné straně mezního cyklu vzdaluje a na druhhé straně do něho vchází.
+\end{itemize}
 \includegraphics{img/mez_cykly.png}
 
-Zda vzniknou mezní cykly jde určit metodou harmonické rovnováhy
-\subsubsection*{metoda harmonické rovnováhy}
+Zda vzniknou mezní cykly jde určit metodou harmonické rovnováhy.\\
+Stejně jako u rovnovážných stavů nlžene rozhodovat o jeho stabilitě a izolovanosti.\\
+\subsubsection{Vyšetření existence mezních stavů}
+\subsubsection*{Bendixonův teorém}
+Nechť je \(\mathcal{D}\) jednoduše souvislá oblast \(\mathcal{D} \subset \mathbb{R}^2 \) taková, že divergence:
+\begin{center}
+    \(\nabla \mathbf{f}(\mathbf{x}) = \frac{\partial f_1}{\partial x_1}(x_1,x_2) + \frac{\partial f_2}{\partial x_2}(x_1,x_2)\)
+\end{center}
+pole směrových vektorů systému:
+\begin{center}
+    \(\frac{dx_1}{dt} = f_1(x_1,x_2)\)\\
+    \(\frac{dx_2}{dt} = f_2(x_1,x_2)\)
+\end{center}
+není identicky rovna nule v jakékoliv podoblasti \(\mathcal{D}\) a nemění v \(\mathcal{D}\) znaménko, pak \(\mathcal{D}\) neobsahuje žádné uzavřené trajektorie.\\
+Jednoduše souvislou oblast si lze představit jako deformovaný kruh. Teorém udává podmínku postačující pro neexistenci mezního cyklu.\\
+\subsubsection*{Pointcaré-Bendixonův teorém}
+Můžeme-li nalézt uzavřenou souvislou ohraničenou oblast \(\mathcal{M} \subset \mathbb{R}^2\) takovou, že neobsahuje žádné singulární body a takovou, že nějaká trajektorie systému v této oblasti do ní vstupuje a s rostoucím časem už v ní zůstává, potom tato oblast obsahuje alespoň jedno periodické řešení systému.\\
+Postačující podmínkou pro to aby taková trajektorie existovala je, aby pole směrových vektorů směřovalo v každém bodě hranice oblasti M dovnitř této oblasti. Zobrazeno na obrázku.\\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale = 0.5]{img/PointBendix.png}
+\end{figure}
+
+\subsubsection*{Indexové teorémy}
+Předpoklady:
+\begin{itemize}
+    \item \(\mathcal{D} \subset \mathbb{R}^2 \) je spojitá oblast
+    \item \(mathbf{f}: \mathbb{R}^2 \rightarrow \mathbb{R}^2\) je zobrazení pole směrových vektorů
+    \item \(\mathcal{D}\) obsahuje pouze izolované singulární body \(\frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x})\)
+\end{itemize}
+Nechť je \(\mathcal{J}\) je jednoduchá spojitá pozitivně orientovaná Jordanova křivka uvnitř \(\mathcal{D}\), která neprochází žádným singulárním bodem systému. Pak indexem této Jordanovy křivky je vzhledem k poli směrových vektorů \(\mathbf{f}\) rozumíme číslo \(I_f(\mathcal{J})\) definované integrálem
+\begin{center}
+    \(I_f(\mathcal{J}) = \frac{1}{2\pi} \oint d\Theta_f(x_1,x_2)\)
+\end{center}
+Pod touto křivkou si můžeme představit deformovanou kružinici, při kladné orientaci obcházíme při integraci tuto křivku proti směru hodinových ručiček. Integrál pak udává počet celých otáček vektoru po křivce  \(\mathcal{J}\).\\
+Pointcareův index:
+\begin{itemize}
+    \item Index křivky, která neobsahuje žádný singulární bod je 0
+    \item Pokud obsahuje singulární bod typu střed, ohnisko či uzel je 1
+    \item Pokud obsahuje singální bod typu sedlo je -1
+\end{itemize}
+Pokud má systém jen izolované singulární body, pak každý jeho mezní cyklus obsahuje uvnitř konečný počet těchto bodů takový, že součet jejich indexů je 1.\\
+\subsection{Metoda harmonické rovnováhy}
+Zabezpečuje lineární náhradu systému, který se pohybuje po ustálené trajektorii(mezním cyklu).\\
 Vyžívá ekvivalentního přenosu nelinearity ke zkoumání mezních cyklů.
 
-\subsubsection*{ekvivaletní přenos}
-nelinearitu nahradíme ekvivalentním přenosem $N_e$, ten je závislá na Amplitudě vstupního signálu A.
+\subsubsection*{Ekvivaletní přenos}
+Nelinearitu nahradíme ekvivalentním přenosem $N_e$, ten je závislý na amplitudě vstupního signálu A.
 
-Ekvivalentní přenos získáme  tak, že odezvu nelinearity na harmonický průběh o amplitudě A, převedeme pomocí Fourierovy transformace na jeho ekvivalentní přenos. U Fourierovy transformace uvažujeme pouze 1. harmonickou, 
+Ekvivalentní přenos získáme  tak, že odezvu nelinearity na harmonický průběh o amplitudě A, převedeme pomocí Fourierovy transformace na jeho ekvivalentní přenos. U Fourierovy transformace uvažujeme pouze 1. harmonickou,
 protože se bere že další části obvodu mají charakter dolní propusti. Matematicky řečeno:
 \begin{equation*}
     N_e= \frac{a_1+j\cdot b_1}{A}
@@ -142,7 +214,7 @@ kde
 \end{equation*}
 
 \begin{equation*}
-    a_1=\frac{2}{T} \int_{0}^{T} f(e) \cdot cos(\omega t) dt
+    b_1=\frac{2}{T} \int_{0}^{T} f(e) \cdot cos(\omega t) dt
 \end{equation*}
 
 {\bf Tuto náhradu lze použít pouze pokud}
@@ -151,13 +223,13 @@ kde
     \item nelinearita při vstupním signálu $e=A\cdot sin (\omega t) $ negeneruje stejnosměrnou složku
 \end{itemize}
 
-Zjištění mezních cyklů 
+Zjištění mezních cyklů
 
-\includegraphics{img/harm.rovnovha.png}
+\includegraphics[scale = 0.5]{img/harm.rovnovha.png}
 
 Pro určení mezních cyklů musí být systém jako je na obrázku, kde f je nelinearita a G je lin přenos typu dolní propust.
 
-Mezní cykly v systému vzniknou pokud bude "$ F_o =-1 $", tedy pokud bude výstup systému 
+Mezní cykly v systému vzniknou pokud bude "$ F_o =-1 $", tedy pokud bude výstup systému
 roven jeho výstupu posunutému o 180°, matematicky :
 \begin{equation*}
     A= N_e \cdot G \cdot A
@@ -168,32 +240,32 @@ roven jeho výstupu posunutému o 180°, matematicky :
 \end{equation*}
 Tato rovnice často nelze numericky řešit a musí se řešit graficky.
 
-\includegraphics{img/garf.reseni.png}
+\includegraphics[scale = 0.5]{img/HarmMet.png}
 
 dál lze touto metodou určit jestli je mezní cyklus stabilní, pomocí modifikovaného Nyquistova kritéria :
- například u bodu 1, pokud se sníží A dostaneme se do bodu 1'' pokud je charakteristika G nalevo do něj systém bude nestabilní tj amplituda se opět zvýší, pokud A zvýšíme dostane se do bodu 1' systém bude stabilní a amplituda se zmenší, mezní cyklus v bodě 1 je tedy stabilní.
+například u bodu 1, pokud se sníží A dostaneme se do bodu 1'' pokud je charakteristika G nalevo do něj systém bude nestabilní tj amplituda se opět zvýší, pokud A zvýšíme dostane se do bodu 1' systém bude stabilní a amplituda se zmenší, mezní cyklus v bodě 1 je tedy stabilní.
 
- Tupě řečeno mezní cyklus je stabilní pokud se po snížení A nachází bod 1'' napravo od G a při zvýšení A se bod 1' nachází nalevo do G.
- mezní cyklus v bodě 1 je stabilní mezní cyklus v bodě 2 není.
- 
- \includegraphics{img/stab.mez.cyklu.png}
+Tupě řečeno mezní cyklus je stabilní pokud se po snížení A nachází bod 1'' napravo od G a při zvýšení A se bod 1' nachází nalevo do G.
+mezní cyklus v bodě 1 je stabilní mezní cyklus v bodě 2 není.
 
- \section{Stabilita nelineárních systémů (definice, metody vyšetření, věty o nestabilitě, stabilita uzavřené regulační
- smyčky)}
+\includegraphics[scale = 0.8]{img/stab.mez.cyklu.png}
 
- stabilitu určujeme podle Ljapunovových kritérií, ty platí pouze pro neřízené systémy.
- podle Ljapunova existují následující stability :
+\section{Stabilita nelineárních systémů (definice, metody vyšetření, věty o nestabilitě, stabilita uzavřené regulační
+  smyčky)}
 
- \subsection{lokálně stabilní}
- Pokud v (libovolně malém) okolí $\varepsilon $ rovnovážného stavu $x_0$ vybereme počáteční bod $\delta $ jeho trajektorie dané okolí nepustí.
+stabilitu určujeme podle Ljapunovových kritérií, ty platí pouze pro neřízené systémy.
+podle Ljapunova existují následující stability :
 
- \includegraphics{img/lok.stabilní.png}
+\subsection{lokálně stabilní}
+Pokud v (libovolně malém) okolí $\varepsilon $ rovnovážného stavu $x_0$ vybereme počáteční bod $\delta $ jeho trajektorie dané okolí nepustí.
 
- podle Václavka :
+\includegraphics{img/lok.stabilní.png}
 
- \includegraphics{img/vaclave.lok.png}
+podle Václavka :
 
- \subsection{lokálně asymptoticky stabilní}
+\includegraphics{img/vaclave.lok.png}
+
+\subsection{lokálně asymptoticky stabilní}
 Systém je lokálně stabilní viz předchozí odstavec a zároveň platí že pro $t=\infty$ se systém dostane do $x_0$
 
 \includegraphics[scale = 0.6]{img/lok.asypt.stab.png}
@@ -203,7 +275,7 @@ podle Václavka:
 \includegraphics{img/vaclavek. lok.asypt..png}
 
 \subsection{globálně  asymptoticky stabilní}
-Pokud je systém lokálně asymptoticky stabilní a jeho okolí přitažlivosti (pokud v daném daného okolí umístíme systém skončí v $x_0$) zabírá 
+Pokud je systém lokálně asymptoticky stabilní a jeho okolí přitažlivosti (pokud v daném daného okolí umístíme systém skončí v $x_0$) zabírá
 celý stavový prostor.
 
 jinými slovy pro libovolný bod stavového prostoru systém skončí v $x_0$.
@@ -223,7 +295,7 @@ Určuje stabilitu systému na základě stability linearizované náhrady v okol
 
 \subsubsection{II Ljapunovovo kritériu stability}
 Určíme si fukci V aby byla pozitivně
- definitní (PD), spočítáme W jako gradient V (v podstatě spíš derivaci ale ve skriptech to mají nazváno gradiet). Podle toho jestli je w ND , NSD určíme stabilitu.
+definitní (PD), spočítáme W jako gradient V (v podstatě spíš derivaci ale ve skriptech to mají nazváno gradiet). Podle toho jestli je w ND , NSD určíme stabilitu.
 
 \includegraphics[scale = 0.6]{img/Ljap.2.png}
 
@@ -242,15 +314,15 @@ Aby byl podle popova systém stabilní musí být splněno:
     \item systém je neřízený
     \item systém  je v konfiguraci jak je na obr.
 
-        \includegraphics{img/popov.schem.png}
+          \includegraphics{img/popov.schem.png}
     \item hodnota nelinerity v 0 je 0 $f(0)=0$
     \item průbeh nellinearity je "pod" přímkou procházející počátkem se směrnicí k
 
-        \includegraphics{img/popov_nelilin.png}
+          \includegraphics{img/popov_nelilin.png}
     \item modnifikovaná frekvenční charakteristika $f^*=Re{F}+j\omega Im{F}$ (F je frekvenční charakteristika zkoumaného systému) se musí nacházet pod popovovou přímkou,
-    ta může mít libovolný sklon a musí procházet bodem -1/k
+          ta může mít libovolný sklon a musí procházet bodem -1/k
 
-        \includegraphics{img/popov_frek.png}
+          \includegraphics{img/popov_frek.png}
 \end{itemize}
 pod jsou všechny podmínky splněny systém je globálně asymptoticky stabilní.
 
@@ -274,9 +346,9 @@ vůbec nechápu
 
 %------------------------
 \section{Reléová regulace (on-off regulátory, řízení v klouzavém režimu).
-}
+ }
 
-Jako regulátor je použito relé, nebo jiný spínací prvek, chovající se stejně. 
+Jako regulátor je použito relé, nebo jiný spínací prvek, chovající se stejně.
 Použije se pokud akční zásah nabývá jen 2 hodnot (on-off control),nebo pokud akční veličina max kladné nebo max záporné hodnoty (bang-bang control).
 
 Nejtypičtější využití regulace teploty (žehlička, topení), tlak v kompresorech se zásobníkem.
@@ -290,7 +362,7 @@ Musí platit že oba přepínací body jsou větší než 0, potom při sepnutí
 \includegraphics{img/rele_reg.png}
 
 { \it
-Pokud řídím polohu a chci stihnou zastavit včas, může být přivedená další zpětná vazba od rychlosti, touhle hodnotou si upravím kdy bude relé spínat.
+    Pokud řídím polohu a chci stihnou zastavit včas, může být přivedená další zpětná vazba od rychlosti, touhle hodnotou si upravím kdy bude relé spínat.
 }
 
 pro návrh reléového regulátoru lze využít např Lipanova...
@@ -298,39 +370,39 @@ pro návrh reléového regulátoru lze využít např Lipanova...
 Pro složitější systémy se využívá {\bf řízení v klouzavém režimu}
 Relé je nastaveno tak, aby se systém dostal na přepínací rozhraní  po přepínacím rozhraní došel až do 0.
 
- \includegraphics{img/kluzavy_obr.png}
+\includegraphics{img/kluzavy_obr.png}
 
- \begin{itemize}
+\begin{itemize}
     \item systém může obsahovat neurčitost -> jedná se o robustní řízení
     \item musím být schopen měřit aktuální hodnotu vnitřních stavů
-    \item na přepínacím rozhraní kmitá relé nesmyslně rychle, proto se nahrazuje něčím pozvolnějším 
+    \item na přepínacím rozhraní kmitá relé nesmyslně rychle, proto se nahrazuje něčím pozvolnějším
 
-    \includegraphics[scale = 0.5]{img/kluzavy_rele.png}
+          \includegraphics[scale = 0.5]{img/kluzavy_rele.png}
 
- \end{itemize}
+\end{itemize}
 
 obeně postup návrhu řízení v klouzavém režimu
 \begin{enumerate}
     \item popis systému převedeme na požadovaný tvar (oddělené neurčitosti $\delta $ od zbylých závislostí)
-    
-    \includegraphics[scale =0.4]{img/klouzavy_tavr.png}
+
+          \includegraphics[scale =0.4]{img/klouzavy_tavr.png}
     \item navrhneme řízení systému na který může působit přímo vstupem - tím definujeme přepínací rozhraní
     \item zavedeme proměnou co určuje odchylku od přepínacího rozhraní, její derivací získáme "systém", který musí směřovat do 0 (navrhneme pro něj takové řízení)
     \item určíme ekvivalentní řízení $u_{eq}$, tak aby v rovnici došlo k eliminaci známých členů
     \item dosadíme získáme $\Delta$
-    \item určíme max $\Delta$ 
+    \item určíme max $\Delta$
     \item dosadíme, určíme řízení (předpis pro regulátor) V
 
 \end{enumerate}
 
 %-----------------------------------
 \section{Linearizace nelineárních dynamických systémů (rozvoj do Taylorovi řady, exaktní zpětnovazební
-linearizace).
-}
+  linearizace).
+ }
 
 \subsection{Linearizace do Taylorovi řady}
 \begin{itemize}
-    \item nejrozšířenější 
+    \item nejrozšířenější
     \item linearizuje systém pouze v okolí daného bodu
     \item vstupní výstupní vektory linearizovaného systému odpovídají { \bf odchylkám} od bodu ve kterém linearizujeme
     \item pro linearizaci využijeme pouze prví člen Taylorovi rady, ostatní zanedbáváme.
