@@ -38,7 +38,7 @@ Přenos zpětné vazby:
 \end{equation}
 Otevřené smyčky:
 \begin{equation}
-    F_0(p) = \frac{V(p)}{\varepsilon(p)} %opravit
+    F_0(p) = \frac{V(p)}{W(p)} %opravit
 \end{equation}
 Přenos řízení:
 \begin{equation}
@@ -82,7 +82,7 @@ Obsahuje proporciální, integrační a derivační složku
 \end{equation}
 proporciální složka == offset, větší zesílení, větší přesnost \\
 integrační složka - zhoršuje dynamické vlastnosti, zpomaluje regulační děj, slouží k nulové ustálené odchylce nebo poruše\\
-derivační složka - zlepšuje dynamické vlastnosti, zrychluje regulační děj, realizační konstanta zesiluje působení šumu\\
+derivační složka - zlepšuje dynamické vlastnosti, zrychluje regulační děj, zesiluje působení šumu\\
 Pásmo proporcionality - udává, jaká je nutná změna ke změně výstupní veličiny regulátoru
 \begin{equation}
     pp = \frac{1}{r_0}
@@ -101,7 +101,7 @@ Reálný PID je pak, kde \(\varepsilon << T_1,T_2\):
     F_R(p) = \frac{X(p)}{E(p)} = K_R\frac{(T_1p + 1)(T_2p+1)}{p(\varepsilon p +1)}
 \end{equation}
 \begin{figure}[H]
-    \includegraphics[scale = 0.3]{images/PID.png}
+    \includegraphics[scale = 1]{images/PID.png}
     \caption{Reálný PID}
     \label{PID}
 \end{figure}
@@ -175,13 +175,13 @@ Ustálená odchylka pro různý typy poruch a počet integrátorů v soustavě a
 \section{Standartní struktury regulačních obvodů. Stabilita obvodů se zpětnou vazbou. Frekvenční charakteristiky v komplexní rovině, Nyquistovo kritérium stability, jeho zjednodušená verze a řešení v logaritmických souřadnicích, použití algebraických kritérií.}
 PID:
 \begin{figure}[H]
-    \includegraphics*[scale = 0.6]{images/PIDschema.png}
+    \includegraphics*[scale = 1.1]{images/PIDschema.png}
 \end{figure}
 
 
 PSD:
 \begin{figure}[H]
-    \includegraphics*[scale = 0.6]{images/PSDschema.png}
+    \includegraphics*[scale = 1.1]{images/PSDschema.png}
 \end{figure}
 \newpage
 
