@@ -1175,7 +1175,106 @@ Pravidla pro klasifikaci:
 
 \section{Měření záření (tepelné a kvantové snímače IR záření, snímače ionizujícího záření)}
 
+\subsection*{Snímání teploty}
+Výhody
+\begin{itemize}
+    \item zanedbatelný vliv na měřený objekt
+    \item  měření rotujících nebo pohybujících se těles
+    \item rychlé
+    \item lze měřit větší plochu zaráz
+\end{itemize}
+Nevýhody
+\begin{itemize}
+    \item vliv emisivity tělesa
+    \item prostředí může pohlovat IR záření
+    \item vliv odraženého záření
+\end{itemize}
 
+Využívají Stefan-Boltzmanův zákon-vyřazovnaná energie tělesa je úměrná jeho teplotě.
+\begin{equation}
+    M=\sigma \cdot T^4
+\end{equation}
+M=vyzářená energie\\
+$\sigma$ Stefan-Boltzmanova kostanta - prblé je že je rozdílná pro ruzné mateiály\\
+T teplota tělesa v K
+\subsubsection*{termočlánkové baterie}
+
+\includegraphics*[scale = 0.6]{img/termoclankove_baterie.png}
+
+Infračevené žáření telesa ohřívá malé tělísko uvnitř přístroje pomocí termočlánků měříme jeho teplotou
+Telísko je uchycené pouze tenkými spojí aby byla jeho telota co nejméň ovlivněna .Protože je generované U malé spojují se tremočlánky do série. 
+
+\subsubsection*{Bolometry}
+
+\includegraphics*[scale = 0.3]{img/bolometr.png}
+
+Podobný přicip jako přechozí ale teplota těliska je měřena odporovým snímačem teploty. Použíají se v infrakamerách.
+
+\subsubsection*{pyroelektrické snímače (PIR)}
+Využívají pyroelektrický jev – změna spontánní polarizace při změně teploty.
+použití pro měření teploty v kombinaci s bolometrem a v zabezpečovací technice.
+Jinak se moc nepoužívá - má nízkou stabilitu.
+
+\includegraphics*[scale = 0.2]{img/pyro.png}
+
+ \subsubsection*{kvantové snímače}
+ \begin{itemize}
+    \item využívají vnitřního fotoelekrického jevu- doapdající zážení excitují elekrony v atomu.
+    \item provední jako fotodiody, vhodně upravené aby detekovaly IR
+    \item citlivější oproti ostatním 
+    \item levnější
+    \item omezené pásmo
+ \end{itemize}
+
+\subsection*{Snímače ionizujícího záření}
+Rozdělení
+\begin{itemize}
+    \item Plynové detektory
+    \begin{itemize}
+        \item Ionizační komory
+        \item Proporcionální detektory
+        \item Geiger-Müllerovy detektory
+    \end{itemize}
+    \item Scintilační detektory
+    \item  Polovodičové detektory
+\end{itemize}
+Extra skupinou jsou potom snímače pracující na chemickém principu- filmové dozimetry.
+
+\subsubsection*{Plynové detektory}
+2 elektrody jsou sumístěně v nejakým plynu, ionizující zážení plyn ionizuje -> satane se na chvíli vodivým. 
+Na elektrody je privedeno DC předpětí pokud je plyn ionizován poteče obvodem proud.
+
+\includegraphics*[scale=0.3]{img/ionizační-plyn.png}
+
+Podle velikosti předpětí se provozují v různých režimech
+
+\subsubsection*{Ionizační komora}
+Pracuje v oblasti II, počet impulzů odpovídá energii detekované částice.
+
+\subsubsection*{Proporcionální detektor}
+Pracuje v oblasti III (lavinovitá nárazová ionizace se 
+samovolným zánikem).
+Impulzní režim, po doplnění amplitudovým diskriminátorem 
+lze detekovat i energii částic
+
+\subsubsection*{ Geiger-Müllerovy detektory}
+\begin{itemize}
+    \item  pracuje v oblasti V (lavinovitá nárazová ionizace )
+    \item  počet a amplituda impulzů nezávisí na energii částice
+    \item  nutno řešit přerušení výboje, mrtvá doba - doba než se zionizovaný plyn stane znovu nevodivým, po toto dobu nelze detekovat další částice.
+    
+\end{itemize}
+
+\subsubsection*{Scintilační detektory}
+Nejřive je převdeno ionizační záření na světelné - foton, světlo je potom ve fotonásobičce zesíleno. poté změřeno.
+
+\includegraphics*[scale = 0.6]{img/scitilacni.png}
+
+
+\subsubsection*{polovodičové sn. záření}
+POužívá se PIN diod, dopadající zážení vyvolá vnitřní fotoelektrický jev, dioda se na chvíli otevře.
+
+\includegraphics*[scale= 0.5]{img/polovodic-ionizacni.png}
 \section{Chemické snímače}
 Slouží pro měření koncentrace výskytu látek v některých výrobních, provozních, skladovacích, měřících a dalších procesech.\\
 Chemický senzor je zařízení, které snímá sledovanou chemickou veličinu a definovaným způsobem ji transformuje chemicko-fyzikálním převodem (receptor + převodník) na veličinu výstupní.\\
