@@ -138,11 +138,16 @@ Rovnovážné stavy mohou být:
     \item neizolované
 \end{itemize}
 
-U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnovážného stavu vrátí je rovnovážný stav stabilní. O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovy řady (podle polohy pólů náhrady)
+U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnovážného stavu vrátí je rovnovážný stav stabilní. O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovy řady (podle polohy pólů náhrady).
+
+\subsubsection*{Stavový portrét}
+Pomocí stavového portrétu si můžeme graficky znázornit čáry, pomocí kterých se dá následně určit stabilita mezního cyklu. Počítá se směrnice z n stavových rovnic(n počet rovin). V našem případě nejčastěji $k = \frac{\frac{dx_2}{dt}}{\frac{dx_1}{dt}}$ kde podle derivace zjišťujem směrnici. Dá se určut taky podle znaménka, když si do zlomku dosadíme konkrétní bod.\\
+Když se nachází ve stavové rovnici nelinearita, musíme zavést substituci a dostat rovnice do tvaru, kdy na y je \textit{a} a na ose x je jeho derivace.\\
+Stavová trajektorie se používá tam, kde by byl analytický výpočet náročný, nebo nám stačí pochopit chování systému.
 
 \subsection{Mezní cyklus}
 Mezní cyklus nastává pokud se stavy systému periodicky opakují, průmět stav trajektorie je uzavřený obrazec (kruh).
-Matematicky řečeno :
+Matematicky řečeno : 
 \[x(t+T)=x(t)\]
 t-čas \\ T-perioda\\
 
