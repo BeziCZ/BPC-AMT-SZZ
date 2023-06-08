@@ -729,96 +729,242 @@ $u = B*l*v$
 \end{figure}
 
 \section{Tenzometry, snímače síly, hmotnosti, momentu a tlaku }
-\subsection*{Tenzometry}
-Měří mechanické napětí v materiálech.
-Pomcí tezometrů měříme prodloužení, to odpovídá právě mech. napětí
-Využívaní hookova zákona : $\sigma=E\epsilon \;[Pa]$, kde $\sigma$ je mech napětí (chceme měřit), $\epsilon$ relativní prodloužění a E je materiálová konstanta.
+\subsection{Tenzometre}
+Tenzometre sú pasívne snímače, ktoré nepriamo merajú mechanické napätie na povrchu telesa pomocou merania jeho deformácie.
+Preto platí Hookov zákon, kde mechanické napätie $\sigma$ je úmerné súčinu modulu pružnosti v ťahu $E$ a pomernému predĺženiu $\epsilon$.
+Matematický vzťah pre Hookov zákon je:
+\begin{equation}
+    \sigma=E\varepsilon \;[Pa]
+\end{equation}
+Pomerné predĺženie (alebo aj pomerná deformácia) vyjadruje ako podiel deformácie a pôvodného rozmeru telesa pred deformáciou. Používanou jednotkou je microstrain $\mu \varepsilon$. Platí:
+\begin{equation}
+    \varepsilon=\frac{\Delta l}{l}  \;[-]
+\end{equation}
 
-\subsubsection*{rezonanční tenzometry}, využínají toho že refonační f struny se meění v závislosti na tom jakou silu je napínána, už se noc nepužívají, jsou drahé.
+Modul pružnosti v ťahu $E$ je materiálová konštanta, ktorá určuje z akého materiálu je merané teleso. Inou materiálovou konštantou je Poissonova konštanta $\mu$,
+ktorá vyjadruje pomer medzi predĺžením $\varepsilon_t$ (pomerná deformácia v kolmom smere na pôsobiacu silu) a zmenšením $\varepsilon_n$ (deformácia v smere pôsobiacej sily) pri jednoosom namáhaní nosníka tenzometra.
+Je vyjadrená:
+\begin{equation}
+    \mu = \frac{\varepsilon_t}{\varepsilon_n}
+\end{equation}
+Pre lepšiu predstavu tohto princípu Poissonovho čísla, máme príklad: Pôsobí sila na oceľový valec, kedy sa jeho priemer zmenšuje (deformuje), ale zároveň sa samotný valec predlžuje, čo
+pôsobí akoby si chcel zachovať svoj pôvodný objem. Pomer týchto dvoch zmien (deformácii) vyjadruje práve Poissonovo číslo.
+Okrem mechanického napätia, tenzometre dokážu merať aj silu, tlak, vibrácie, moment, etc.
 
-\subsubsection*{odporové tenzometry}
-Bejběžnější josu odporové tenzometry= kus drátu který měmí odporpokud ho natujeme (tj měníme jeho délku a průžez). Změnu odopu měříme.\\
+\subsubsection{Rezonančné tenzometre}
+Rezonančné tenzometre, tiež nazývané aj strunové tenzometre, zisťujú deformáciou pomocou merania rezonančného kmitočtu struny v závislosti k pomernému predĺženiu.
+Pre výpočet kmitočtu struny $f_0$ platí, že je funkciou napínajúcej sily $F$. Toto je vyjadrené vzťahom:
+\begin{equation}
+    f_0 = 0.5\sqrt{\frac{F}{ml}} = \frac{1}{2l}\sqrt{\frac{\varepsilon E}{\varrho}}
+\end{equation}
 
-mouhou být \begin{itemize}
-    \item kovové
+\subsubsection{Rozdelenie odporových tenzometrov}
+\begin{itemize}
+    \item Kovové
           \begin{itemize}
               \item drátkové
+                    \begin{itemize}
+                        \item voľné
+                        \item lepené
+                    \end{itemize}
               \item fóliové
               \item vrstvové
           \end{itemize}
-    \item Polovodičové (citlivější na telplo, větší citlivost)
+    \item Polovodičové (citlivejšie)
+          \begin{itemize}
+              \item monokrystalické
+                    \begin{itemize}
+                        \item lepené
+                        \item difundované
+                    \end{itemize}
+              \item polokryštalické (naprašované)
+          \end{itemize}
 \end{itemize}
 
-nejběžněji se jedná o nálepku co se připevní na povrch a sleduje změnu jeho natažení.
+\subsubsection{Odporové kovové tenzometre}
+Odporové tenzometre využívají zmenu elektrickej vodivosti kovu pri deformácii. Táto závislosť pomernej zmeny odporu tenzometra na pomernom predĺžení (deformácii) je definovaná základnou rovnicou tenzometra:
+\begin{equation}
+    \frac{\Delta R}{R} = K\varepsilon
+\end{equation}
+$K$ predstavuje súčiniteľ deformačnej citlivosti tenzometra. Je uvedená výrobcom.
+Najčastejšie využívanými tenzometrami v dnešnej dobe sú fóliové kovové snímače, s najbežnejšou hodnotou odporu 120$\varOmega$ (rozsah býva od 50 do 2500$\varOmega$).
+Sú citlivé na parazitné vplyvy, najmä na kolísanie teploty, ktoré obmedzuje dosiahnuteľnú presnosť, Má vplyv na mechanické aj elektrické vlastnosti všetkých častí tenzometra.
+Vlastnosti, ktoré sú najviac ovplyvnené, sú zmena odporu snímača, zmena deformačnej citlivosti, zmeny mechanických a elektrických parametrov podložky a lepidla.
+Za ustálených teplotných pomerov do určitej hodnoty teploty sa môžu vylúčiť zmeny údajov pomocou kompenzačného snímača.
+Kompenzačný snímač je skonštruovaný rovnako ako merací tenzometer. Musí byť zapojený v ďalšom ramene mostíka a musí byť na podložke z rovnakého materiálu ako aj merací tenzometer. Rovnako musí byť vystavený aj rovnakým teplotným vplyvom.
+Ak teplotné podmienky nie sú ustálené pri meraní, táto kompenzácia nie je dostatočná.
 
-Největší problém je se změnou teploty,kdy dochází k rozathování materiálu vlivem teploty a ne napětí. Proto se používá můstkové zapojení kde 2 tenzometry jsou namáhány na tlak a 2 na tah.
-Změna oporu je stejně atk malá že nelze měřit ohmmetrem takže je potřeba můstek.
+Typické zapojenie tenzometra do meracieho obvodu sú stejnosměrné mostíkové metody, tzv. Wheatstone bridge. Zapojenie môže byť do štvrťmostíka alebo polmostíka.
+Tenzometre ako snímače sily, tlaku alebo momentu sú zapojené do plného mostu. Toto zapojenie potlačuje vplyv teploty, vplyv odporu prívodu. Platí lineárna závislosť a vzťah je:
+\begin{equation}
+    U_D \doteq UK\varepsilon
+\end{equation}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.8]{img/mustek_tenzometrovy.png}
+\end{figure}
+
+Základné zapojenie je R1, R2, R3 a R4. Ak sú odpory rovnako veľké, výstup je 0$V$. Pri deformácii sa mení hodnota odporu tak, aby sa 2 odpory zväčšovali a 2 zmenšovali.
+Týmto sa vytvoria miesta, kde sa materiál skracuje a predlžuje.
+
+\subsubsection{Odporové polovodičové tenzometre}
+Odporové polovodičové tenzometre využívajú piezorezistívny jav, ktorý je založený hlavne na zmene koncentrácie nosičov náboja.
+Deformačná citlivosť je u nich vyššia než u kovov a je buď kladná aleno záporná (rozlišuje sa podľa typu polovodiča - P alebo N).
+Je u nich vyšší pomer signálu k šumu - odpor snímača je závislý na obsahu nečistôt.
+Sú teplotne závislé - zmena teploty sa prejaví vo forme deformácie. Ich pracovné teploty sú obmedzené určitou kritickou hodnotou. Ak sa táto hodnota prekročí, polovodič stráca tenzometrické vlastnosti.
+Ich výhodou je, že sú odolné voči vlhkosti, neprejavuje sa u nich hysterézia a sú časovo stále.
 
 
-
-\includegraphics*[scale= 0.8]{img/mustek_tenzometrovy.png}
-
-
-\subsection*{měření hmotnosti}
-
-\includegraphics*[scale= 0.8]{img/hmotnost.png}
-
-pružné členy:
-mají problém s malými hmotnostmi
-
-\includegraphics*[scale= 0.2]{img/pruznyclen.png}
-
-převod polohy na sílu
-
-\includegraphics*[scale= 0.6]{img/kompenacni_hmotnost.png}
-
-{\bf Piezoelektrické}
+\subsubsection{Parazitné javy pri meraní tenzometrami}
 \begin{itemize}
-    \item využívají piezo efektu- tj matriály genenrují náboj při mech zatížení
-    \item přesné
-    \item pomocí šroubu je vytvořeno předpětí
-    \item problematické měření U -> nabojové zesilovče ...
-    \item po zatížení se pomalu vybíjí -> jsou méně vhodné pro statické zatížení - váhy lepří jako snímače "změny síly"
+    \item teplota
+    \item tok (tečení, anglicky creep)
+    \item hysterézia
+    \item vlhkosť
+    \item elektromagnetické pole
+    \item dynamická chyba tenzometra (vplyv rozmeru)
 \end{itemize}
 
-{\bf Magnetoanizotropní snímač síly}
+\subsection{Snímače sily a hmotnosti}
+Snímače sily a hmotnosti prevádzajú silu na deformáciu pomocou deformačného člena a vyhodnotí sa vzniknuté mechanické napätie pomocou tenzometra alebo zmeny rozmeru.
+Piezoelektrické snímače sa nedajú použiť pre statické meranie sily. Statické meranie sily je práve meranie hmotnosti, pre ktoré treba použiť nejaký deformačný člen, ako je napríklad pružina.
+Na rovnakom princípe fungujú aj snímače tlaku kedy sa tlak merá prevodu na silu.
 
-\includegraphics*[scale= 0.5]{img/magnetosila.png}
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.2]{img/tlak.png}
+\end{figure}
 
-\subsection*{snímače momentu}
+\subsubsection{Pružné členy pre snímače s tenzometrami}
+Pružné členy (nazývané aj deformačné) prevádzajú silu na mechanické napätie. Typickým deformačným členom je vetknutý nosník, ktorý sa ľahko použije do mostíkového zapojenia.
+Princíp deformácie nosníka spočíva v tom, že horná strana povrchu sa pozdĺžne (podélně) naťahuje a spodná strana povrchu sa sťahuje. Súčasne sa a priečne horné povrchové vlákna skracujú a spodné sa predlžujú.
+Nosník sa opäť snaží zachovávať svoj pôvodný objem pri deformácii.
 
-\subsubsection*{sn. momentem s tenzometry}
-do hřídele je pridán drformační člen, na něm jsou tezometry kterými měříme jeho zkorucení.
-Je problém dosat informaci z rotujícího hřídele. Zabírá dost místa.
+Požiadavky na pružné členy sú:
+\begin{itemize}
+    \item materiál -> malé teplotné koeficienty, malá hysterézia
+    \item tok (tečení) -> smerovosť, obe polarity deformácie musia byť vo vhodnom rozsahu
+\end{itemize}
 
-\subsubsection*{s převodem na úhel}
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.2]{img/pruznyclen.png}
+\end{figure}
 
-\includegraphics*[scale= 0.2]{img/moment-uhel.png}
+\subsubsection{Snímače s prevodom sily na polohu - zmenu rozmeru}
+Existujú:
+\begin{itemize}
+    \item s pružným členom
+          \begin{itemize}
+              \item príklady: váha na zeleninu v obchode
+          \end{itemize}
+\end{itemize}
 
-\subsubsection*{magnetické snímače momentu}
-zkroucení přeneseno na zkroucení fólie z magnetoanizotropního materiálu, tím dojde ke změmě vzájemné indučnosti cívek ktreé jsou okolo hřídele.
-Nižší přesnost ale věětří přetížitelnost
+\begin{itemize}
+    \item s elektromechanickou spätnou väzbou
+          \begin{itemize}
+              \item Ide o klasickú rovnoramennú váhu, ktorá je kompenzovaá silovým akčným členom.
+              \item Sila je priamoúmerná prúdu.
+              \item Kapacity sú zapojené do mostíka, pri zmene polohy váhy sa zmení prúdiaci prúd v mostíku.
+              \item Akčný člen musí byť stabilný a lineaárny.
+              \item Veľmi presné meranie práve kvôli kompenzačnému členu
+              \item Platí vzťah:
+                    \begin{equation}
+                        F=BIl
+                    \end{equation}
+          \end{itemize}
+\end{itemize}
 
-\subsection*{snímače tlaku}
-Rozdělení
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.5]{img/kompenacni_hmotnost.png}
+\end{figure}
 
-\includegraphics*[scale = 0.2]{img/tlak.png}
+\subsection{Piezoelektrický snímač sily}
+Tento snímač využíva pôsobiacu silu v ose na piezomateriál. Meranie prebieha pomocou šroubu, ktorý je tvorený predzaťaženým kryštálom, a mení sa jeho zaťaženie.
+Môže byť jednoosý alebo trojosý, a každá vrstva má citlivosť orientovanú na iný smer. Tieto snímače sú extrémne citlivé.
 
-\subsubsection*{membránové s tenzometrem}
-tenzometry měří jak moc se membrán a prohne.
+\subsubsection{Piezoelektrický jav}
+Piezoelektrický jav je schopnosť kryštálu generovať elektrické napätie pri deformácii jeho kruštálovej mriežky.
+Vždy ide o zmenu polohy stredu symetrie základnej bunky kryštálovej mriežky, pretože piezoelektrický jav vie nastať iba pri mriežkach bez stredu symetrie.
+Najčastejšími materiálmy pre tieto snímače sú monokryštály ako je kremeň (má najmenšiu citlivosť a najlepšiu stabilitu), piezokeramika ako sú polykryštalické materiály a tuhé roztoky, a organické polymery (opačné vlastnosti ako pri monokryštáloch).
+Principiálne sa napríklad kryštál kremeňa polarizuje pri deformácii a na elektródach sa elektrostatickou indukciou objavia voľné náboje.
+Ak začne pôsobiť sila, tvar mriežky sa zmení, pôvodná elektrická rovnováha sa rozviaže a molekula bude vyzerať, že má elektrický náboj.
+Kladný náboj nie je kompenzovaný a má snahu pritiahnuť voľný elektrón. Vzhľadom na to, že tam ale žiadny nie je, pritiahne elektrón z kovu (vzduchu).
+Inými slovami, deformáciou sa opačné náboje posunú v mriežke tak, že elektrické tažiská záporných a kladných molekúl, sa od seba vzdialia a vznikne elektrický náboj.
 
-\includegraphics*[scale =0.2]{img/tlak_membrana.png}
+Môže byť:
+\begin{itemize}
+    \item priamy
+          \begin{itemize}
+              \item Pôsobením mechanického napätia je dielektrikum polarizované a vytvára sa náboj.
+              \item Používa sa v snímačoch sily, zrýchlenia a tlaku
+          \end{itemize}
+    \item nepriamy
+          \begin{itemize}
+              \item Vytvára sa deformácia pomocou vnějšího elektrického poľa.
+              \item Princíp zostáva: zmení sa mechanické napätie, tak sa zmení aj rozmer telesa.
+              \item Používa sa pri akčných pružných členoch, ultrazvukových generátoroch a pri mikroposuvoch.
+          \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item podélny (pozdĺžny)
+          \begin{itemize}
+              \item náboj je priamoúmerný sile
+          \end{itemize}
+    \item příčný
+          \begin{itemize}
+              \item náboj je kolmý na pôsobiacu silu
+              \item piezoelektrické materiály generujú náboj pri zmene teploty
+          \end{itemize}
+    \item střihový
+          \begin{itemize}
+              \item tvorí sa pri meraní viac os zároveň
+              \item namáhané na střih
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Elektrický náhradný obvod piezoelektrického snímača}
+Piezoelektrický náboj nabíja kondenzátor a tým sa prevedie na zdroj napätia.
+Nefunguje pri nízkych kmitočtoch kvôli vybíjaniu kondezátora, preto sa pomocou $C$ a $R$ volí čo najväčšia časová konštanta.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.3]{img/piezoObvod.png}
+\end{figure}
 
 
-\subsubsection*{kapacitní}
-měří rozdíl 2 tlaků poocí velikosti vychýlení memebrány, využída se difernčního zapojí kondenzátorů.
+\subsection{Magnetoanizotropný snímač sily}
+Snímač má jednoduchú a robostnú konštrukciu. Nie je veľmi presný, ale je vhodný pre meranie veľkých síl.
+Pôsobiaca sila vytvorí zvýšenú permeabilitu a primárna cievka indukuje napätie do sekundárnej cievky. Cievky sú na sebe kolmé a snímač obsahuje diery cez ne.
+Sila spôsobí indukciu a keď sa zaťaží silou, zmení sa permeabilita, ktorá sa v smeru pôsobiacej sily zmenší a kolmo na silu sa zväčší. Permeabilita je teplotne závislá.
 
-\includegraphics*[scale = 0.5]{img/tlak_kapacita.png}
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.5]{img/magnetosila.png}
+\end{figure}
 
-\subsection*{piezo snímače tlaku}
-pouze pro dynamické měření, např. tlak ve válci spalovcího motoru
+\subsection*{Snímače momentu}
+Meria sa moment pre zistenie výkonu, účinnosti.
 
-\includegraphics*[scale = 0.2]{img/tlak_piezo.png}
+\subsection*{Snímače s prevodom momentu na uhol}
+Snímače sa využívajú pre menšie výkony. Využíva priame meranie skrútenia hriadeľa (zkroucení hřídele), ktoré keď sa zväčšuje, zväčšuje sa aj moment.
+Počíta sa ich fázový rozdiel pomocou inkrementálneho snímača.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics*[scale= 0.2]{img/moment-uhel.png}
+\end{figure}
+
+\subsection*{Magnetické snímače momentu}
+Dochádza k zmene permeability počas skrútenia fólie z magnetoanizotropného materiálu, čím vznikne zmena vzájomnej indukčosti dvoch cievok a merá sa ich rozdiel.
+Využíva sa diferečné zapojenie.
+Táto fólia je
+Výhodou sú vyššia tuhosť a vyššia preťažiteľnosť. Nevýhodou je ich nižšia presnosť.
+
+
 \section{Měření průtoku, základní principy objemových, rychlostních a hmotnostních průtokoměrů}
 
 \subsection*{Základní pojmy}
