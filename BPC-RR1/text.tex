@@ -40,7 +40,7 @@ Přenos zpětné vazby:
 \end{equation}
 Otevřené smyčky:
 \begin{equation}
-    F_0(p) = \frac{V(p)}{W(p)} %opravit
+    F_0(p) = \frac{V(p)}{\varepsilon(p)}
 \end{equation}
 Přenos řízení:
 \begin{equation}
@@ -174,7 +174,7 @@ Ustálená odchylka pro různý typy poruch a počet integrátorů v soustavě a
 \end{figure}
 \newpage
 
-\section{Standartní struktury regulačních obvodů. Stabilita obvodů se zpětnou vazbou. Frekvenční charakteristiky v komplexní rovině, Nyquistovo kritérium stability, jeho zjednodušená verze a řešení v logaritmických souřadnicích, použití algebraických kritérií.}
+\section{Standardní struktury regulačních obvodů. Stabilita obvodů se zpětnou vazbou. Frekvenční charakteristiky v komplexní rovině, Nyquistovo kritérium stability, jeho zjednodušená verze a řešení v logaritmických souřadnicích, použití algebraických kritérií.}
 PID:
 \begin{figure}[H]
     \includegraphics*[scale = 1.1]{images/PIDschema.png}
@@ -243,7 +243,7 @@ Využití Cauchyho teorému u Nyquistova kritéria stability:\\
 \end{itemize}
 
 Pro případ, kdy máme póly v počátku je nutné je zahrnout buď do pravé, nebo levé poloroviny(zpravidla se zahrnuje do levé, ale funguje na obě strany) - křivka bude pól obcházet s minimálním poloměrem.\\
-To že jsme je zahrnuli např. do levé poloroviny neznamená, že jsou stabilní, pouze s nimi v rámci NNyquiistova kritéria jako se stabilními počítáme.\\
+To že jsme je zahrnuli např. do levé poloroviny neznamená, že jsou stabilní, pouze s nimi v rámci Nyquistova kritéria jako se stabilními počítáme.\\
 \begin{figure}[H]
     \includegraphics*[scale = 0.15]{images/NyQuistPocatek.png}
 \end{figure}
@@ -314,8 +314,8 @@ Postup grafického řešení:
     \item Symetrie - kořenový hodograf je symetrický kolem reálné osy
     \item Počet větví - kořenový hodograf obsahuje n větví
     \item Segmenty na reálné ose - pokud napravo od části reálné osy leží lichý počet nul a pólů, tak tato část osy je větev kořenového hodografu
-    \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólu a končí v k = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
-    \item Poloha asymptot - asymptoty se protínají na reálné ose v bodě $\sigma = \frac{\sum^n_{i=1} \alpha_i \sum^m_{i=1}\beta_i}{n-m}$ a svírá s kladnou reálnou poloosou úhel $\varphi = \frac{180 \degree + i360\degree}{n - m}$ \dots i = 0, 1 ..., n-m-1
+    \item Počátky a konce větví - každá větev začíná při zesílení K = 0 v pólu a končí v K = $\infty$ v nule. Pokud je v přenosu víc pólů, jak nul, tak n - m větví odchází do nekonečna podle přímkových asymptot
+    \item Poloha asymptot - asymptoty se protínají na reálné ose v bodě $\sigma = \frac{\sum^n_{i=1} \alpha_i - \sum^m_{i=1}\beta_i}{n-m}$ a svírá s kladnou reálnou poloosou úhel $\varphi = \frac{180 \degree + i360\degree}{n - m}$ \dots i = 0, 1 ..., n-m-1
     \item Průsečík s imaginární osou - hodnota K, pro kterou prochází větve kořenového hodografu imaginární osou se dá určit pomocí algebraických kritérií stability
     \item Úhel v komplexní nule nebo pólu - úhel tečny, se kterým vychází větev kořenového hodografu z komplexního pólu $\alpha_k$ se vypočítá jako $\gamma_k = 180 \degree + i360 \degree -\sum^n_{i=1, i\neq k}\angle(\alpha_k - \alpha_i) + \sum^m_{i=1}\angle(\alpha_k - \beta_i)$. Úhel tečny, se kterým vchází větev kořenového hodografu do komplexní nuly $\beta_k$, se vypočítá jako $\delta_k = 180 \degree + i360 \degree -\sum^n_{i=1}\angle(\beta_k - \alpha_i) + \sum^m_{i=1, i\neq k}\angle(\beta_k - \beta_i)$
     \item Průsečík s reálnou osou - průsečík větve kořenového hodografu s reálnou osou se většinou analyticky vyřešit nedá, řeší se iterativně
@@ -328,7 +328,7 @@ Značí se Mg. Je to převrácená vzdálenost místa kde frekvenční charakret
 
 \subsubsection*{Zásoba stability ve fázi}
 Záporně vzatá změna fáze otevřeného obvodu, která přivede uzavřený obvod na mez stability.\\
-Značí se Mp. Úhel mezi zápornou částí reálné osy a přímkou mezi počátkem a průsečíkem frekvenční chrakteristiky s kuržnicí se středem v počátku a poloměrem 1.\\
+Značí se Mp. Úhel mezi zápornou částí reálné osy a přímkou mezi počátkem a průsečíkem frekvenční chrakteristiky s kružnicí se středem v počátku a poloměrem 1.\\
 
 \subsubsection*{Zásoba stability v modulu}
 Nejkratší vzdálenost frekvenční charakteristiky otevřené smyčky do bodu -1 v komplexní rovině.\\
@@ -386,12 +386,12 @@ Přisuzuje se větší váha větším odchylkám. Z čehož plyne nevýhoda, pr
 \end{figure}
 Druhy výpočtu:
 \begin{itemize}
-    \item Výpočet \(\mathfrak{L}\{E(o)\}\) s integrací podle \(J_K = \int^\infty_0[e(t) - e(\infty)]^2dt\)
+    \item Výpočet \(\mathfrak{L}^{-1}\{E(o)\}\) s integrací podle \(J_K = \int^\infty_0[e(t) - e(\infty)]^2dt\)
     \item Analytický výpočet pomocí reziduové věty
-    \item Pomocí Nekolého doplňku k Routh-Schurově algoritmu
+    \item Pomocí Nekolného doplňku k Routh-Schurově algoritmu
     \item Pomocí simulace
 \end{itemize}
-Existuje analytické řešení - Nekolneho doplněk:
+Existuje analytické řešení - Nekolného doplněk:
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/nekolnehoDoplnek.png}
 \end{figure}
@@ -422,10 +422,11 @@ Průběh soustavy i regulátoru se sčítají za předpokladu, že jsou charakte
 Obecné požadavky na přenos:
 \begin{itemize}
     \item co nejvyšší hodnota kmitočtu řezu - rychlost děje
-    \item co největší fázová bezpečnost - zajišťuje malý překmit
+    \item co největší fázová bezpečnost - zajišťuje malý překmit(co nejvíc kladná oproti -180°)
     \item kolem kmitočtu řezu v co největším okolí sklon -20dB/dek
     \item Realizovatelnost - řád jmenovatele větší než řád čitatele regulátoru (PID a PD se dává realizační konstanta do jmenovatele, obvykle se volí tak, že časová konstanta čitatele je míň jak 100x větší )
 \end{itemize}
+Hodnota řezu je místo kde frekvenční charakteristika nabývá hodnoty 0dB.
 \begin{figure}[H]
     \includegraphics*[scale = 0.8]{images/freqNavrh.png}
 \end{figure}
@@ -464,7 +465,7 @@ Vychází se z PID regulátoru ve tvaru: $F_R(p) = K_R(1+\frac{1}{T_Ip}+T_Dp)$
 Princip:
 \begin{enumerate}
     \item Vyřadíme integrační a derivační složku($T_D = 0$ a $T_I = \infty$)
-    \item Zvyšujeme zesílení proporciální složky $K_R$, dokud nedosáhnem meze stability. Čímž dosáhneme netlumených kmitů a taky hodnoty $K_{KRIT}$$T_{KRIT}$
+    \item Zvyšujeme zesílení proporciální složky $K_R$, dokud nedosáhneme meze stability. Čímž dosáhneme netlumených kmitů a taky hodnoty $K_{KRIT}$ a $T_{KRIT}$
     \item Hodnoty jednotlivých složek určíme z tabulky
           \begin{figure}[H]
               \includegraphics*[scale = 1]{images/ZHtab.png}
@@ -484,8 +485,8 @@ Odečtením doby průtahu $T_u$ a doby náběhu $T_n$ a následně dopočítat p
 \end{equation}
 
 \subsubsection*{Určení kritiiických parametrů výpočtem ze známého modelu}
-Existuje několik způsobů, jeden z nich je pomocí Nyquistova kriitéria stability. Uzavřený obvod je na mezi stability pokud frekvenční charakteristika otevřené smyčky prochází bodem (-1;0). Následně seurčí průsečík frekvenční charakteristiky otevřené smyčky se zápornou částí reálné osy(-x;0). Krittické zesílení je následně určeno jako $\frac{1}{x}$.\\
-Pro soustavy vyššího řádu je obtížné najít průsečík, proto se využívá algebraických kritérií stabiility(Hurwitzh nebo Routh-Schur)
+Existuje několik způsobů, jeden z nich je pomocí Nyquistova kritéria stability. Uzavřený obvod je na mezi stability pokud frekvenční charakteristika otevřené smyčky prochází bodem (-1;0). Následně se určí průsečík frekvenční charakteristiky otevřené smyčky se zápornou částí reálné osy(-x;0). Kritické zesílení je následně určeno jako $\frac{1}{x}$.\\
+Pro soustavy vyššího řádu je obtížné najít průsečík, proto se využívá algebraických kritérií stability(Hurwitzh nebo Routh-Schur)
 
 \subsubsection*{Rozkmitávání použitím relé bez hysterze}
 Velká výhoda, že kmity jsou řízené - nehrozí, že by se systém nekontrolovaně rozkmital.\\
@@ -505,7 +506,19 @@ V tomto tvaru je první a poslední koeficient roven jedné.To se dělá pomocí
 \begin{equation}
     \frac{a_n}{a_0}p^n = q^n
 \end{equation}
-\newpage
+Příklad:\\
+\begin{center}
+    Soustava: \(F_S(p)=\frac{0,1}{p(3p+1)(0,8p+1)}\) Regulátor PD: \(F_R(p)=K_R(Tp+1)\)\\
+    Otevřená smyčka: \(F_0(p) = \frac{0,1K_R(Tp+1)}{p(3p+1)(0,8p+1)}\)\\
+    Charakteristický polynom: \(2,4p^3+3,8p^2+(1+K_0T)p+K_0\)\\
+    Normalizace koeficientu: \(\frac{2,4}{K_0}p^3+\frac{3,8}{K_0}p^2+\frac{1+K_0T}{K_0}p+\frac{K_0}{K_0}\)\\
+    Substituce: \(\frac{2,4}{K_0}p^3 = q^3 \rightarrow q = q \sqrt[3]{\frac{K_0}{2,4}} \)\\
+    Pak tedy: \(q^3 + \frac{3,8}{K_0}(\frac{K_0}{2,4})^{\frac{2}{3}}q^2+\frac{1+K_0}{K_0}\sqrt[3]{\frac{K_0}{2,4}}q+1\)\\
+    Máme regulátor PD a stupeň polynomu 3, podle toho vybereme z tabulky:\\
+    \(\frac{3,8}{K_0}(\frac{K_0}{2,4})^{\frac{2}{3}} = 5,1\) a \(\frac{1+K_0}{K_0}\sqrt[3]{\frac{K_0}{2,4}} = 6,3\) z toho vyjde \(K_0 = 0,072\)\\
+    Pak máme: \(K_R = \frac{F_0}{0,1} = 0,72\) a \(T = 6,36\)\\
+    PD regulátor: \(F_R(p) = 0,72(6,36p+1)\)
+\end{center}
 
 \subsection*{Metoda požadovaného rozložení pólů uzavřeného obvodu}
 Tato metoda využívá vztahu mezi časovými odedzvami a rozložením pólů v přenosu uzavřené smyčky. Využívá se konstrukce kořenového hodografu.\\
@@ -528,7 +541,8 @@ Převod mezi spojitým a diskrétním přenosem se dělá pomocí Z-transformace
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/PSDVzorkovani.png}
 \end{figure}
-Derivační složka se nahrazuje výpočtem diference: $\frac{de}{dt} \rightarrow \frac{e(k)-e(k-1)}{t_{vz}} = \frac{1-z^{-1}}{t_{vz}}$.\\
+Integrační složka se nahrazuje sumou: \(\int_{0}^{t}e(\tau)d\tau = \int_{0}^{NT}e(\tau)d\tau \rightarrow T_{vz}\sum_{n = 0}^{N}e(n) \approx \frac{T_{vz}}{1-z ^{-1}} \)\\
+Derivační složka se nahrazuje výpočtem diference: $\frac{de}{dt} \rightarrow \frac{e(k)-e(k-1)}{t_{vz}} = \frac{1-z^{-1}}{T_{vz}}$.\\
 Tvary PSD regulátoru:
 \begin{itemize}
     \item $F_R(z^{-1}) = K_R(1+\frac{T_D}{T_{vz}}(1-z^{-1})+\frac{T_{vz}}{T_I}\frac{1}{1-z^{-1}})$
@@ -553,7 +567,7 @@ Existují dva případy:
     \item i mezi okamžiky vzorkování
 \end{itemize}
 V okamžicích vzorkování je podmínka, aby dva po sobě jdoucí vzorky byly nulové.\\
-V druhém případě musí vyhovovat i diference hodnot y[(m + n)t] a y[(m + 1 + n)t], kde 0 $0 \leq m \geq 1$\\
+V druhém případě musí vyhovovat i diference hodnot y[(m + n)t] a y[(m + 1 + n)t], kde $0 \leq m \leq 1$\\
 Vychází se z rovnice přenosu $F_W(z) = f_0 + f_1z^{-1}+f_2z^{-2} \dots $ \\
 Přechodný děj je konečný i v časech mimo vzorkování, jestli že F(z,m) má konečný počet členů pro všechna m z intervalu <0;1>. To je splněno pouze, když funkce FW(z,m) obsahuje celý čitatelový polynom přenosu spojitě pracující části obvodu P(z,m).\\
 \subsubsection*{Aproximace vzorkovače s tvarovačem}
@@ -581,7 +595,7 @@ Pěkné příklady jsou ve skriptech rr1 str.154.
 Pomocí Z-N metody se dá dosáhnout automatizace opakovaným navrhováním(info navíc asi).\\
 
 \subsection*{Regulační obvody s pomocnou akční veličinou}
-Podmínkou pro realizaci je možnost působit na soustavu nejméně dvěma akčníma veličinama. Musí se lišit velikost časových konstant obou přenosů a to z důvodu, že akční zásah jedné akční veličiny musí být rychlej přenášen na soustavu, než změna druhé akční veličiny. Pomocnou akční veličinou výrazně zlepšíme přenos řízení.\\
+Podmínkou pro realizaci je možnost působit na soustavu nejméně dvěmi akčními veličinami. Musí se lišit velikost časových konstant obou přenosů a to z důvodu, že akční zásah jedné akční veličiny musí být rychleji přenášen na soustavu, než změna druhé akční veličiny. Pomocnou akční veličinou výrazně zlepšíme přenos řízení.\\
 Pěkné příklady rr1 skripta str.157.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaAkcniVelicina.png}
@@ -589,14 +603,14 @@ Pěkné příklady rr1 skripta str.157.
 
 \subsection*{Regulační obvody s měřením poruchy}
 Teoreticky lze pomocí regulátoru R2 dosáhnout úplné kompenzace poruchy(invariantnosti systému vůči poruše). U reálného regulátoru je to však omezeno podmínkou, kdy přenos poruchy musí být vyššího nebo stejného řádu jak přenos soustavy, což málokdy nastává. Na stabilitu systému pomocný regulátor R2 nemá vliv.\\
-Bývá realizováno při regulaci velkého objemu teplot(vytápění teplot).
+Bývá realizováno při regulaci velkého objemu teplot(vytápění budov).
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaPorucha.png}
 \end{figure}
 
 \subsection*{Regulační obvody s modelem regulované soustavy}
 Primárně se používají v adaptivních obvodech, ale dají se použít pro zlepšení vlastností i v jednoduchém regulačním obvodu.\\
-Hlavní přínos je necitlivost kvality regulace na změnu parametrů soustavy, to zajišťuje regulátor M, který vyrovnává rozdíly mezi soustavou a jejim modelem.
+Hlavní přínos je necitlivost kvality regulace na změnu parametrů soustavy, to zajišťuje regulátor M, který vyrovnává rozdíly mezi soustavou a jejím modelem.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/pomocnaModelRegulovaneSoustavy.png}
 \end{figure}
@@ -609,7 +623,7 @@ Speciálním případem je obvod kompenzující přítomnost dopravního zpožd�
 V charakteristickém polynomu se nevyskytuje člen s dopravním zpoždění, což přispívá ke stabilitě systému. Realizace modelu ve spojité variantě by byla náročná a nákladná, proto se v praxi používá její diskrétní model.
 \subsection*{Vícerozměrové řídící systémy}
 Většina regulovaných soustav má více vstupů a více výstupů, s čímž se váže víc akčních veličin, poruch atd. Jelikož závisí na pořadí nasobení jednotlivých matic, pravidla blokové algebry jsou modifikovány.\\
-Ikdyž počet vstupů a výstupů se většinou liší, bývají doplněny nulovými a to z důvodu, že práce se čtvercovými maticemi jsou jednodušší.
+I když počet vstupů a výstupů se většinou liší, bývají doplněny nulovými a to z důvodu, že práce se čtvercovými maticemi jsou jednodušší.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/vicerozmerneSoustavy.png}
 \end{figure}
