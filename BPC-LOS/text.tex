@@ -15,7 +15,7 @@ Počet možných logických funkcí je \(2^n\), kde n je počet proměnných.
 Úplně zadaná logická funkce, je taková funkce kde známe hodnotu pro všechny možné kombinace vstupních hodnot.\\
 Neúplně zadaná logická funkce je taková, kde pro některé kombinace vstupních hodnot neznáme hodnota logické funkce. Pro neurčené stavy volíme hodnoty tak aby byla technická realizace co nejjednodušší.\\
 
-\subsubsection{Vyjádření pravidvostní tabulkou}
+\subsubsection{Vyjádření pravdivostní tabulkou}
 Jednotlivé kombinace jsou uspořádány tak, jak roste binární číslo. Řádky tabulky značíme stavovými indexy s.
 \begin{figure}
     \centering
@@ -57,7 +57,7 @@ Názorná je do 4 proměnných. \\
 \end{figure}
 
 \subsection{Úplný součtový a součinový tvar}
-Term je výraz tvořený pouze proměnnými a operacemi AND(konjukce) nebo OR (disjunkce).\\
+Term je výraz tvořený pouze proměnnými a operacemi AND(konjunkce) nebo OR (disjunkce).\\
 Minterm obsahuje všechny proměnné a pouze operaci AND.\\
 Maxterm obsahuje všechny proměnné a pouze operaci OR.
 \begin{center}
@@ -91,7 +91,7 @@ Rovnice pak jsou:
     ÚKNF: \(y = \prod (1,3,4,6) = (x_2 + x_1 + \overline{x_0}) \cdot (x_2 + \overline{x_1} + \overline{x_0}) \cdot (\overline{x_2} + x_1 + x_0) \cdot (\overline{x_2} + \overline{x_1} + x_0)\)
 \end{center}
 \subsection{Minimalizace logické funkce}
-Vyjádření logické funce považujeme za minimální pokud má minimální počet termů, minimální počet nezávisle proměnných v každném termu, minimální počet negovaných proměnných.\\
+Vyjádření logické funkce považujeme za minimální pokud má minimální počet termů, minimální počet nezávisle proměnných v každém termu, minimální počet negovaných proměnných.\\
 Metody minimalizace jsou pomocí algebraických výrazů, pomocí map, speciálními metodami(např. metoda Quine-McCluskey).\\
 \subsubsection{Minimalizace pomocí algebraických výrazů}
 Pro součtový tvar to je spojování mintermů tak aby se vyloučily proměnné (\(a \cdot \overline{b} + b \cdot a = a(\overline{b} + b) = a\)). Vyloučením proměnných vznikají implikanty. Implikant považujeme za větší pokud pokrývá větší počet bodů funkce(tvořen menším počtem proměnných). Výsledkem je minimální disjunktní normální forma - MDNF.\\
@@ -104,7 +104,7 @@ Princip spočívá vpokrytí všech 1 (případně 0) soustavou smyček, přiče
     \item Sousední pole se stejnou výstupní hodnotou lze spojovat do větších smyček.
     \item Smyčky musí být co největší, ale vždy obsahovat \(2^i\) polí.
     \item Smyček musí být co nejmenší počet
-    \item Neurčené stavy nahrazujem čísly tak, abychom dostali co největší smyčky
+    \item Neurčené stavy nahrazujeme čísly tak, abychom dostali co největší smyčky
 \end{itemize}
 
 \begin{figure}
@@ -128,11 +128,11 @@ Příklad úpravy na NOR:
 \end{center}
 
 \section{Kombinační logické obvody: binární dekodér, multiplexor, demultiplexor, kodér, prioritní kodér, číslicový komparátor, binární sčítačka a odčítačka. Druhý doplněk. Logické obvody s třístavovým výstupem a s otevřeným kolektorem. Připojování zařízení na sběrnici.}
-Kombinanční logický obvod je logický obvod, jehož hodnoty výstupních veličin jsou určeny pouze kombinací vstupních hodnot a nezávisí na předchozím stavu.
+kombinační logický obvod je logický obvod, jehož hodnoty výstupních veličin jsou určeny pouze kombinací vstupních hodnot a nezávisí na předchozím stavu.
 
 \subsection{Binární dekodér}
 Převádí binární kód na kód 1 z N.\\
-Pozice aktivního výstupu odpovídá binárnímu číslu přivedenému na vstupy dekokdéru.\\
+Pozice aktivního výstupu odpovídá binárnímu číslu přivedenému na vstupy dekodéru.\\
 Počet výstupů: N = \(2^k\), kde k je počet vstupů.\\
 Mohou mít vstup Enable, který povoluje výstupy. Dokud není enable 1 tak jsou všechny výstupy 0.
 
@@ -176,7 +176,7 @@ Přepíná skupiny signálů, také označován jako skupinový MX.\\
 Analogový multiplexor obsahuje přesné CMOS spínače, které umožňují obousměrný přenos analogových signálů. Pro výběr vstupů se používají opět binární adresovací vstupy.\\
 
 \subsection{Demultiplexor}
-Opak multiplexoru, binární kombinace adresových vstupů určuje na který výstup bude vstup propojen. \\
+Opak multiplexoru, binární kombinace adresových vstupů určuje, na který výstup bude vstup propojen. \\
 Obsahuje 1 datový vstup, N datových výstupů a k adresových vstupů, kde \(N = 2^k\).\\
 
 \begin{figure}[h!]
@@ -186,12 +186,12 @@ Obsahuje 1 datový vstup, N datových výstupů a k adresových vstupů, kde \(N
 
 \subsection{Kodér}
 Opak dekodéru, převádí kód 1 z N na binární kód. \\
-Je nutno zajistit aby byl vždy aktivní pouze jeden vstup. Toto je často těžko splnitelné proto se používá kodér prioritní.\\
+Je nutno zajistit, aby byl vždy aktivní pouze jeden vstup. Toto je často těžko splnitelné proto se používá kodér prioritní.\\
 
 \subsection{Prioritní enkodér}
 Je přípustné aby byl aktivní více jak jeden vstup.\\
 Vstupům přiřazena priorita. Nejjednodušší a nejčastější je odstupňování priority podle připojení, tedy priorita je pro každý vstup pevně stanovena (od nejmenšího indexu, nebo naopak).\\
-Případ, kdy není aktivní ani jeden vstup, signalizuje pomocný výstup z. Při z = 0 nemají hodnoty na výstupech yi žádný význam.\\
+Případ, kdy není aktivní ani jeden vstup, signalizuje pomocný výstup z. Při z = 0 nemají hodnoty na výstupech \(y_i\) žádný význam.\\
 
 \begin{figure}[h!]
     \centering
@@ -274,7 +274,7 @@ Tato volba se dělá ovládacím signálem chip select (CS), který výstup povo
 \subsection{Logické obvody s otevřeným kolektorem}
 Výstup tvořen pouze jedním NPN tranzistorem(normálně tvořen párem tranzistorů), který spíná výstup ke společnému potenciálu. \\
 Báze je připojena k internímu logickému členu, takže stav členu i výstupního tranzistoru závisí na vstupních signálech a funkci konkrétního integrovaného obvodu. \\
-Tranzistor buď není sepnut a kolektor není spojen s žádným potenciálem, nebo je sepnut a kolektor je spojen se zemí. Kotevřenému kolektoru se obvykle připojuje pull up rezistor(1-10kΩ), který zajišťuje logickou úroveň H v případě, že tranzistor není sepnut, v případě L je tranzistor sepnut a výstup spojen se zemí.
+Tranzistor buď není sepnut a kolektor není spojen s žádným potenciálem, nebo je sepnut a kolektor je spojen se zemí. K otevřenému kolektoru se obvykle připojuje pull up rezistor(1-10kΩ), který zajišťuje logickou úroveň H v případě, že tranzistor není sepnut, v případě L je tranzistor sepnut a výstup spojen se zemí.
 
 \begin{figure}[h!]
     \centering
@@ -311,7 +311,7 @@ Zpoždění ovlivňuje hodnota zpoždění hradla, ale také délka cesty signá
 \subsubsection{Vznik glitche a hazard}
 Při změně vstupního stavu má být na výstupu neměnná hodnota.\\
 Pří některý změnách vstupních stavů, ale dochází na výstupu ke vzniku, krátkých falešných impulzů (glitche). Vstupní stavy, při kterých se tyto falešné impulzy projeví, se nazývají hazardní stavy (hazardy).\\
-Při přechodných dějích neplatí pravidla booleovy algebry o kompelemtech \(a + \overline{a} = 1, a\cdot \overline{a} = 0\). Neplatí pravidla spojování termů \(ab + a\overline{b} = a(b + \overline{b})\). Ani pravdila absorpce \(a + (\overline{a} \cdot b)= (a + \overline{a})\cdot (a + b)\).\\
+Při přechodných dějích neplatí pravidla booleovy algebry o komplementech \(a + \overline{a} = 1, a\cdot \overline{a} = 0\). Neplatí pravidla spojování termů \(ab + a\overline{b} = a(b + \overline{b})\). Ani pravidla absorpce \(a + (\overline{a} \cdot b)= (a + \overline{a})\cdot (a + b)\).\\
 
 \subsection{Rozdělení hazardů}
 \subsubsection{Souběhový hazard}
@@ -352,7 +352,7 @@ Hazard lze eliminovat úpravou kombinačního obvodu.\\
 Předpokládejme kombinační logický obvod: \(y = f(x_n,x_{n-1},...,x_0)\).\\
 Vyšetřujeme přítomnost hazardu při změně proměnné \(x_0\).\\
 Upravme výraz na: \(y = x_0\cdot A + \overline{x_0}\cdot B + C\)
-Hazard pak exituje pouze pokud platí že pro zbývající hodnoty vstupních proměnných je možná dosáhnout následujících podmínek: A=1, B=1, C=0, tedy \(A\cdot B \cdot \overline{C} = 1\).\\
+Hazard pak existuje pouze pokud platí že pro zbývající hodnoty vstupních proměnných je možná dosáhnout následujících podmínek: A=1, B=1, C=0, tedy \(A\cdot B \cdot \overline{C} = 1\).\\
 Pokud v původní funkci hazard je, musíme aplikovat boolovské pravidlo konsenzus: \(y = x_0 + \overline{x_0}B + C + A\cdot B\)\\
 Výraz pak již není minimální, ale neobsahuje hazard.\\
 
@@ -384,7 +384,7 @@ Podle charakteru stabilních rovnovážných stavů se klopné obvody dělí na:
     \item Monostabilní(MKO) - jeden stav je stabilní trvale a jeden dočasně
     \item Astabilní(AKO) - oba jsou dočasně stabilní
 \end{itemize}
-BKO neměřeí čas, MKO a AKO vytváří impuly, odměřují čas.\\
+BKO neměří čas, MKO a AKO vytváří impulsy, odměřují čas.\\
 Kromě dvou stabilních rovnovážných stavů(A,B) existuje v klopných obvodech ještě nestabilní rovnovážný stav (C), z něhož obvod při sebemenší výchylce přejde do některého ze stabilních rovnovážných stavů.\\
 \subsubsection{Konstrukce sekvenčních obvodů}
 Sekvenční obvody obsahují jistý druh paměti, ta je realizována buď setrvačnými prvky(L,C) v AKO a MKO, které odměřují čas. V BKO je paměť realizována kladnými zpětnými vazbami, neodměřuje čas, při známé časové periodě impulzů, lze tento nedostatek obejít.\\
@@ -477,7 +477,7 @@ Značení Master-slave s nástupnou/sestupnou hranou:
     \end{minipage}
 \end{figure}
 
-\subsubsection{Hranový sychnronní klopný obvod D}
+\subsubsection{Hranový synchronní klopný obvod D}
 Registr. \\
 Po nástupné hraně bude na Q hodnota D z doby před náběžnou hranou. \\
 Jindy se chová jako paměť.\\
@@ -586,7 +586,7 @@ Implementace obousměrného posuvného registru:\\
 \subsubsection{Kruhový registr}
 Data, předem vložená do posuvného registru, potom neustále rotují o jeden bit s každým hodinovým impulzem.\\
 Data lze do registru vkládat sériově nebo paralelně (paralelní vstupy). Nemusí obsahovat obě varianty.\\
-Volbou vhodné počáteční hodnoty lez dosáhnout až periodů danou počtem bitů registru N.\\
+Volbou vhodné počáteční hodnoty lze dosáhnout až periodu danou počtem bitů registru N.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.4]{img/KruhCt.png}
@@ -603,14 +603,14 @@ Volbou vhodné inicializační hodnoty obsahující ve všech bitech stejné hod
 Linear-feedback shift register - LFSR.\\
 Složitější kombinační obvod ve zpětné vazbě XOR.\\
 Platí pravidlo „pro libovolnou délku lze nalézt aspoň jednu kombinaci odboček do funkce XOR tak, že posloupnost výstupů je dlouhá 2N-1“ což je posloupnost maximální délky.\\
-Jediná hodnota které není dosažitelná jsou samé 0, při tomto výstupu totiž obvod již navždy zůstane v tomto stavu. Proto nutno nastavit na nenulovou hodnotu.\\
+Jediná hodnota, které není dosažitelná jsou samé 0, při tomto výstupu totiž obvod již navždy zůstane v tomto stavu. Proto nutno nastavit na nenulovou hodnotu.\\
 Funguje jako generátor liché parity.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.4]{img/LSFR.png}
 \end{figure}
 \newpage
-Odbočky jednotlivých bitů se vyjadřují polynomem: \(x^{N-1}+...+x^1+x^0\). Volbou těchto odboček určujeme sekvenci výstopních hodnot a jejich periodu.\\
+Odbočky jednotlivých bitů se vyjadřují polynomem: \(x^{N-1}+...+x^1+x^0\). Volbou těchto odboček určujeme sekvenci výstupních hodnot a jejich periodu.\\
 Použití v kryptografii jako proudová šifra. \\
 2 základní konstrukce - Fibonacci a Galois.\\
 Fibonacci LFSR: \\
@@ -627,7 +627,7 @@ Galois LFSR: \\
 
 Fibonacci i Galois mohou generovat stejné sekvence a jsou zaměnitelné, ale musí být incializovány jinými hodnotami.\\
 Jedničky a nuly se střídají v tvz. bězích. Například 1110010 má 4 běhy o délkách 3,2,1,1. Vždy jedna polovina běhů má délku 1, čtvrtina délku 2, a tak dále až k jednomu běhu délky N.
-Výstupní proud je deterministický, pokud známe aktuální vnitřní hodnoty, délku registru a místa odbořek jsme schopni predikovat další výstup.\\
+Výstupní proud je deterministický, pokud známe aktuální vnitřní hodnoty, délku registru a místa odboček jsme schopni predikovat další výstup.\\
 Používají se jako generátory pseudonáhodných čísel.
 
 \subsection{Synchronní a asynchronní čítač}
@@ -718,7 +718,7 @@ Implementace synchronního čítače:\\
 \end{lstlisting}
 
 \subsubsection{VHDL implementace čítače}
-Výsledná realizace obsahuje na ýstupech TC a CEO kombinační obvody, které mohou generovat hazardy.\\
+Výsledná realizace obsahuje na výstupech TC a CEO kombinační obvody, které mohou generovat hazardy.\\
 Je důležité zhodnotit, zda daná situace je nebo není na závadu. Hazardy není potřeba řešit = následující blok je synchronní s CLK. Hazardy je nutné řešit = následující blok není synchronní. Na výstupy přidáme záchytné registry, které zajistí jejich změny s CLK, ale zpozdí je o jednu periodu hodinového signálu CLK.\\
 
 \subsection{Souběžný a sekvenční příkaz}
@@ -738,7 +738,7 @@ Lze si to představit tak, že k přiřazení všech hodnot signálům dojde naj
 
 Nejobecnější model každého sekvenčního obvodu je konečný stavový automat(KSA). Tento obvod má konečný počet vstupních stavů, výstupních stavů i vnitřních stavů. \\
 Stav je kombinace hodnot signálů - v technické praxi pracujeme s binárními signály.\\
-Každou kombinaci kvůli úspornosti označujem písmenem/symbolem.\\
+Každou kombinaci kvůli úspornosti označujeme písmenem/symbolem.\\
 KSA popisuje velice jednoduchý počítač, který může být v jednom z několika vnitřních stavů.\\
 Mezi stavy přechází na základě symbolů čtených ze vstupu.\\
 KSA si pamatuje pouze vnitřní stav.\\
@@ -748,7 +748,7 @@ Slovo je libovolná konečná posloupnost symbolů dané abecedy.\\
 Formální jazyk libovolná množina slov vytvořených nad abecedou \(\Sigma \), značíme jej písmenem L, konečný jazyk má končený počet slov, nekonečný nemá. Abeceda = (a, b, c) => jazyk L1 = (a, bb, ac, bc), jazyk L2 = (abc, bca, cba).\\
 
 \subsection{Rozpoznávací KSA}
-KSA bez výstupu, výstupem je jeho vnitřní stav. Umožňuje příjmout nebo zamítnout dané slovo. \\
+KSA bez výstupu, výstupem je jeho vnitřní stav. Umožňuje přijmout nebo zamítnout dané slovo. \\
 \(A = (Q, \Sigma, \delta, q_0, F) \), kde Q je množina vnitřních stavů, \(\Sigma \) je množina vstupních symbolů, \(\delta \) je stavově přechodová funkce, \(q_0\) je počáteční vnitřní stav, F je množina koncových stavů.
 Použití: rozpoznávání řetězců z L, detekce chyb.\\
 
@@ -796,7 +796,7 @@ Vstupy mají přímý vliv na výstup.
 
 
 \subsection{Mooreův automat}
-Vstupny nemají přímý vliv na výstup.
+Vstupy nemají přímý vliv na výstup.
 \begin{figure}[h!]
     \centering
     \includegraphics*[scale = 0.3]{img/Moore.png}
