@@ -77,7 +77,7 @@ Například vůle v převodech, relé s hysterezí
 \end{itemize}
 \includegraphics{img/treni.png}
 
-\subsection*{Releové charakteristiky}
+\subsection*{Reléové charakteristiky}
 \begin{itemize}
     \item s pamětí i bez
     \item požití jako regulátor
@@ -141,7 +141,7 @@ Rovnovážné stavy mohou být:
 U rovnovážných stavů pak můžeme řešit jejich stabilitu, pokud se systém po drobném vychýlení do rovnovážného stavu vrátí je rovnovážný stav stabilní. O stabilitě/nestabilitě lze rozhodnout linearizací rozvojem do Taylorovy řady (podle polohy pólů náhrady).
 
 \subsubsection*{Stavový portrét}
-Pomocí stavového portrétu si můžeme graficky znázornit čáry, pomocí kterých se dá následně určit stabilita mezního cyklu. Počítá se směrnice z n stavových rovnic(n počet rovin). V našem případě nejčastěji $k = \frac{\frac{dx_2}{dt}}{\frac{dx_1}{dt}}$ kde podle derivace zjišťujem směrnici. Dá se určut taky podle znaménka, když si do zlomku dosadíme konkrétní bod.\\
+Pomocí stavového portrétu si můžeme graficky znázornit čáry, pomocí kterých se dá následně určit stabilita mezního cyklu. Počítá se směrnice z n stavových rovnic(n počet rovin). V našem případě nejčastěji $k = \frac{\frac{dx_2}{dt}}{\frac{dx_1}{dt}}$ kde podle derivace zjišťujeme směrnici. Dá se určit taky podle znaménka, když si do zlomku dosadíme konkrétní bod.\\
 Když se nachází ve stavové rovnici nelinearita, musíme zavést substituci a dostat rovnice do tvaru, kdy na y je \textit{a} a na ose x je jeho derivace.\\
 Stavová trajektorie se používá tam, kde by byl analytický výpočet náročný, nebo nám stačí pochopit chování systému.
 
@@ -155,12 +155,12 @@ Mezní cyklus muže být stabilní polostabilní nebo nestabilní:
 \begin{itemize}
     \item Stabilní je takový mezní cyklus, kterého trajektorie vycházející z počátečních podmínek systému v okolí izolovaného mezního cyklu směřují do vnitřku tohoto mezního cyklu.
     \item Nestabilní je takový, jehož trajektorie se od mezního cyklu vzdaluje.
-    \item Polostabilní je takový mezní cylkus, kterého trajektorie se na jedné straně mezního cyklu vzdaluje a na druhhé straně do něho vchází.
+    \item Polostabilní je takový mezní cyklus, kterého trajektorie se na jedné straně mezního cyklu vzdaluje a na druhhé straně do něho vchází.
 \end{itemize}
 \includegraphics{img/mez_cykly.png}
 
 Zda vzniknou mezní cykly jde určit metodou harmonické rovnováhy.\\
-Stejně jako u rovnovážných stavů nlžene rozhodovat o jeho stabilitě a izolovanosti.\\
+Stejně jako u rovnovážných stavů můžene rozhodovat o jeho stabilitě a izolovanosti.\\
 \subsubsection{Vyšetření existence mezních stavů}
 \subsubsection*{Bendixonův teorém}
 Nechť je \(\mathcal{D}\) jednoduše souvislá oblast \(\mathcal{D} \subset \mathbb{R}^2 \) taková, že divergence:
@@ -198,7 +198,7 @@ Pointcareův index:
 \begin{itemize}
     \item Index křivky, která neobsahuje žádný singulární bod je 0
     \item Pokud obsahuje singulární bod typu střed, ohnisko či uzel je 1
-    \item Pokud obsahuje singální bod typu sedlo je -1
+    \item Pokud obsahuje singulární bod typu sedlo je -1
 \end{itemize}
 Pokud má systém jen izolované singulární body, pak každý jeho mezní cyklus obsahuje uvnitř konečný počet těchto bodů takový, že součet jejich indexů je 1.\\
 \subsection{Metoda harmonické rovnováhy}
@@ -305,7 +305,7 @@ definitní (PD), spočítáme W jako gradient V (v podstatě spíš derivaci ale
 \includegraphics[scale = 0.6]{img/Ljap.2.png}
 
 V můžeme volit náhodně nebo lze využít {\bf Krasovského metodou}, kde V zvolíme jako součin námi zvolené matice L a funkcí f, které získáme ze stavových rovnic.
-L musí být symetrická a PD. Matamatickými čáry pak dostaneme že W bude ND pokud T bude PD.
+L musí být symetrická a PD. Matematickými čáry pak dostaneme že W bude ND pokud T bude PD.
 T spočítáme jako :
 \begin{equation*}
     T=J^TL+JL
@@ -321,7 +321,7 @@ Aby byl podle popova systém stabilní musí být splněno:
 
           \includegraphics{img/popov.schem.png}
     \item hodnota nelinerity v 0 je 0 $f(0)=0$
-    \item průbeh nellinearity je "pod" přímkou procházející počátkem se směrnicí k
+    \item průběh nelinearity je "pod" přímkou procházející počátkem se směrnicí k
 
           \includegraphics{img/popov_nelilin.png}
     \item modnifikovaná frekvenční charakteristika $f^*=Re{F}+j\omega Im{F}$ (F je frekvenční charakteristika zkoumaného systému) se musí nacházet pod popovovou přímkou,
@@ -335,7 +335,7 @@ pod jsou všechny podmínky splněny systém je globálně asymptoticky stabiln�
 Opět se jedná pouze o postačující podmínky, pokud jim systém nevyhoví nevíme nic.
 
 \subsubsection{I Ljapunovova věta o o nestabilitě}
-podud exzistuje funkce V pro kterou platí :
+pokud existuje funkce V pro kterou platí :
 \begin{itemize}
     \item V(0)=0
     \item $\frac{dV}{dt}$ je PD
@@ -343,10 +343,10 @@ podud exzistuje funkce V pro kterou platí :
 \end{itemize}
 poto je rovnovážný bod v počátku nestabilní.
 
-\subsubsection{II Ljapunovova věta o o nestbilitě}
+\subsubsection{II Ljapunovova věta o nestabilitě}
 pokud V není ND , nebo NSD, a její derivace je PSD, je rovnovážný bod v počátku nestabilní.
 * V musí být spojitá a musí mít spojitou 1. derivaci.
-\subsubsection{četajevoa věta o nestabilitě}
+\subsubsection{Četajevoa věta o nestabilitě}
 vůbec nechápu
 
 %------------------------
@@ -357,11 +357,11 @@ Jako regulátor je použito relé, nebo jiný spínací prvek, chovající se st
 Použije se pokud akční zásah nabývá jen 2 hodnot (on-off control),nebo pokud akční veličina max kladné nebo max záporné hodnoty (bang-bang control).
 
 Nejtypičtější využití regulace teploty (žehlička, topení), tlak v kompresorech se zásobníkem.
-Možné varianty relé jsou o dvě otázky víš.
+Možné varianty relé jsou o dvě otázky výš.
 
-Pokud bychom chtěli regulovat např teplotu pomocí klasického relé, neustále by spínalo  (i vlivem šumu), proto je lepší použít relé s hysterezi, podle šířky hystereze můžeme nastavit s jakou periodou bude kmitat.
+Pokud bychom chtěli regulovat např teplotu pomocí klasického relé, neustále by spínalo (i vlivem šumu), proto je lepší použít relé s hysterezi, podle šířky hystereze můžeme nastavit s jakou periodou bude kmitat.
 
-Pokud nám u řízení pomocí relé s hysterezí nevyhovuje nastavení hystereze a z nějakýho (nepochopitelného) důvodu ji nemůžeme měnit lze chování upravit přidáním setrvačného článku do zpětné vazby.
+Pokud nám u řízení pomocí relé s hysterezí nevyhovuje nastavení hystereze a z nějakého (nepochopitelného) důvodu ji nemůžeme měnit lze chování upravit přidáním setrvačného článku do zpětné vazby.
 Musí platit že oba přepínací body jsou větší než 0, potom při sepnutí relé dojde ke zpoždění informace ve zpětný vazbě a relé sepne zpět až později. Časová konstanta setrvačného článku musí být malá.
 
 \includegraphics{img/rele_reg.png}
@@ -401,21 +401,21 @@ obeně postup návrhu řízení v klouzavém režimu
 \end{enumerate}
 
 %-----------------------------------
-\section{Linearizace nelineárních dynamických systémů (rozvoj do Taylorovi řady, exaktní zpětnovazební
+\section{Linearizace nelineárních dynamických systémů (rozvoj do Taylorovy řady, exaktní zpětnovazební
   linearizace).
  }
 
-\subsection{Linearizace do Taylorovi řady}
+\subsection{Linearizace do Taylorovy řady}
 \begin{itemize}
     \item nejrozšířenější
     \item linearizuje systém pouze v okolí daného bodu
     \item vstupní výstupní vektory linearizovaného systému odpovídají { \bf odchylkám} od bodu ve kterém linearizujeme
-    \item pro linearizaci využijeme pouze prví člen Taylorovi rady, ostatní zanedbáváme.
-    \item výpočet se provádí pomocí parciálních derivací jednotlivých rovnic- Jakobyho matice
+    \item pro linearizaci využijeme pouze první člen Taylorovy řady, ostatní zanedbáváme.
+    \item výpočet se provádí pomocí parciálních derivací jednotlivých rovnic - Jacobiho matice
 \end{itemize}
 
 \subsection{exaktní zpětnovazební linearizace}
-oproti rozvoji do Taylorovi řady popisuje celý systém, ale musíme znát hodnoty vnitřních stavů.
+oproti rozvoji do Taylorovy řady popisuje celý systém, ale musíme znát hodnoty vnitřních stavů.
 \subsubsection{cstup-stav}
 Spočívá v tom že zavedeme nový vstup u ,ten bude osahovat opravdový vstup v + další prvky, které nahradí nelinearity.
 Diferenciální r-ce je potřeba upravit tak(substituce, transformace), aby nelineární část byla jen v rovnici kde je u, potom napíšeme vhodné u.
