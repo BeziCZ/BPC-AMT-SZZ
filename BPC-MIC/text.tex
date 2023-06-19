@@ -1,4 +1,4 @@
-\section{Von Neumannovy principy, blokové schéma Von Neumannova počítače. Rozdíl mezi Von Neumannovou, harvardskou a modifikovanou harvardskou architekturou. Procesory CISC a RISC. Rozdíl mezi obvodovým a mikroprogramovým řadičem. Řetězové zpracování instrukcí (pipelining), skokový a datový konflikt. Jak se liší a pro jaké typy úloh je určen mikroprocesor pro všeobecné použití, mikrokontrolér, signálový procesor a signálový kontrolér (DSC), SoC (System on a Chip), ASIC.}
+    \section{Von Neumannovy principy, blokové schéma Von Neumannova počítače. Rozdíl mezi Von Neumannovou, harvardskou a modifikovanou harvardskou architekturou. Procesory CISC a RISC. Rozdíl mezi obvodovým a mikroprogramovým řadičem. Řetězové zpracování instrukcí (pipelining), skokový a datový konflikt. Jak se liší a pro jaké typy úloh je určen mikroprocesor pro všeobecné použití, mikrokontrolér, signálový procesor a signálový kontrolér (DSC), SoC (System on a Chip), ASIC.}
 \subsection{Von Neumnnova architektura}
 \subsubsection*{Hlavní myšlenka}
 Instrukce programu jsou reprezentovány binárními signály a jsou uloženy v paměti počítače spolu s daty. \\
@@ -6,7 +6,7 @@ Instrukce programu jsou reprezentovány binárními signály a jsou uloženy v p
 Principy:
 \begin{itemize}
     \item Předpis pro řešení úlohy je převeden na posloupnost instrukcí
-    \item Intrukce a data se nacházejí ve stejné paměti
+    \item instrukce a data se nacházejí ve stejné paměti
     \item Instrukce ani data nejsou explicitně označeny
     \item Paměť je rozdělena na stejně velká paměťová místa nazývaná adresy
     \item V instrukcích není uvedena hodnota operandu, ale jeho adresa
@@ -144,7 +144,7 @@ Nutno operovat v nižších frekvencích kvůli problému s odvodem tepla. \\
 \subsection{Procesory CISC a RISC}
 \subsubsection*{CISC}
 Complex instruction set computer. \\
-Složité instrukční sady, přizůsobené tak aby realizovaly příkazy programovacího jazyka. \\
+Složité instrukční sady, přizpůsobené tak aby realizovaly příkazy programovacího jazyka. \\
 Používá mikroprogramový řadič. \\
 Stovky instrukcí. \\
 Přesun složitosti z SW do HW. \\
@@ -153,7 +153,7 @@ Přesun složitosti z SW do HW. \\
 Reduced instruction set computer. \\
 Malý počet jednoduchých instrukcí. \\
 Vyšší nároky na překladače z programovacích jazyků. \\
-Instrukce mají konstatní délku a jednotný formát, který vymezuje počet bitů v instrukci. \\
+Instrukce mají konstantní délku a jednotný formát, který vymezuje počet bitů v instrukci. \\
 Obvodový řadič. \\
 Velký počet registrů(16+), to snižuje nutnost častého přístupu do operační paměti. \\
 Jediné instrukce, které mají povoleno interagovat s pamětí jsou \texttt{load} a \texttt{store}, load z paměti do registru, store naopak. Ostatní instrukce pracují pouze s registry.\\
@@ -189,7 +189,7 @@ Doba exekuce instrukcí, kde k je počet fází:
 \end{center}
 
 \subsection{Skokový konflikt}
-Při instrukci větvení nebo přerušení. Ve chvíli kdy se začne provádět skok jsou v řetězci rozpracované instrukce. Řetězec tudíž musí být vyprázdněn a znovu naplněn, což vede ke snížení efektivity.\\
+Při instrukci větvení nebo přerušení. Ve chvíli, kdy se začne provádět skok jsou v řetězci rozpracované instrukce. Řetězec tudíž musí být vyprázdněn a znovu naplněn, což vede ke snížení efektivity.\\
 Řešení:
 \begin{itemize}
     \item Predikce skoků
@@ -211,7 +211,7 @@ Pokud instrukce pracuje s operandem z předchozí instrukce, která se však je�
 Řešení:
 \begin{itemize}
     \item Překladač řadí instrukce tak aby ke konfliktu nedošlo.
-    \item Procesor detekuje konflikt a pozastaví konání $I_2$. Snižuje účinost řetězení.
+    \item Procesor detekuje konflikt a pozastaví konání $I_2$. Snižuje účinnost řetězení.
     \item Procesor detekuje konflikt a změní pořadí instrukcí. Náročné na konstrukci procesoru.
 \end{itemize}
 
@@ -235,7 +235,7 @@ Určen pro embedded aplikace, spotřební elektronika, průmysl, automobily, ř�
 \subsubsection*{Signálový procesor - DSP}
 Vznikly pro číslicové zpracování signálů v reálném čase a spektrální analýzu. \\
 Vyžadují rychlé provádění specifických výpočetních operací, ale nepotřebují moc paměti. Například multiply and accumulate, v podstatě konvoluce, součin dvou parametrů a přičtení k proměnné.\\
-Méně periferií než mikrokontroléry. \\
+Méně periferií než mikrokontrolery. \\
 Dělí se na 2 typy:
 \begin{itemize}
     \item S pevnou řádovou čárkou - jednodušší, levnější, algoritmy se hůře implementují
@@ -262,7 +262,7 @@ Většinou digitální, hromadná výroba.\\
 \subsubsection{Izolované}
 Periferie využívají samostatný adresový prostor oddělený od adresového prostoru operační paměti.\\
 Pro přístup k izolovaným periferiím se používají speciální instrukce.\\
-Intel procesory mají společnou AB a DB pro periferie i operační paměť. Intrukce IN a OUT.
+Intel procesory mají společnou AB a DB pro periferie i operační paměť. instrukce IN a OUT.
 
 \subsubsection*{Paměťově mapované}
 Periferie se nacházejí ve stejném paměťovém prostoru jako operační paměť. \\
@@ -359,7 +359,7 @@ Počáteční adresa tabulky bývá u jednoduchých procesorů daná výrobcem n
           \begin{itemize}
               \item Generována v důsledku provádění určitých instrukcí v přesně definované fázi zpracování dané instrukce.
               \item Přerušní generují instrukce softwarového přerušení a výjimky
-              \item Výjimky jsou generovány kontrolními obvody počítače, když dojde k chybě v provádění instrukce. Typické výjimky jsou dělení nulou, pokus o exekuci neznámé či ilegální instrukce, noprávněný pokud o přístup k paměti
+              \item Výjimky jsou generovány kontrolními obvody počítače, když dojde k chybě v provádění instrukce. Typické výjimky jsou dělení nulou, pokus o exekuci neznámé či ilegální instrukce, neoprávněný pokud o přístup k paměti
           \end{itemize}
 \end{itemize}
 
@@ -385,7 +385,7 @@ RESET procesoru způsobí nastavení procesoru do definovaného výchozího stav
 Z hlediska uživatele to znamená, že se vynulují pracovní registry a řídící registry se nastaví na výrobcem definované hodnoty.\\
 Po uvolnění signálu RESET procesor vyzvedne z definované adresy reset vektor adresu první instrukce a vloží ji do programového čítače.\\
 Adresa reset vektoru je definována výrobcem a musí být v pevné paměti.\\
-Stejně tak musí být první instrukce uložena v pevné paměti. Dnes uloženy ve FLASH paměti kde je UEFI, které provádí incializaci V/V periferií a zavedení OS.\\
+Stejně tak musí být první instrukce uložena v pevné paměti. Dnes uloženy ve FLASH paměti kde je UEFI, které provádí inicializaci V/V periferií a zavedení OS.\\
 U jednoduchých kontrolerů bývá reset poslední vektor v tabulce přerušení.\\
 
 \section{Princip a vlastnosti pamětí ROM, EEPROM, FLASH. Rozdíl mezi paměťmi NOR FLASH a NAND FLASH. Princip pamětí MRAM a FeRAM.}
@@ -394,23 +394,23 @@ Obsah paměti naprogramován při výrobě a nelze změnit. \\
 Pro velké objemy výroby. \\
 Buňka tvořena tranzistorem MOSFET zapojeným mezi sloupec a zem. \\
 Hradlo tranzistoru je připojeno k řádkovému vodiči. \\
-U funkčních trazistorů je mezi hradlem a polovodičem vyleptánan tenká vrstva oxidu křemíku. U nefunkčních je vrstva tlustá. \\
-Po vybuzení řádkového vodiče dojde u funkčních tranzitorů k vytvoření indukovaného kanálu a tím ke zkratování sloupce na zem (Úroveň Low - logická 0). U nefunkčních kanál nevznikne, tranzistor je nevodivý a sloupec zůstává na úrovni High - logická 1. \\
+U funkčních tranzistorů je mezi hradlem a polovodičem vyleptána tenká vrstva oxidu křemíku. U nefunkčních je vrstva tlustá. \\
+Po vybuzení řádkového vodiče dojde u funkčních tranzistorů k vytvoření indukovaného kanálu a tím ke zkratování sloupce na zem (Úroveň Low - logická 0). U nefunkčních kanál nevznikne, tranzistor je nevodivý a sloupec zůstává na úrovni High - logická 1. \\
 Proleptání se dělá pomocí masky, kterou se určí který tranzistor bude 0 a který 1. \\
 
 \subsubsection*{PROM}
 Obsah paměti si uživatel jednorázově naprogramuje sám. \\
 Pak paměť již nelze měnit. \\
 
-\subsubsection*{Transitor s plovoucím hradlem}
-Pokud jsou ve floating gate elektrony tak se zvyšuje potřebný potenciál na aktivaci trazistoru a tudíž se tranzistor neaktivuje a představuje logickou 0. \\
+\subsubsection*{Tranzistor s plovoucím hradlem}
+Pokud jsou ve floating gate elektrony tak se zvyšuje potřebný potenciál na aktivaci tranzistoru a tudíž se tranzistor neaktivuje a představuje logickou 0. \\
 Pokud v ní nejsou elektrony, tranzistor se zaktivuje a tudíž představuje logickou 1. \\
 Programování a mazání:
 \begin{itemize}
     \item Tunelování elektronů
           \begin{itemize}
               \item Programování: Na source a control gate se přivede zvýšené napětí, na source záporný pól a na CG kladný. Tím jsou elektrony tunelovány skrze tenkou vrstvu izolantu do floating gate a tranzistor je naprogramován na logickou 0
-              \item Mazání: Na control gate je přiveden záporný pól a na source kladný, tím se trazistor vybije a změní se na logickou 1.
+              \item Mazání: Na control gate je přiveden záporný pól a na source kladný, tím se tranzistor vybije a změní se na logickou 1.
           \end{itemize}
     \item Lavinová injekce
           \begin{itemize}
@@ -431,7 +431,7 @@ Před programováním musí být paměť vymazána. \\
 Počet cyklů programování - mazání je cca desítky. \\
 
 \subsubsection*{EEPROM}
-Paměťová buňka složena ze 2 tranzistorů. Paměťový tranzistor splovoucím hradlem. Výběrový tranzistor je MOS, je potřeba abychom mohli měnit obsah každé buňky nezávisle na ostatních. \\
+Paměťová buňka složena ze 2 tranzistorů. Paměťový tranzistor s plovoucím hradlem. Výběrový tranzistor je MOS, je potřeba abychom mohli měnit obsah každé buňky nezávisle na ostatních. \\
 Obsah paměti lze programovat a mazat pomocí elektrických
 signálů bez předchozího vymazání. \\
 Narozdíl od RAM trvá zápis o několik řádů delší dobu než čtení.     Čtení i zápis v RAM trvá cca nanosekundy, stejně jako čtení paměťového místa EEPROM, zápis ale trvá cca milisekundy. \\
@@ -455,7 +455,7 @@ Rychlé čtení dat s náhodným přístupem. Možnost čtení i zápisu po byte
 Oproti NAND FLASH pomalý zápis a mazání. Pro aplikace kde se data moc nemění.\\
 Přímá náhrada ROM, EEPROM, stejné připojení k procesoru.\\
 Používá se pro ukládání firmware v embedded systémech a pro ukládání kódu zavaděčů OS(BIOS/UEFI).\\
-Každý tranzistor přivedem mezi zem(source) a sloupcový vodič(bit-line).\\
+Každý tranzistor přivedeme mezi zem(source) a sloupcový vodič(bit-line).\\
 Stačí jeden sepnutý tranzistor aby se bit-line stáhnul do nízké hodnoty. \\
 
 \subsubsection*{NAND FLASH}
@@ -464,9 +464,9 @@ a zemnímu vodiči -> menší paměťová buňka (hustota informace
 až o 45\% vyšší než NOR FLASH).\\
 Pro programování i mazání se používá tunelování elektronů.\\
 Složitější rozhraní než paměti NOR FLASH. Nelze je přímo připojit ke sběrnicím mikroprocesoru. Čtení s náhodným přístupem je pomalé, proto není možné z paměti přímo provádět kód. \\
-Čtení: na všechny tranzistory ve skupině mimo čteného se přivede vyšší než prahové napětí(všechny se sepnou). Na čtený se přivede napěttí vyšší jak práh pro vybitý tranzistor, ale nižší než pro nabitý. Pokud je vymazán sepne se a bit line stáhne do 0, pokud není vymazán bit like zůstane na vysoké úrovni. \\
+Čtení: na všechny tranzistory ve skupině mimo čteného se přivede vyšší než prahové napětí(všechny se sepnou). Na čtený se přivede napětí vyšší jak práh pro vybitý tranzistor, ale nižší než pro nabitý. Pokud je vymazán sepne se a bit line stáhne do 0, pokud není vymazán bit line zůstane na vysoké úrovni. \\
 Nevýhoda je přítomnost vadných bitů, které časem přibývají.\\
-Vhodné pro apliakce kde je potřeba ukládat velké množství dat, používá se sekvenční čtení, není potřeba provádět kód přímo z FLASH.\\
+Vhodné pro aplikace kde je potřeba ukládat velké množství dat, používá se sekvenční čtení, není potřeba provádět kód přímo z FLASH.\\
 USB a SSD disky.\\
 
 \begin{figure}[h!]
@@ -488,8 +488,8 @@ Informace je zachována i po vypnutí napájení.\\
 Uplatnění v průmyslových a bankovních systémech.\\
 Výhody oproti FLASH - vyšší počet cyklů mazání(\(10^{16}\)), vyšší rychlost zápisu, nižší spotřeba.\\
 Nevýhody oproti FLASH - malá hustota, limitovaná max kapacita, vyšší cena.
-Základem jsou feroelektrické krystaly. Založeno na vystavení feroelektrického krystalu elektrickému poli, centrální atom v mřízce krystalu se vychýlí ve směru elektrického pole. a zapřičiní proudový náraz. Ten je zaznamenán vnitřními obvody a paměť je následně zapnuta. Díky tomu, že atom zůstane vychýlen i po odstranění pole zůstává informace uchována.
-Feroelektrický materiál uvnitř feroelektrického kondezátoru v podobě tenkého filmu mezi elektrodami.
+Základem jsou feroelektrické krystaly. Založeno na vystavení feroelektrického krystalu elektrickému poli, centrální atom v mřížce krystalu se vychýlí ve směru elektrického pole. a zapříčiní proudový náraz. Ten je zaznamenán vnitřními obvody a paměť je následně zapnuta. Díky tomu, že atom zůstane vychýlen i po odstranění pole zůstává informace uchována.
+Feroelektrický materiál uvnitř feroelektrického kondenzátoru v podobě tenkého filmu mezi elektrodami.
 \begin{figure} [h!]
     \centering
     \includegraphics*[scale = 0.3]{img/FeRAM.png}
@@ -500,7 +500,7 @@ Uplatnění v ukládání dat v uzlech IoT, aplikace strojového učení a uměl
 Magnetorezistivní jev, změna odporu materiálu vlivem působení magnetického pole. Odpor se mění podle orientace magnetického pole při zápisu bitu.\\
 V MRAM se používá tunelová magnetorezistence - TMR. změn R o 30-70\%.\\
 TMR nastává na přechodu mezi dvěma feromagnetickými plátky oddělenými tenkým izolátorem. Dielektrická vrstva oxidu hliníku.\\
-Každý plátek může být zmangnetizován. \\
+Každý plátek může být zmagnetizován. \\
 Jeden plátek tvoří permanentní magnet s neměnnou orientací magnetického pole.\\
 Magnetizace druhého plátku je nastavována vnějším polem tak, aby orientace jeho pole odpovídala zapamatování 1 nebo 0.\\
 Paralelní magnetizace je logická 0, antiparalelní magnetizace logická 1.
@@ -512,7 +512,7 @@ Paralelní magnetizace je logická 0, antiparalelní magnetizace logická 1.
 
 Rychlost srovnatelná s SRAM. Hustota informace jako DRAM. Rychlejší než FLASH, menší spotřeba než DRAM.
 
-Princip: Pokud je směr magnetického pole proměnné feromagnetické vrsty (plátku) stejný s pevně daným směrem spodní vrstvy, je odpor kladený elektrickému proudu malý. Pokud je vzájemná orientace polí opačná, je vertikální elektrický odpor struktury velký. Změna logického stavu z 0 na 1 nebo z 1 na 0 se provádí přivedením sekvence dvou vzájemně posunutých proudových obdélníkových pulsů na dva zápisové vodiče paměťové buňky.\\
+Princip: Pokud je směr magnetického pole proměnné feromagnetické vrstvy (plátku) stejný s pevně daným směrem spodní vrstvy, je odpor kladený elektrickému proudu malý. Pokud je vzájemná orientace polí opačná, je vertikální elektrický odpor struktury velký. Změna logického stavu z 0 na 1 nebo z 1 na 0 se provádí přivedením sekvence dvou vzájemně posunutých proudových obdélníkových pulsů na dva zápisové vodiče paměťové buňky.\\
 Čtení stavu bitu se provádí prostřednictvím jedné společné elektrody a menší speciální čtecí elektrody napojené na protější stranu vertikální struktury.\\
 Zapsaný stav 1 - buňka má větší odpor a naopak.\\
 
@@ -612,7 +612,7 @@ Schéma VonNeumannova počítače je doplněno o vyrovnávací paměti procesoru
 Hierarchií rozumíme několik úrovní pamětí různých kapacit a rychlostí. Jsou seřazeny dle kapacity vzestupně a rychlosti sestupně.
 \begin{enumerate}
     \item Registry - nejblíže procesoru, stejně rychlé jak procesor, avšak s velmi malou kapacitou
-    \item Cache - kapactině jednotky až nižší desítky MB, ale rychlá a drahá SRAM paměť
+    \item Cache - kapacitně jednotky až nižší desítky MB, ale rychlá a drahá SRAM paměť
     \item Hlavní operační paměť
     \item Vnější disk - nejvyšší kapacita, avšak velmi pomalé
 \end{enumerate}
@@ -655,7 +655,7 @@ U jednoduchých procesorů zajišťuje jejich generování přímo procesor. U s
 
 \subsection{Fyzická adresa}
 Reálná adresa na sběrnici, se kterou pracuje MMU.\\
-Na vývodech procesoru je 20-bitová fyzická adresa, která se vytváří tak, že se obsah segmentového registru posune o 4 bity doleva a k ní se lineárně přite offset.
+Na vývodech procesoru je 20-bitová fyzická adresa, která se vytváří tak, že se obsah segmentového registru posune o 4 bity doleva a k ní se lineárně přičte offset.
 Takto je vytvořen rozsah fyzických adres 0-FFFFFH (0-1MB).\\
 Vzniknou překladem logických adres v MMU.\\
 
@@ -669,7 +669,7 @@ Z důvodu bezpečnosti pracuje se segmentovými registry a s tabulkami hlavně o
 
 \subsubsection*{Spojitá alokace}
 Rozdělení na pevné délky paměti pro každý proces.
-Neefektivní, vznikají prázná místa v paměti.
+Neefektivní, vznikají prázdná místa v paměti.
 
 \subsubsection*{Memory Management Unit}
 Zajišťuje oddělení logického a fyzického  adresového prostoru.\\
