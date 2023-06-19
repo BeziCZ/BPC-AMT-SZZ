@@ -10,12 +10,12 @@ bez znalosti skutečné hodnoty na výstupu, tím pádem nelze kompenzovat vliv 
 Krom regulační odchylky je zde i regulátor, který generuje akční zásah na základě odchylky a poruchy.
 \begin{figure}[H]
     \includegraphics[scale = 0.45]{images/reg.soustava.png}
-    \caption{Rozšířená regulačnní smyčka}
+    \caption{Rozšířená regulační smyčka}
 \end{figure}
 \subsection*{Základní veličiny a přenosy}
 \begin{figure}[H]
     \includegraphics[scale = 0.45]{images/reg.soustava2.png}
-    \caption{Regulačnní smyčka}
+    \caption{Regulační smyčka}
 \end{figure}
 w(t) \dots vstupní signál \\
 $\varepsilon(t)$ \dots odchylka \\
@@ -69,7 +69,7 @@ Přenos akční veličiny:
 Řízení hodnoty s neznámým průběhem
 \begin{itemize}
     \item cíl zajistit co nejpřesnější a nejpřesnější sledování průběhu - obecně servomechanismus
-    \item Úloha kompenzace poruch je druhotná, primární je zajištění co nejrychlejší a nejvěrnější shdoy řícící a řízené veličiny
+    \item Úloha kompenzace poruch je druhotná, primární je zajištění co nejrychlejší a nejvěrnější shody řídící a řízené veličiny
     \item sledování polohy
 \end{itemize}
 Řízení na hodnoty s předem známým průběhem:
@@ -168,7 +168,7 @@ Ustálená odchylka pro různé vstupy a počet integrátorů v soustavě a regu
     \includegraphics[scale = 0.3]{images/ustalena_odchylka.png}
 \end{figure}
 \newpage
-Ustálená odchylka pro různý typy poruch a počet integrátorů v soustavě a vregulátoru:
+Ustálená odchylka pro různý typy poruch a počet integrátorů v soustavě a v regulátoru:
 \begin{figure}[H]
     \includegraphics[scale = 0.3]{images/ustalena_odchylka2.png}
 \end{figure}
@@ -212,7 +212,7 @@ Je několik způsobů, jak určit stabilitu:
 
 
 \subsubsection*{Stabilita z charakteristické rovnice}
-Aby byl zpětnovazební systém stabilní, musí kořeny charakteristické rovnice být v lévé polorovině komplexní roviny p.\\
+Aby byl zpětnovazební systém stabilní, musí kořeny charakteristické rovnice být v levé polorovině komplexní roviny p.\\
 V charakteristické rovnici se často nachází neznámé proměnné, jsou algebraická kritéria výhodnější(Hurwitz a Routh-Schur).\\
 
 \subsubsection*{Nyquistovo kritérium stability}
@@ -225,7 +225,7 @@ Využívá se Cauchyho teorému o fázi - mapování uzavřené křivky z roviny
 \begin{figure}[H]
     \includegraphics*[scale = 0.3]{images/NyQuistMapovani.png}
 \end{figure}
-\textbf{Jestliže uzavřená záporně orientovaná křivka v rovině p obkličuje b nul a a pólů přenosu F(p) a neprochází žádným jejím pólem ani nulou, potom uzavřená křivka vzniklá mapováním obíhá počátek roviny b - a krát v záporném směru}.\\
+\textbf{Jestliže uzavřená záporně orientovaná křivka v rovině p obkličuje \textit{b} nul a \textit{a} pólů přenosu F(p) a neprochází žádným jejím pólem ani nulou, potom uzavřená křivka vzniklá mapováním obíhá počátek roviny b - a krát v záporném směru}.\\
 Pro odvození Cauchyho teorému je důležitá změna fáze uzavřené orientované křivky v rovině F. Fáze přenosu je dána součtem jednotlivých příspěvků kořenových činitelů čitatele $(p - \beta_i)$, od  kterých se odečte součet jednotlivých příspěvků kořenových činitelů jmenovatele $(p - \alpha_i)$.\\
 \newpage
 
@@ -285,8 +285,8 @@ Vzorový příklad k charakteristickému polynomu: $0.1p^5+2.01p^4+10.2p^3+(K_0+
 
 
 
-\section{Analýza dymanických vlastností zpětnovazebních obvodů. Metoda geometrického místa kořenů. Zásoba stability v amplitudě, fázi, modulu. Integrální kritéria kvality regulace, praktická kritéria}
-Dynamickými vlastnostmi popisujeme chování systému v přechodných dějích. Tím je myšleno rchlost odeznění, maximální překmit a kmitavost přechodného děje. Neexistuje univerzálně optimálně navrhnutý regulátor, dost záleží na situaci.
+\section{Analýza dynamických vlastností zpětnovazebních obvodů. Metoda geometrického místa kořenů. Zásoba stability v amplitudě, fázi, modulu. Integrální kritéria kvality regulace, praktická kritéria}
+Dynamickými vlastnostmi popisujeme chování systému v přechodných dějích. Tím je myšleno rychlost odeznění, maximální překmit a kmitavost přechodného děje. Neexistuje univerzálně optimálně navrhnutý regulátor, dost záleží na situaci.
 Dynamické vlastnosti se zjišťují z těchto hledisek:
 \begin{itemize}
     \item z rozložení nul a pólů v komplexní rovině
@@ -299,7 +299,7 @@ Dynamické vlastnosti se zjišťují z těchto hledisek:
 Jedná se o zobrazení průběhu pólů charakteristické rovnice v závislosti na proměnlivém parametru v komplexní rovině.\\
 Postup grafického řešení:
 \begin{itemize}
-    \item v přenosu otevřené smyčky za p dosaíme \(p_0\) jako konkrétní bod
+    \item v přenosu otevřené smyčky za p dosadíme \(p_0\) jako konkrétní bod
     \item dále vektor $(p_0 - \alpha_1)$ se dá zapsat v goniometrickém tvaru jako $|p_0 - \alpha_1|\angle (p_0 - \alpha_1)$
     \item fázi získáme tak, že součtem fáze v čitateli a odečtem fáze ze jmenovatele
     \item modul je dělení čitatele jmenovatelem
@@ -324,11 +324,11 @@ Postup grafického řešení:
 \subsubsection*{Zásoba stability v amplitudě}
 Hodnota zesílení, se kterou když vynásobíme stávající zesílení otevřené smyčky, tak přivedeme uzavřenou smyčku na mez stability.\\
 Udává se ve formě násobícího faktoru nebo v decibelech.\\
-Značí se Mg. Je to převrácená vzdálenost místa kde frekvenční charakretistika protíná zápornou reálnou osu a počátku soustavy souřadnic.\\
+Značí se Mg. Je to převrácená vzdálenost místa kde frekvenční charakteristika protíná zápornou reálnou osu a počátku soustavy souřadnic.\\
 
 \subsubsection*{Zásoba stability ve fázi}
 Záporně vzatá změna fáze otevřeného obvodu, která přivede uzavřený obvod na mez stability.\\
-Značí se Mp. Úhel mezi zápornou částí reálné osy a přímkou mezi počátkem a průsečíkem frekvenční chrakteristiky s kružnicí se středem v počátku a poloměrem 1.\\
+Značí se Mp. Úhel mezi zápornou částí reálné osy a přímkou mezi počátkem a průsečíkem frekvenční charakteristiky s kružnicí se středem v počátku a poloměrem 1.\\
 
 \subsubsection*{Zásoba stability v modulu}
 Nejkratší vzdálenost frekvenční charakteristiky otevřené smyčky do bodu -1 v komplexní rovině.\\
@@ -417,7 +417,7 @@ Zhodnocení vlastností:
 
 \subsection*{Metoda standartních tvarů frekvenčních charakteristik}
 
-Tvarujem frekveční charakteristiku tak, abychom dosáhli vyhovujícího tvaru - obecně platný postup neexistuje.\\
+Tvarujeme frekvenční charakteristiku tak, abychom dosáhli vyhovujícího tvaru - obecně platný postup neexistuje.\\
 Průběh soustavy i regulátoru se sčítají za předpokladu, že jsou charakteristiky v decibelech.\\
 Obecné požadavky na přenos:
 \begin{itemize}
@@ -441,7 +441,7 @@ Postup:
     \item p se nahradí $j\omega$
     \item čitatel i jmenovatel se vyjádří ve tvaru reálná složka + imaginární složka
     \item spočítá se absolutní hodnota přenosu (tj. každý člen na druhou a celé pod odmocninou)
-    \item stejné podmínky platí i pro druhou mocninu přenosu, tak se dá nadruhou, aby se nemuselo počítat s odmocninou
+    \item stejné podmínky platí i pro druhou mocninu přenosu, tak se dá na druhou, aby se nemuselo počítat s odmocninou
           \begin{figure}[H]
               \includegraphics*[scale = 1.0]{images/optimalniModul1.png}
           \end{figure}
@@ -471,11 +471,11 @@ Princip:
               \includegraphics*[scale = 1]{images/ZHtab.png}
           \end{figure}
 \end{enumerate}
-Kriitické parametry se dají určit několia způsoby:
+Kriitické parametry se dají určit několika způsoby:
 \begin{itemize}
     \item Z přechodové charakteristiky
     \item výpočtem ze známého modelu
-    \item rozkmitávání použitím relé bez hysterze
+    \item rozkmitávání použitím relé bez hystereze
 \end{itemize}
 
 \subsubsection*{Určení kritických parametrů z přechodové charakteristiky}
@@ -484,11 +484,11 @@ Odečtením doby průtahu $T_u$ a doby náběhu $T_n$ a následně dopočítat p
     K_{KRIT} \doteq \frac{\pi T_n}{2T_u}+1 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; T_{KRIT} \doteq 4T_u
 \end{equation}
 
-\subsubsection*{Určení kritiiických parametrů výpočtem ze známého modelu}
+\subsubsection*{Určení kritických parametrů výpočtem ze známého modelu}
 Existuje několik způsobů, jeden z nich je pomocí Nyquistova kritéria stability. Uzavřený obvod je na mezi stability pokud frekvenční charakteristika otevřené smyčky prochází bodem (-1;0). Následně se určí průsečík frekvenční charakteristiky otevřené smyčky se zápornou částí reálné osy(-x;0). Kritické zesílení je následně určeno jako $\frac{1}{x}$.\\
 Pro soustavy vyššího řádu je obtížné najít průsečík, proto se využívá algebraických kritérií stability(Hurwitzh nebo Routh-Schur)
 
-\subsubsection*{Rozkmitávání použitím relé bez hysterze}
+\subsubsection*{Rozkmitávání použitím relé bez hystereze}
 Velká výhoda, že kmity jsou řízené - nehrozí, že by se systém nekontrolovaně rozkmital.\\
 Určuje se tak, že zvětšujeme zesílení, dokud relé  nezačne kmitat.\\
 
@@ -503,7 +503,7 @@ Koeficienty se určují z Whiteleyho tvarů, které se nachází v tabulce, jedn
 \end{figure}
 Pro použití tabulky je však nutné charakteristický polynom upravit na bezrozměrný tvar.\\
 Regulátory navržené touto metodou mají malé zesílení a tím pádem tlumené a pomalé odezvy.\\
-V tomto tvaru je první a poslední koeficient roven jedné.To se dělá pomocí koeficientu q, který se získá pomocí vzorce:
+V tomto tvaru je první a poslední koeficient roven jedné. To se dělá pomocí koeficientu q, který se získá pomocí vzorce:
 \begin{equation}
     \frac{a_n}{a_0}p^n = q^n
 \end{equation}
@@ -522,7 +522,7 @@ Příklad:\\
 \end{center}
 
 \subsection*{Metoda požadovaného rozložení pólů uzavřeného obvodu}
-Tato metoda využívá vztahu mezi časovými odedzvami a rozložením pólů v přenosu uzavřené smyčky. Využívá se konstrukce kořenového hodografu.\\
+Tato metoda využívá vztahu mezi časovými odezvami a rozložením pólů v přenosu uzavřené smyčky. Využívá se konstrukce kořenového hodografu.\\
 Stanovíme si požadavky na tlumení obvodu a tím vymezíme jistou oblast v rovině p, ve které mohou ležet póly.
 Čím větší tlumení zvolíme, tím menší úhel bude svírat reálná osa s výsečí. Větší roli hrají dominantní póly(ty blíže ke středu) a zrychlení odezvy dosáhneme posunem těchto pólů co nejvíc vlevo(viz d)\\
 \begin{figure}[H]
@@ -538,7 +538,7 @@ Stanovíme si požadavky na tlumení obvodu a tím vymezíme jistou oblast v rov
   poruchy, s modelem regulované soustavy (kompenzace dopravního zpoždění). Vícerozměrové řídicí systémy.}
 
 Popis stejný jak spojitý PID akorát v diskrétní oblasti.\\
-Převod mezi spojitým a diskrétním přenosem se dělá pomocí Z-transformace. Dochazí zde ke zpoždění o 0,5 vzorkovací periody.
+Převod mezi spojitým a diskrétním přenosem se dělá pomocí Z-transformace. Dochází zde ke zpoždění o 0,5 vzorkovací periody.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/PSDVzorkovani.png}
 \end{figure}
@@ -555,7 +555,7 @@ Tvary PSD regulátoru:
 \end{figure}
 \newpage
 
-Z důvodu vzorkování se počítá, že přechodová charakretistika je zpožděná o polovinu vzorkovací periody:
+Z důvodu vzorkování se počítá, že přechodová charakteristika je zpožděná o polovinu vzorkovací periody:
 \begin{figure}[H]
     \centering
     \includegraphics*[scale = 0.27]{images/PSDVzorkovaniZpozdeni.png}
@@ -572,7 +572,7 @@ V druhém případě musí vyhovovat i diference hodnot y[(m + n)t] a y[(m + 1 +
 Vychází se z rovnice přenosu $F_W(z) = f_0 + f_1z^{-1}+f_2z^{-2} \dots $ \\
 Přechodný děj je konečný i v časech mimo vzorkování, jestli že F(z,m) má konečný počet členů pro všechna m z intervalu <0;1>. To je splněno pouze, když funkce FW(z,m) obsahuje celý čitatelový polynom přenosu spojitě pracující části obvodu P(z,m).\\
 \subsubsection*{Aproximace vzorkovače s tvarovačem}
-Tvarovač nultého řádu.Dopředný(generuje se zpětně), zpětný(klasická vzorkovačka nultého řádu), aproximační(spojuje dvě hodnoty vzorkovací - aproximace 1.řádu)
+Tvarovač nultého řádu. Dopředný(generuje se zpětně), zpětný(klasická vzorkovačka nultého řádu), aproximační(spojuje dvě hodnoty vzorkovací - aproximace 1.řádu)
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/tvarovace.png}
 \end{figure}
@@ -623,7 +623,7 @@ Speciálním případem je obvod kompenzující přítomnost dopravního zpožd�
 \end{figure}
 V charakteristickém polynomu se nevyskytuje člen s dopravním zpoždění, což přispívá ke stabilitě systému. Realizace modelu ve spojité variantě by byla náročná a nákladná, proto se v praxi používá její diskrétní model.
 \subsection*{Vícerozměrové řídící systémy}
-Většina regulovaných soustav má více vstupů a více výstupů, s čímž se váže víc akčních veličin, poruch atd. Jelikož závisí na pořadí nasobení jednotlivých matic, pravidla blokové algebry jsou modifikovány.\\
+Většina regulovaných soustav má více vstupů a více výstupů, s čímž se váže víc akčních veličin, poruch atd. Jelikož závisí na pořadí násobení jednotlivých matic, pravidla blokové algebry jsou modifikovány.\\
 I když počet vstupů a výstupů se většinou liší, bývají doplněny nulovými a to z důvodu, že práce se čtvercovými maticemi jsou jednodušší.
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/vicerozmerneSoustavy.png}
