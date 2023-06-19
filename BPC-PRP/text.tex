@@ -24,7 +24,7 @@ Slouží k měření ujeté vzdálenosti na každém kole a k měření úhlu na
 Popisuje vztah mezi rychlostí kol a lineární a úhlovou rychlostí podvozku.\\
 Následující popis je pro počítání rovnic při užití krokového motoru.\\
 \begin{enumerate}
-    \item Ujetá vzálenost levým a pravým kolem během poslední periody vzorkování:
+    \item Ujetá vzdálenost levým a pravým kolem během poslední periody vzorkování:
           \begin{center}
               \(\Delta s_L(t) = (\Gamma_L(t)-\Gamma_L(t-t_0))\cdot C_L [m]\)\\
               \(\Delta s_R(t) = (\Gamma_R(t)-\Gamma_R(t-t_0))\cdot C_R [m]\)
@@ -59,13 +59,13 @@ Následující popis je pro počítání rovnic při užití krokového motoru.\
           \end{center}
 \end{enumerate}
 
-\subsubsection{Inverní kinematická úloha}
+\subsubsection{Inverzní kinematická úloha}
 Řeší ovládání kol robota, pro výpočet rychlosti motorů používáme následující rovnice:\\
 \begin{center}
     \(\omega_{L} = (v + 0.5\cdot b \cdot \omega)\cdot \frac{1}{C_L}\)\\
     \(\omega_{R} = (v + 0.5\cdot b \cdot \omega)\cdot \frac{1}{C_R}\)
 \end{center}
-Kde \(\omega \) je žádaná úhlová rychlost a \(v\) je žádaná rychlost vpřed. Konstanty \(C_L\) a \(C_R\) obecně označují parametry řídicí jednotky pohonu, pohonu, převodovky a kola. Konstanta \(b\) je rozeč kol robota.\\
+Kde \(\omega \) je žádaná úhlová rychlost a \(v\) je žádaná rychlost vpřed. Konstanty \(C_L\) a \(C_R\) obecně označují parametry řídicí jednotky pohonu, pohonu, převodovky a kola. Konstanta \(b\) je rozteč kol robota.\\
 
 \subsection{Porovnání s ostatními typy kinematik}
 \subsubsection{Diferenciální podvozek}
@@ -197,7 +197,7 @@ Průběh NC interpolace:\\
 \subsection{Popis}
 ROS je soubor SW knihoven a nástrojů určených pro vývoj robotických aplikací pracujících na různých platformách, jeho základní částí je knihovna pro síťovou komunikaci, také široké spektrum driverů pro senzory a další software. \\
 ROS je middleware, tudíž vytváří interface mezi operačním systémem(podporován je Debian, ale jinak lze i jakýkoliv Linux, avšak bez podpory) a jednotlivými programy.\\
-ROS umožňuje komunikaci mezi programeme a podprogramy, které mohou být v jiných jazycích, na jiných platformách, či různých počítačích.\\
+ROS umožňuje komunikaci mezi programem a podprogramy, které mohou být v jiných jazycích, na jiných platformách, či různých počítačích.\\
 Jeho součástí je také RVIZ, což je vizualizační program, který umožňuje vytvářet 3D objekty.\\
 \begin{figure}[h!]
     \centering
@@ -211,7 +211,7 @@ Komunikace mezi jednotlivými Nodes je realizovaná do oddělených kanálů, kt
 \subsubsection{Publisher-subscriber}
 Publisher je instance, která pomocí API publikuje zprávy do určitého topicu. \\
 Subscriber příjmá všechny zprávy, které jsou v daném topicku publikované.\\
-Každý publisher a subscriber může komunikovatna právě jednom topicu.\\
+Každý publisher a subscriber může komunikovat na právě jednom topicu.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.3]{img/PubSub.png}
@@ -224,7 +224,7 @@ Jeden node funguje jako server, druhý funguje jako client. Node sloužící jak
 \end{figure}
 \subsection{Node}
 Jeden běžící program využívající ROS client library. Každá node je v ROSu identifikována jménem\\
-Indviduálně kompilována, spravována, spouštěna. Programovány s využitím ROS knihoven. Pro C++ je to roscpp a pro Python je to rospy.\\
+Individuálně kompilována, spravována, spouštěna. Programovány s využitím ROS knihoven. Pro C++ je to roscpp a pro Python je to rospy.\\
 Node by měla být užita pouze pro jeden účel. Například řízení motoru, plánování cesty, preprocessing dat.\\
 Nodes mezi sebou mohou komunikovat a měly by komunikovat.\\
 Každý node může vytvořit libovolný počet publisherů/subscriberů na libovolné množství topiců.\\
@@ -256,7 +256,7 @@ Toto schéma platí pro použití diferenčního podvozku, kde regulujeme úhlov
     \centering
     \includegraphics[scale = 0.3]{img/RegSoust.png}
 \end{figure}
-Kde w je žádaná hodnota, v našem případě je to odchylka od čáry, která je samozřejmě 0. y je výstupní hodnota reprezentující polohu robota vůči čáře. \(\omega \) a v jsou výstupy vstupy do inverzní kinematické úlohy podvozku, ze které dostaneme úhlové rychlosti pro jednotlivá kola \(\omega_R\) a \(\omega_L\). Poté jsou pomocí části programu pro ovládání motoru transformovány na \(\omega_{L}^{'}\) a \(\omega_{R}^{'}\). Veličinami vystupujícími ze samotého robota, které jsou získány pomocí přímé úlohy kinematiky pak jsou \(\Delta d\) a \(\Delta \beta \).\\
+Kde w je žádaná hodnota, v našem případě je to odchylka od čáry, která je samozřejmě 0. y je výstupní hodnota reprezentující polohu robota vůči čáře. \(\omega \) a v jsou výstupy vstupy do inverzní kinematické úlohy podvozku, ze které dostaneme úhlové rychlosti pro jednotlivá kola \(\omega_R\) a \(\omega_L\). Poté jsou pomocí části programu pro ovládání motoru transformovány na \(\omega_{L}^{'}\) a \(\omega_{R}^{'}\). Veličinami vystupujícími ze samotného robota, které jsou získány pomocí přímé úlohy kinematiky pak jsou \(\Delta d\) a \(\Delta \beta \).\\
 
 Poruchové veličiny mohou vstupovat v různých místech, nejvýznamnější poruchou v našem případě je odchýlení čáry od aktuální trajektorie robota.\\
 
@@ -264,12 +264,12 @@ Poruchové veličiny mohou vstupovat v různých místech, nejvýznamnější po
 \subsubsection{Snímání čáry}
 \begin{enumerate}
     \item Všechny parazitní vlivy týkající se optočlenů
-    \item Přesnost kalibrace, musíme vědět jaká je v prostředí maximální a minimální hodnota vycházející z optočlenů, potažno A/D převodníku. Tyto krajní hodnoty v realitě odpovídají plnému najetí a vyjetí z trajektorie.
+    \item Přesnost kalibrace, musíme vědět jaká je v prostředí maximální a minimální hodnota vycházející z optočlenů, potažmo A/D převodníku. Tyto krajní hodnoty v realitě odpovídají plnému najetí a vyjetí z trajektorie.
 \end{enumerate}
 
 \subsubsection{Pohon}
 \begin{enumerate}
-    \item Mechanické vůle, nepřenosti
+    \item Mechanické vůle, nepřesnosti
     \item Přesnost kalibrace - rozměry kol, rozteč kol, výpočet konstant pro podvozek
     \item Prokluz kol
     \item Přesnost mikrokrokování
@@ -281,5 +281,5 @@ Poruchové veličiny mohou vstupovat v různých místech, nejvýznamnější po
     \item Neúspěchy při komunikaci - výpadek
     \item Výpočetní výkon
     \item Neoptimalizovaný SW
-    \item Špatné odladění PSD regulátoru, špatné potlační wind-up jevu
+    \item Špatné odladění PSD regulátoru, špatné potlačení wind-up jevu
 \end{enumerate}
