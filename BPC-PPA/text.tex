@@ -27,7 +27,7 @@
     \item Lidská činnost - definování procesu, hlídání chybových hlášení, správa atp.
 \end{itemize}
 
-\subsubsection*{Úroveň řídícíh buněk}
+\subsubsection*{Úroveň řídících buněk}
 \begin{itemize}
     \item Bezprostřední řízení procesů pomocí PLC, IPC, regulátory, procesní stanice.
     \item Systémy přímo napojené na výrobní prostředek, spravující jeho sledování a nastavování.
@@ -41,7 +41,7 @@
 
 \subsubsection*{Technologie}
 \begin{itemize}
-    \item Elektrické přostředky, tepelné zařízení, dopravníkový pás, převodovky,...
+    \item Elektrické prostředky, tepelné zařízení, dopravníkový pás, převodovky,...
 \end{itemize}
 
 \subsection{Možnosti propojení úrovní řízení}
@@ -142,9 +142,9 @@ Rozhraní je fyzicky tvořeno buď tranzistorovou logikou, nebo pomocí relé. P
 
 \subsubsection*{Obvodové provedení}
 \begin{itemize}
-    \item Sink a Source - Udává, na keré straně zdroje se spíná
-    \item Sink se připojuje se zemí
-    \item Source se spojuje s Ucc
+    \item Sink a Source - Udává, na které straně zdroje se spíná
+    \item Sink se připojuje k zemi
+    \item Source se spojuje k Ucc
     \item Pro sourcing snímač se použije sinking vstup a naopak
 \end{itemize}
 
@@ -156,7 +156,7 @@ Rozhraní je fyzicky tvořeno buď tranzistorovou logikou, nebo pomocí relé. P
 
 \subsubsection*{Zpracování analogových veličin}
 \begin{itemize}
-    \item Napětí - rozsah: 0 až 10 V, dochází rušení z ostatních vodičů díky indukci, napětí s delkou vedení klesá.
+    \item Napětí - rozsah: 0 až 10 V, dochází rušení z ostatních vodičů díky indukci, napětí s délkou vedení klesá.
     \item Proud - rozsah 4-20 mA (0-20 mA), tzv. proudová smyčka, odolnější proti rušení, lze detekovat poruchu (0 mA) a ze smyčky lze zařízení i napájet.
     \item Zapojení může být 2-vodičové (např. měření odporu PT100), 3-vodičové (např. měření polohy (potenciometr)), 4-vodičové (snímač s vlastním napájením + proudová smyčka)
 \end{itemize}
@@ -292,7 +292,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 
 \subsubsection*{Typy vnitřního zapojení:}
 \begin{itemize}
-    \item \textbf{S cizím buzením} - rotor i stator mají sepáratní napájení
+    \item \textbf{S cizím buzením} - rotor i stator mají separátní napájení
     \item \textbf{Sériové buzení} - rotor a stator sériově propojen
     \item \textbf{S permanentními magnety} - stator je tvořen magnety (závislost otáček na momentu je lineární, moment závisí na napájecím proudu)
 \end{itemize}
@@ -302,7 +302,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
     \item Změna napětí
     \item Reverzace změnou polarity napětí
     \item PWM - střídou napětí na určité frekvenci - výsledné napětí se rovná střední hodnotě signálu
-    \item H-můstek - změna směru, říení nadřazeným systémem
+    \item H-můstek - změna směru, řízení nadřazeným systémem
     \item Driver - PWM a DIR signál, komunikace (registry)
 \end{itemize}
 
@@ -312,7 +312,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
     \item Využívá elektronickou komutaci (měření polohy rotoru Hallovými senzory)
     \item Stator - cívky (3 póly), rotor - magnet
     \item Většinou malé provedení - několik wattů
-    \item Rychlost není přesně dána, pokud není podřízena ref. frekvenci.
+    \item Rychlost není přesně dána, pokud není podřízena referenční frekvenci.
 \end{itemize}
 
 \subsubsection*{Řízení:}
@@ -356,7 +356,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 
 \subsubsection*{S permanentním magnetem}
 \begin{itemize}
-    \item Rotor - permamentní magnet s radiální magnetizací.
+    \item Rotor - permanentní magnet s radiální magnetizací.
     \item Stator má nástavce s vinutím, dvě vinutí o 1/4 zubu posunuta.
     \item Pouze dvě vinutí, ale i přesto má 24 pólů v každé ze dvou fází.
     \item Pólové nástavce jsou z magnetické měkké oceli s posunutými zuby.
@@ -366,7 +366,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 \subsubsection*{Hybridní}
 \begin{itemize}
     \item Kombinace reluktačního a s permanentním magnetem.
-    \item Rotor z permamentního magnetu, který má nástavec se zuby, jenž jsou mezi sebou o půl zubu posunuty.
+    \item Rotor z permanentního magnetu, který má nástavec se zuby, jenž jsou mezi sebou o půl zubu posunuty.
     \item Nejmenší krok a je nejdražší.
     \item Rotor a stator mají různé počty zubů, aby nemohlo dojít k "uchycení" všech zunů najednou (zastavení).
 \end{itemize}
@@ -390,7 +390,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 \begin{itemize}
     \item Řízení: \begin{itemize}
               \item Unipolární - jednodušší budič - pouze spínání jednotlivých vinutí, lze zapojit i jako Bipolární.
-              \item Bipolární - vyšší moment/efektivita, sériové - vyšší moment v nízkých otáčkách + vyšší impenandce, paralelní - vyšší rychlost, řídí se můstkem na každou fázi - otáčení smru proudu vinutím.
+              \item Bipolární - vyšší moment/efektivita, sériové - vyšší moment v nízkých otáčkách + vyšší impedance, paralelní - vyšší rychlost, řídí se můstkem na každou fázi - otáčení směru proudu vinutím.
           \end{itemize}
 \end{itemize}
 
@@ -409,13 +409,13 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
                         \item Microstepping - Postupné buzení jednotlivých kroků
                     \end{itemize}
               \item Řízení driverem: \begin{itemize}
-                        \item Ovládání nadřazeným systémem - step, driv, enable sígnály
+                        \item Ovládání nadřazeným systémem - step, drive, enable signály
                         \item S nadřazeným systémem komunikuje po sběrnici - EtherCAT, Profinet, SPI,\dots
                     \end{itemize}
           \end{itemize}
 \end{itemize}
 
-\subsubsection*{Výhody a nevýhody krokových notorů}
+\subsubsection*{Výhody a nevýhody krokových motorů}
 \begin{itemize}
     \item Výhody: \begin{itemize}
               \item Polohování v otevřené smyčce
@@ -427,7 +427,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
               \item nízká rychlost
               \item Rezonance - vibrace, hluk
           \end{itemize}
-    \item Oproti servo-pohonům jsou levnější, jednodušší, momentově silnější při stejné rychlosti, méně přesné, pomalejší, méně dynamické.
+    \item Oproti servopohonům jsou levnější, jednodušší, momentově silnější při stejné rychlosti, méně přesné, pomalejší, méně dynamické.
 \end{itemize}
 
 \subsubsection*{Servopohon}
@@ -440,8 +440,8 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 \subsubsection*{Asynchronní motor}
 \begin{itemize}
     \item Napájen střídavým 3-fázovým napětím
-    \item Zapojení do hvězdy(výkon) nebo trojuhelníka (proud)
-    \item Staror - cívky, Rotor - klec z feromagnetického materiálu
+    \item Zapojení do hvězdy(výkon) nebo trojúhelníka (proud)
+    \item Stator - cívky, Rotor - klec z feromagnetického materiálu
     \item Levný, odolný proti přetížení, nejrozšířenější druh motoru
     \item Velký počáteční proud, složité na řízení na polohu
     \item Má skluz - tok magnetického pole je rychlejší než otáčení rotoru
@@ -451,7 +451,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 \subsubsection*{Řízení}
 \begin{itemize}
     \item Pomocí stykače (el. signálem)
-    \item Pomocí frekvečního měniče - elektrické signály (start/stop, forward/reverse,\dots), pomocí komunikace (registry)
+    \item Pomocí frekvenčního měniče - elektrické signály (start/stop, forward/reverse,\dots), pomocí komunikace (registry)
     \item Řízení rychlosti - napětím, frekvencí
 \end{itemize}
 
@@ -482,7 +482,7 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
     \item Přeměnu pneumatické tlakové energie na mechanickou zajišťuje: \begin{itemize}
               \item membrána
               \item píst (piston)
-              \item vlnovcelamely
+              \item lamely
               \item lopatky - turbína
           \end{itemize}
 \end{itemize}
@@ -495,10 +495,10 @@ Pneumatické - přeměna mechanické energie kompresoru na tlakovou nebo pohybov
 
 \subsubsection*{Vlastnosti}
 \begin{itemize}
-    \item Dostupnost - Stalčený vzduch je ve většině podniků k dispozici, případně pojízdné kompresory
+    \item Dostupnost - Stlačený vzduch je ve většině podniků k dispozici, případně pojízdné kompresory
     \item Skladování - Velké objemy stlačeného vzduchu lze skladovat
     \item Jednoduchá konstrukce - Pneumatické prvky mají jednoduchou konstrukci
-    \item Řízení proudu a tlaku - Lze dobře nastvovat pomocí škrtícího ventilu
+    \item Řízení proudu a tlaku - Lze dobře nastavovat pomocí škrtícího ventilu
     \item Trvanlivost při malých nárocích na údržbu
     \item Bez negativních vlivů na životní prostředí
     \item Bezpečnost - pneumatické pohony se při provozu nezahřávají, při přetížení se zastaví a nepoškodí se
@@ -583,7 +583,7 @@ Celé zařízení vykonává standardní PC, případně umí i Raspberry Pi, ve
 \begin{itemize}
     \item Levnější
     \item Velká operační paměť
-    \item Není až tak moc realtime kvůli operačnímu systému.
+    \item Není až tak moc real-time kvůli operačnímu systému.
 \end{itemize}
 
 \subsubsection*{Slot PLC}
@@ -622,7 +622,7 @@ PLC realizováno jako karta do PC
     \item Nepodporuje realtime OS.
     \item Integrován jako HMI panel zabudován ve stroji, HMI+PLC dohromady (Když se jedno posere, musí se vyměnit celek).
     \item Propojení pomocí průmyslové komunikace - ethernet - Modbus TCP, Ethernet/IP, \dots
-    \item HMI může být využíváno pro konkretní stroj nebo jako jedno HMI na více strojů - více obrazovek.
+    \item HMI může být využíváno pro konkrétní stroj nebo jako jedno HMI na více strojů - více obrazovek.
 \end{itemize}
 
 \subsubsection*{Průmyslové regulátory}
@@ -663,8 +663,8 @@ Tato norma také definuje jakým způsobem pracuje PLC. Pracuje v tzv. cyklech, 
 \begin{itemize}
     \item Sbírka podprogramů vykonávající se v daném pořadí - najednou.
     \item Kontinuální task - vykonává se vždy, když je to možné - přerušení s periodickým taskem
-    \item Periodický task - spoušten v daný okamžik s periodou
-    \item Událostní task - spouštěn na zákaldě splnění nějaké podmínky
+    \item Periodický task - spouštěn v daný okamžik s periodou
+    \item Událostní task - spouštěn na základě splnění nějaké podmínky
 \end{itemize}
 
 \subsubsection*{Vestavěné funkce}
@@ -704,7 +704,7 @@ Tato norma také definuje jakým způsobem pracuje PLC. Pracuje v tzv. cyklech, 
     \item Model sekvenčního programu \begin{itemize}
               \item Nastavování výstupu na základě stavu programu
               \item Systematický přístup
-              \item Úloha rozdělna na posloupnost kroků
+              \item Úloha rozdělena na posloupnost kroků
               \item např. stavový automat
           \end{itemize}
 \end{itemize}
@@ -716,7 +716,7 @@ Viz BPC-LOS - Mealy, Moore
 \subsubsection*{Referenční model ISO / OSI}
 Tento model popisuje chování klientů při komunikaci, definuje služby, protokoly a rozhraní pro jednotlivé vrstvy.
 \begin{itemize}
-    \item 7. Aplikační vstva - rozhraní na aplikaci (nebo OS)
+    \item 7. Aplikační vrstva - rozhraní na aplikaci (nebo OS)
     \item 6. Prezentační vrstva - konverze dat, šifrování, komprese
     \item 5. Relační vrstva - ustanovení relace, autorizace, autentizace [data]
     \item 4. Transportní vrstva - řízení toku dat přes síť [segment]
@@ -726,18 +726,18 @@ Tento model popisuje chování klientů při komunikaci, definuje služby, proto
 \end{itemize}
 
 \subsubsection*{Fyzická vrsta ISO/OSI}
-Rozlišujeme několik typů zpaojení týkajících se fyzické vstvy ISO/OSI modelu:
+Rozlišujeme několik typů zapojení týkajících se fyzické vrstvy ISO/OSI modelu:
 \begin{itemize}
     \item Nesymetrický přenos - Signál vztahován k zemi, jednoduchý, levný, málo odolný protio rušení, krátká vzdálenost, malá rychlost
     \item Symetrický přenos - Signály vztahovány proti sobě, měří se potenciál mezi dvěma vodiči. Vysoké rychlosti, velká odolnost vůči rušení.
     \item Point-to-Point (simplex) - 1 vysílač, 1 přijímač - komunikace v jednom směru
     \item Multidrop (distributed simplex) - 1 vysílač, více přijímačů - komunikace v jednom směru
-    \item Multipoint (mupliplex) - více vysílačů i přijimačů, obousměrná komunikace
+    \item Multipoint (mupliplex) - více vysílačů i přijímačů, obousměrná komunikace
     \item Half-Duplex - obousměrná komunikace - v jeden okamžik pouze v jednom směru
     \item Full-Duplex - obousměrná komunikace - v obou směrech najednou
 \end{itemize}
 
-\subsubsection*{Spojová vrsva ISO/OSI}
+\subsubsection*{Spojová vrstva ISO/OSI}
 Přenos a synchronizace rámců, řízení toku, detekce a ošetření chyb. U ethernetu například switche - pomocí MAC adresy směřují rámce na správné porty.
 
 \subsubsection*{Síťová vrstva}
@@ -752,7 +752,7 @@ S touto vrstvou pracují například routery, které podle IP adresy směřují 
 
 \subsubsection*{Průmyslové komunikační sítě - protokoly}
 Používají se pro přenos dat ve větším množství, nebo pokud chceme připojovat více zařízení na stejnou sběrnici.
-Rozděluje se do několika kategorií (od nejjedodušší k nejsložitější):
+Rozděluje se do několika kategorií (od nejjednodušší k nejsložitější):
 \begin{itemize}
     \item \textbf{Sensor Bus} - K propojení senzorů s řídícími systémy. AS-interface, IO-Link
     \item \textbf{Device Bus} - K propojení zařízení jako akční prvky (ventily, motory,...) s řídícími systémy. Profibus DP, CANopen\dots
@@ -788,7 +788,7 @@ Rozděluje se do několika kategorií (od nejjedodušší k nejsložitější):
 \begin{itemize}
     \item V průmyslu je stále nejrozšířenějším protokolem
     \item Profibus DP (decentralized periphery) - devicebus - rychlejší, jednodušší, využívá RS-485, optika. Optimalizován na výkon, cyklický přenos dat
-    \item Profibus PA (process automation) - fielbus - pomalejší, bezpečnější (aj výbušné prostředí), využívá vlastní fyzickou vrstvu.
+    \item Profibus PA (process automation) - fieldbus - pomalejší, bezpečnější (aj výbušné prostředí), využívá vlastní fyzickou vrstvu.
     \item Profibus využívá deterministickou komunikaci v reálném čase.
 \end{itemize}
 
@@ -803,7 +803,7 @@ Rozděluje se do několika kategorií (od nejjedodušší k nejsložitější):
 Postupnou konvergencí průmyslu k internetu jsme dospěli k tomu, že je velmi praktické jako fieldbus používat ethernet. Dostaneme tak řešení, které je mnohem více standardizované, rychlejší, lze využít mnoho poznatků z provozování běžných sítí (např. rozdělování přístupu) a lze na něm provozovat i „běžné“ počítačové komunikace.
 Je u něj třeba zaručit několik real-time vlastností:
 \begin{itemize}
-    \item Včasnost - rychlost provedení operace od vyslání zprávy - zajistí se fyzickým oddělením časově kritické komunikace od časově nekritické, nebo třeba prioritizací paketů na úronvi switchů
+    \item Včasnost - rychlost provedení operace od vyslání zprávy - zajistí se fyzickým oddělením časově kritické komunikace od časově nekritické, nebo třeba prioritizací paketů na úrovni switchů
     \item Současnost - synchronizace akcí všech účastníků na ethernetu - zajistí se mechanismy na synchronizaci času - časové značky u paketů
 \end{itemize}
 Další z možností jak tyto dvě vlastnosti zařídit: Použít UDP namísto TCP, snížit časové toleranční pásmo (jitter).
@@ -932,13 +932,13 @@ Ještě tu je aj \textbf{EtherCAT} a \textbf{ETHERNET Powerlink}, ale na ty kukn
     \item Odstranění chyb (fault removal) \begin{itemize}
               \item Verifikace a validace - při návrhu, kontrola, analýza,\dots
               \item Údržba - při provozu, mazání, pravidelná kontrola,\dots
-              \item Fault forecasting - simulace, modelování, historuická data, testy,\dots
+              \item Fault forecasting - simulace, modelování, historická data, testy,\dots
           \end{itemize}
     \item Maskování chyb (fault masking) \begin{itemize}
               \item Zabránění projevu chyby - redundance (2 zařízení dělaj to samé, při chybě začne fungovat druhé)
           \end{itemize}
     \item Odolnost proti chybám (fault tolerance) \begin{itemize}
-              \item Detekce chyby (fault detectino) - watchdog (periodický občerstvovaný časovač - monitoruje a reaguje na problémy)
+              \item Detekce chyby (fault detection) - watchdog (periodický občerstvovaný časovač - monitoruje a reaguje na problémy)
               \item Zotavení (recovery) - restart
               \item Odstranění poruchy (fault removal) - načtení naposledy správného stavu
           \end{itemize}
@@ -958,14 +958,14 @@ TIP - nauč se hlavně anglický pojem, čeština je mrcha. A i tak v tom budeš
     \item Error (chyba, porucha) - nesprávný stav systému, může vést k selhání
     \item Failure (porucha, selhání) - defekt, systém neplní požadovanou funkci
     \item Havárie - porucha s vážnými následky
-    \item Fault tolerance (odolnost proti poruchám) - závada nevede k poruče
+    \item Fault tolerance (odolnost proti poruchám) - závada nevede k poruše
     \item Safety (bezpečnost) - porucha nevede k havárii
 \end{itemize}
 
 \subsubsection*{Ukazatele spolehlivosti}
 
 \begin{itemize}
-    \item Intenzita poruch - očekavaný počet poruch za jednotku času - počet poruch za milion provozních hoditn nebo jako Failure in time (miliarda hodin)
+    \item Intenzita poruch - očekávaný počet poruch za jednotku času - počet poruch za milion provozních hodin nebo jako Failure in time (miliarda hodin)
     \item Střední doba bezporuchového provozu (MTBF) - střední doba mezi dvěma poruchami
     \item Střední doba do poruchy (MTTF) - nezahrnuje dobu opravy, rozlišení poruchy a nebezpečné poruchy
 \end{itemize}
@@ -986,7 +986,7 @@ TIP - nauč se hlavně anglický pojem, čeština je mrcha. A i tak v tom budeš
 Je třeba zajistit zabezpečení dat v celém podnikovém systému – celistvost a nepodvrhnutelnost dat, bezpečný přenos dat, zabezpečení před neoprávněnou manipulací.
 \begin{itemize}
     \item Vnější aspekty - ochrana před útočníky z vnějšku
-    \item Vnitřní aspekty - Ochrana přes samotnými zařízeními a nedbalostí zaměstanců
+    \item Vnitřní aspekty - Ochrana přes samotnými zařízeními a nedbalostí zaměstnanců
 \end{itemize}
 
 \subsubsection*{Zranitelná místa a útoky}
@@ -1023,7 +1023,7 @@ Všechny systémy, které musí reagovat v reálném čase = musí vykonat akčn
 \subsubsection*{Determinismus, včasnost, jitter}
 \begin{itemize}
     \item \textbf{Determinismus} - "opakovatelnost" událostí v systému. Deterministicky se chová něco, co se nechová náhodně, ale na základě jasných vstupů. V RTOS se tímto pojmem označuje to, že existují jasné časové meze při vykonávání funkce.
-    \item  \textbf{Včasnost} - Požadavek na včasnost znamená, že vstupní data musejí být získána v časovém limitu. V tomto limitu musí být proveden výpočet a výstupní data musí být dýna na výsutp. Dá se posuzovat dvěma rúznými časovými podmínkami: \begin{itemize}
+    \item  \textbf{Včasnost} - Požadavek na včasnost znamená, že vstupní data musejí být získána v časovém limitu. V tomto limitu musí být proveden výpočet a výstupní data musí být dána na výsutp. Dá se posuzovat dvěma rúznými časovými podmínkami: \begin{itemize}
               \item Absolutní časová podmínka - V daný čas musí být podmínka splněna
               \item Relativní časová podmínka - Podmínka musí být splněna do x sekund od splnění jiné podmínky.
           \end{itemize}
@@ -1093,7 +1093,7 @@ RTOS vs supersmyčka:
 \end{figure}
 
 \begin{itemize}
-    \item Aby mohly řídící prostředky pracovat v real time, musí obsahovat systém reaálného času - supersmyčka nebo RTOS
+    \item Aby mohly řídící prostředky pracovat v real time, musí obsahovat systém reálného času - supersmyčka nebo RTOS
     \item RTOS je komplexní nástroj plnící deadline jednotlivých úloh
     \item RTOS se používá v PLC jako firmware, v embedded nebo PC řídících systémech
     \item Pro zajištění komunikace v real time je nutná součinnost software pracující v real time a HW.
