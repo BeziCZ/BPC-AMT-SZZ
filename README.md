@@ -1,5 +1,6 @@
 # Státnicové otázky BPC-AMT
-Tento repozitář a jeho funkce je založena na repozitáři s otázkami ke státní závěrečné zkoušce od oboru Informační bezpečnost na FEKT VUT. Jejich původní repozitář najdete zde: [MPC-IBE-SZZ](https://github.com/VUT-FEKT-IBE/MPC-IBE-SZZ)
+Tento repozitář a jeho funkce je založena na repozitáři s otázkami ke státní závěrečné zkoušce od oboru Informační bezpečnost na FEKT VUT. Jejich původní repozitář najdete zde: [MPC-IBE-SZZ](https://github.com/VUT-FEKT-IBE/MPC-IBE-SZZ).
+
 Státnicové předměty pro rok 2022/23 jsou následující
 
 - [BPC-MVE](#BPC-MVE) Měření v elektrotechnice
