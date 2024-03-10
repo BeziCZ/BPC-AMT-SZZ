@@ -2,23 +2,59 @@
 \subsection{Odporové snímače polohy}
 
 \subsubsection{Snímače se skokovou změnou odporu}
-Mechanicky ovládané kontakty:
+\textbf{Mechanicky ovládané kontakty:}
 \begin{itemize}
-    \item Mechanické mikrospínače - ovládání světla
-    \item Parametry: Rozsahy síly potřebné pro spínání, velikost proudu/napětí které mohou spínat(větší problém s DC proudy), životnost z pohledu počtu spínání(rychlost mechanické únavy, klasicky \(10^6\) sepnutí)
+    \item Koncové a polohové spínač a mikrospínače
+    \item Parametry:
+    		\begin{itemize}
+    		\item Rozsahy síly potřebné pro spínání
+    		\item Prúdová a napäťová zaťažiteľnosť kontaktu (pri DC zvyčajne menšia z dôvodu dlhšieho zapálenia oblúku ako pri AC)
+    		\item Mechanická životnosť (počet cyklov zopnutia a rozopnutia, rádovo \(10^6\) sepnutí)
+    		\item Typ kontaktov (spínací/rozpínací, NO/NC) 
+    		\item Typ ovládacieho prvku (guľové/kladkové zdvíhadlo, otočná/tyčová páka,... viz. obrázok \ref{limitswitch})
+		\end{itemize} 
+	\item Použitie:
+    		\begin{itemize}
+    		\item Snímanie koncových polôch mechanických pojazdov (Brány, ramená,...)
+    		\item Snímanie zatvorenia bezpečnostných krytov
+    		\item ...
+    	\end{itemize}   		 
 \end{itemize}
-Magneticky ovládané kontakty:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.1\textwidth]{img/limitswitch1.png}
+    \includegraphics[width=0.1\textwidth]{img/limitswitch2.png}
+    \includegraphics[width=0.1\textwidth]{img/limitswitch3.png}
+    \includegraphics[width=0.1\textwidth]{img/limitswitch4.png}
+    \caption{Polohové snímače s rôznym typom ovládacieho prvku}
+    \label{limitswitch}
+\end{figure}
+
+\textbf{Magneticky ovládané kontakty:}
 \begin{itemize}
     \item Jazýčková relé - kontakty z magneticky měkkého materiálu ovládané polem permamentního magnetu
     \item Princip - k relé přibližujeme magnet, přiblížením vzniká přitažlivá síla mezi kontakty relé
-    \item Parametry - spínané proudy(jednotky mA), max počet přepnutí
+    \item Parametry:
+    		\begin{itemize}
+    			\item Prúdová a napäťová zaťažiteľnosť kontaktu (jednotky mA)
+    			\item Mechanická životnosť (počet cyklov zopnutia a rozopnutia)
+		\end{itemize}    	 
     \item Kontakty se mohou slepit kvůli přiliš silné magnetizaci
-    \item Měření rychlosti na kole, otevření zavření dveří, atd...
+    \item Použitie:
+    \begin{itemize}
+    		\item Meření rychlosti otáček kola
+    		\item Otevření zavření dveří
+    		\item ...
+    \end{itemize} 
 \end{itemize}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{img/JazRele.png}
+    \caption{Princíp fungovania magnetického kontaktu}
 \end{figure}
+
 \subsubsection{Snímače s plynulou změnou odporu}
 Odporové potenciometry s pohyblivým kontaktem mechanicky spojeným s měřenou veličinou.\\
 Na nevodivé podložce je nanesena vodivá vrstva, přes kterou přejíždí pohyblivý kontakt a měříme odpor mezi jezdcem a jedním z okraju vodivé dráhy.\\
