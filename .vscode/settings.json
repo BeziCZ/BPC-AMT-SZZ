@@ -1,3 +1,7 @@
 {
-    "latex-workshop.latex.rootFile.indicator": "\\begin{document}"
+    "latex-workshop.latex.rootFile.indicator": "\\begin{document}",
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/buildTest.yaml",
+        ".github/workflows/release.yaml"
+    ]
 }
