@@ -180,6 +180,14 @@ Nelineární filtr nelze popsat prostou konvolucí.
     \item \textbf{Min/max filtr} - zvýrazňuje tmavé nebo světlé lokální struktury
     \item \textbf{Modus} - nahrazení nejčastější hodnotou v okolí
     \item \textbf{Morfologické filtry} - pracují se strukturním elementem, vhodné hlavně pro binární obrazy
+    \item \textbf{Bilaterální filtr} - nelineární filtr zachovávající hrany; váha každého souseda závisí jak na jeho prostorové vzdálenosti, tak na rozdílu intenzit:
+          \begin{equation}
+              g(x,y)=\frac{1}{W}\sum_{(i,j)\in\Omega}
+              f(i,j)\,\underbrace{e^{-\frac{(x-i)^2+(y-j)^2}{2\sigma_s^2}}}_{\text{prostorová váha}}
+              \underbrace{e^{-\frac{(f(x,y)-f(i,j))^2}{2\sigma_r^2}}}_{\text{váha podobnosti}}
+          \end{equation}
+          kde $W$ je normalizační konstanta, $\sigma_s$ řídí prostorový rozsah a $\sigma_r$ rozsah intenzit.
+          Výhodou je potlačení šumu bez rozmazání hran; nevýhodou je vyšší výpočetní náročnost.
 \end{itemize}
 
 \subsection*{Typy šumu}
@@ -413,8 +421,8 @@ kde \(r^2=x^2+y^2\) je kvadrát vzdálenosti od středu obrazu a \(\kappa_i\) js
 
 Tangenciální model (naklopení optické osy vůči senzoru):
 \begin{equation}
-    x'=x+2\rho_1 y+\rho_2(r^2+2x^2), \qquad
-    y'=y+2\rho_2 x+\rho_1(r^2+2y^2)
+    x'=x+2\rho_1 xy+\rho_2(r^2+2x^2), \qquad
+    y'=y+2\rho_2 xy+\rho_1(r^2+2y^2)
 \end{equation}
 kde \(\rho_1, \rho_2\) jsou koeficienty tangenciálního zkreslení.
 
@@ -513,6 +521,22 @@ Spojuje blízké objekty a zaplňuje malé díry.
     \includegraphics[width=0.82\textwidth]{img/skelet.png}
 \end{figure}
 
+\subsection*{Morfologie šedotónových obrazů}
+Morfologické operace se rozšiřují i na šedotónové obrazy, kde strukturní element \(B\) má vlastní jasové hodnoty.
+
+Šedotónová dilatace (rozšiřuje světlé oblasti, zvedá lokální maximum):
+\begin{equation}
+    (I\oplus B)(x,y)=\max_{(s,t)\in B}\bigl[I(x-s,\,y-t)+B(s,t)\bigr]
+\end{equation}
+
+Šedotónová eroze (rozšiřuje tmavé oblasti, bere lokální minimum):
+\begin{equation}
+    (I\ominus B)(x,y)=\min_{(s,t)\in B}\bigl[I(x+s,\,y+t)-B(s,t)\bigr]
+\end{equation}
+
+Pro plochý strukturní element (\(B(s,t)=0\)) se operace zredukují na lokální maximum resp.\ minimum v daném okolí.
+Šedotónové otevření a uzavření se definují analogicky jako v binárním případě a slouží k potlačení světlých/tmavých detailů menších než strukturní element.
+
 \subsection*{Integrální transformace}
 Integrální transformace převádí signál do jiné báze. Přímá a zpětná transformace umožňuje přechod mezi prostorovou a transformační doménou.
 Obecně:
@@ -570,6 +594,17 @@ Inverzní 2D DFT:
     \item \textbf{Periodicita} - DFT předpokládá periodické opakování signálu, okraje obrazu spolu sousedí
     \item \textbf{Symetrie} - pro reálný vstup je spektrum komplexně sdruženě symetrické
     \item \textbf{Amplituda a fáze} - amplituda říká zastoupení frekvence, fáze nese informaci o poloze struktur
+    \item \textbf{Parsevalova věta} - energie signálu je zachována při přechodu do frekvenční oblasti:
+          \begin{equation}
+              \sum_{x=0}^{M-1}\sum_{y=0}^{N-1}|f(x,y)|^2
+              =\frac{1}{MN}\sum_{u=0}^{M-1}\sum_{v=0}^{N-1}|F(u,v)|^2
+          \end{equation}
+          Vyplývá z toho, že DFT je unitární transformace --- žádná energie se neztrácí ani nepřidává.
+    \item \textbf{Posunutí} - posunutí obrazu o $(x_0,y_0)$ se projeví jen jako změna fáze spektra, amplituda zůstane stejná:
+          \begin{equation}
+              f(x-x_0,\,y-y_0)\;\longleftrightarrow\;
+              F(u,v)\,e^{-j2\pi\!\left(\frac{ux_0}{M}+\frac{vy_0}{N}\right)}
+          \end{equation}
 \end{itemize}
 
 \subsection*{Výhody a nevýhody FT}
@@ -610,6 +645,22 @@ Typy filtrů:
     \centering
     \includegraphics[width=0.82\textwidth]{img/ft_spektrum_filtry.png}
 \end{figure}
+
+\subsection*{Wienerův filtr a inverzní filtrace}
+Při snímání nebo přenosu může dojít k rozmazání obrazu (blur) popsanému konvolucí s PSF \(h\):
+\begin{equation}
+    G(u,v)=H(u,v)F(u,v)+N(u,v)
+\end{equation}
+kde \(G\) je degradovaný obraz, \(H\) je přenosová funkce PSF, \(F\) je původní obraz a \(N\) je šum.
+
+Prostá inverzní filtrace \(\hat{F}=G/H\) je nestabilní, protože šum se dělí malými hodnotami \(H\).
+Wienerův filtr minimalizuje střední kvadratickou chybu a zohledňuje poměr výkonu šumu k výkonu signálu:
+\begin{equation}
+    \hat{F}(u,v)=\frac{H^*(u,v)}{|H(u,v)|^2+K}\,G(u,v),
+    \qquad K=\frac{S_N(u,v)}{S_F(u,v)}
+\end{equation}
+kde \(S_N\) je výkonové spektrum šumu, \(S_F\) výkonové spektrum signálu a \(K\) je jejich poměr.
+V praxi se \(K\) volí jako konstanta (odhad SNR). Pro \(K\to 0\) přechází ve Wienerův filtr v inverzní filtr, pro velké \(K\) filtr méně zesiluje šum.
 
 \subsection*{Tvorba filtrů}
 \begin{itemize}

@@ -89,10 +89,10 @@ Hierarchie paměti, paměti cache, specializované paměti cache.
 
 ### BPC-UIN
 
-- [ ] Umělá inteligence (UI) - definice, úzká UI, obecná UI, superinteligence, strojové učení.
-- [ ] Umělé neuronové sítě - paradigmata, perceptron, algoritmus učení Backpropagation, Kohonenova samoorganizační mapa, konvoluční neuronová síť.
-- [ ] Expertní systémy (ES) - definice, architektura, teoretické zdroje pro realizaci ES, tvorba a ladění báze znalostí, průběh konzultace.
-- [ ] Počítačové vidění - předzpracování obrazu, segmentace obrazu, popis a klasifikace obrazu. 
+- [ ] Metody prohledávání stavového prostoru: formulace problému, stavový prostor, strategie prohledávání, neinformované a informované metody (včetně heuristik), kompletnost a optimálnost, příklady problémů v AI.
+- [ ] Biologicky inspirované výpočty: rozdělení a principy evolučních a rojových algoritmů (GA, DE, PSO, ACO, GP), lokální optimalizační metody (HC, HC-12, SA), reprezentace a kódování řešení, surrogate optimalizace, teorie no free lunch, prokletí dimenzionality, příklady problémů v AI.
+- [ ] Neuronové sítě – vybraná základní paradigmata: formální neuron, aktivační funkce, architektury (perceptron, ADALINE, MLP, RBF, SOM), učení (včetně zpětného šíření chyby), klasifikace a regrese, problémy učení (overfitting, kapacita), příklady problémů v AI.
+- [ ] Neuronové sítě – vybraná DNN paradigmata: architektury (CNN - podrobně; RNN, Encoder-Decoder, Transformer - přehledově), aktivační funkce, princip učení, implementace (Keras) a trénink DNN, příklady problémů v AI.
 
 ### BPC-ZVS
 

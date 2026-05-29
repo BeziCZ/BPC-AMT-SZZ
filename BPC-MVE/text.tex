@@ -1,5 +1,6 @@
 \section{Chyby měření (rozdělení, výpočet, chyby metody, chyby měřicích přístrojů). Nejistoty měření - typy, výpočet nejistoty A, B, kombinovaná a rozšířená nejistota. Nejistoty nepřímých měření.}
-Chyba měřění = přesnost prováděného měření, vyjadřuje se jako rozdíl mezi naměřenou a skutečnou hodnotou měřené veličiny.
+Chyba měření = přesnost prováděného měření, vyjadřuje se jako rozdíl mezi
+naměřenou a skutečnou hodnotou měřené veličiny.
 \subsection*{Rozdělení}
 \begin{itemize}
     \item Chyby měření
@@ -33,9 +34,8 @@ Chyba měřění = přesnost prováděného měření, vyjadřuje se jako rozdí
               \item vliv přístroje na měřený objekt
           \end{itemize}
 \end{itemize}
-\newpage
 \subsection*{Absolutní chyba měření}
-rozdíl mezi naměřenou a kovenčně pravou hodnotou
+rozdíl mezi naměřenou a konvenčně pravou hodnotou
 \begin{equation}
     \Delta_X = X_M - X_P \;\;\;\; [X]
 \end{equation}
@@ -45,23 +45,24 @@ chyba vyjádřená v procentech, častější než absolutní
     \delta_X = \frac{\Delta_X}{X_M} \cdot 100\;\;\;\; [\%]
 \end{equation}
 \subsection*{Korekce}
-hodnota, která se musí přičíst k naměřené, aby se získala konvenčně správná hodnota
+hodnota, která se musí přičíst k naměřené, aby se získala konvenčně správná
+hodnota
 \begin{equation}
     K_X = X_P - X_M = -\Delta_X \;\;\;\; [X]
 \end{equation}
 \subsection*{Chyba metody}
-vzniká tak, že při výpočtu neuvažujem všechny okolní vlivy nebo zjednodušením/zaokrouhlením výpočtu\\
-systematická chyba, která lze eliminovat
+vzniká tak, že při výpočtu neuvažujeme všechny okolní vlivy nebo
+zjednodušením/zaokrouhlením výpočtu\\ systematická chyba, která lze eliminovat
 \subsection*{Chyba měřícího přístroje}
-kalibrací se stanovuje korekční křivka\\
-výrobce udává absolutní chybu přístroje\\
-\paragraph*{Třída přesnosti pro analogové měřící přístroje}
-jedná se o chybu udávanou třídou přesnosti přístroje podle normy ČSN EN 60359(0,05;0,1;0,2;0,3;0,5;1;1,5;2;2,5;3;5)\\
-Výpočet třídy přesnosti z maximální absolutní chyby $\Delta_{max}$ na rozsahu $X_R$:
+kalibrací se stanovuje korekční křivka\\ výrobce udává absolutní chybu
+přístroje\\ \paragraph*{Třída přesnosti pro analogové měřící přístroje} jedná
+se o chybu udávanou třídou přesnosti přístroje podle normy ČSN EN
+60359(0,05;0,1;0,2;0,3;0,5;1;1,5;2;2,5;3;5)\\ Výpočet třídy přesnosti z
+maximální absolutní chyby $\Delta_{max}$ na rozsahu $X_R$:
 \begin{equation}
-    \delta_{TP} = \frac{|\Delta_{max}}{X_R}\cdot 100 \;\;\;\; [\%]
+    \delta_{TP} = \frac{|\Delta_{max}|}{X_R}\cdot 100 \;\;\;\; [\%]
 \end{equation}
-Jeden přístroj může mět víc tříd nepřesnosti pro různé rozsahy\\
+Jeden přístroj může mít víc tříd nepřesnosti pro různé rozsahy\\
 \paragraph*{Vyjadřování chyb číslicového přístroje}
 dělí se na:
 \begin{itemize}
@@ -92,17 +93,16 @@ Způsob zapsání chyby:\\
 D \dots maximální počet digitů(tj. největší zobrazitelné číslo) \\
 d \dots udaný počet digitů posledního místa displeje(většinou 1)\\
 \subsection*{Systematické chyby}
-přičítá nebo násobí se k měřené hodnotě\\
-lze ji určit výpočtem nebo přesnějším měřením\\
-lze téměř eliminovat\\
+přičítá nebo násobí se k měřené hodnotě\\ lze ji určit výpočtem nebo přesnějším
+měřením\\ lze téměř eliminovat\\
 
 \subsection*{Náhodné chyby}
-nelze odstranit korekcí, chová se nepředvídatelně\\
-směrodatná odchylka do jisté míry určuje přesnost měření - určuje tvar gaussovy křivky
+nelze odstranit korekcí, chová se nepředvídatelně\\ směrodatná odchylka do
+jisté míry určuje přesnost měření - určuje tvar gaussovy křivky
 \begin{equation}
     \sigma = \sqrt{\frac{1}{N}\sum^N_{i=1}(x_i-\overline{x})^2}
 \end{equation}
-\newpage
+
 \subsection*{Hrubé chyby}
 hrubý zásah do procesu měření, výrazně převyšuje rozptyl statistické chyby \\
 omyl člověka, výrazná změna podmínek, porucha\\
@@ -112,35 +112,37 @@ omyl člověka, výrazná změna podmínek, porucha\\
 \end{figure}
 
 \subsection*{Nejistoty}
-Parametr přidružený k výsledku měření, který charakterizuje rozptyl hodnot, které by mohly být důvodně přisuzovány k měřené veličině s určitou pravděpodobností.\\
+Parametr přidružený k výsledku měření, který charakterizuje rozptyl hodnot,
+které by mohly být důvodně přisuzovány k měřené veličině s určitou
+pravděpodobností.\\
 \begin{itemize}
-    \item Standartní nejistota typu A
-    \item Standartní nejistota typu B
-    \item Kombinovaná standartní nejistota
-    \item Rozšířená standartní nejistota
+    \item Standardní nejistota typu A
+    \item Standardní nejistota typu B
+    \item Kombinovaná standardní nejistota
+    \item Rozšířená standardní nejistota
     \item Nejistoty pro nepřímá měření
 \end{itemize}
 
-\subsubsection*{Standartní nejistota typu A}
+\subsubsection*{Standardní nejistota typu A}
 Určuje se  z opakovaných měření.\\
 zjišťuje se pomocí výběrového rozptylu hodnot.\\
-Mírou nejistoty typu A je výběrový směrodatná odchylka výběrového průměru\\
+Mírou nejistoty typu A je výběrová směrodatná odchylka výběrového průměru\\
 \begin{equation}
     \overline{x} = \frac{1}{n}\sum^n_{i=1}
 \end{equation}
 \begin{equation}
     u_a(x) = \sqrt{\frac{1}{n(n-1)}\sum^n_{i=1}(x_i-\overline{x})^2}
 \end{equation}
-\newpage
 
-\subsubsection*{Standartní nejistota typu B}
+\subsubsection*{Standardní nejistota typu B}
 Nutnost znát všechny zdroje nejistot, které se dají kvalifikovat, tedy určit jinak, než experimentálně.\\
 Zdroje nejistot - kalibrace, stabilita přístrojů, dynamické chyby přístrojů, vnitřní tření\\
 Vlivy:
 \begin{itemize}
-    \item vliv metody - ztráty, interakce s měřeným předmětem, nejistoty použitých konstantn, vlastní ohřev, vlivy reálných parametrů oproti ideálním
+    \item vliv metody - ztráty, interakce s měřeným předmětem, nejistoty použitých
+          konstant, vlastní ohřev, vlivy reálných parametrů oproti ideálním
     \item vliv operátora - nedodržení metodik, elektrostatické pole, tepelné vyzařování
-    \item ostatní vlivy - náhodné omyly při odečtu nbo zápisu hodnot, globální vlivy
+    \item ostatní vlivy - náhodné omyly při odečtu nebo zápisu hodnot, globální vlivy
 \end{itemize}
 Dají se vypsat z datasheetů nebo odhadovat.\\
 Výpočet nejistoty B:
@@ -155,7 +157,6 @@ Koeficient tvaru rozložení $\kappa$ se určuje z tabulky:
 \begin{figure}[H]
     \includegraphics[scale = 1]{images/koef_rozlozeni.png}
 \end{figure}
-\newpage
 Vzorový výpočet nejistoty typu B pro analogový přístroj:
 \begin{figure}[H]
     \centering
@@ -167,30 +168,30 @@ Vzorový výpočet pro nejistotu typu B pro digitální přístroj:
     \includegraphics[scale = 1]{images/nejistotaB_digital.png}
 \end{figure}
 
-\subsubsection*{Kombinovaná standartní nejistota}
+\subsubsection*{Kombinovaná standardní nejistota}
 Geometrický součet nejistoty typu A a B
 \begin{equation}
     u_C(x) = \sqrt{u_A^2(x)+u_B^2(x)}
 \end{equation}
-\newpage
 
-\subsubsection*{Rozšířená standartní nejistota}
-Kombinovaná standartní nejistota odpovídá intervalu, ve kterém by se výsledky pohybovaly s pravděpodobností 68\%.\\
-Rozšířená standartní nejistota pomocí koeficientu tuto pravděpodobnost zvyšuje, koeficient se volí podle tabulky:
+\subsubsection*{Rozšířená standardní nejistota}
+Kombinovaná standardní nejistota odpovídá intervalu, ve kterém by se výsledky pohybovaly s pravděpodobností 68\%.\\
+Rozšířená standardní nejistota pomocí koeficientu tuto pravděpodobnost zvyšuje, koeficient se volí podle tabulky:
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 1]{images/nejistota_roz.png}
 \end{figure}
-Nejistota vzniká Kombinovanou standartní nejistotou vynásobenou tímto koeficientem.
+Nejistota vzniká Kombinovanou standardní nejistotou vynásobenou tímto koeficientem.
 \begin{equation}
     U(x) = k_r\cdot u_C(x)
 \end{equation}
 
 \subsection*{Nepřímá měření}
-Výsledek měření je určen výpočtem na základě známých fyzikálních zákonů z přímých měření vstupních veličin.\\
-Výstupní veličina je funkcí průměrných vstupních veličin.\\
-\subsubsection*{Nejistota nepřímého měření nekorelovaných vstupních veličin}
-Odhad veliiny Y, která je funkcí nekorelovaných vstupních veličin X je dána vztahem:
+Výsledek měření je určen výpočtem na základě známých fyzikálních zákonů z
+přímých měření vstupních veličin.\\ Výstupní veličina je funkcí průměrných
+vstupních veličin.\\ \subsubsection*{Nejistota nepřímého měření nekorelovaných
+    vstupních veličin} Odhad veličiny Y, která je funkcí nekorelovaných vstupních
+veličin X je dána vztahem:
 \begin{equation}
     u(\overline{y}) = \sqrt{\sum^N_{i=1}\left(\frac{\partial f}{\partial X_i}u(\overline{x_i})\right)^2} = \sqrt{\sum^N_{i=1}A_i^2\cdot u^2(\overline{x_i})}
 \end{equation}
@@ -200,21 +201,20 @@ Odhad veliiny Y, která je funkcí nekorelovaných vstupních veličin X je dán
 $f$ \dots funkční závislost pro výstupní veličinu $Y$ \\
 $A_i$ \dots citlivostní koeficient\\
 $u(\overline{x_i})$ \dots nejistota odhadu vstupní veličiny $X_i$\\
-\newpage
 \subsubsection*{Nejistota nepřímého měření vzájemně korelovaných vstupních veličin}
-Odhad veličiny $Y$, která je funkcí vzájemně korelovaných vstupníc veličin $X$, zahrnuje rovněž kovariance mezi jednotlivými odhady vstupních veličin a ty rovněž přispívají k výsledné nejistotě podle vztahu:
+Odhad veličiny $Y$, která je funkcí vzájemně korelovaných vstupních veličin $X$, zahrnuje rovněž kovariance mezi jednotlivými odhady vstupních veličin a ty rovněž přispívají k výsledné nejistotě podle vztahu:
 \begin{equation}
     u(\overline{y}) = \sqrt{\sum^N_{i=1}A_i^2\cdot u^2(\overline{x_i})+2\sum^N_{i=2}\sum^{N-1}_{k<i}A_i\cdot A_k \cdot u^2(\overline{x_i},\overline{x_k})}
 \end{equation}
-$u(\overline{x_i},\overline{x_k})$ \dots kovariace mezi navzájem korelovanými odhady vstupních veličin $\overline{x_i},\overline{x_k}$
+$u(\overline{x_i},\overline{x_k})$ \dots kovariance mezi navzájem korelovanými odhady vstupních veličin $\overline{x_i},\overline{x_k}$
 
-
-\section{Analogově-číslicové převoddníky pro měřicí techniku - rozdělení, princip základních typů AD převodníků, vlastnosti, použití}
-Převod analogové diskrétní proměnné veličiny(napětí) na diskrétní údaj vyjádřený číslem.\\
-Diskretizace analogového signálu:
+\section{Analogově-číslicové převodníky pro měřicí techniku - rozdělení, princip základních typů AD převodníků, vlastnosti, použití}
+Převod analogové diskrétní proměnné veličiny(napětí) na diskrétní údaj
+vyjádřený číslem.\\ Diskretizace analogového signálu:
 \begin{itemize}
     \item V amplitudě - kvantování
-    \item V čase - vzorkování(vzorkovací teorém - vzorkovací frekvence musí být větší, než 2* maximální požadovaná přenášená frekvence)
+    \item V čase - vzorkování(vzorkovací teorém - vzorkovací frekvence musí být větší,
+          než 2* maximální požadovaná přenášená frekvence)
     \item Kódování
 \end{itemize}
 Kvantizační chyba - chyba zaokrouhlování na nejmenší jednotku přístroje. Při časové změně měřené veličiny vzniká kvantovací šum\\
@@ -228,10 +228,10 @@ $K_S$ je skutečná převodní charakteristika\\
 Chyby, které se vyskytují:
 \begin{itemize}
     \item chyba nuly - nenulový výstup pro nulové napětí
-    \item chyba konstanty - jiný sklon charakteritiky
+    \item chyba konstanty - jiný sklon charakteristiky
     \item chyba linearity - průměrná charakteristika není lineární
 \end{itemize}
-\newpage
+
 Kritéria hodnocení AD převodníku:
 \begin{itemize}
     \item rozlišovací schopnost
@@ -255,25 +255,24 @@ Kritéria hodnocení AD převodníku:
           \end{itemize}
     \item Integrační
           \begin{itemize}
-              \item Integrační metoda (metoda dvojté integrace)
+              \item Integrační metoda (metoda dvojité integrace)
               \item Převod napětí na kmitočet metodou jednoduché integrace
           \end{itemize}
     \item Sigma-delta modulace
 \end{itemize}
 
 \subsection*{Komparační A/D převodník(FLASH)}
-Srovnává měřené napětí s různě nastavenýma hodnotama referenčního napětí najednou.\\
-Vzorkovací frekvence desítky MHz až 3 GHz\\
-krátká doba převodu(ns) - nejrychlejší\\
-drahý, není odolný vůči sériovému rušení
+Srovnává měřené napětí s různě nastavenými hodnotami referenčního napětí
+najednou.\\ Vzorkovací frekvence desítky MHz až 3 GHz\\ krátká doba převodu(ns)
+- nejrychlejší\\ drahý, není odolný vůči sériovému rušení
 \begin{figure}[H]
     \includegraphics*[scale = 1.3]{images/adc_komparacni.png}
 \end{figure}
 \newpage
 \subsection*{Kompenzační A/D převodník}
-měřené konstantní napětí se porovnává se známým stavitelným kompenzačním napětím - nastavuje se tak, aby se blížilo měřenému\\
-nejde nastavit naprostá shoda, maximálně zanedbatelný rozdíl - nastavuje se postupně\\
-Typy:
+měřené konstantní napětí se porovnává se známým stavitelným kompenzačním
+napětím - nastavuje se tak, aby se blížilo měřenému\\ nejde nastavit naprostá
+shoda, maximálně zanedbatelný rozdíl - nastavuje se postupně\\ Typy:
 \begin{itemize}
     \item Přírůstkový převodník
     \item Sledovací převodník - umožňuje čítat i dolů
@@ -290,9 +289,8 @@ vzorkovací frekvence 10kHz - 3MHz\\
 \newpage
 
 \subsection*{Integrační A/D převodník}
-vhodné a často používané pro číslicové voltmetry\\
-výsledkem integrace je střední hodnota\\
-Parametry:
+vhodné a často používané pro číslicové voltmetry\\ výsledkem integrace je
+střední hodnota\\ Parametry:
 \begin{itemize}
     \item 10-27 bitové
     \item vzorkovací frekvence 0,1Hz až 1kHz
@@ -303,7 +301,8 @@ Princip:
 \begin{itemize}
     \item dvojí(dvoutaktní) integrace
     \item neznámé vstupní napětí porovnáváno s referenčním opačné polarity
-    \item po skončení druhého taktu stav čítače hodinových pulsů N udává velikost neznámého napětí
+    \item po skončení druhého taktu stav čítače hodinových pulsů N udává velikost
+          neznámého napětí
 \end{itemize}
 
 \begin{equation}
@@ -315,7 +314,7 @@ Princip:
 
 \subsubsection*{Převodník napětí na kmitočet}
 Převod měřeného napětí na kmitočet a ten pak změřit číslicově.\\
-převáděné napětíje trvale připojeno na vstup integrátoru, vyvolává změnu napětí na výstupu integrátoru, které se v komparátoru porovnává s konstantním napětím\\
+převáděné napětí je trvale připojeno na vstup integrátoru, vyvolává změnu napětí na výstupu integrátoru, které se v komparátoru porovnává s konstantním napětím\\
 při překročení hodnoty se změní na opačné výstupní napětí integrátoru\\
 kmitočet výstupních impulsů je pak úměrný měřenému napětí
 \begin{figure}[H]
@@ -323,9 +322,9 @@ kmitočet výstupních impulsů je pak úměrný měřenému napětí
 \end{figure}
 
 \subsection*{Sigma-delta modulace}
-Dle taktu Uc vzorkování na komparátor\\
-Uo obdelníkové, dle trvání vyšší a nižší hodnoty vyjadřuje Ux\\
-dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
+Dle taktu Uc vzorkování na komparátor\\ Uo obdélníkové, dle trvání vyšší a
+nižší hodnoty vyjadřuje Ux\\ dobré rozlišení na 16 bit při 100kHz, dlouhá
+odezva
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/adc_sigma_delta_schema.png}
 \end{figure}
@@ -334,12 +333,14 @@ dobré rozlišení o na 16 bit při 100kHz, dlouhá odezva
     \includegraphics*[scale = 1]{images/adc_sigma_delta_graf.png}
 \end{figure}
 
-
 \subsection*{Vlastnosti}
 \begin{itemize}
-    \item Rozlišovací schopnost - dána počtem rozlišitelných úrovní analogového signálu. Pro n-bitový převodník je to $2^n$ úrovní
-    \item Krok kvantování(citlivost) - rozdíl dvou hodnot vstupního analogového napětí, kdy nastává přechod od jednoho číslicového výstupu k druhému
-    \item Chyba kvantování - maximální rozdíl mezi hodnotou analogové veličiny a hodnotou odpovídající danému ódovanému slovu(obvykle polovina kroku kvantování)
+    \item Rozlišovací schopnost - dána počtem rozlišitelných úrovní analogového signálu.
+          Pro n-bitový převodník je to $2^n$ úrovní
+    \item Krok kvantování(citlivost) - rozdíl dvou hodnot vstupního analogového napětí,
+          kdy nastává přechod od jednoho číslicového výstupu k druhému
+    \item Chyba kvantování - maximální rozdíl mezi hodnotou analogové veličiny a hodnotou
+          odpovídající danému kódovanému slovu(obvykle polovina kroku kvantování)
     \item Rychlost převodu
     \item Přesnost - dána chybou převodníku
     \item Stabilita - vyjadřuje stálost převodníku při působení různých rušivých vlivů
@@ -362,7 +363,7 @@ ideální voltmetr - nekonečný vnitřní odpor, reálně digitální 10MOhm, a
               \item obsahují převodník pro změny rozsahů
           \end{itemize}
     \item analogové elektronické
-    \item číslicové(stejnosměrný voltrmetr je základem multimetru)
+    \item číslicové(stejnosměrný voltmetr je základem multimetru)
 \end{itemize}
 \subsubsection*{Měření stejnosměrného napětí(DC)}
 na DC napětí se převádí pomocí měřicích převodníků všechny ostatní měřené veličiny\\
@@ -372,7 +373,7 @@ u měření vysokých napětí(v řádu kV) problém s bezpečností a izolačn�
 požadovaný parametr obvykle efektivní hodnota\\
 Dělí se podle šířky pásma:
 \begin{itemize}
-    \item Úzkopásmové - selektivní, místo voltmetrl obvykle spektrální analyzátor, oblast vysoké frekvence
+    \item Úzkopásmové - selektivní, místo voltmetru obvykle spektrální analyzátor, oblast vysoké frekvence
     \item Širokopásmové - nejpoužívanější, oblast nízké frekvence (v řádu Hz až kHz)
     \item Multimetry - napěťové rozsahy od mV po stovky V
 \end{itemize}
@@ -390,9 +391,10 @@ Transformační poměr pro idealizovaný stav:
 \end{figure}
 Princip:
 \begin{itemize}
-    \item primární vinutí M-N se připojuje (MTN-měřicí transformátor proudu)do obvodu paralelně
+    \item primární vinutí M-N se připojuje (MTN-měřicí transformátor proudu)do obvodu
+          paralelně
     \item sekundární vinutí m-n obsahuje měřicí obvod představující vysokou impedanci
-    \item MTN musí pracovat v blízkosti stavu narpázdno
+    \item MTN musí pracovat v blízkosti stavu naprázdno
     \item se chová jako zdroj s malým vnitřním odporem
 \end{itemize}
 Vlastnosti:
@@ -401,10 +403,11 @@ Vlastnosti:
     \item hodnota sekundárního napětí obvykle 100V
     \item způsobují chybu převodu - udává se třídou přesnosti
     \item způsobují chybu fáze - nutno počítat při měření výkonu
-    \item nelze použít, kde by docházelo k magnetování jádra stejnosměrnou složkou průběhu - bo cívky
+    \item nelze použít, kde by docházelo k magnetování jádra stejnosměrnou složkou
+          průběhu - nebo DC cívky
 \end{itemize}
 \subsubsection*{Typy rušení}
-Na vstupní svorky stejnosměrného voltmetru se mohou k měřenému napětí přičítat rušívá napětí.\\
+Na vstupní svorky stejnosměrného voltmetru se mohou k měřenému napětí přičítat rušivá napětí.\\
 Rušivá napětí:
 \begin{itemize}
     \item Stejnosměrná
@@ -418,12 +421,14 @@ Sériové rušení:
     \item Zdroj rušivého signálu je zapojený sériově s měřenou veličinou
     \item Sčítá se s měřeným
 \end{itemize}
-Odstrańnuje se buď účinným filtrem dolní propusti před číslicovým voltmetrem, nebo některé A/D převodníky dokáží sériové rušení potlačit automaticky.\\
+Odstraňuje se buď účinným filtrem dolní propusti před číslicovým voltmetrem, nebo některé A/D převodníky dokáží sériové rušení potlačit automaticky.\\
 Souhlasné rušení:
 \begin{itemize}
-    \item při měření napětí mezi dvěma body elektrického obvodu mohou nastat situace, kdy tyto body mají proti společné svorce určité napětí
+    \item při měření napětí mezi dvěma body elektrického obvodu mohou nastat situace, kdy
+          tyto body mají proti společné svorce určité napětí
     \item je vyvoláno rozdílem potenciálu země voltmetru a země měřeného objektu
-    \item potlačuje se konstrukcí přístroje - rozpojením zemní smyčky použitím multimetru s bateriovým nanápajením
+    \item potlačuje se konstrukcí přístroje - rozpojením zemní smyčky použitím multimetru
+          s bateriovým napájením
 \end{itemize}
 
 \subsubsection*{Číslicové voltmetry}
@@ -432,14 +437,16 @@ Základní části číslicového voltmetru:
 \begin{figure}[H]
     \includegraphics*[scale = 1.5]{images/cislicovy_voltmetr.png}
 \end{figure}
-Vstupní část umožňuje volbu dílčích měřicích rozsahů. Převádí velkost měřeného napětí na velikost vyhovujícího převodníku napětí na číslo.\\
+Vstupní část umožňuje volbu dílčích měřicích rozsahů. Převádí velikost měřeného napětí na velikost vyhovujícího převodníku napětí na číslo.\\
 Dočasné uchování naměřených dat.\\
 Parametry:
 \begin{itemize}
     \item počet míst zobrazovače (3 až 8\textonehalf)
     \item počet měřicích rozsahů (4 až 6, zkl. rozsah 1 nebo 10V)
     \item přesnost
-    \item rozlišovací schopnost - velikost napětí na vstupu voltmwtru, která způsobí změnu údaje voltmetru o 1 na posledním místě číslicového zobrazovače při nejnižším rozsahu
+    \item rozlišovací schopnost - velikost napětí na vstupu voltmetru, která způsobí
+          změnu údaje voltmetru o 1 na posledním místě číslicového zobrazovače při
+          nejnižším rozsahu
     \item maximální měřené napětí - obvykle 1000 V DC a 750 V AC
     \item rychlost měření
     \item časová stálost
@@ -451,14 +458,16 @@ Parametry:
 
 Chyby číslicových měřicích přístrojů:
 \begin{itemize}
-    \item pevné chyby - nezávislé na velikosti vstupního signálu(vyjařují se v \% z měřicícho rozsahu), chyby způsobené:
+    \item pevné chyby - nezávislé na velikosti vstupního signálu(vyjadřují se v \% z
+          měřicího rozsahu), chyby způsobené:
           \begin{itemize}
               \item Driftem napěťové nesymetrie vstupního zesilovače
               \item Vnitřním šumem přístroje
               \item Zbytkovým napětím spínačů
               \item Chyba kvantováním
           \end{itemize}
-    \item Chyby úměrné měřené hodnotě(projevují se multiplikativně, taky v \% z rozsahu) - způsobené chybami:
+    \item Chyby úměrné měřené hodnotě(projevují se multiplikativně, taky v \% z rozsahu)
+          - způsobené chybami:
           \begin{itemize}
               \item přenosu zesilovačů
               \item vstupní děliče
@@ -473,9 +482,8 @@ Rozsah se zvětší zapojením předřadného rezistoru do série - předřadní
 
 \subsection*{Měření proudu}
 
-Pomocí ampérmetrů - zapojení do série s měřeným obvodem.\\
-Ideální ampérmetr má nulový opor, když nějaký má, je to chyba metody.\\
-Velikost měřených proudů:
+Pomocí ampérmetrů - zapojení do série s měřeným obvodem.\\ Ideální ampérmetr má
+nulový odpor, když nějaký má, je to chyba metody.\\ Velikost měřených proudů:
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/Imereni.png}
 \end{figure}
@@ -486,8 +494,8 @@ U vyšších proudů problém se snímáním proudu, lze použít speciální pr
 
 \subsubsection*{Měření malých proudů}
 Je potřeba použít měřící zesilovače nebo použít převodník proudu na napětí.\\
-To umožňuje měření malých proudů bez úbytku napětí, vstupní odpor se bíží 0 Ohm, bývají součástí číslicových ampérmetrů.\\
-Velmi malé proudy se převádí pomocí velkého odporu napětí, které se měří mikrovltmetrem s modulačním zesilovačem.\\
+To umožňuje měření malých proudů bez úbytku napětí, vstupní odpor se blíží 0 Ohm, bývají součástí číslicových ampérmetrů.\\
+Velmi malé proudy se převádí pomocí velkého odporu napětí, které se měří mikrovoltmetrem s modulačním zesilovačem.\\
 \subsubsection*{Měření velkých proudů}
 Proudový transformátor:
 \begin{itemize}
@@ -513,8 +521,9 @@ Vlastnosti:
 Měřicí transformátor proudu\\
 princip:
 \begin{itemize}
-    \item primární obvod měřicícho transformátoru proudu(MTP) je zapojen do série se zdrojem
-    \item sekundární vinutí se uzavirá přes měřicí přístroj
+    \item primární obvod měřicího transformátoru proudu(MTP) je zapojen do série se
+          zdrojem
+    \item sekundární vinutí se uzavírá přes měřicí přístroj
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale = 1.3]{images/proud_transformator.png}
@@ -534,9 +543,13 @@ Parametry:
 \end{itemize}
 Charakteristické údaje:
 \begin{itemize}
-    \item Dynamický proud MTP - největší amplituda zkratového proudu při sekundárním vinutí nakrátko - nesmí dojít k mechanickému nebo elektrickému poškození
-    \item Tepelný proud - efektivní hodnota primárního proudu po dobu 1 sekundy při sekundárním vinutí nakrátko - nesmí dojít k poškození, závisí na průřezu primárního vinutí
-    \item Nadproudové číslo - násobek jmenovitého proudu, kdy chyba převodu dosáhne 10\% při jmenovité zátěži a účiníku
+    \item Dynamický proud MTP - největší amplituda zkratového proudu při sekundárním
+          vinutí nakrátko - nesmí dojít k mechanickému nebo elektrickému poškození
+    \item Tepelný proud - efektivní hodnota primárního proudu po dobu 1 sekundy při
+          sekundárním vinutí nakrátko - nesmí dojít k poškození, závisí na průřezu
+          primárního vinutí
+    \item Nadproudové číslo - násobek jmenovitého proudu, kdy chyba převodu dosáhne 10\%
+          při jmenovité zátěži a účiníku
 \end{itemize}
 Přesnost převodu závisí na:
 \begin{itemize}
@@ -563,7 +576,8 @@ Měření proudu pomocí multimetru:
     \item převod proudu na napětí - požadavek co nejmenší impedance
     \item typy převodníků:
           \begin{itemize}
-              \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle poměrů vstupního odporu ampérmetru a bočníku
+              \item pasivní převodník - přesný snímací rezistor, přepočet měřeného proudu podle
+                    poměrů vstupního odporu ampérmetru a bočníku
               \item aktivní převodník - využití OZ
           \end{itemize}
 \end{itemize}
@@ -571,15 +585,19 @@ Měření proudu pomocí multimetru:
 \subsection*{Rušení u měřicích přístrojů}
 \subsubsection*{Mechanické vlivy}
 \begin{itemize}
-    \item tření - zvětšením direktivního momentu spirálových pružin, větší spotřeba, menší citlivost přístroje
+    \item tření - zvětšením direktivního momentu spirálových pružin, větší spotřeba,
+          menší citlivost přístroje
     \item Otřesy - dát přístroj na měkkou podložku
     \item poloha přístroje - měly by se používat jen v poloze uvedené v seznamu
 \end{itemize}
 
 \subsubsection*{Teplota}
 \begin{itemize}
-    \item Mění se odpor měřicích cívek, předřadníků či bočníků a magnetická indukce permanentních magnetů
-    \item předřadníky a bočníky dáváme do přední části přístroje, aby neovlivňovaly měčicí cívky, použijeme materiál, který má nepatrnou závislost na teplotě, chladící otvory
+    \item Mění se odpor měřicích cívek, předřadníků či bočníků a magnetická indukce
+          permanentních magnetů
+    \item předřadníky a bočníky dáváme do přední části přístroje, aby neovlivňovaly
+          měřicí cívky, použijeme materiál, který má nepatrnou závislost na teplotě,
+          chladící otvory
 \end{itemize}
 \subsubsection*{Vnější elektromagnetické pole}
 \begin{itemize}
@@ -589,13 +607,13 @@ Měření proudu pomocí multimetru:
 
 \subsubsection*{Kmitočet}
 \begin{itemize}
-    \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na kmitočtu závisí
+    \item změna kmitočtu způsobí změnu údaje u těch přístrojů, jejichž pohybový moment na
+          kmitočtu závisí
     \item u každého přístroje se řeší individuálně
 \end{itemize}
 
-
 \subsection{Rušení}
-Další možné rozdělení rušení je 
+Další možné rozdělení rušení je
 \begin{itemize}
     \item Stejnosměrná
     \item střídavá
@@ -606,26 +624,27 @@ Další možné rozdělení rušení je
 
 \subsubsection{v sérii}
 \begin{itemize}
-    \item dá se potlačit filtry, (problém je v tom že nejvic rušní je na 50 Hz, tzn časová kostatna filtru je 1s, takže jeho použití pomalí měření)
+    \item dá se potlačit filtry, (problém je v tom že nejvíc rušení je na 50 Hz, tzn
+          časová konstanta filtru je 1s, takže jeho použití zpomalí měření)
     \item další možnost je použít dobrý AD převodník
-    \begin{itemize}
-        \item ANO itegarční převodník s mezipřevodem na frekvenci
-        \item ANO integrační převodní  s dvojnásoubnou integarcí
-        \item ne integrační převodník s metipřevodem na časový interval
-        \item osattní spíš taky ne
-    \end{itemize}
+          \begin{itemize}
+              \item ANO integrační převodník s mezipřevodem na frekvenci
+              \item ANO integrační převodník s dvojnásobnou integrací
+              \item ne integrační převodník s mezipřevodem na časový interval
+              \item ostatní spíš taky ne
+          \end{itemize}
     \item určuje se činnitel potlačení sériového rušení
-        \begin{equation}
-            H=SMRR= 20log\frac{U_{SM}}{\Delta U_{ch}}
-        \end{equation}
-        Usm rušivé napětí napětí $ \Delta U_{ch} $ změna údaje voltmetru
+          \begin{equation}
+              H=SMRR= 20log\frac{U_{SM}}{\Delta U_{ch}}
+          \end{equation}
+          $U_{SM}$ rušivé napětí, $ \Delta U_{ch} $ změna údaje voltmetru
 \end{itemize}
 
 \subsubsection{Proti zemi}
 \begin{itemize}
-    \item odsatranění oddělením měřící země od napájecí
+    \item odstranění oddělením měřící země od napájecí
     \item extra svorka na zemění
-    \item polovoucí vstup
+    \item plovoucí vstup
 \end{itemize}
 
 \includegraphics{images/ruseni.png}
@@ -638,22 +657,24 @@ Výkon stejnosměrného proudu:
 \end{equation}
 Výkon střídavého proudu:
 \begin{itemize}
-    \item Okamžitý výkon(časový okamžik) $p(t) = u(t)\cdot i(t)$   [W]
-    \item střední hodnota výkonu(časový interval) $P = \frac{1}{T}\int_0^Tp(t)dt = \frac{1}{T}\int_0^Tu(t)\cdot i(t)dt$    [W]
+    \item Okamžitý výkon(časový okamžik) $p(t) = u(t)\cdot i(t)$ [W]
+    \item střední hodnota výkonu(časový interval) $P = \frac{1}{T}\int_0^Tp(t)dt =
+              \frac{1}{T}\int_0^Tu(t)\cdot i(t)dt$ [W]
 \end{itemize}
 
 Výkon harmonického proudu a napětí s fázovým posuvem:
 \begin{itemize}
     \item Činný výkon    $P = U\cdot I \cdot cos \upvarphi $    [W]
-    \item Jalový výkon   $Q = U\cdot I \cdot sin \upvarphi $    [VAr]
-    \item Zdánlivý výkon  $S = U \cdot I$                     [VA]
+    \item Jalový výkon $Q = U\cdot I \cdot sin \upvarphi $ [VAr]
+    \item Zdánlivý výkon $S = U \cdot I$ [VA]
 \end{itemize}
 Výkon neharmonických proudů a napětí: $P = U_0\cdot I_0 + \sum^{k=n}_{k=1}U_k\cdot I_k \cdot cos \upvarphi_k$     [W]
 \subsection*{Měření výkonu v jednofázové soustavě}
 Metody:
 \begin{itemize}
     \item elektromechanické wattmetry s elektrodynamickým ústrojím
-    \item elektronické wattmetry - nejde odečíst proud/napětí na zátěži, přidává se voltmetr/ampermetr
+    \item elektronické wattmetry - nejde odečíst proud/napětí na zátěži, přidává se
+          voltmetr/ampermetr
     \item měření třemi voltmetry
     \item měření třemi ampérmetry
 \end{itemize}
@@ -689,26 +710,28 @@ Charakter zátěže spotřebiče:
 \subsubsection*{Měření zdánlivého výkonu}
 Jedině nepřímo, počítá se z proudu a napětí
 
-
 \subsection*{Měření výkonu v třífázové soustavě}
 Všechna zapojení vyžadují znalost sledu fází:
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/fazovyDiagram.png}
 \end{figure}
-Sled fází je určem pořadím, v němž veličiny trojfázové soustavy nabývají svého maxima.\\
+Sled fází je určen pořadím, v němž veličiny trojfázové soustavy nabývají svého maxima.\\
 
-Fázové napětí - napětí mezi fázovým a nulový vodičem\\
-Sdružené napětí - napětí mezi dvěma fázovými vodiči
+Fázové napětí - napětí mezi fázovým a nulový vodičem\\ Sdružené napětí - napětí
+mezi dvěma fázovými vodiči
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/sdruzeneNapeti.png}
 \end{figure}
 
 \subsubsection*{Základní pojmy}
 \begin{itemize}
-    \item Souměrná zátěž - Síť je zatížena souměrným spotřebičem, protéká v každé fázi stejný proud(motor)
+    \item Souměrná zátěž - Síť je zatížena souměrným spotřebičem, protéká v každé fázi
+          stejný proud(motor)
     \item Nesouměrná zátěž - spotřebič odebírá v každé fázi jiný proud(oblouková pec)
-    \item Obecná (nesymetrická) soustava - má obecné velikosti fázových napětí a obecné úhly mezi nimi - čtyřvodičová má přístupný nulový vodič, třívodičová ne
-    \item Symetrická soustava - zvláštní případ obecné soustavy, fázová napětí mají stejnou velikost i úhel, sdružené napětí je $\sqrt{3}$ krát větší, než fázové
+    \item Obecná (nesymetrická) soustava - má obecné velikosti fázových napětí a obecné
+          úhly mezi nimi - čtyřvodičová má přístupný nulový vodič, třívodičová ne
+    \item Symetrická soustava - zvláštní případ obecné soustavy, fázová napětí mají
+          stejnou velikost i úhel, sdružené napětí je $\sqrt{3}$ krát větší, než fázové
 \end{itemize}
 
 \subsubsection*{Matematický popis}
@@ -721,8 +744,8 @@ $u_1 = \sqrt{2}U_fsin(\omega t +\upvarphi)$\\
 $u_2 = \sqrt{2}U_fsin(\omega t -120\degree +\upvarphi)$\\
 $u_3 = \sqrt{2}U_fsin(\omega t -120\degree +\upvarphi)$\\
 
-
-Volba  metody záleží na tom, jestli je měřená zátěž ne/symetrická a jestli je trojfázová síť tří nebo čtyřvodičová\\
+Volba metody záleží na tom, jestli je měřená zátěž ne/symetrická a jestli je
+trojfázová síť tří nebo čtyřvodičová\\
 
 \subsubsection*{Blondelův teorém}
 V n-vodičové soustavě se činný výkon zátěže správně měří nejméně n-1 wattmetry
@@ -732,13 +755,12 @@ V n-vodičové soustavě se činný výkon zátěže správně měří nejméně
     \includegraphics*[scale = 1.2]{images/sym_4_sym.png}
 \end{figure}
 
-
 \subsubsection*{Symetrická zátěž, třívodičová symetrická soustava}
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/sym_3_sym.png}
 \end{figure}
 
-\subsubsection*{Neymetrická zátěž, čtyřvodičová soustava}
+\subsubsection*{Nesymetrická zátěž, čtyřvodičová soustava}
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/nesym_4.png}
 \end{figure}
@@ -750,9 +772,9 @@ V n-vodičové soustavě se činný výkon zátěže správně měří nejméně
 \end{figure}
 
 \subsubsection*{Aronovo zapojení}
-Slouží k měření rinného výkonu v třívodičové soustavě bez středového vodiče.\\
+Slouží k měření činného výkonu v třívodičové soustavě bez středového vodiče.\\
 Lze použít pro souměrnou i nesouměrnou zátěž.\\
-Napěťové obvody wattmetrl jsou připojeny na sdružená napětí.
+Napěťové obvody wattmetrů jsou připojeny na sdružená napětí.
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/Aron.png}
 \end{figure}
@@ -772,8 +794,10 @@ Rozdělení:
 \begin{itemize}
     \item Z funkčního hlediska:
           \begin{itemize}
-              \item Průchozí - zapojuje se mezi zdroj a zátěž, měří výkon předávaný zdrojem do zátěže
-              \item Pohlcovací - měří výkon předávaný zdrojem do odporové zátěže obsažené ve wattmetru připojeného ke zdroji
+              \item Průchozí - zapojuje se mezi zdroj a zátěž, měří výkon předávaný zdrojem do
+                    zátěže
+              \item Pohlcovací - měří výkon předávaný zdrojem do odporové zátěže obsažené ve
+                    wattmetru připojeného ke zdroji
           \end{itemize}
           \begin{figure}[H]
               \includegraphics*[scale  = 1]{images/wattTypy.png}
@@ -790,9 +814,9 @@ Použití:
 \begin{itemize}
     \item nízkofrekvenční oblast
     \item měření harmonických průběhů - energetika
-    \item měření neharmonických průběhů - měření výkonu i harmonicky zkresleného průběhu v síti
+    \item měření neharmonických průběhů - měření výkonu i harmonicky zkresleného průběhu
+          v síti
 \end{itemize}
-
 
 \begin{figure}[H]
     \includegraphics*[scale  = 1]{images/wattPruchozi.png}
@@ -812,7 +836,7 @@ Analogový wattmetr:
 
 Číslicový wattmetr s analogovým zpracováním signálu
 \begin{itemize}
-    \item Smodulační násobičkou
+    \item S modulační násobičkou
           \begin{itemize}
               \item chyba v desetinách procenta
               \item frekvenční pásmo 0-10kHz
@@ -821,12 +845,14 @@ Analogový wattmetr:
                         \includegraphics*[scale  = 1]{images/wattAnalogPrincip.png}
                     \end{figure}
           \end{itemize}
-          \newpage
 
     \item Hallova násobička
           \begin{itemize}
-              \item Působí-li na plochu destičky z polovodičového materiálu magnetické pole o indukci B a protéká-li destičkou proud i, objeví se na zbývajících hranách hallovo napětí $U_H$
-              \item Napětí $U_H$ je nutno integrovat, abychom získali stejnosměrnou hodnotu úměrnou činnému výkonu P
+              \item Působí-li na plochu destičky z polovodičového materiálu magnetické pole o
+                    indukci B a protéká-li destičkou proud i, objeví se na zbývajících hranách
+                    hallovo napětí $U_H$
+              \item Napětí $U_H$ je nutno integrovat, abychom získali stejnosměrnou hodnotu úměrnou
+                    činnému výkonu P
           \end{itemize}
 \end{itemize}
 \begin{figure}[H]
@@ -835,7 +861,8 @@ Analogový wattmetr:
 
 Číslicový wattmetr s číslicovým zpracováním signálu
 \begin{itemize}
-    \item přechod od předchozího typu doplněný o AD převodník a nahrazení analogové násobičky procesorem
+    \item přechod od předchozího typu doplněný o AD převodník a nahrazení analogové
+          násobičky procesorem
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale  = 1.3]{images/wattCislicovySchema.png}
@@ -843,8 +870,8 @@ Analogový wattmetr:
 
 \subsubsection*{Pohlcovací wattmetry}
 Určeny k měření výkonu dodávaného zdrojem do odporové zátěže představované samotným wattmetrem.\\
-Výkon se určuje buď z napětí na zátěži, nebo z tepelného účiníku.\\
-Rozsah MHz až destíky GHz.\\
+Výkon se určuje buď z napětí na zátěži, nebo z tepelného účinku.\\
+Rozsah MHz až desítky GHz.\\
 Většinou ve formě externích modulů k PC nebo jako doplněk spektrálních analyzátorů.\\
 Analogový nebo číslicový údaj.\\
 Odporová zátěž:
@@ -856,9 +883,10 @@ Odporová zátěž:
     \includegraphics*[scale  = 1.3]{images/wattOdporovaZatez.png}
 \end{figure}
 
-Voní zátěž:
+Vodní zátěž:
 \begin{itemize}
-    \item pro střední a větší výkony(desítky W až kW) - přivedený měřený výkon protékající vodu ohřívá, měří se průtok a oteplení vody
+    \item pro střední a větší výkony(desítky W až kW) - přivedený měřený výkon
+          protékající vodu ohřívá, měří se průtok a oteplení vody
     \item buď v koaxiálním provedení(do 3 GHz) nebo vlnovodném provedení(nad 2GHz)
 \end{itemize}
 \begin{figure}[H]
@@ -868,8 +896,9 @@ Voní zátěž:
 Zátěž v podobě vedení:
 \begin{itemize}
     \item Pro měření menších výkonů(desítky W)
-    \item použití "suché" zátěže ve formě bezodrazného zakončení koaxiálního vedení nebo vlnovodného vedení
-    \item telpota zátěže, která závisí na rozptylovém výkonu, se měří pomocí:
+    \item použití "suché" zátěže ve formě bezodrazného zakončení koaxiálního vedení nebo
+          vlnovodného vedení
+    \item teplota zátěže, která závisí na rozptylovém výkonu, se měří pomocí:
           \begin{itemize}
               \item termočlánkového snímače
               \item diodového snímače
@@ -877,15 +906,19 @@ Zátěž v podobě vedení:
           \end{itemize}
 \end{itemize}
 
-
 \section{Číslicové osciloskopy - princip, vlastnosti, jejich příslušenství}
-Základní měřicí přístroj umožňující zobrazi časově proměnný signál obvykle ve formě grafu
-umožňují současná záznam několika kanálů před příchodem spouštěcího pulsu, snané zachycení jednorázových dějů, výstup na tiskárnu, uložení průběhu do paměti a jejich číslicové zpracování, přenos dat do PC.\\
+Základní měřicí přístroj umožňující zobrazit časově proměnný signál obvykle ve
+formě grafu umožňují současná záznam několika kanálů před příchodem spouštěcího
+pulsu, snadné zachycení jednorázových dějů, výstup na tiskárnu, uložení průběhu
+do paměti a jejich číslicové zpracování, přenos dat do PC.\\
 \subsection*{Princip}
 \begin{itemize}
     \item Pracují na principu vzorkování sledovaného jevu
-    \item u číslicového osciloskopu není paprsek bezprostředně vychylován vstupním signálem - plynulý vstupní signál je rozložen na diskrétní měřicí body - vzorky, které jsou digitalizovány, uloženy do paměti a znovu skládány na displej 
-    \item víc tlačítek, než analog(ukládání paměti, meření zobrazovaného signálu)
+    \item u číslicového osciloskopu není paprsek bezprostředně vychylován vstupním
+          signálem - plynulý vstupní signál je rozložen na diskrétní měřicí body -
+          vzorky, které jsou digitalizovány, uloženy do paměti a znovu skládány na
+          displej
+    \item víc tlačítek, než analog(ukládání paměti, měření zobrazovaného signálu)
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/osciloskopSchema.png}
@@ -894,17 +927,18 @@ umožňují současná záznam několika kanálů před příchodem spouštěcí
 
 \subsection*{Rozdělení}
 \begin{itemize}
-    \item Číslicobé osciloskopy DSO(Digital Storage Oscilloscope)
-    \begin{figure}[H]
-        \includegraphics*[scale = 1]{images/osciloskopSchemaDSO.png}
-    \end{figure}
+    \item Číslicové osciloskopy DSO(Digital Storage Oscilloscope)
+          \begin{figure}[H]
+              \includegraphics*[scale = 1]{images/osciloskopSchemaDSO.png}
+          \end{figure}
     \item Dosvitové osciloskopy DPO(Digital Phosphor Oscilloscope)
-    \begin{figure}[H]
-        \includegraphics*[scale = 1]{images/osciloskopSchemaDPO.png}
-    \end{figure}
-    text1 : Snapshosts of the Digital Phosphor contents are periodically sent directly to the display without stopping the acquisition.\\
-    text2 : Waveform math, measurements, and front panel control are executed by the microprocessor parallel to the integrated acquisition/display system.\\
-    \item MSO - Mixed signal oscilloscope - mix oscloskopu a logického analyzátoru, 2-4 analogové kanály a větší počet digitálních 
+          \begin{figure}[H]
+              \includegraphics*[scale = 1]{images/osciloskopSchemaDPO.png}
+          \end{figure}
+          Obsah digitálního fosforu je periodicky odesílán přímo na displej bez přerušení záznamu.\\
+          Matematické operace s průběhem, měření a ovládání předního panelu jsou prováděny mikroprocesorem paralelně s integrovaným systémem záznamu a zobrazení.\\
+    \item MSO - Mixed signal oscilloscope - mix osciloskopu a logického analyzátoru, 2-4
+          analogové kanály a větší počet digitálních
 \end{itemize}
 
 \subsection*{Výhody oproti analogovým}
@@ -913,7 +947,7 @@ umožňují současná záznam několika kanálů před příchodem spouštěcí
     \item kvalitnější zobrazení
     \item kvalitnější sledování jednorázových dějů
     \item možnost úpravy signálu, odstranění rušení, operace se signálem
-    \item přímé měřená vybraných parametrů, ukládání do paměti a možnost vyvolání paměti
+    \item přímé měření vybraných parametrů, ukládání do paměti a možnost vyvolání paměti
 \end{itemize}
 
 \subsection*{Nevýhody oproti analogovým}
@@ -921,49 +955,54 @@ umožňují současná záznam několika kanálů před příchodem spouštěcí
     \item výskyt aliasing efektu
     \item omezená přesnost A/D převodníku
     \item složitější obsluha
-    \item Cena 
+    \item Cena
 \end{itemize}
 
 \subsection*{Použití}
 \begin{itemize}
     \item Analýza časového průběhu
-    \begin{itemize}
-        \item Měření napětí, napěťových rozdílů, špičkové hodnoty
-        \item Měření časových rozdílů, periody, frekvence, doby náběhu a pokles, doby překmitu, šířky pulzu
-        \item Měření fázového rozdílu dvou průběhů napětí(Lissajousovy obrazce)
-        \item Měření V-A charakteristik elektronických prvků
-        \item Měření dynamické hysterezní křivky feromagnetických materiálů
-        \item Měření pomocí kurzorů - manuální umístění X a Y, osciloskp určí rozdíl mezi nima
-        \item Automatické měření signálu - z nabídky se vyberou požadované parametry, které chcem měřit(některé měří, některé dopočítává)
-    \end{itemize}
+          \begin{itemize}
+              \item Měření napětí, napěťových rozdílů, špičkové hodnoty
+              \item Měření časových rozdílů, periody, frekvence, doby náběhu a pokles, doby
+                    překmitu, šířky pulzu
+              \item Měření fázového rozdílu dvou průběhů napětí(Lissajousovy obrazce)
+              \item Měření V-A charakteristik elektronických prvků
+              \item Měření dynamické hysterezní křivky feromagnetických materiálů
+              \item Měření pomocí kurzorů - manuální umístění X a Y, osciloskop určí rozdíl mezi
+                    nima
+              \item Automatické měření signálu - z nabídky se vyberou požadované parametry, které
+                    chcem měřit(některé měří, některé dopočítává)
+          \end{itemize}
 \end{itemize}
 
 \subsection*{Vlastnosti}
 \begin{itemize}
     \item Počet kanálů - dán počtem současně zobrazovaných průběhů
-    \item vzorkovací frekvence 
-    \item Vstupní napěťové rozsahy - určeny rozsahem vychylovacích činitelů vertikálních kanálů(obvykle 1mV/dílek až 5V/dílek)
-    \item Vstupní impedance - obvykle paralelní kombinace odporu 1 MOhm a kapacity 5-50 pF
+    \item vzorkovací frekvence
+    \item Vstupní napěťové rozsahy - určeny rozsahem vychylovacích činitelů vertikálních
+          kanálů(obvykle 1mV/dílek až 5V/dílek)
+    \item Vstupní impedance - obvykle paralelní kombinace odporu 1 MOhm a kapacity 5-50
+          pF
     \item Přesnost - obvykle 1-5\%
 \end{itemize}
 
 \subsection*{Šířka pásma}
-Označuje kmitočtové pásmo osciloskopu, ve kterém může být zobrazen harmonický průběh.\\
-Všechny osciloskopy mají charakteristiku dolní propust.\\
-Šířka pásma odpovídá frekvenci, při které dojde k poklesu o 3 dB(zhruba 30\% chyby měření amplitudy).\\
+Označuje kmitočtové pásmo osciloskopu, ve kterém může být zobrazen harmonický
+průběh.\\ Všechny osciloskopy mají charakteristiku dolní propust.\\ Šířka pásma
+odpovídá frekvenci, při které dojde k poklesu o 3 dB(zhruba 30\% chyby měření
+amplitudy).\\
 
 \subsection*{Vzorkování}
-V reálném čase RTS - dostatečný počet vzorků(12-16 během jedné periody).\\
-Musí platit vzorkovací teorém.\\
-Reži  pretriggering - záznam probíhá neustále a detekce spouštěcí podmínky jej po přednastavené podmínce ukončí.\\
-Výhoda co nejvyšší vzorkovací rychlost a co největš paměť.\\
-\subsubsection*{Opakované vzorkování}
-Dostatečný počet vzorků se sbírá několik period.\\
-Menší nároky na HW, protože stačí nižší vzorkovací frekcence.\\
-Pouze pro periodické singály.\\
+V reálném čase RTS - dostatečný počet vzorků(12-16 během jedné periody).\\ Musí
+platit vzorkovací teorém.\\ Režim pretriggering - záznam probíhá neustále a
+detekce spouštěcí podmínky jej po přednastavené podmínce ukončí.\\ Výhoda co
+nejvyšší vzorkovací rychlost a co největší paměť.\\ \subsubsection*{Opakované
+    vzorkování} Dostatečný počet vzorků se sbírá několik period.\\ Menší nároky na
+HW, protože stačí nižší vzorkovací frekvence.\\ Pouze pro periodické signály.\\
 Dvě varianty:
 \begin{itemize}
-    \item Sekvenční, kogerentní - neumožňuje pretriggering, může trvat déle, vzorky se zobrazují v pořadí zachycení.
+    \item Sekvenční, koherentní - neumožňuje pretriggering, může trvat déle, vzorky se
+          zobrazují v pořadí zachycení.
     \item Náhodné - umožňuje pretriggering, nutnost ukládat informaci o pořadí vzorku.
 \end{itemize}
 \begin{figure}[H]
@@ -985,11 +1024,11 @@ Umožňuje předzpracovat navzorkované data, cyklicky ukládat data bez ohledu 
 FIFO\\
 Velikost paměti vzorků má vliv na vzorkovací kmitočet:
 \begin{equation}
-    f_{vz} = \frac{N}{t \cdot a} 
+    f_{vz} = \frac{N}{t \cdot a}
 \end{equation}
 $N$ \dots kapacita paměti(počet vzorků)\\
 $t$ \dots nastavení časové základny\\
-$a$ \dots zobrazení, počet dílků na vodotovné ose\\
+$a$ \dots zobrazení, počet dílků na vodorovné ose\\
 
 \subsubsection*{Synchronizační obvody}
 Rozšířené možnosti oproti analogovým osciloskopům.\\
@@ -999,7 +1038,7 @@ Spouštění počtem impulsů.\\
 
 \subsubsection*{Zobrazení}
 Vakuová obrazovka nebo jiný typ(LCD).\\
-Nejsou zobrazeny pouze jednotlivé body, meziéhlé hodnoty početně interpolovány.\\
+Nejsou zobrazeny pouze jednotlivé body, mezilehlé hodnoty početně interpolovány.\\
 Rastr pro odečítání, kurzory.\\
 Pomocné informace o režimu přístroje.\\
 Výstup na tiskárnu pro grafickou dokumentaci.\\
@@ -1013,14 +1052,14 @@ Výstup na tiskárnu pro grafickou dokumentaci.\\
 \subsubsection*{Spouštění z jednoho zdroje signálu}
 Zdroj spouštění signálu:
 \begin{itemize}
-    \item Interní - spouštění je odvozeno z měřeného průběhu 
-    \item Externí - externí signál přivedený na speciální vstup 
+    \item Interní - spouštění je odvozeno z měřeného průběhu
+    \item Externí - externí signál přivedený na speciální vstup
 \end{itemize}
 Způsob spouštění:
 \begin{itemize}
     \item Normální - čeká na spouštěcí podmínku
     \item Automatické - vzorkuje stále
-    \item Jednorázové - čeká na spouštěcí podmínku a zobrazí pouze jeden průběh 
+    \item Jednorázové - čeká na spouštěcí podmínku a zobrazí pouze jeden průběh
 \end{itemize}
 Podmínky spouštění:
 \begin{itemize}
@@ -1046,15 +1085,16 @@ Existuje velké množství různých sond pro různé použití.\\
 Nejčastější sondy: pasivní napěťové sondy bez útlumu 1:1 nebo s útlumem 1:10\\
 Pasivní napěťová sonda:
 \begin{itemize}
-    \item Kmitočtově kompenzovaný vstupní dělič 
-    \item Paralelní kombinace R, C 
-    \item Dělící poměr je potřeba brát v úvahu při odečítání napětí z obrazovky osciloskopu, zkreslení měřeného průběhu při špatně vykompenzované sondě
+    \item Kmitočtově kompenzovaný vstupní dělič
+    \item Paralelní kombinace R, C
+    \item Dělící poměr je potřeba brát v úvahu při odečítání napětí z obrazovky
+          osciloskopu, zkreslení měřeného průběhu při špatně vykompenzované sondě
     \item Kompenzace pasivní napěťové sondy
-    \begin{itemize}
-        \item Slouží k přesnému nastavení reálného přenosu sondy 
-        \item Obvykle se využívá obdelníkový signál s rychlými hranami
-        \item Kompenzace se provádí nastavovacím prvkem sondy
-    \end{itemize}
+          \begin{itemize}
+              \item Slouží k přesnému nastavení reálného přenosu sondy
+              \item Obvykle se využívá obdélníkový signál s rychlými hranami
+              \item Kompenzace se provádí nastavovacím prvkem sondy
+          \end{itemize}
 \end{itemize}
 
 \begin{figure}[H]
@@ -1064,7 +1104,8 @@ Pasivní napěťová sonda:
 Aktivní napěťová sonda:
 \begin{itemize}
     \item obsahuje předzesilovač a je určena pro měření velmi malých signálů
-    \item aktivní sonda s nesymetrickým vstupem, nebo pro měření neuzemněných zdrojů signálů 
+    \item aktivní sonda s nesymetrickým vstupem, nebo pro měření neuzemněných zdrojů
+          signálů
     \item aktivní diferenciální sonda
     \item víceméně pasivní sonda + zabudovaný zesilovač s velmi nízkou kapacitou
     \item nutnost napájecího zdroje a vyšší cena
@@ -1072,9 +1113,9 @@ Aktivní napěťová sonda:
 
 Proudová sonda:
 \begin{itemize}
-    \item používá se k zobrazení průběhu proudu na stínítku osciloskopu 
-    \item převodníky proudu na napětí 
-    \item Pasivní sonda - malé měřicí transformátory proudu 
+    \item používá se k zobrazení průběhu proudu na stínítku osciloskopu
+    \item převodníky proudu na napětí
+    \item Pasivní sonda - malé měřicí transformátory proudu
     \item Aktivní sonda - zpětnovazební sondy s Hallovým generátorem
 \end{itemize}
 
@@ -1083,19 +1124,20 @@ Měřicí přístroj, který v sobě slučuje funkci osciloskopu, multimetru a b
 Vyrobeno za účelem osciloskopu, které vydrží velmi tvrdé podmínky při práci na místě.\\
 Přístroj s LCD displejem, bateriovým napájením a odolnou skříní.\\
 
-
 \section{Měření frekvence, časového intervalu a fáze. Univerzální čítač - princip, vlastnosti.}
-Frekvence a čas jsou definovýny: $f = 1/T$\\
-Nejpřesnější měření času a frekvence v porovnání s měřením jiných fyzikálních veličin(etalon - atomové hodiny $10^(-12)$)\\
+Frekvence a čas jsou definovány: $f = 1/T$\\ Nejpřesnější měření času a
+frekvence v porovnání s měřením jiných fyzikálních veličin(etalon - atomové
+hodiny $10^(-12)$)\\
 
 \subsection*{Měření časového intervalu}
-Během měřeného intervalu se čítačem načítávají impulsy dostatečně velkého a stabilního kmitočtu\\
-Časový interval vymezen dvojicí krátkých impulsů START-STOP - odvozeny od nástupných/sestupných hran\\
-U většiny univerzálních čítačů si můžeme sami aktivní hranu zvolit\\
+Během měřeného intervalu se čítačem načítávají impulsy dostatečně velkého a
+stabilního kmitočtu\\ Časový interval vymezen dvojicí krátkých impulsů
+START-STOP - odvozeny od nástupných/sestupných hran\\ U většiny univerzálních
+čítačů si můžeme sami aktivní hranu zvolit\\
 
 \subsubsection*{Způsob generování START a STOP impulsu}
 Využití dvou vstupních kanálů - na jeden se přivede START impuls a na druhý STOP\\
-Využití jednoho vstupního kanálu - oba impulsy odvozovány od náběžné nebo sestupné hrany 
+Využití jednoho vstupního kanálu - oba impulsy odvozovány od náběžné nebo sestupné hrany
 
 \subsubsection*{Měření časových parametrů signálu}
 Délka pulsu\\
@@ -1118,18 +1160,17 @@ Nejběžnější způsoby:
 Přesnost je dána stabilitou a přesností oscilátoru, chyba kvantování času\\
 Za pomocí hradla, měří se čas otevření Tx\\
 \begin{figure}[H]
-    \includegraphics*[scale = 1]{images/minKvantChyb.png}    
+    \includegraphics*[scale = 1]{images/minKvantChyb.png}
 \end{figure}
 
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/minKvantChyb2.png}
 \end{figure}
 
-Odvození impulsů START a STOP ze vstupního signálu.\\
-Odstranění stejnosměrné složky vstupního signálu kapacitou C(vypínač vypnutý).\\
-Zmenšení vstupního signálu na děliči(10x, 100x)\\
-Odfiltrování rušivých signálů - filtr dolní propust.\\
-Komparátor mění signál na obdelníkový.\\
+Odvození impulsů START a STOP ze vstupního signálu.\\ Odstranění stejnosměrné
+složky vstupního signálu kapacitou C(vypínač vypnutý).\\ Zmenšení vstupního
+signálu na děliči(10x, 100x)\\ Odfiltrování rušivých signálů - filtr dolní
+propust.\\ Komparátor mění signál na obdelníkový.\\
 
 \subsection*{Univerzální čítač}
 \begin{figure}[H]
@@ -1141,23 +1182,21 @@ Změna časového intervalu.\\
 
 \subsubsection*{Čítač}
 Sekvenční logický obvod \\
-Stav závisí na počtu přivedených impulsů a odpovvídá použitému kódu(binární, BCD(binary code decimal)).\\
+Stav závisí na počtu přivedených impulsů a odpovídá použitému kódu(binární, BCD(binary code decimal)).\\
 
 \subsubsection*{Zobrazovač}
 Numerický typ, vybaven pamětí\\
 Výpočty matematických statistik\\
 
 \subsection*{Měření periody signálu}
-Shodné s měřením časového intervalu.\\
-START a STOP je odvozen od jednoho signálu.\\
+Shodné s měřením časového intervalu.\\ START a STOP je odvozen od jednoho
+signálu.\\
 
 \subsection*{Měření kmitočtu}
 
 \subsection*{Analogové metody}
 Využívají selektivní LC nebo RC obvody - mostová nebo rezonanční metoda.\\
-Porovnávací metoda\\
-Metoda s přímým údajem\\
-\newpage 
+Porovnávací metoda\\ Metoda s přímým údajem\\ \newpage
 
 \subsubsection*{Selektivní obvody}
 Vstupní napětí je po případném zesílení přivedeno na selektivní obvod.\\
@@ -1173,17 +1212,17 @@ RC obvod:
 Charakter frekvenční zátěže
 \begin{itemize}
     \item Wienův můstek - mostová metoda
-    \begin{figure}[H]
-        \includegraphics*[scale = 1.2]{images/wienuvMustek.png}
-    \end{figure}
+          \begin{figure}[H]
+              \includegraphics*[scale = 1.2]{images/wienuvMustek.png}
+          \end{figure}
     \item Dvojité T-články, přemostěné T-články
 \end{itemize}
 Zadržovaná frekvence je nastavitelná:
 \begin{itemize}
     \item snaha nastavit tak, aby údaj na indikátoru byl minimální
-    \item hodnota frekvence dána parametry zátěže 
+    \item hodnota frekvence dána parametry zátěže
 \end{itemize}
-Nevýhoda - obvod vyvážen jen pro jeden kmitočet, signály s vyššími harmonickýmiznemožňují přesné vyvážení.\\
+Nevýhoda - obvod vyvážen jen pro jeden kmitočet, signály s vyššími harmonickými znemožňují přesné vyvážení.\\
 \newpage
 
 LC obvod:
@@ -1197,21 +1236,22 @@ Snaha nastavit indikátor na maximální hodnotu.\\
     \includegraphics*[scale = 1.2]{images/indikatorMax.png}
 \end{figure}
 
-\subsubsection*{Porovnavaci metody}
-Vyžadují pro svoji činnost zdroj harmoniického signálu se známým a stavitelným kmitočtem.\\
+\subsubsection*{Porovnávací metody}
+Vyžadují pro svoji činnost zdroj harmonického signálu se známým a stavitelným kmitočtem.\\
 Porovnání kmitočtů:
 \begin{itemize}
     \item Směšování - vysoká přesnost
     \item Pomocí dvoukanálového osciloskopu
-    \begin{itemize}
-        \item Harmonické - Lissajousovy obrazce 
-        \item Harmonické i neharmonické - srovnávací metoda
-    \end{itemize}
+          \begin{itemize}
+              \item Harmonické - Lissajousovy obrazce
+              \item Harmonické i neharmonické - srovnávací metoda
+          \end{itemize}
 \end{itemize}
 
 Osciloskopická metoda - Lissajousova :\\
 \begin{itemize}
-    \item změnou kmitočtu nastavíme stojící Lissajousův obrazec, jehož tvar závisí na poměru kmitočtů a jejich fázi 
+    \item změnou kmitočtu nastavíme stojící Lissajousův obrazec, jehož tvar závisí na
+          poměru kmitočtů a jejich fázi
     \item Snaha o co nejjednodušší obrazec
 \end{itemize}
 \begin{figure}[H]
@@ -1221,8 +1261,8 @@ Osciloskopická metoda - Lissajousova :\\
 Osciloskopická metoda - srovnávací : \\
 \begin{itemize}
     \item využití dvoukanálového osciloskopu, měřený porovnáváme se známým
-    \item synchronizaceod prvního kanálu 
-    \item kmitočet měníme, perioda u obou stejná 
+    \item synchronizace od prvního kanálu
+    \item kmitočet měníme, perioda u obou stejná
 \end{itemize}
 
 \subsubsection*{Metoda s přímým údajem}
@@ -1234,14 +1274,15 @@ existuje ve  formě sondy, kterou lze připojit k univerzálnímu multimetru\\
 
 \subsubsection*{Číslicové měření kmitočtu}
 
-Umožňují i další zpracování naměřených výsledků a mají možnostt připojení k měřicímu systému.\\
-Snaha dosáhnout co nejširšího kmitočtového rozsahu, vysoké přesnosti při malé době měření a snadné obsluhy.\\
-Nevýhody - u zkreslených nebo zarušených signálů může vést měření k chybným výsledkům.\\
+Umožňují i další zpracování naměřených výsledků a mají možnost připojení k
+měřicímu systému.\\ Snaha dosáhnout co nejširšího kmitočtového rozsahu, vysoké
+přesnosti při malé době měření a snadné obsluhy.\\ Nevýhody - u zkreslených
+nebo zarušených signálů může vést měření k chybným výsledkům.\\
 
 \subsubsection*{Přímé číslicové měření}
 
-Duální měření periody\\
-Čítáním se určuje počet period měřeného signálu N, které spadají do měřicího intervalu o známé délce T.\\
+Duální měření periody\\ Čítáním se určuje počet period měřeného signálu N,
+které spadají do měřicího intervalu o známé délce T.\\
 \begin{figure}[H]
     \includegraphics*[scale = 1.2]{images/PrimeCislicoveMereni.png}
 \end{figure}
@@ -1251,8 +1292,10 @@ Měření nízkých kmitočtů - výhodnější měřit periodu a kmitočet vypo
 Měření vysokých kmitočtů - předřadit rychlý dělič kmitočtu na principu čítače, použití směšovače, kde se získá rozdíl kmitočtů $n.f_p - f_x$ - ten se měří - kmitočtový měnič.\\
 Princip:
 \begin{itemize}
-    \item Vstupní signál přichází na směšovač, kde je ještě přiváděn signál fp z laditelného osciloskopu 
-    \item Na výstupu směšovače je signál o kmitočtu n.fp-fx - nastavujeme jej změnou fp tak, aby byl nulový
+    \item Vstupní signál přichází na směšovač, kde je ještě přiváděn signál fp z
+          laditelného oscilátoru
+    \item Na výstupu směšovače je signál o kmitočtu n.fp-fx - nastavujeme jej změnou fp
+          tak, aby byl nulový
     \item indikátor musí být selektivní
 \end{itemize}
 \begin{figure}[H]
@@ -1260,10 +1303,11 @@ Princip:
 \end{figure}
 
 \subsection*{Měření fáze}
-Fázový posuv $\upvarphi $ vyjádřený ve stupních je možno zjiistit měření časového posunu $t_0$ a periody T (čítačem, osciloskopem). Platí pro harmonické signály.\\
-Pro fázový posuv platí:
+Fázový posuv $\upvarphi $ vyjádřený ve stupních je možno zjistit měřením
+časového posunu $t_0$ a periody T (čítačem, osciloskopem). Platí pro harmonické
+signály.\\ Pro fázový posuv platí:
 \begin{equation}
-    \upvarphi = \frac{t_0}{T}\cdot 100 \;\;\;\; [\degree]
+    \upvarphi = \frac{t_0}{T}\cdot 360 \;\;\;\; [\degree]
 \end{equation}
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/faze.png}
@@ -1271,11 +1315,11 @@ Pro fázový posuv platí:
 
 \subsubsection*{Metody pro měření fáze}
 \begin{itemize}
-    \item Kompenzační metoda 
+    \item Kompenzační metoda
     \item Přímo ukazující fázoměr impulsového typu
-    \item Osciloskopické metody 
-    \item Metoda s přímým údajem 
-    \item Číslicová metoda pro měření okamžité hodnoty fázového rozdílu 
+    \item Osciloskopické metody
+    \item Metoda s přímým údajem
+    \item Číslicová metoda pro měření okamžité hodnoty fázového rozdílu
     \item Číslicová metoda pro měření střední hodnoty fázového rozdílu
 \end{itemize}
 
@@ -1290,12 +1334,14 @@ pomocí zeslabovače a měniče fáze nastavujeme na indikátoru nulové napět�
 \subsubsection*{Osciloskopické metody}
 Metoda Lissajousových obrazců:
 \begin{itemize}
-    \item pouze pro harmonické signály, nebo pro ty, které se od sebe harmonicky liší málo.
-    \item Nejpřesnější v oblasti 0  \textdegree až 180 \textdegree , dále přesnost klesá 
-    \item Při připojení harmonických napětí nám vznikne "tvar", z jehož rozměrů lze vypočítat fázový rozdíl:
-    \begin{equation}
-        \upvarphi = arcsin\frac{X_a}{X} = arcsiin\frac{Y_b}{Y}
-    \end{equation}
+    \item pouze pro harmonické signály, nebo pro ty, které se od sebe harmonicky liší
+          málo.
+    \item Nejpřesnější v oblasti 0 \textdegree až 180 \textdegree , dále přesnost klesá
+    \item Při připojení harmonických napětí nám vznikne "tvar", z jehož rozměrů lze
+          vypočítat fázový rozdíl:
+          \begin{equation}
+              \upvarphi = \arcsin\frac{X_a}{X} = \arcsin\frac{Y_b}{Y}
+          \end{equation}
 \end{itemize}
 \begin{figure}[H]
     \includegraphics*[scale = 1]{images/Lissajous2.png}
@@ -1319,19 +1365,20 @@ Nevýhody: nevhodné pro vyšší kmitočty, protože kmitočet zdroje impulsů 
     \includegraphics*[scale = 1]{images/fazeCislicovaStredni.png}
 \end{figure}
 
-
-
 % SEM psát od zadu
 \section{Měření pasivních el. veličin (R,L,C,Z) – metody s přímým údajem, principy mostových metod.}
 Pasivní elektrické veličiny popisují vlastnosti pasivních součástek.\\
-Definovány pomocí aktivních elektrických veličin.\\
-Měřitelné na základě přiloženého napětí na součástce a vyhodnocením velikosti protékajícího proudu součástkou.\\
+Definovány pomocí aktivních elektrických veličin.\\ Měřitelné na základě
+přiloženého napětí na součástce a vyhodnocením velikosti protékajícího proudu
+součástkou.\\
 \subsection{Měření elektrického odporu}
-Odpory dělíme na malé (\(<10^{-1}\Omega \)), střední (\(10-10^6\Omega \)) a velké (\(>10^6\Omega \)).\\
-Z hlediska měřícího postupu rozeznáváme metody:
+Odpory dělíme na malé (\(<10^{-1}\Omega \)), střední (\(10-10^6\Omega \)) a
+velké (\(>10^6\Omega \)).\\ Z hlediska měřícího postupu rozeznáváme metody:
 \begin{enumerate}
-    \item Výchylkové - méně přesné, výsledek ovlivněn přesností jednotlivých členů zapojení a přesností použitých přístrojů.
-    \item Nulové metody - přesnost měřícího přístroje neovlivňuje výsledek měření, přístroj se používá pouze k indikaci stavu měření, použití pro přesná měření
+    \item Výchylkové - méně přesné, výsledek ovlivněn přesností jednotlivých členů
+          zapojení a přesností použitých přístrojů.
+    \item Nulové metody - přesnost měřícího přístroje neovlivňuje výsledek měření,
+          přístroj se používá pouze k indikaci stavu měření, použití pro přesná měření
 \end{enumerate}
 \subsubsection{Metody měření elektrického odporu}
 \begin{itemize}
@@ -1344,9 +1391,9 @@ Z hlediska měřícího postupu rozeznáváme metody:
 \end{itemize}
 
 \subsubsection{Ohmova metoda}
-Jediná vhodná metoda pro měření lineárních i nelineárních odporů.\\
-Hodnota se stanovuje nepřímo výpočtem ze změřeného proudu a napětí.\\
-Dvě metody zapojení, obě zatížena chybou metody.\\
+Jediná vhodná metoda pro měření lineárních i nelineárních odporů.\\ Hodnota se
+stanovuje nepřímo výpočtem ze změřeného proudu a napětí.\\ Dvě metody zapojení,
+obě zatížena chybou metody.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/Ohm1.png}
@@ -1357,28 +1404,28 @@ Dvě metody zapojení, obě zatížena chybou metody.\\
 \end{figure}
 
 \subsubsection{Měření odporu uzemněním}
-Odpor uzemnění jako přechodový odpor mezi zemnícím vodičem a zemí.\\
-Měří se pomocí ohmovy metody.\\
-Umístění sond: napěťová na vzdálenost nejméně 20 metrů, proudová nejméně 40 metrů.\\
+Odpor uzemnění jako přechodový odpor mezi zemnícím vodičem a zemí.\\ Měří se
+pomocí ohmovy metody.\\ Umístění sond: napěťová na vzdálenost nejméně 20 metrů,
+proudová nejméně 40 metrů.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/OdporUzem.png}
 \end{figure}
 
 \subsubsection{Srovnávací metoda}
-Přenost až 0.1\%.\\
-Vhodnost pro měření velkého počtu rezistorů.\\
-Snadná realizace automatického měření s využitím jednoho přístroje, který přepíná mezi měřeným a srovnávacím „kusem“.\\
-Sériové zapojení pro malé odpory, paralelní pro větší odpory.\\
+Přesnost až 0.1\%.\\ Vhodnost pro měření velkého počtu rezistorů.\\ Snadná
+realizace automatického měření s využitím jednoho přístroje, který přepíná mezi
+měřeným a srovnávacím „kusem“.\\ Sériové zapojení pro malé odpory, paralelní
+pro větší odpory.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/SrovMetodOdp.png}
 \end{figure}
 
 \subsubsection{Substituční metoda}
-Slouží pro přesná porovnání skutečných hodnot odporu dvou rezistorů o stejné jmenovité hodnotě.\\
-Zvláštní případ porovnávací metody.\\
-Použitelné i pro měření jiných veličin (např. kapacita, indukce).\\
+Slouží pro přesná porovnání skutečných hodnot odporu dvou rezistorů o stejné
+jmenovité hodnotě.\\ Zvláštní případ porovnávací metody.\\ Použitelné i pro
+měření jiných veličin (např. kapacita, indukce).\\
 
 \subsubsection{Přímoukazující měřiče}
 Analogové. Většinou převodník odpor-napětí.\\
@@ -1387,22 +1434,21 @@ Analogové. Většinou převodník odpor-napětí.\\
     \includegraphics[scale = 0.6]{images/Primouk1.png}
 \end{figure}
 
-Nelineární závilost a tudíž nelineární stupnice.\\
-Velký měřící rozsah(\(10\Omega - 10M\Omega\)).\\
-Konstatní relativní chyba.\\
-Změna rozsahu znamená změnu odporu \(R_N\).\\
-Převodník odporu na napětí s operačním zesilovačem.\\
-Možnost čtyřsvorkového připojení měřeného odporu -> eliminace odporu přívodů a svorkových napětí.
+Nelineární závislost a tudíž nelineární stupnice.\\ Velký měřící
+rozsah(\(10\Omega - 10M\Omega\)).\\ Konstantní relativní chyba.\\ Změna rozsahu
+znamená změnu odporu \(R_N\).\\ Převodník odporu na napětí s operačním
+zesilovačem.\\ Možnost čtyřsvorkového připojení měřeného odporu -> eliminace
+odporu přívodů a svorkových napětí.
 \begin{figure}
     \centering
     \includegraphics[scale = 0.6]{images/Primouk2.png}
 \end{figure}
 
 \subsubsection{Nulové metody}
-Pro přesné měření odporů (0,01\% laboratorní, 1\% technické).\\
-Wheatstoneův můstek:
+Pro přesné měření odporů (0,01\% laboratorní, 1\% technické).\\ Wheatstoneův
+můstek:
 \begin{itemize}
-    \item Nejznámnější můstek k měření odporu
+    \item Nejznámější můstek k měření odporu
     \item Vhodná pro měření středních odporů
     \item Tvořen 4 rezistory a citlivým nulovým indikátorem
     \item Napájení ze zdroje napětí, nebo proudu
@@ -1411,12 +1457,15 @@ Wheatstoneův můstek:
           \begin{itemize}
               \item Do návrhu musí být zahrnut galvanometr
               \item Citlivost vyjádřena jako poměr změn výstupní veličiny a vstupní veličiny
-              \item Citlivost závisí na citlivosti galvanometru, napětí zdroje, vzájemném poměru odporů v můstku
+              \item Citlivost závisí na citlivosti galvanometru, napětí zdroje, vzájemném poměru
+                    odporů v můstku
           \end{itemize}
     \item Přesnost můstku:
           \begin{itemize}
-              \item Závisí na citlivosti můstku, stálosti nulové výchylky galvanometru, přesnosti rezistorů můstku(chyby se sčítají)
-              \item Pokud chceme dosáhnout lepší přesnosti, je třeba omezit přechodové odpory a termoelektrické napětí
+              \item Závisí na citlivosti můstku, stálosti nulové výchylky galvanometru, přesnosti
+                    rezistorů můstku(chyby se sčítají)
+              \item Pokud chceme dosáhnout lepší přesnosti, je třeba omezit přechodové odpory a
+                    termoelektrické napětí
           \end{itemize}
 \end{itemize}
 \begin{figure}[h!]
@@ -1442,9 +1491,10 @@ Thompsonův můstek:
 \end{figure}
 
 \subsection{Měření kapacity}
-Kapacita je hlavním parametrem kapacitorů.\\
-Kapacitance \(X_C\) je zdánlivý odpor součástky s kapacitou proti průchodu elektrického proudu.\\
-Kapacitory pokládáme za lineární a natolik kvalitní, že není důvod měřit parazitní elektrické veličiny (odpor, indukčnost).\\
+Kapacita je hlavním parametrem kapacitorů.\\ Kapacitance \(X_C\) je zdánlivý
+odpor součástky s kapacitou proti průchodu elektrického proudu.\\ Kapacitory
+pokládáme za lineární a natolik kvalitní, že není důvod měřit parazitní
+elektrické veličiny (odpor, indukčnost).\\
 \subsubsection{Metody měření}
 \begin{enumerate}
     \item Přímoukazující přístroje
@@ -1457,7 +1507,8 @@ Kapacitory pokládáme za lineární a natolik kvalitní, že není důvod měř
 \end{center}
 Hodnota kapacity je udávána přímo analogově nebo číslicově pomocí:
 \begin{itemize}
-    \item Poměru velikostí harmonického proudu I tekoucího měřenou kapacitou C a velikostí napětí na ní
+    \item Poměru velikostí harmonického proudu I tekoucího měřenou kapacitou C a
+          velikostí napětí na ní
     \item Převodem kapacity na harmonické napětí měřené elektronickým voltmetrem
     \item Převodem kapacity na časový interval měřený číslicově
 \end{itemize}
@@ -1468,7 +1519,8 @@ Hodnota kapacity je udávána přímo analogově nebo číslicově pomocí:
 Měření kapacity s převodem na napětí:
 \begin{itemize}
     \item rezonanční obvod s měřenou kapacitou
-    \item indikátor reagující na napětí v rezonančním obvodu (sériový - napěťové buzení, paralelní - proudové)
+    \item indikátor reagující na napětí v rezonančním obvodu (sériový - napěťové buzení,
+          paralelní - proudové)
 \end{itemize}
 \begin{figure}[h!]
     \centering
@@ -1499,8 +1551,9 @@ Rozsah měření 0,1pF - 1mF.\\
 \end{figure}
 
 \subsection{Měření indukčnosti}
-Duální k měření kapacity, obdobné metody.\\
-Indukčnost jako závislost na protékajícím proudu se musí měřit pomocí dostatečně malého harmonického signálu.\\
+Duální k měření kapacity, obdobné metody.\\ Indukčnost jako závislost na
+protékajícím proudu se musí měřit pomocí dostatečně malého harmonického
+signálu.\\
 \subsubsection{Metody měření}
 \begin{itemize}
     \item Přímo ukazující
@@ -1548,7 +1601,8 @@ Měření naprázdno a nakrátko:\\
 \end{figure}
 
 \subsection{Měření impedance(imitance)}
-Imitance je společný název pro impedanci(zdánlivý odpor) a admitanci(zdánlivá vodivost).\\
+Imitance je společný název pro impedanci(zdánlivý odpor) a admitanci(zdánlivá
+vodivost).\\
 
 \subsubsection{Metody měření}
 \begin{itemize}
@@ -1576,8 +1630,11 @@ Imitance je společný název pro impedanci(zdánlivý odpor) a admitanci(zdánl
 \end{itemize}
 
 \subsubsection{Měření imitance}
-Určení imitance měřením napětí a fáze. Na základě ohmova zákona z hodnot harmonického napětí na imitanci a proudu protékajícím imitancí. Modul impedance Z se určí z poměru amplitud obou veličin. Fázový úhel se určí z fázového rozdílu těchto veličin.\\
-Dvy typy zapojení, buzení s konstantním napětím a buzení s konstantním proudem.\\
+Určení imitance měřením napětí a fáze. Na základě ohmova zákona z hodnot
+harmonického napětí na imitanci a proudu protékajícím imitancí. Modul impedance
+Z se určí z poměru amplitud obou veličin. Fázový úhel se určí z fázového
+rozdílu těchto veličin.\\ Dva typy zapojení, buzení s konstantním napětím a
+buzení s konstantním proudem.\\
 
 \subsubsection{Měřič imitance s přímým údajem}
 Neznámá impedance Zx je vypočtena z měřeného napětí a proudu.\\
@@ -1587,32 +1644,29 @@ Neznámá impedance Zx je vypočtena z měřeného napětí a proudu.\\
 \end{figure}
 
 \subsubsection{IV sonda}
-Vychází z měření přímého údaje a jeho výpočtu impedance.\\
-Proud je u sondy měřen nepřímo přes vysokofrekvenční proudový transformátor.\\
-Základní metoda do 100 MHz.\\
+Vychází z měření přímého údaje a jeho výpočtu impedance.\\ Proud je u sondy
+měřen nepřímo přes vysokofrekvenční proudový transformátor.\\ Základní metoda
+do 100 MHz.\\
 
 \subsubsection{Q metr}
-Vychází z rezonanční metody - sériové zapojení.\\
-Slouží pro stanovení činitele jakosti Q.\\
+Vychází z rezonanční metody - sériové zapojení.\\ Slouží pro stanovení činitele
+jakosti Q.\\
 
 \subsubsection{Rezonanční metoda}
-Měření vychází z chování rezonančních obvodů ve stavu resonance.\\
-Možnosti:\\
+Měření vychází z chování rezonančních obvodů ve stavu resonance.\\ Možnosti:\\
 \begin{itemize}
-    \item Paralelní rezonanční obvod - hledáme maximum napětí na rezonančním obvodu při napájení ze zdroje s velkým vnitřním odporem
+    \item Paralelní rezonanční obvod - hledáme maximum napětí na rezonančním obvodu při
+          napájení ze zdroje s velkým vnitřním odporem
     \item Sériový rezonanční obvod - hledáme maximum proudu s malým vnitřním odporem
 \end{itemize}
 Modifikace metody vychází z toho, zda je k dispozici normálová kapacita nebo indukčnost.\\
 
 \subsubsection{Mostová měření}
-Do 100 MHz. \\
-Mechanicky náročné.\\
-Přesnost 1\%.\\
-Typy mostů:
+Do 100 MHz. \\ Mechanicky náročné.\\ Přesnost 1\%.\\ Typy mostů:
 \begin{itemize}
     \item Pro imitanci indukčního charakteru:
           \begin{itemize}
-              \item Owanův
+              \item Owenův
               \item Hayův
               \item Maxwell-Wienův
               \item Rezonanční
@@ -1634,15 +1688,16 @@ Typy mostů:
 \section{Měření magnetických veličin. Snímače magnetických veličin (princip základních magnetických převodníků - měřicí cívka, Hallova sonda). Měření parametrů feromagnetik (hysterezní smyčka, ztráty) pomocí osciloskopu.}
 Problémy při měření magnetických veličin:
 \begin{itemize}
-    \item Obtížné stanovení přesné dráhy magnetického toku a plochy, kterou magnetické toky prostupují.
+    \item Obtížné stanovení přesné dráhy magnetického toku a plochy, kterou magnetické
+          toky prostupují.
     \item Změna teploty vzorku ovlivňuje magnetické vlastnosti.
-    \item Mechanické namáhání mlže ovlivnit magnetické vlastnosti.
+    \item Mechanické namáhání může ovlivnit magnetické vlastnosti.
     \item Ovlivnění výsledků měření vnějšími magnetickými poli.
 \end{itemize}
 
 \subsection{Magnetické převodníky}
-Převod měřené veličiny (B, H, \(\mu r\)) na elektrický signál.\\
-Typy převodníků:
+Převod měřené veličiny (B, H, \(\mu r\)) na elektrický signál.\\ Typy
+převodníků:
 \begin{itemize}
     \item Měřící cívka
     \item Hallova sonda
@@ -1652,7 +1707,7 @@ Typy převodníků:
 \end{itemize}
 \subsection{Měřící cívka}
 Převodník změny magnetického toku \(\Phi \) [Wb] na elektrické napětí u(t).\\
-Použití pro střídavé magnetické pole bet stejnosměrné složky.\\
+Použití pro střídavé magnetické pole bez stejnosměrné složky.\\
 \begin{center}
     \(u(t) = -N\cdot\frac{d\Phi}{dt} = -N\cdot S\cdot \frac{dB}{dt}\)
 \end{center}
@@ -1664,10 +1719,11 @@ Mění-li se magnetický tok \(\Phi\) obepínaný N závity měřicí cívky, in
 \end{figure}
 
 \subsection{Hallova sonda}
-Využití Hallova jevu.\\
-Sonda s polovodičovou destičkou.\\
-Stejnosměrný proud I tekoucí v podélném směru.\\
-Lorentzova síla - působí na pohybující se nosiče elektrického náboje v magnetickém poli. Jev spočívá ve vychylování směru toku el. Proudu v závislosti na velikosti indukce mag. Pole, které je kolmé na polovodičovou destičku.\\
+Využití Hallova jevu.\\ Sonda s polovodičovou destičkou.\\ Stejnosměrný proud I
+tekoucí v podélném směru.\\ Lorentzova síla - působí na pohybující se nosiče
+elektrického náboje v magnetickém poli. Jev spočívá ve vychylování směru toku
+el. Proudu v závislosti na velikosti indukce mag. Pole, které je kolmé na
+polovodičovou destičku.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/MVEHall1.png}
@@ -1684,25 +1740,31 @@ Kde \(R_H\) je Hallova konstanta \([m^3/C]\)
 
 \subsubsection{Charakteristika a použití}
 \begin{itemize}
-    \item Malé konsrukční rozměry
+    \item Malé konstrukční rozměry
     \item Měření kolmé složky magnetické indukce ve vzduchových mezerách
     \item Měření nejsou ovlivňována, sonda nemá feromagnetické části
     \item Malý napájecí proud(10-100mA)
     \item Dobrá linearita převodní charakteristiky
-    \item Meření stejnosměrných a střídavých magnetických polí nízkých kmitočtů
-    \item Nevýhoda - teplotní závislost (kompenzace pomocí polovodičů s opačným teplotním koeficientem než má sonda)
+    \item Měření stejnosměrných a střídavých magnetických polí nízkých kmitočtů
+    \item Nevýhoda - teplotní závislost (kompenzace pomocí polovodičů s opačným teplotním
+          koeficientem než má sonda)
 \end{itemize}
 
 \subsection{Feromagnetická sonda}
-Nejrozšířenější typ magnetické sondy obsahuje 2 jádra. Má 2 feromagnetické jádra z kvalitního feromagnetického materiálu(měkký ferit) a ta jsou ovinuta stejným počtem závitů a umístěna do vnější cívky. Vinutí jader jsou zapojena proti sobě a napájena střídavým proudem.\\
-Vlivem vnějšího stejnosměrného magnetického pole s intenzitou H, je souměrnost magnetický toků \(\Phi_1\) a \(\Phi_2\) porušena a na vnější cívce se indukuje napětí úměrné H.\\
+Nejrozšířenější typ magnetické sondy obsahuje 2 jádra. Má 2 feromagnetické
+jádra z kvalitního feromagnetického materiálu(měkký ferit) a ta jsou ovinuta
+stejným počtem závitů a umístěna do vnější cívky. Vinutí jader jsou zapojena
+proti sobě a napájena střídavým proudem.\\ Vlivem vnějšího stejnosměrného
+magnetického pole s intenzitou H, je souměrnost magnetický toků \(\Phi_1\) a
+\(\Phi_2\) porušena a na vnější cívce se indukuje napětí úměrné H.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/FeromagSonda.png}
 \end{figure}
 \subsubsection{Charakteristika a použití}
 \begin{itemize}
-    \item Měření velmi slabých magnetických polí - stejnosměrné nebo nízkofrekvenční střídavá pole.
+    \item Měření velmi slabých magnetických polí - stejnosměrné nebo nízkofrekvenční
+          střídavá pole.
     \item Měřící rozsah \(100pT\) až \(200\mu T\)
     \item Vysoká citlivost oproti Hallově sondě
     \item Měření kolísání magnetického pole země
@@ -1712,22 +1774,27 @@ Vlivem vnějšího stejnosměrného magnetického pole s intenzitou H, je soumě
 \end{itemize}
 
 \subsection{Rogowskiho-Chattockův potenciometr}
-Potenciometr jako zvláštní úprava měřící cívky pro integrační měření.\\
-Pásek z nemagnetického a nevodivého materiálu s konstantním průřezem rovnoměrně ovinutý po celé délce vodičem.\\
-Změny magnetického toku \(\Phi\) v cívce -> vznik indukovaného impulsu napětí u(t).\\
-Konstrukce: Měřící cívka pro integrační měření. Měření změn magnetického napětí \(U_m\).\\
+Potenciometr jako zvláštní úprava měřící cívky pro integrační měření.\\ Pásek z
+nemagnetického a nevodivého materiálu s konstantním průřezem rovnoměrně ovinutý
+po celé délce vodičem.\\ Změny magnetického toku \(\Phi\) v cívce -> vznik
+indukovaného impulsu napětí u(t).\\ Konstrukce: Měřící cívka pro integrační
+měření. Měření změn magnetického napětí \(U_m\).\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/RChPoten.png}
 \end{figure}
 
 \subsection{Anizotropní magnetorezistor(AMR)}
-Magnetorezistivita - změna odporu s magnetickým polem.\\
-Anizotropní magnetorezistivita - změna odporu souvisí se změnou úhlu mezi vektorem magnetizace a směrem proudu, který protéká daným materiálem.\\
-Princip: Změna elektrického odporu vlivem magnetického pole - dochází k ovlivňování nosičů náboje, což se projeví jako změna odporu materiálu. Vodivost feromagnetika ve směru magnetizace je menší než ve směru kolmém.\\
-AMR efekt: elektrický opor ve směru magnetizace je vyšší než ve směru kolmém.\\
-Provedení: tenká vrstva permalloye je nanesena na křemíkový substrát.\\
-Remanentní magnetizace leží ve směru x (remanentní magnetizace je zbytková magnetizace, kterou si udrží feromagnetický materiál, když na něj přestane působit magnetické pole).\\
+Magnetorezistivita - změna odporu s magnetickým polem.\\ Anizotropní
+magnetorezistivita - změna odporu souvisí se změnou úhlu mezi vektorem
+magnetizace a směrem proudu, který protéká daným materiálem.\\ Princip: Změna
+elektrického odporu vlivem magnetického pole - dochází k ovlivňování nosičů
+náboje, což se projeví jako změna odporu materiálu. Vodivost feromagnetika ve
+směru magnetizace je menší než ve směru kolmém.\\ AMR efekt: elektrický odpor ve
+směru magnetizace je vyšší než ve směru kolmém.\\ Provedení: tenká vrstva
+permalloye je nanesena na křemíkový substrát.\\ Remanentní magnetizace leží ve
+směru x (remanentní magnetizace je zbytková magnetizace, kterou si udrží
+feromagnetický materiál, když na něj přestane působit magnetické pole).\\
 \begin{figure}[h!]
     \centering
     \includegraphics[scale = 0.5]{images/AMR.png}
@@ -1738,10 +1805,11 @@ Senzor je tvořen tenkou vrstvou slitiny železa a niklu (permalloy). Pokud na s
 Použití:
 \begin{itemize}
     \item Stejnosměrné i střídavé pole
-    \item Měřící rozsah B od \(1\mu T\) do \(10mT\), v můstkovém uspořádání \(10nT\) až \(100\mu T\).
+    \item Měřící rozsah B od \(1\mu T\) do \(10mT\), v můstkovém uspořádání \(10nT\) až
+          \(100\mu T\).
     \item Frekvenční rozsah DC až MHz
 \end{itemize}
-Vlastnosti: Závilost odporu na úhlu mezi proudem a magnetizací je silně nelineární.\\
+Vlastnosti: Závislost odporu na úhlu mezi proudem a magnetizací je silně nelineární.\\
 Linearizace pomocí Barber poles struktury: Na pásek z permalloye jsou napařeny pod úhlem 45°proužky hliníku, který má výrazně vyšší vodivost než permalloy. Proud teče mezi hliníkovými proužky pod úhlem 45° k ose proužku, tím dochází k posunu charakteristiky. Tato technika vhodnější pro menší pole (kompas). \\
 \begin{figure}[h!]
     \centering
@@ -1752,9 +1820,11 @@ Linearizace pomocí Barber poles struktury: Na pásek z permalloye jsou napařen
 \subsubsection{Vzorky}
 Uzavřené:
 \begin{itemize}
-    \item Tvoří homogenní magnetický obvod s konstantním průřezem nepřerušený vzduchovou mezerou nebo s mezerou vyplněnou jiným materiálem
+    \item Tvoří homogenní magnetický obvod s konstantním průřezem nepřerušený vzduchovou
+          mezerou nebo s mezerou vyplněnou jiným materiálem
     \item Magnetický tok se uzavírá pouze feromagnetikem
-    \item Výhoda - intenzita magnetického pole lze vypočítat z magnetizačního proudu, počtu závitů magnetizačního vinutí a střední délky siločar
+    \item Výhoda - intenzita magnetického pole lze vypočítat z magnetizačního proudu,
+          počtu závitů magnetizačního vinutí a střední délky siločar
 \end{itemize}
 
 Otevřené:
@@ -1794,7 +1864,8 @@ Hysterezní křivka:
 Elektronický Wb-metr:
 \begin{itemize}
     \item Tvořen integračním zesilovačem
-    \item Nepříznicvě působí rušivá termoelektrická napětí ve vstupním obvodu. Kvůli tomu se používají vodiče a kontakty s malým termoelektrickým napětím.
+    \item Nepříznivě působí rušivá termoelektrická napětí ve vstupním obvodu. Kvůli tomu
+          se používají vodiče a kontakty s malým termoelektrickým napětím.
     \item Rozsahy lze měnit přepínáním velikosti integračního rezistoru
 \end{itemize}
 \begin{figure}
@@ -1803,11 +1874,13 @@ Elektronický Wb-metr:
 \end{figure}
 
 \subsubsection{Měření na otevřených vzorcích}
-Otevřené vzorky mají tvar válečku nebo kostky, jsou k dispozici častěji než prstencové vzorky.\\
-Problém je správné určení intenzity magnetického pole, nelze ji odvodit z proudu jako u uzavřených vzorků -> pro magnetování se používá jha(ruční elektromagnet) z magneticky měkkého materiálu.\\
-Postup:\\
+Otevřené vzorky mají tvar válečku nebo kostky, jsou k dispozici častěji než
+prstencové vzorky.\\ Problém je správné určení intenzity magnetického pole,
+nelze ji odvodit z proudu jako u uzavřených vzorků -> pro magnetování se
+používá jha(ruční elektromagnet) z magneticky měkkého materiálu.\\ Postup:\\
 \begin{itemize}
-    \item Magnetické pole je buzeno magnetovacím vinutím \(N_1\) napájeným magnetovacím proudem ze zdroje Z.
+    \item Magnetické pole je buzeno magnetovacím vinutím \(N_1\) napájeným magnetovacím
+          proudem ze zdroje Z.
     \item Tangenciální Hallova sonda (HS) slouží při určení intenzity H
     \item Magnetická indukce B se měří měřící cívkou s \(N_2\) závity pomocí fluxmetru F
 \end{itemize}
